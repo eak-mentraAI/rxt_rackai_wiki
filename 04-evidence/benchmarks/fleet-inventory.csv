@@ -1,0 +1,7 @@
+environment,cluster_role,gpu_type,gpu_count,usable_count,interconnect,production_eligible,notes,as_of
+SPOT,spot-distribution,NVIDIA H100 NVL PCIe,20,16,NVLink pairs (2 linked, 4/node, no clustering),yes,4 of 20 contracted to a single customer; NVL PCIe caps horizontal scaling,2026-09-03
+SPOT,spot-distribution,NVIDIA A30,40,40,PCIe / NVLink,yes,Production-eligible spot capacity,2026-09-03
+RackAI-staging,pre-production-canary,NVIDIA H100 NVL PCIe,4,4,NVLink pairs,canary,Staging validation / canary,2026-09-03
+RackAI-staging,pre-production-canary,NVIDIA L40S,6,6,PCIe no NVLink,canary,Staging validation / canary,2026-09-03
+RackAI-dev,development,NVIDIA A30,TBD,TBD,PCIe / NVLink,no,Development / experimentation; exact count TBD,2026-09-03
+INCOMING,on-order,AMD Instinct MI350P,TBD,TBD,8-way pool (PCIe accelerator),no,Large order; ETA ~Oct 2026; ROCm serving path; PCIe = same horizontal-scaling limit as H100,2026-09-03

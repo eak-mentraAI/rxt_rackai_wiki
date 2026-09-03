@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Corpus Fitness Check Reminder",
+      "trigger": "PostFileSave",
+      "description": "Reminds agents to run fitness checks and propagation verification after saving wiki-layer files",
+      "matcher": "(00-hub|01-entities|02-operations|03-commercial|04-evidence|05-wiki|06-sources)/.*\\.md$",
+      "action": {
+        "type": "agent",
+        "prompt": "A wiki-layer file was just saved. Before concluding your work, verify the Corpus Update Propagation skill requirements are met:\n\n1. If this edit changes meaning (not just formatting), have you updated all dependent notes?\n2. Have you preserved canonical IDs and aliases?\n3. Is the confidence state still accurate? Is any performance number still traced to a benchmark run or telemetry source?\n4. Are there downstream formulas, metrics, coefficients, or model scorecards that reference this concept and may need updates?\n5. Does the Source-to-Concept Crosswalk need updating?\n\nIf this was a meaningful change, produce a brief change summary listing objects changed, edges affected, and any open questions created. Reference 08-change-control/FITNESS_CHECKLIST.md for the full gate criteria."
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Lint Frontmatter on Markdown Save",
+      "trigger": "PostFileSave",
+      "description": "Runs frontmatter validation on any saved .md file to catch missing fields or invalid enum values immediately.",
+      "matcher": "\\.md$",
+      "action": {
+        "type": "command",
+        "command": "./scripts/lint-frontmatter.sh \"$KIRO_FILE_PATH\"",
+        "timeout": 15
+      }
+    }
+  ]
+}

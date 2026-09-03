@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Validate frontmatter summary length",
+      "trigger": "PostFileSave",
+      "description": "Checks that the frontmatter summary field in .md files does not exceed 120 characters. Prints a warning to stderr if violated.",
+      "matcher": "\\.md$",
+      "action": {
+        "type": "command",
+        "command": "python3 -c \"\nimport sys, json, re, os\n\ntry:\n    data = json.loads(sys.stdin.read() or '{}')\nexcept Exception:\n    data = {}\nfile_path = data.get('filePath') or os.environ.get('KIRO_FILE_PATH', '')\n\nif not file_path.endswith('.md'):\n    sys.exit(0)\n\ntry:\n    with open(file_path, 'r') as f:\n        content = f.read()\nexcept Exception:\n    sys.exit(0)\n\nif not content.startswith('---'):\n    sys.exit(0)\n\nparts = content.split('---', 2)\nif len(parts) < 3:\n    sys.exit(0)\n\nmatch = re.search(r'^summary:\\s*[\\\"'](.+?)[\\\"']', parts[1], re.MULTILINE)\nif not match:\n    match = re.search(r'^summary:\\s*(.+)$', parts[1], re.MULTILINE)\n\nif match:\n    summary = match.group(1).strip().strip('\\\"').strip(\\\"'\\\")\n    if len(summary) > 120:\n        print(f'WARNING: summary is {len(summary)} chars (max 120). File: {file_path}', file=sys.stderr)\n        print(f'Summary: \\\"{summary[:50]}...\\\"', file=sys.stderr)\n\nsys.exit(0)\n\""
+      }
+    }
+  ]
+}
