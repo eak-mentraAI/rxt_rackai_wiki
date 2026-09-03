@@ -27,9 +27,12 @@ Strategy and roadmap for Rack AI on OpenRouter: the model bets, the operating me
 
 The third slot is intentionally rotatable — Rack AI always maintains one emerging-model bet.
 
-## First Bet (fit-aware)
+## First Bet & Execution Plan (fit-aware)
 
-Given the fleet's NVL-PCIe topology ceiling (~27B class — see [[Fleet Competitiveness]]), the recommended first production bet is **[[First Bet — GLM 5.3 Flash]]**: the best-ranked open-weight model that also fits what we can serve well. Grounded in the [[OpenRouter Leaderboard Snapshot]] and [[Model Portfolio Capacity]].
+Given the fleet's NVL-PCIe topology ceiling (~27B class — see [[Fleet Competitiveness]]), the first production bet is **[[First Bet — GLM 5.3 Flash]]**: the best-ranked open-weight model that also fits what we can serve well. The near-term plan is to prove a modular host-and-deploy pipeline on it — **[[Phase 1 Execution Plan — GLM 5.3 Flash Proof Point]]** — then parameterize for the next model.
+
+- Grounded in the [[OpenRouter Leaderboard Snapshot]] and [[Model Portfolio Capacity]].
+- The DeepSeek→GLM proof-point swap is recorded as a resolved decision: [[DeepSeek-First vs GLM-First Sequencing]].
 
 ## Source Narratives
 

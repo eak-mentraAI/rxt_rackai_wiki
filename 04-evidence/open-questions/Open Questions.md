@@ -33,6 +33,7 @@ The register of genuine unknowns and any surfaced conflicts between sources. Ite
 | Topology ceiling: NVL-PCIe pairs (and MI350P PCIe) cap servable models at ~27B class. When/whether do we invest in SXM clusters or UBB8 to reach frontier models and top-10? | [[Fleet Competitiveness]], [[Topology]], [[Model Portfolio Capacity]] | open |
 | OpenRouter API conformance: which capability/provider requirements are we short on, and how much will they down-rank us until met? | [[OpenRouter Provider Integration]], [[Fleet Competitiveness]] | open |
 | Confirm GLM 5.3 Flash's actual footprint fits 2–4 H100 at FP8 (first-bet dependency). | [[First Bet — GLM 5.3 Flash]], [[GLM 5.3 Flash]], [[GPUs per Replica]] | open |
+| Proof-point model: roadmap says DeepSeek first, fit analysis says GLM first. | [[DeepSeek-First vs GLM-First Sequencing]] | resolved (GLM-first) |
 | Is "i40's" in staging confirmed to be [[NVIDIA L40S]] (vs L40)? Affects FP8 capability assumptions. | [[NVIDIA L40S]], [[Fleet Inventory]] | open |
 | Exact RackAI dev A30 count is TBD. | [[NVIDIA A30]], [[Fleet Inventory]] | open |
 | The A30 has no FP8 and only 24GB — likely unsuitable for large MoE serving. Confirm its role (small models / quantized / MIG / dev only). | [[NVIDIA A30]], [[GPU Type Compatibility Matrix]] | open |
