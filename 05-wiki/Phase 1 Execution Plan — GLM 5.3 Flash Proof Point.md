@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: derived
 last_reviewed: 2026-09-03
 parent: hub-product
-summary: "Near-term execution plan: prove a modular host-and-deploy pipeline end-to-end on GLM 5.3 Flash, then parameterize it for the next model."
+summary: "Prove a modular host-and-deploy pipeline end-to-end on GLM 5.3 Flash, then parameterize it for the next model."
 ---
 
 # Phase 1 Execution Plan — GLM 5.3 Flash Proof Point

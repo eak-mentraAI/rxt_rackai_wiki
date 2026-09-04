@@ -10,7 +10,7 @@ source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: derived
 last_reviewed: 2026-09-03
 parent: hub-wiki
-summary: "Recorded the OpenRouter leaderboard, selected GLM 5.3 Flash as the first bet, and added a fit-first Phase-1 execution plan."
+summary: "Recorded the leaderboard, selected GLM 5.3 Flash as first bet, added a fit-first Phase-1 execution plan."
 ---
 
 # 2026-09-03 — GLM First Bet & Execution Plan

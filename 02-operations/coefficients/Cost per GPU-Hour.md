@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03
 parent: hub-operations
-summary: "Internal all-in cost to operate one GPU for one hour, across power, DC, depreciation, network, storage, licensing, and ops."
+summary: "Internal all-in cost to run one GPU for one hour: power, DC, depreciation, network, storage, licensing, ops."
 ---
 
 # Cost per GPU-Hour

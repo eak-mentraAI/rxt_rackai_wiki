@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md]
 confidence: derived
 last_reviewed: 2026-09-03
 parent: hub-commercial
-summary: "The fleet yield-management objective: maximize productive utilization and gross contribution within SLOs and strategic reservations."
+summary: "Fleet yield objective: maximize productive utilization and gross contribution within SLOs and reservations."
 ---
 
 # Fleet Yield Optimization

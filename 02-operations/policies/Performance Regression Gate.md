@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03
 parent: hub-governance
-summary: "No runtime or config change reaches production if it materially worsens key performance signals; performance is a CI/CD gate."
+summary: "No change reaches production if it materially worsens key performance signals; performance gates CI/CD."
 ---
 
 # Performance Regression Gate

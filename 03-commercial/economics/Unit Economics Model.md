@@ -10,7 +10,7 @@ source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: derived
 last_reviewed: 2026-09-03
 parent: hub-commercial
-summary: "Ties the economic loop together: efficiency lowers cost, cost enables price competitiveness, price attracts traffic, traffic lifts utilization."
+summary: "Economic loop: efficiency lowers cost, cost enables competitive price, price draws traffic, lifts utilization."
 ---
 
 # Unit Economics Model

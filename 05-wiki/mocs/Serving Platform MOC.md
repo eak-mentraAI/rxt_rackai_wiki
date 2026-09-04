@@ -10,7 +10,7 @@ source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03
 parent: hub-wiki
-summary: "Map of content walking the canonical abstraction chain from market demand to GPU topology, linking each entity and key workflow."
+summary: "Map of content from market demand to GPU topology along the abstraction chain, linking each entity and workflow."
 ---
 
 # Serving Platform MOC
