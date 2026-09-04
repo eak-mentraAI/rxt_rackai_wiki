@@ -26,7 +26,7 @@ OpenRouter offers two distinct ways in, and they are very different products:
 | **A — Private Models** | Register a RackAI tenant deployment into OpenRouter as a restricted, non-public model | RackAI per-deployment endpoint (exists) + **API keys** (identity workstream) | Near-term; primary dependency is API-key support + docs |
 | **B — Public Provider** | Rackspace operates public, multi-tenant inference-as-a-service that OpenRouter routes arbitrary traffic to | **Inference-as-a-service**, **billing/payment**, **`/models` catalog**, streaming/usage confirmation | Multi-quarter; blocked on platform gaps |
 
-Path B is what the [[Rack AI OpenRouter Strategic Vision]] and [[Rack AI OpenRouter Engineering Roadmap]] are written around. Path A is the fast, low-lift entry the roadmap does not currently model.
+Both paths are now modeled in the strategy narratives: the [[Rack AI OpenRouter Strategic Vision]] and [[Rack AI OpenRouter Engineering Roadmap]] sequence **Path A first** (the fast, low-lift entry using the shipped per-deployment endpoint) and then execute the **Path B** public-provider build the phases are written around. The end-to-end sequencing is the [[OpenRouter Integration Plan]].
 
 ## Provider-Readiness Gaps (Path B)
 
@@ -52,9 +52,14 @@ flowchart TD
 
 The initiative attaches at the demand layer and routes into the platform serving chain. It never bypasses Model Deployment or references GPUs directly.
 
+## Execution Plan
+
+The consolidated go-to-market and integration plan — merging the reference doc and annotations into one deliverable with the sequenced A → quick-wins → public-GLM → AMD-scale movements — is [[OpenRouter Integration Plan]].
+
 ## Related
 
 - [[RackAI Platform]] — the platform this initiative runs on
 - [[Product Hub]] — strategy, model bets, roadmap
+- [[OpenRouter Integration Plan]] — merged plan: paths, verified requirements, phased sequencing
 - [[OpenRouter Provider Integration]] — canonical entity for the provider path
 - [[Rack AI Knowledge Base]]

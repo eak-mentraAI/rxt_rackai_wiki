@@ -34,6 +34,7 @@ Layer 4 — the support structure for the model. Benchmark results, competitive 
 - [[Validation Register]] — verification items (open until confirmed)
 - [[Benchmark Library]] — planned/pending [[Benchmark Run]] register
 - [[Open Questions]] — genuine unknowns and surfaced conflicts
+- [[Capability Gap Register]] — capability-vs-goal matrix of what's missing to reach the strategic goals
 
 All performance and economic values currently sit at `assumed` — no benchmark run or production telemetry exists yet. Confidence upgrades only when a [[Benchmark Run]] or telemetry source is recorded.
 

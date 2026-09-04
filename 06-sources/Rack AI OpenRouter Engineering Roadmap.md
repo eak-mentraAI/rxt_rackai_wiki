@@ -5,10 +5,10 @@ status: validated
 owner: platform-eng
 domain: strategy
 aliases: [engineering roadmap, openrouter roadmap, roadmap]
-related: [hub-product, hub-root, src-strategic-vision]
+related: [hub-product, hub-root, src-strategic-vision, idx-openrouter-integration-plan, ent-openrouter-private-model, ent-openrouter-integration]
 source_docs: []
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-09-04
 parent: hub-product
 summary: "Source narrative: phased engineering roadmap for the Rack AI inference operating capability."
 ---
@@ -33,7 +33,17 @@ Initial model portfolio:
 
 ---
 
-# Roadmap Overview
+# Entry Sequencing: Path A First, Then the Path B Build
+
+This roadmap builds the **public-provider capability (Path B)** — the phases below. It is preceded by a deliberate first movement, the **private-model path (Path A)**, which reaches OpenRouter using the platform's already-shipped per-deployment endpoint.
+
+Path A comes first on purpose: it produces real OpenRouter integration experience, production telemetry, and early wins before we fund the heavier Path B foundations (billing, inference-as-a-service, the `/models` catalog). Its primary dependency is [[API Key]] support, not the full phase stack below. Between Path A and the public launch, a **quick-wins sweep** clears the cheap, rank-protecting items (error-code mapping, admission control + early 429, streaming/usage confirmation) in one pass.
+
+The phase stack below then executes the public-provider build, and the initial public launch targets the one model that best fits our constrained topology — [[GLM 5.3 Flash]] (see [[First Bet — GLM 5.3 Flash]]). The end-to-end sequencing is the [[OpenRouter Integration Plan]].
+
+---
+
+# Roadmap Overview (Path B build)
 
 | Phase | Primary Outcome |
 |---|---|

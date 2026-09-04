@@ -5,10 +5,10 @@ status: validated
 owner: product
 domain: strategy
 aliases: [strategic vision, focused model strategy, openrouter strategy]
-related: [hub-product, hub-root, src-engineering-roadmap]
+related: [hub-product, hub-root, src-engineering-roadmap, idx-openrouter-integration-plan, ent-openrouter-private-model, ent-openrouter-integration]
 source_docs: []
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-09-04
 parent: hub-product
 summary: "Source narrative: Rack AI focused model strategy and operating KPIs for OpenRouter."
 ---
@@ -28,7 +28,21 @@ OpenRouter becomes both a **distribution channel for otherwise underutilized GPU
 
 ---
 
+## Two Entry Paths (sequenced)
+
+We reach OpenRouter through two distinct paths, pursued in order. The model strategy and KPIs below describe the **public-provider path (Path B)** — the enduring differentiation goal. Before it, we run the **private-model path (Path A)** to earn integration experience, real telemetry, and early wins at low cost.
+
+- **Path A — Private Models (first).** Register an existing Rack AI tenant [[Model Deployment]] into OpenRouter as a restricted, non-public model. It reuses what already ships (the per-deployment OpenAI-compatible endpoint), so it is a documentation-and-access exercise rather than a new product. It carries no Rack AI-side billing dependency and de-risks the whole initiative before we commit to the heavier public build. See [[OpenRouter Private Model Integration]].
+- **Path B — Public Provider (the model bets below).** Rackspace operates public inference-as-a-service that OpenRouter routes arbitrary traffic to. This is where the three model bets, the performance program, and the operating KPIs apply. See [[OpenRouter Provider Integration]].
+
+The full sequencing (Path A → quick-wins → public GLM → AMD-enabled scale) is the [[OpenRouter Integration Plan]].
+
+---
+
 ## Our Three Model Bets
+
+The bets below are the **Path B** portfolio — the public-provider strategy. Path A does not pick models; it exposes whatever tenant deployment is registered.
+
 
 ### DeepSeek V4 Flash — Win the Benchmark
 

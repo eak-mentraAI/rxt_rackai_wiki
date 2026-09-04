@@ -33,6 +33,7 @@ Given the fleet's NVL-PCIe topology ceiling (~27B class — see [[Fleet Competit
 
 - Grounded in the [[OpenRouter Leaderboard Snapshot]] and [[Model Portfolio Capacity]].
 - The DeepSeek→GLM proof-point swap is recorded as a resolved decision: [[DeepSeek-First vs GLM-First Sequencing]].
+- The end-to-end go-to-market sequencing (private-model first, then public GLM, then AMD-enabled scale) is in the [[OpenRouter Integration Plan]].
 
 ## Source Narratives
 

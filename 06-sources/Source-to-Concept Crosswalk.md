@@ -25,6 +25,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Strategic Vision | Operating KPIs / scorecard | [[KPI Hierarchy]], [[Model Scorecard]] | L5 | validated |
 | Strategic Vision | Cost/efficiency economic loop | [[Unit Economics Model]] | L3 | derived |
 | Strategic Vision | Traffic-follows-performance belief | [[OpenRouter Traffic Follows Performance]] | L4 | assumed |
+| Strategic Vision + Engineering Roadmap | Two entry paths, sequenced (A private → B public) | [[OpenRouter Integration Plan]], [[OpenRouter Private Model Integration]] | L5/L1 | derived |
 | Engineering Roadmap | Canonical model/serving entities | [[Model]], [[Model Deployment]], [[Serving Runtime]] | L1 | validated |
 | Engineering Roadmap | GPU fleet / capacity entities | [[GPU Fleet]], [[GPU Node]], [[GPU Cluster]], [[Capacity Pool]], [[Topology]], [[Region]] | L1 | validated |
 | Engineering Roadmap | OpenRouter provider integration | [[OpenRouter Provider Integration]] | L1 | validated |
