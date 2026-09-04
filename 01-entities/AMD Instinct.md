@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03
 parent: hub-entities
-summary: "GPU type: incoming AMD Instinct MI350P (ROCm) — 8-way inference pool, ETA ~Oct 2026; still PCIe, so same horizontal-scaling limit as H100."
+summary: "Incoming AMD Instinct MI350P (ROCm), 8-way pool, ETA ~Oct 2026; still PCIe, so same scaling limit as H100."
 ---
 
 # AMD Instinct

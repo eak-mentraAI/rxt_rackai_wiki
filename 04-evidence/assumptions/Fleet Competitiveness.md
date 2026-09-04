@@ -10,7 +10,7 @@ source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03
 parent: hub-evidence
-summary: "The binding competitive constraint is interconnect topology (PCIe vs SXM/UBB8), not GPU count — it caps servable model size to roughly the ~27B class."
+summary: "Binding constraint is interconnect topology (PCIe vs SXM/UBB8), not GPU count — caps model size near ~27B."
 ---
 
 # Fleet Competitiveness

@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
 last_reviewed: 2026-09-03
 parent: hub-evidence
-summary: "Belief that improving TTFT, throughput, uptime, and price increases Rack AI's OpenRouter traffic share — awaiting observed response."
+summary: "Belief that better TTFT, throughput, uptime, and price raise Rack AI OpenRouter traffic share — awaiting response."
 ---
 
 # OpenRouter Traffic Follows Performance

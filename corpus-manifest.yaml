@@ -1,0 +1,63 @@
+corpus_id: rxt-openrouter
+name: Rack AI OpenRouter Knowledge Base
+version: "1.0.0"
+ontology_standard: "1.0"
+description: >
+  Knowledge corpus covering the Rack AI inference program on OpenRouter —
+  the models, serving platform, GPU fleet, capacity pools, unit economics,
+  and supporting evidence behind Rack AI as a high-performance inference
+  provider. Hosted by Rackspace Technology.
+owner: knowledge-graph-steward
+repository: https://github.com/eak-mentraAI/rxt_openrouter_wiki.git
+confidence_model: extended  # 4-tier: assumed -> derived -> measured -> validated
+
+domains:
+  - platform
+  - performance
+  - capacity
+  - infrastructure
+  - reliability
+  - model-enablement
+  - commercial
+  - strategy
+  - product
+  - governance
+
+entity_types:
+  - Model
+  - Model Deployment
+  - Serving Runtime
+  - Capacity Pool
+  - GPU Fleet
+  - Datacenter
+
+relationship_types:
+  - BELONGS_TO
+  - USES
+  - CONSUMES
+  - PRODUCES
+  - MEASURES
+  - VALIDATES
+  - SUPPORTS
+  - DEPENDS_ON
+  - CONSTRAINS
+  - ALLOCATES
+  - SERVES
+  - FEEDS
+
+universal_references:
+  - universal:ent-organization
+  - universal:ent-user
+
+folder_structure:
+  hub: "00-hub/"
+  entities: "01-entities/"
+  operations: "02-operations/"
+  commercial: "03-commercial/"
+  evidence: "04-evidence/"
+  wiki: "05-wiki/"
+  sources: "06-sources/"
+  change_control: "08-change-control/"
+
+projection_definitions: "05-wiki/projections/"
+steering_files: ".kiro/steering/"

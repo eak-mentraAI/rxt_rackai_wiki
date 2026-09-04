@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
 last_reviewed: 2026-09-03
 parent: hub-evidence
-summary: "Belief that the current/incoming fleet (H100 now, AMD Instinct soon) can serve the priority MoE models competitively — awaiting hardware-fit and benchmark runs."
+summary: "Belief the current/incoming fleet can serve priority MoE models competitively — awaiting fit and benchmarks."
 ---
 
 # Available Hardware Sufficient for Priority Models

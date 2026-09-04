@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
 last_reviewed: 2026-09-03
 parent: hub-evidence
-summary: "Belief that speculative decoding will improve TTFT and throughput for priority models at Rack AI's concurrency — awaiting production-shaped measurement."
+summary: "Belief speculative decoding improves TTFT and throughput for priority models — awaiting production measurement."
 ---
 
 # Speculative Decoding Beneficial

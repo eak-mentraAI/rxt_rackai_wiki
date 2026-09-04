@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: derived
 last_reviewed: 2026-09-03
 parent: hub-evidence
-summary: "Resolved conflict: the roadmap names DeepSeek as the first proof point, but topology fit makes GLM 5.3 Flash the first model."
+summary: "Resolved: roadmap names DeepSeek first, but topology fit makes GLM 5.3 Flash the first model."
 ---
 
 # DeepSeek-First vs GLM-First Sequencing
