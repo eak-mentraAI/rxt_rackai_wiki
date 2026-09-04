@@ -10,7 +10,7 @@ source_docs: [openrouter_concepts_integration_provider.docx, openrouter_strategi
 confidence: derived
 last_reviewed: 2026-09-04
 parent: hub-root
-summary: "The OpenRouter inference program: the first initiative on the RackAI platform, with its two integration paths and readiness gaps."
+summary: "The OpenRouter inference program: the first initiative on the RackAI platform, with two integration paths and gaps."
 ---
 
 # OpenRouter Initiative

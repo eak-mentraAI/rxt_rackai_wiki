@@ -10,7 +10,7 @@ source_docs: [metering_spec, openrouter_concepts_integration_provider]
 confidence: assumed
 last_reviewed: 2026-09-04
 parent: hub-commercial
-summary: "Canonical concept: the (currently absent) billing and payment capability — a headline gap for the OpenRouter public-provider path."
+summary: "The (currently absent) billing and payment capability — a headline gap for the OpenRouter public-provider path."
 ---
 
 # Billing & Payment

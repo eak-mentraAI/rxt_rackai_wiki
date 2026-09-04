@@ -10,7 +10,7 @@ source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-04
 parent: hub-root
-summary: "Navigation hub for strategy, model bets, and the engineering roadmap of the OpenRouter initiative on the RackAI platform."
+summary: "Strategy, model bets, and engineering roadmap for the OpenRouter initiative on the RackAI platform."
 ---
 
 # Product Hub

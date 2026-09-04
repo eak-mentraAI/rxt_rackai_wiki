@@ -10,7 +10,7 @@ source_docs: []
 confidence: derived
 last_reviewed: 2026-09-04
 parent: hub-rackai-platform
-summary: "Source: RackAI Monitoring + Auditability/Observability PRDs and technical specs (platform + in-tenant observability, audit)."
+summary: "Source: RackAI Monitoring + Auditability PRDs and technical specs (platform + tenant observability, audit)."
 ---
 
 # Monitoring and Auditability Spec

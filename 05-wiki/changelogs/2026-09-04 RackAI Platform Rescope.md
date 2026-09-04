@@ -10,7 +10,7 @@ source_docs: [rackai_platform_prd, rackai_release_1_0_0, rackai_api_reference, r
 confidence: derived
 last_reviewed: 2026-09-04
 parent: hub-wiki
-summary: "Rescoped the corpus from the OpenRouter inference program to the RackAI platform, with OpenRouter modeled as one initiative on top of it."
+summary: "Rescoped the corpus from the OpenRouter inference program to the RackAI platform, with OpenRouter as one initiative."
 ---
 
 # 2026-09-04 — RackAI Platform Rescope
