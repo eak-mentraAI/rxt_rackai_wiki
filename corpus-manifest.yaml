@@ -1,12 +1,12 @@
 corpus_id: rxt-openrouter
-name: Rack AI OpenRouter Knowledge Base
+name: RackAI
 version: "1.0.0"
 ontology_standard: "1.0"
 description: >
-  Knowledge corpus covering the Rack AI inference program on OpenRouter —
-  the models, serving platform, GPU fleet, capacity pools, unit economics,
-  and supporting evidence behind Rack AI as a high-performance inference
-  provider. Hosted by Rackspace Technology.
+  RackAI — the knowledge corpus covering Rackspace's RackAI inference program,
+  including its OpenRouter integration: the models, serving platform, GPU fleet,
+  capacity pools, unit economics, and supporting evidence behind RackAI as a
+  high-performance inference provider. Hosted by Rackspace Technology.
 owner: knowledge-graph-steward
 repository: https://github.com/eak-mentraAI/rxt_openrouter_wiki.git
 confidence_model: extended  # 4-tier: assumed -> derived -> measured -> validated
