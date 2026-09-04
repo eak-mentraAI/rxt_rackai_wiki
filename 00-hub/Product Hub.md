@@ -5,17 +5,17 @@ status: draft
 owner: product
 domain: strategy
 aliases: [product hub, strategy hub]
-related: [hub-root, hub-commercial]
+related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-09-04
 parent: hub-root
-summary: "Navigation hub for strategy, model bets, and the engineering roadmap."
+summary: "Navigation hub for strategy, model bets, and the engineering roadmap of the OpenRouter initiative on the RackAI platform."
 ---
 
 # Product Hub
 
-Strategy and roadmap for Rack AI on OpenRouter: the model bets, the operating metrics that drive them, and the phased engineering roadmap.
+Strategy and roadmap for the **OpenRouter inference program** — the first initiative on the [[RackAI Platform]]: the model bets, the operating metrics that drive them, and the phased engineering roadmap. This hub covers the initiative's strategy; the platform it runs on is described in [[RackAI Platform]], and the initiative's integration paths and readiness gaps live in [[OpenRouter Initiative]].
 
 ## Model Bets
 

@@ -15,7 +15,7 @@ summary: "Layer 3 navigation hub for unit economics, capacity allocation, and fo
 
 # Commercial & Capacity Hub
 
-Layer 3 — how demand maps to capacity and economics. Unit economics, pricing on OpenRouter, capacity pools and dynamic allocation, demand forecasting, and fleet yield optimization.
+Layer 3 — how demand maps to capacity and economics. Unit economics, metering and [[Billing & Payment]], pricing (OpenRouter and direct), capacity pools and dynamic allocation, demand forecasting, and fleet yield optimization. OpenRouter is one pricing channel among the platform's commercial surfaces.
 
 ## Unit Economics
 

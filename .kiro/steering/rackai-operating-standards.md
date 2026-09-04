@@ -1,14 +1,17 @@
-# Rack AI OpenRouter Knowledge Base Operating Standards
+# RackAI Platform Knowledge Base Operating Standards
 
-This repository is a living knowledge system for the Rack AI inference program on OpenRouter, not a folder of documents.
+This repository is a living knowledge system for the **RackAI platform** — Rackspace's Kubernetes-native AI inference and fine-tuning platform — and the **initiatives** built on it. The **OpenRouter inference program** is the first initiative (a distribution/go-to-market surface), one aspect of the platform rather than the whole. This is not a folder of documents.
+
+**Canonical product name:** RackAI. `RMPAI` and `RackAI Aurora` are aliases of the same product.
 
 ## Core Principle
 
 The repository models:
-- Canonical entities of the inference business (models, deployments, GPU fleet, capacity pools)
-- Operational ontology of the serving platform (workflows, events, metrics, formulas, coefficients, policies)
-- Commercial and capacity model (unit economics, pricing, fleet allocation, forecasting)
+- Canonical entities of the RackAI platform (organizations/tenancy, models, deployments, serving runtimes, fine-tuning jobs, datasets, LoRA adapters, accelerator classes, GPU fleet, capacity pools, control plane, environments)
+- Operational ontology of the serving and fine-tuning platform (workflows, events, metrics, formulas, coefficients, policies)
+- Commercial and capacity model (unit economics, metering, billing, pricing, fleet allocation, forecasting)
 - Evidence base behind every claim (benchmarks, assumptions, validations, open questions)
+- Initiatives on the platform (OpenRouter provider path and private-model path, and future surfaces)
 - Human-readable wiki exposing the graph
 
 Documents are projections of the underlying knowledge graph.
@@ -21,12 +24,15 @@ When sources conflict, use this order of authority:
 2. Canonical ontology / domain model
 3. Canonical operational model (serving lifecycle, scheduling, routing)
 4. Canonical APIs, events, metrics, formulas
-5. Architecture documents
-6. Engineering roadmap documents
-7. Strategy / commercial documents
-8. Benchmarks and external references (OpenRouter data, vendor specs)
-9. Assumptions
-10. Informal notes
+5. RackAI platform product specs (PRDs, technical specs, API reference, product docs)
+6. Architecture documents
+7. Engineering roadmap documents
+8. Strategy / commercial / initiative documents
+9. Benchmarks and external references (OpenRouter data, vendor specs)
+10. Assumptions
+11. Informal notes
+
+Shipped beats planned: where a platform spec describes a planned capability and a shipped release note/product doc contradicts it, shipped reality wins for "what exists today" and the gap becomes an open question. Planned capability carries `assumed` confidence, never asserted as present.
 
 Lower layers may reference higher. Higher layers must not depend on lower.
 
@@ -41,18 +47,20 @@ Lower layers may reference higher. Higher layers must not depend on lower.
 7. **Evidence First** — No important claim should be untraceable. Every performance number carries a benchmark or telemetry source.
 8. **Confidence Propagation** — Confidence flows through the graph. Downstream confidence may not exceed weakest upstream evidence.
 9. **Semantic Drift Detection** — Meaning changes trigger review of synonyms, aliases, relationships, dependent docs.
-10. **Story Consistency** — The corpus tells one coherent story about why Rack AI serves inference on OpenRouter, what the platform is, how it operates, how it is priced and measured, and how it evolves.
+10. **Story Consistency** — The corpus tells one coherent story: what the RackAI platform is (inference + fine-tuning, tenancy, control plane), how it operates, how it is metered/priced/measured, how it evolves, and why the OpenRouter inference program and future initiatives sit on top of it.
 
 ## Canonical Layer Model
 
 ### Layer 1 — Entity Ontology
-Canonical business/domain objects: Model, Model Deployment, Serving Runtime, GPU Node, GPU Cluster, Capacity Pool, Datacenter/Region, Topology, OpenRouter Provider Integration, Benchmark Run, Model Deployment Specification, Request/Traffic Class.
+Canonical business/domain objects.
+- **Platform:** Organization (tenant), Model, Model Class, Model Deployment, Model Deployment Specification, Serving Runtime, Dataset, Fine-Tuning Job, LoRA Adapter, Registry Credential, Accelerator Class, API Key, RackAI Control Plane, Environment (dev/staging/production), GPU Node, GPU Cluster, Capacity Pool, Datacenter/Region, Topology, Benchmark Run, Request/Traffic Class.
+- **OpenRouter initiative:** OpenRouter Provider Integration, OpenRouter Private Model Integration, Model Catalog (`/models`) Endpoint.
 
 ### Layer 2 — Operational Ontology / Digital Twin
-Serving lifecycle, deployment workflows, model-launch (day-zero factory) workflow, autoscaling, admission control, routing, canary/rollback, events, metrics, formulas, coefficients, policies, telemetry, optimization loops.
+Serving lifecycle, deployment workflows, fine-tuning workflow, model-launch (day-zero factory) workflow, autoscaling, admission control, routing, canary/rollback, metering, monitoring/observability, identity & access control, audit, events, metrics, formulas, coefficients, policies, telemetry, optimization loops.
 
 ### Layer 3 — Commercial and Capacity Model
-Unit economics (cost/1M tokens, revenue/GPU-hour, gross margin/model), pricing, capacity pools and allocation, demand forecasting, fleet yield optimization, procurement triggers.
+Unit economics (cost/1M tokens, revenue/GPU-hour, gross margin/model), metering and billing/payment, pricing (OpenRouter and direct), capacity pools and allocation, demand forecasting, fleet yield optimization, procurement triggers.
 
 ### Layer 4 — Evidence and Validation
 Benchmark results, competitive comparisons, assumptions, validation items, open questions, confidence states, change history.

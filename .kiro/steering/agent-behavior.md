@@ -1,8 +1,8 @@
-# Rack AI OpenRouter Wiki Agent Behavior Standards
+# RackAI Platform Wiki Agent Behavior Standards
 
 ## Core Operating Principle
 
-The repository is a living model of the Rack AI inference operating system, not a set of isolated documents. Agents maintain a knowledge system, not just pages.
+The repository is a living model of the **RackAI platform** operating system and the initiatives built on it (the OpenRouter inference program being the first), not a set of isolated documents. Agents maintain a knowledge system, not just pages. **Canonical product name: RackAI** (aliases: RMPAI, RackAI Aurora).
 
 ## Agent Duties
 
@@ -50,17 +50,20 @@ These must always remain true:
 - Every Model Deployment declares exactly one Model Deployment Specification.
 - Every Model Deployment runs on exactly one Serving Runtime configuration.
 - Every Model Deployment draws from exactly one Capacity Pool.
+- Every Model Deployment belongs to exactly one Organization (tenant).
 - Every Capacity Pool maps to GPU Nodes within one or more Clusters.
 - Every GPU Node belongs to exactly one Cluster and one Datacenter/Region.
-- OpenRouter consumers see Model endpoints, never GPU hardware directly.
-- Commercial objects reference Models and Capacity Pools, not individual GPUs.
+- Consumers (OpenRouter traffic or direct RackAI tenants) see Model endpoints, never GPU hardware directly.
+- Every Fine-Tuning Job consumes a Dataset and produces a LoRA Adapter; every LoRA Adapter targets exactly one base Model.
+- Every initiative (e.g. OpenRouter Provider Integration, OpenRouter Private Model Integration) routes into the serving chain via Model endpoints; it never bypasses Model Deployment or references GPUs directly.
+- Commercial objects reference Models, Organizations, and Capacity Pools, not individual GPUs.
 - Every metric has a source or formula.
 - Every formula references canonical coefficients or measurable inputs.
 - Every coefficient has evidence and confidence.
 - Every performance claim traces to a Benchmark Run or production telemetry.
 - Every assumption has an owner and an exit criterion.
 - Every validation item identifies the documents it can change.
-- Every layer is traversable from market demand to GPU topology and back.
+- Every layer is traversable from demand (OpenRouter or direct tenant) to GPU topology and back.
 
 ## Quality Gates
 

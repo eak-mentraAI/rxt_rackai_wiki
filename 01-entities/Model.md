@@ -63,6 +63,20 @@ A Model is the highest platform-owned entity in the chain. Above it sits only ma
 | MEASURED_BY | [[Model Scorecard]] | ← | Operating metrics tracked per Model |
 | TRACKED_ON | [[Model Radar]] | ← | Discovery and readiness pipeline |
 | CHARACTERIZED_BY | [[Traffic Class]] | → | Real workload shape per Model |
+| BELONGS_TO | [[Organization]] | → | On the platform, a Model is registered within a tenant org |
+| USES | [[Registry Credential]] | → | Weights fetched via a registry credential (e.g. HF token) |
+| TARGETED_BY | [[LoRA Adapter]] | ← | Adapters target a specific base Model |
+| CONFIGURED_BY | [[Model Class]] | → | A Model Class binds the Model to a runtime + engine config |
+
+## RackAI Platform Reality
+
+On the RackAI platform, a Model is a Kubernetes custom resource (`Model` CRD) registered within an [[Organization]] and reconciled by the [[RackAI Control Plane]]. Beyond the OpenRouter-facing view above, the shipped product model adds:
+
+- **Source type** — weights come from a URI (e.g. `hf://…`) or direct upload.
+- **Reconciliation phase** — `Pending → Processing → Ready → Failed` (plus cache states), surfaced via CRD `status`.
+- **Registration** — via console (Resources → Models), CLI (`rackaictl`), or the resource API; gated weights use a [[Registry Credential]].
+
+This platform view (`measured`, from the 1.0.0 docs and API reference) and the OpenRouter product view above describe the same canonical Model from two angles: what tenants register versus what OpenRouter demand consumes.
 
 ## Priority Models
 

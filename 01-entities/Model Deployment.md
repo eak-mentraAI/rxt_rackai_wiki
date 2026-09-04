@@ -65,6 +65,22 @@ L1 — Entity Ontology. Position in the abstraction chain:
 | CONSTRAINED_BY | [[Topology]] | → | Placement respects topology requirements |
 | VALIDATED_BY | [[Benchmark Run]] | → | Performance evidence |
 | ROUTED_TO_BY | [[OpenRouter Provider Integration]] | ← | Receives traffic via the provider layer |
+| REGISTERED_BY | [[OpenRouter Private Model Integration]] | ← | May be exposed to OpenRouter as a private model (Path A) |
+| BELONGS_TO | [[Organization]] | → | Every deployment is owned by exactly one tenant org (invariant) |
+| USES | [[Accelerator Class]] | → | Selects GPU hardware via an accelerator class |
+| INSTANTIATES | [[Model Class]] | → | Realizes a Model Class (runtime + engine config) |
+| APPLIES | [[LoRA Adapter]] | → | May hot-load a matching LoRA adapter |
+
+## RackAI Platform Reality
+
+On the RackAI platform, a Model Deployment is a Kubernetes custom resource (`ModelDeployment` CRD) owned by an [[Organization]] and reconciled by the [[RackAI Control Plane]] (which provisions an underlying KServe `InferenceService`). Beyond the OpenRouter-facing view above, the shipped product adds (`measured`, 1.0.0):
+
+- **Hardware selection** via [[Accelerator Class]] (vendor + node affinity); resolved GPU SKUs are reported back in the deployment `status`.
+- **Autoscaling** via KEDA, including scale-to-zero (see [[Autoscaling]]).
+- **LoRA** — an AIM/vLLM deployment can serve a base model with a matching [[LoRA Adapter]] applied.
+- **Endpoint** — each deployment exposes an OpenAI-compatible endpoint (`{inferenceEndpointURI}/v1/chat/completions`, `/v1/models`) that direct tenants call and that an [[OpenRouter Private Model Integration]] can register.
+
+This is the same canonical entity as the OpenRouter-facing lifecycle above; the OpenRouter states (Internal/Canary/Production) are the initiative's view of a deployment the platform reconciles as a CRD.
 
 ## Graph Invariants
 
@@ -72,6 +88,7 @@ L1 — Entity Ontology. Position in the abstraction chain:
 - Declares exactly one Model Deployment Specification.
 - Runs on exactly one Serving Runtime configuration.
 - Draws from exactly one Capacity Pool.
+- Belongs to exactly one Organization (tenant).
 
 ## Evidence
 

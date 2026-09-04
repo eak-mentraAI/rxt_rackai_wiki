@@ -37,6 +37,10 @@ The register of genuine unknowns and any surfaced conflicts between sources. Ite
 | Is "i40's" in staging confirmed to be [[NVIDIA L40S]] (vs L40)? Affects FP8 capability assumptions. | [[NVIDIA L40S]], [[Fleet Inventory]] | open |
 | Exact RackAI dev A30 count is TBD. | [[NVIDIA A30]], [[Fleet Inventory]] | open |
 | The A30 has no FP8 and only 24GB — likely unsuitable for large MoE serving. Confirm its role (small models / quantized / MIG / dev only). | [[NVIDIA A30]], [[GPU Type Compatibility Matrix]] | open |
+| Billing/payment gap: RackAI has no billing mechanism, and defining pricing/billing logic is an explicit non-goal of the metering spec. This is a P0 blocker for the OpenRouter public-provider path. Who owns/funds it? | [[Billing & Payment]], [[OpenRouter Provider Integration]], [[Metering]] | open |
+| Fine-Tuning methods: the data model advertises supervised / reinforcement / dpo, but only Supervised is wired/shipped (RL & DPO marked "Coming Soon"). Confirm roadmap/ETA for RL and DPO. | [[Fine-Tuning Job]], [[Fine-Tuning]] | open |
+| Dual deployment paths in the codebase: legacy Platform9 (RPM/scp) vs current Docker+Helm+nginx. Confirm which is canonical and whether the legacy path is deprecated. | [[RackAI Control Plane]], [[RackAI Deployment and Environments]] | open |
+| API Key ship status: is programmatic API-key support shipped or still planned? It is the primary dependency for the OpenRouter Private Model path (Path A). | [[API Key]], [[OpenRouter Private Model Integration]] | open |
 
 The register extends as new unknowns or source conflicts surface.
 

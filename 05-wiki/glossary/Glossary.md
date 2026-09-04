@@ -15,7 +15,49 @@ summary: "Canonical one-paragraph definitions of inference-serving terms, each p
 
 # Glossary
 
-Canonical, brief definitions of the recurring terms in the Rack AI inference corpus. Where a term has a canonical L1/L2 note, the definition points to it as the single source of truth; the glossary summarizes rather than redefines.
+Canonical, brief definitions of the recurring terms in the RackAI platform corpus. Where a term has a canonical L1/L2 note, the definition points to it as the single source of truth; the glossary summarizes rather than redefines.
+
+## RackAI
+
+Rackspace's Kubernetes-native AI inference and fine-tuning platform — the product this knowledge base models. **RackAI is the canonical name; `RMPAI` (the platform PRD) and `RackAI Aurora` (a technical spec) are aliases of the same product**, not separate systems. The OpenRouter inference program is one initiative built on RackAI.
+
+- **Canonical Note:** [[RackAI Platform]]
+
+## Organization
+
+The top-level tenant workspace in RackAI; every resource (models, deployments, datasets, jobs, adapters, credentials) is scoped to one, and it maps to a Kubernetes namespace. Rackspace provisions organizations via the identity provider — there is no self-service signup.
+
+- **Canonical Note:** [[Organization]]
+
+## Model Class
+
+A template binding a base model to a serving runtime and its engine configuration (the shipped `Runtime` values are `vllm`, `nim`, `optimized-nim-vllm`, `aim`). A model deployment instantiates a Model Class.
+
+- **Canonical Note:** [[Model Class]]
+
+## Accelerator Class
+
+The cluster-scoped abstraction by which a deployment selects GPU hardware (vendor, node affinity, sizing), backed by automated inventory reporting allocatable vs used capacity. Shipped in RackAI 1.0.0.
+
+- **Canonical Note:** [[Accelerator Class]]
+
+## LoRA / QLoRA
+
+LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning method that trains a small adapter instead of the full model; QLoRA runs LoRA over a quantized copy of the base model to cut memory. In RackAI a fine-tuning job produces a [[LoRA Adapter]] that is applied on top of a base model deployment.
+
+- **Canonical Note:** [[LoRA Adapter]]
+
+## Metering vs Billing
+
+**Metering** captures usage (tokens/requests) per tenant. **Billing** prices that usage and moves money (invoices/top-ups/payout). RackAI has planned metering but **no billing** — pricing/billing logic is an explicit non-goal of the metering spec. The distinction matters because becoming an OpenRouter public provider requires billing.
+
+- **Canonical Notes:** [[Metering]], [[Billing & Payment]]
+
+## OpenRouter Private Model
+
+The Path A OpenRouter integration: registering a RackAI tenant deployment into OpenRouter as a restricted, non-public model, distinct from operating a public provider (Path B).
+
+- **Canonical Note:** [[OpenRouter Private Model Integration]]
 
 ## TTFT
 

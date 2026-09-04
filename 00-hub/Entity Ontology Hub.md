@@ -15,25 +15,52 @@ summary: "Layer 1 navigation hub for canonical inference-platform entities."
 
 # Entity Ontology Hub
 
-Layer 1 — the semantic backbone. Canonical business and domain objects of the Rack AI inference platform. Every other layer references entities defined here.
+Layer 1 — the semantic backbone. Canonical business and domain objects of the RackAI platform. Every other layer references entities defined here.
 
-## Canonical Entities
+## Serving Chain Entities
 
 | Entity | ID | Status |
 |--------|----|--------|
 | [[Model]] | ent-model | created |
+| [[Model Class]] | ent-model-class | created |
 | [[Model Deployment]] | ent-model-deployment | created |
 | [[Model Deployment Specification]] | ent-model-deployment-spec | created |
 | [[Serving Runtime]] | ent-serving-runtime | created |
+| [[Accelerator Class]] | ent-accelerator-class | created |
+| [[Capacity Pool]] | ent-capacity-pool | created |
 | [[GPU Fleet]] | ent-gpu-fleet | created |
 | [[GPU Node]] | ent-gpu-node | created |
 | [[GPU Cluster]] | ent-gpu-cluster | created |
-| [[Capacity Pool]] | ent-capacity-pool | created |
 | [[Region]] | ent-region | created |
 | [[Topology]] | ent-topology | created |
-| [[OpenRouter Provider Integration]] | ent-openrouter-integration | created |
 | [[Benchmark Run]] | ent-benchmark-run | created |
 | [[Traffic Class]] | ent-traffic-class | created |
+
+## Platform & Tenancy Entities
+
+| Entity | ID | Status |
+|--------|----|--------|
+| [[Organization]] | ent-organization | created |
+| [[RackAI Control Plane]] | ent-rackai-control-plane | created |
+| [[Environment]] | ent-environment | created |
+| [[API Key]] | ent-api-key | created |
+| [[Registry Credential]] | ent-registry-credential | created |
+
+## Fine-Tuning Entities
+
+| Entity | ID | Status |
+|--------|----|--------|
+| [[Dataset]] | ent-dataset | created |
+| [[Fine-Tuning Job]] | ent-fine-tuning-job | created |
+| [[LoRA Adapter]] | ent-lora-adapter | created |
+
+## OpenRouter Initiative Entities
+
+| Entity | ID | Status |
+|--------|----|--------|
+| [[OpenRouter Provider Integration]] | ent-openrouter-integration | created |
+| [[OpenRouter Private Model Integration]] | ent-openrouter-private-model | created |
+| [[Model Catalog Endpoint]] | ent-model-catalog-endpoint | created |
 
 ## Priority Model Instances
 

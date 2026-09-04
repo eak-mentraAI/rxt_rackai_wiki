@@ -32,6 +32,13 @@ Layer 2 — the operational ontology / digital twin. How the platform behaves at
 | [[Quantization Program]] | wf-quantization-program |
 | [[Closed-Loop Optimization]] | wf-closed-loop-optimization |
 | [[Demand Forecasting]] | wf-demand-forecasting |
+| [[Fine-Tuning]] | wf-fine-tuning |
+| [[Identity & Access Control]] | wf-identity-access |
+| [[Metering]] | wf-metering |
+| [[Monitoring & Observability]] | wf-monitoring |
+| [[Audit]] | wf-audit |
+
+Serving/scheduling and optimization workflows serve the whole platform; **Fine-Tuning**, **Identity & Access Control**, **Metering**, **Monitoring & Observability**, and **Audit** are the platform-operations workflows added with the RackAI-platform rescope. Metering and Audit are planned (`assumed`); platform monitoring is shipped.
 
 ## Events
 

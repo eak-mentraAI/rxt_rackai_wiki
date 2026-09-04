@@ -49,6 +49,19 @@ L1 — Entity Ontology. Position in the abstraction chain:
 
 **Hardware constraint:** engine choice is bounded by GPU type. On [[AMD Instinct]] (ROCm) only vLLM and SGLang are available; TensorRT-LLM is CUDA-only. See the [[GPU Type Compatibility Matrix]] for the full engine × GPU-type mapping.
 
+## Shipped Runtimes (RackAI 1.0.0)
+
+On the platform today, the runtime is declared by a [[Model Class]], whose `Runtime` field takes one of these shipped values (`measured`, 1.0.0):
+
+| Runtime value | Engine | Notes |
+|---------------|--------|-------|
+| `vllm` | vLLM | General default |
+| `nim` | NVIDIA NIM | NVIDIA inference microservice |
+| `optimized-nim-vllm` | Optimized NIM (vLLM) | Tuned NIM path, image pinned by digest |
+| `aim` | AMD AIM | AMD inference runtime (shipped 1.0.0); supports LoRA |
+
+The roadmap's broader engine set (SGLang, TensorRT-LLM, NVIDIA Dynamo) is **planned** (`assumed`) — not among the shipped `Runtime` enum values above. A [[Model Deployment]] `INSTANTIATES` a Model Class, which is how a runtime binds to a deployment.
+
 ## Lifecycle States
 
 | State | Description | Entry Condition | Exit Condition |

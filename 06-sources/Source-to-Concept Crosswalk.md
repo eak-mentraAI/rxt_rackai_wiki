@@ -41,6 +41,17 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Operator fleet input (2026-09-03) | Fleet GPU types | [[NVIDIA H100]], [[NVIDIA A30]], [[NVIDIA L40S]], [[AMD Instinct]] | L1 | measured |
 | Operator fleet input (2026-09-03) | Engine × hardware constraints (ROCm) | [[GPU Type Compatibility Matrix]] | L2 | derived |
 | Operator fleet input + analysis | Replica sizing / hardware competitiveness | [[GPUs per Replica]], [[Model Weight Footprint]], [[Fleet Competitiveness]], [[Model Portfolio Capacity]] | L2/L3/L4 | derived |
+| RackAI Platform PRD (RMPAI) | Platform vision, multi-engine inference, LLMaaS use case | [[RackAI Platform]], [[Serving Runtime]] | hub/L1 | derived |
+| RackAI 1.0.0 Release Notes | Shipped capability (accelerators, AMD, runtimes, control plane) | [[Accelerator Class]], [[Serving Runtime]], [[Model Deployment]], [[RackAI Control Plane]], [[Autoscaling]] | L1/L2 | measured |
+| RackAI API Reference | Resource + identity API surface, OpenAI-compatible serving | [[RackAI Control Plane]], [[Model Deployment]], [[Organization]], [[API Key]] | L1 | measured |
+| RackAI Console and CLI Docs | Tenancy + Inference/Fine-Tuning/Resources product areas | [[Organization]], [[Model]], [[Model Deployment]], [[Dataset]], [[Fine-Tuning Job]], [[LoRA Adapter]], [[Registry Credential]], [[Fine-Tuning]] | L1/L2 | measured |
+| RackAI Deployment and Environments | dev/staging/prod, single-cluster/single-region | [[Environment]], [[GPU Cluster]], [[Region]] | L1 | measured |
+| RackAI UI Architecture Extraction | Domain CRDs, entity status enums, implied backend systems | [[Organization]], [[Model]], [[Model Deployment]], [[Serving Runtime]], [[Accelerator Class]], [[Dataset]], [[Fine-Tuning Job]], [[LoRA Adapter]], [[Registry Credential]], [[RackAI Control Plane]] | L1 | derived |
+| Identity and Access Control Spec | Auth, org→namespace, RBAC, API keys | [[Identity & Access Control]], [[Organization]], [[API Key]] | L1/L2 | derived |
+| Multi-Tenancy and Metering Spec | Metering (planned), billing non-goal | [[Metering]], [[Billing & Payment]], [[Organization]] | L1/L2/L3 | derived |
+| Monitoring and Auditability Spec | Platform monitoring (shipped), in-tenant observability + audit (planned) | [[Monitoring & Observability]], [[Audit]] | L2 | derived |
+| Accelerator Selection Spec | AcceleratorClass, GPU scheduling/affinity | [[Accelerator Class]], [[Standard Model Deployment]], [[Fleet Inventory]] | L1/L2 | derived |
+| OpenRouter provider reference | Provider vs private-model paths, P0/P1 readiness gaps | [[OpenRouter Initiative]], [[OpenRouter Provider Integration]], [[Billing & Payment]], [[Model Catalog Endpoint]] | hub/L1 | derived |
 
 Extend this table as concepts are extracted into canonical notes.
 
