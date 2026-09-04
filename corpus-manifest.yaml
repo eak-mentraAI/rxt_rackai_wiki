@@ -8,7 +8,7 @@ description: >
   capacity pools, unit economics, and supporting evidence behind RackAI as a
   high-performance inference provider. Hosted by Rackspace Technology.
 owner: knowledge-graph-steward
-repository: https://github.com/eak-mentraAI/rxt_openrouter_wiki.git
+repository: https://github.com/eak-mentraAI/rxt_rackai_wiki.git
 confidence_model: extended  # 4-tier: assumed -> derived -> measured -> validated
 
 domains:
