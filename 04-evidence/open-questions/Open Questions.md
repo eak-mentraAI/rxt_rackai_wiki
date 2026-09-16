@@ -43,6 +43,8 @@ The register of genuine unknowns and any surfaced conflicts between sources. Ite
 | Fine-Tuning methods: the data model advertises supervised / reinforcement / dpo, but only Supervised is wired/shipped (RL & DPO marked "Coming Soon"). Confirm roadmap/ETA for RL and DPO. | [[Fine-Tuning Job]], [[Fine-Tuning]] | open |
 | Dual deployment paths in the codebase: legacy Platform9 (RPM/scp) vs current Docker+Helm+nginx. Confirm which is canonical and whether the legacy path is deprecated. | [[RackAI Control Plane]], [[RackAI Deployment and Environments]] | open |
 | API Key ship status: is programmatic API-key support shipped or still planned? It is the primary dependency for the OpenRouter Private Model path (Path A). | [[API Key]], [[OpenRouter Private Model Integration]] | open |
+| Should RackAI adopt VMware Avi's (Broadcom) AI Gateway / multi-cluster load-balancing services to close the global-front-door gap? Adoption is an open evaluation; the shared architectural baseline is captured in the partner brief. Decision turns on the identity hand-off and Avi's answers to the questions in the partner brief. | [[Multi-Cluster Governance Brief (Partner)]] | open |
+| Identity hand-off to a partner AI Gateway (e.g. Avi's): how would an edge tier consume a trusted RackAI tenant identity? This is the one governance layer a load balancer cannot supply on its own and the input to every other layer — the decisive item for any adoption decision. | [[Multi-Cluster Governance Brief (Partner)]], [[Identity & Access Control]] | open |
 
 The register extends as new unknowns or source conflicts surface.
 
