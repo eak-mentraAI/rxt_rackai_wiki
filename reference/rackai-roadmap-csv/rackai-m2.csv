@@ -1,0 +1,49 @@
+,,,,,,,,,,,,July,Aug,Aug,Sep,Sep,Oct,Oct,Nov
+Feature,Task,Man weeks,Priority,Start Date,End Date,Status,Owner,Requirements Doc,Tech Spec,Jira,,Sprint 4,Sprint 5,Sprint 6,Sprint 7,Sprint 8,Sprint 9,Sprint 10,Sprint 11,,,Sprint Total man weeks,Requirements Doc
+Inference routing,,4,1,,,,,,,https://rackspace.atlassian.net/browse/RACKAI-311,,2,2,,,,,,,,,4
+,Add llm-d to RackAI
+,Routing from ingress to llm-d to model
+,Add shared KV cache
+AMD AIM engine integration,,8,2,,,,,,,https://rackspace.atlassian.net/browse/RACKAI-347,,,2,2,2,2,,,,,,8
+,Design RackAI integration with AIM engine
+Accelerator selection phase 3,,2,1,,,,,Accelerator_Selection_TechSpec.docx,Accelerator_Selection_TechSpec.docx,"https://rackspace.atlassian.net/browse/RACKAI-188, https://rackspace.atlassian.net/browse/RACKAI-336",,,2,,,,,,,,,2
+,Build/Maintain inventory of nodes
+,GPU consumption metrics
+SLM support,,2,4,,,,,,,,,,,,2,,,,,,,2
+,Add SLM relevant to Uniphore to the model catalog
+GPU node access support,,,6
+AMD+NVIDIA node support,,2,1,,,,,RACKAI-AMD-PRD.docx,,https://rackspace.atlassian.net/browse/RACKAI-263,,2,,,,,,,,,,2
+,Inference deployment on compatible GPU node
+,Fine tuning job on compatible GPU node
+DPO fine tuning,,4,3,,,,,RACKAI-AMD-PRD.docx,,https://rackspace.atlassian.net/browse/RACKAI-252,,,,2,2,,,,,,,4
+Synthetic Data Generation,,4,5,,,,,,RXT_SyntheticDataPlatform_TechSpec_v0.1.docx,,,,,,,,2,2,,,,4
+AI Performance Benchmarks,,4,5,,,,,,rackspace-aiperf-tech_spec.docx,,,,,,,,2,2,,,,4
+Speculative Decoding,,2,3,,,,,,,,,,,2,,,,,,,,2
+Refrag,,2,4,,,,,,,,,,,,,2,,,,,,2
+Dataset Management Improvement,,4,4,,,,,,,,,,,,,2,2,,,,,4
+,Download data from URL
+Multi region support,,,6,,,,,,,,,,,,,,,,,,,0
+Observability for RackAI user,,4,2,,,,,,,,,,1,1,1,1,,,,,,4
+API Layer Validation,Introduce API layer validation for data objects in RackAI,1,1,,,,,,,https://rackspace.atlassian.net/browse/RACKAI-261,,1,,,,,,,,,,1
+CODB: Upgrade KServe and friends,Upgrade and migrate existing components,2,1,,,,,,,https://rackspace.atlassian.net/browse/RACKAI-258,,2,,,,,,,,,,2
+CODB: Model parameter/recipe enhancements,Fix all model parameters and ensure they are being deployed with optimal configuration,1,1,,,,,,,https://rackspace.atlassian.net/browse/RACKAI-269,,1,,,,,,,,,,1
+Product Maintenance,Fix FT to be context parallel,4,1,,,,,,,,,,2,2,,,,,,,,4
+,Total man weeks,50,,,,,,,,,,8,9,9,7,7,6,4,0,,,50
+Priority,Feature
+1,Accelerator selection phase 3
+,AMD+NVIDIA node support
+,API Layer Validation
+,CODB: Model parameter/recipe enhancements
+,CODB: Upgrade KServe and friends
+,Inference routing
+2,AMD AIM engine integration
+,Observability for RackAI user
+3,DPO fine tuning
+,Speculative Decoding
+4,Dataset Management Improvement
+,Refrag
+,SLM support
+5,AI Performance Benchmarks
+,Synthetic Data Generation
+6,GPU node access support
+,Multi region support

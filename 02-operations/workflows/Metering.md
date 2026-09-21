@@ -6,22 +6,24 @@ owner: commercial
 domain: commercial
 aliases: [metering, usage metering, usage capture]
 related: [ent-organization, wf-monitoring, hub-operations, idx-ai-finops, met-cost-per-outcome]
-source_docs: [metering_spec]
-confidence: assumed
-last_reviewed: 2026-09-04
+source_docs: [metering_spec, "reference/RackAI - Roadmap.xlsx"]
+confidence: derived
+last_reviewed: 2026-09-21
 parent: hub-operations
-summary: "Planned per-tenant usage capture (tokens/requests), quotas, and UsageRecords — not billing."
+summary: "Per-tenant usage capture (tokens/requests), quotas, and UsageRecords — in progress (Metering M1); not billing."
 ---
 
 # Metering
 
 ## Purpose
 
-Describes the **planned** capture of usage per tenant — tokens and requests — along with quotas and a `UsageRecord` object. Metering measures consumption; it is explicitly **not** billing. Billing is called out as a non-goal of the metering PRD, so charge computation and payment are out of scope here (see [[Billing & Payment]]).
+Describes the capture of usage per tenant — tokens and requests — along with quotas and a `UsageRecord` object. Metering measures consumption; it is explicitly **not** billing. Billing is called out as a non-goal of the metering PRD, so charge computation and payment are out of scope here (see [[Billing & Payment]]).
+
+**Status: in progress.** Per the [[RackAI Roadmap (Delivery Plan)|delivery roadmap]], Metering M1 (Project CRD + `usage_records` schema + MeteringEvent queue; pipeline with identity context, inference metering, FineTuningJob CRD — RACKAI-352, In Progress) is being built on top of the shipped identity layer (IAC M1). The later stages — UsageRecord/UsageSummary APIs (M2), QuotaPolicy CRD + soft alerts (M3), and Quota Enforcement + admission control 429/402 (M4) — are not started. Confidence `derived` (in flight, not yet shipped or telemetry-confirmed).
 
 ## Trigger
 
-**Planned.** Inference and platform activity for an [[Organization]] would be observed and aggregated into usage records. No shipped trigger exists today.
+Inference and platform activity for an [[Organization]] is observed and aggregated into usage records via the MeteringEvent pipeline (M1, in progress). Quota evaluation/enforcement (M3–M4) not yet built.
 
 ## Steps
 

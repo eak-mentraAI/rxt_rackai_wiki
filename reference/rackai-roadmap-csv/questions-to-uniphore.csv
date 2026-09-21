@@ -1,0 +1,18 @@
+Feature Group,S. No.,Question for Clarification,Priority,Answer,Comments
+API Parity,1,Are OpenAI-compatible APIs the only ones being considered from an inference perspective?,,,"Paavan: Yes, only OpenAI APIs are relevant per the PRD shared recently"
+API Parity,2,Is Anthropic Compatible API a requirement?,,,Paavan: No. See above
+API Parity,3,RMPAI currently lacks a responses API for built-in custom tool calling (MCP integration). Is this a requirement?
+API Parity,4,"How important is the auto-scaling feature? What specific scenarios, if any, are being considered for auto-scaling (e.g., predictable traffic, performance optimization, or cost reduction provided by Fireworks AI)?",,,Paavan: Currrently out of scope of phase 1?
+API Parity,5,Is using Hugging Face as the sole model registry sufficient?,,,Paavan: There has been an ask for private registry. Priority is being determined
+API Parity,6,"Do we need to host a private model registry to support custom model uploads, or is Hugging Face sufficient for hosting private models?",,,Paavan: There has been an ask for private registry. Priority is being determined
+API Parity,7,"In fine tuning, between SFT, RFT and DPO which ones are key? Which APIs are important to begin in the initial versions of the product?",,,Paavan: SFT first - likely with PEFT. Need to still get information regarding the APIs
+API Parity,8,Is support for secret management via APIs required?
+NVIDIA NIM Support,9,Any specific NVIDIA hardware specs do we need to support for NIM deployments?
+NVIDIA NIM Support,10,Do we want to build using NIM ecosystem? Or just use NIM models?,,,Paavan: Only NIM models
+Fine-Tuning,11,"What fine-tuning algorithms (e.g., LoRA, QLoRA, full parameter) are mandatory for the initial release?",,,"Paavan: SFT and PEFT. Let's start with LORA, QLORA"
+Fine-Tuning,12,"Do we need to even expose underline details like LoRA, QLoRA to customers ? Usually platforms like Azure AI Foundry, AWS Bedrock or Fireworks AI they do not expose such details. /  / What all types of Fine tunning methods we are offering from this list - [ Supervised Fine Tuning (SFT) , Reinforcement Learning (RL) ,  Direct preference optimization (DPO) ]",,,Paavan: SFT and LORA adapter is the first milestone focus.
+Fine-Tuning,13,How our system is supposed to accept input for fine tuning job ( Sample data & Validation data) ? / Are we supporitng file uploads or cloud storage options like S3/blobstore in this case? /,,,Paavan: Data comes as a file upload to the API. Where it is stored should be decided by the product internally.
+Fine-Tuning,14,What all hyperparameters we are looking to expose to the users while configuring the FT job ? Any prior expectations from Uniphore/Racksapce here,,,Paavan: See the doc shared by Rackspace
+Fine-Tuning,15,Post FT job artifacts - any requirements on where and how they are stored?,,,Paavan: Should go in a model registry. Likely local and not HF.
+Misc,16,Are we going with the single cluster deployment for RMPAI? And is it single region/AZ?,,,Paavan: Single Cluster for now.
+Misc,17,"Are there any automation requirements? API, CLI, tool integration like terraform?",,,Paavan: API and CLI support is a must for all features going out now.

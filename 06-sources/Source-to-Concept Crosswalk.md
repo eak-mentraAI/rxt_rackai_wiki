@@ -59,6 +59,9 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Engineering Roadmap + Dev Plan, synthesized + CEO review (2026-09-21) | Canonical living roadmap: four proofs (Observe → Decide → Control → Operate), MOE anchor, human→automated ladder, operator north-star metrics | [[RackAI Roadmap]] | hub | derived |
 | CEO strategy review (2026-09-21) | Minimum Operable Estate — MVP operator target anchoring Proof 3 | [[Minimum Operable Estate]] | hub | assumed |
 | CEO strategy review + Product Operations JD (2026-09-21) | AI Operations Product — operating model / SLOs / incident / FDE motion as a first-class workstream | [[AI Operations Product]] | hub | assumed |
+| RackAI - Roadmap.xlsx (2026-09-21) | Actual staffed/Jira-tracked delivery roadmap: CSP Platform Layer, M2 features, Uniphore Phase 1 | [[RackAI Roadmap (Delivery Plan)]] | source | measured |
+| RackAI - Roadmap.xlsx, read through the operator lens (2026-09-21) | Delivery milestones mapped to the four proofs; strategy gaps → proposals P-003–P-007 | [[RackAI Roadmap]] | hub | derived |
+| RackAI - Roadmap.xlsx — shipped reality (2026-09-21) | Confidence corrections: API Key shipped (IAC M1); metering in progress; RBAC partial (org-level dropped); DPO in progress | [[Capability Gap Register]], [[API Key]], [[Metering]] | L4/L1/L2 | measured |
 | Web research (2026-09-21): Fireworks, Together, Baseten, Anyscale | Battleground (b) AI-native inference competitors | [[Inference Serving Competitors]] | L4 | derived |
 | Web research (2026-09-21): CoreWeave, Lambda | Battleground (a) GPU-neocloud capacity competitors | [[GPU Neocloud Competitors]] | L4 | derived |
 | Web research (2026-09-21): Palantir, Cohere, Mistral, Scale AI | Battleground (c) sovereign/governed-AI competitors | [[Sovereign & Governed AI Competitors]] | L4 | derived |

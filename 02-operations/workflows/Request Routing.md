@@ -47,7 +47,7 @@ The endpoint abstraction is preserved: customers address one model, routing sele
 
 ## Dev-Plan Extension (Enterprise AI)
 
-The [[RackAI Enterprise AI Development Plan]] (thread 1.4) extends routing beyond request-to-pool placement to routing a task to the right **harness, model, or human**, with **measured cost as a first-class input**. `assumed` confidence. New edges:
+The [[RackAI Enterprise AI Development Plan]] (thread 1.4) extends routing beyond request-to-pool placement to routing a task to the right **harness, model, or human**, with **measured cost as a first-class input**. `assumed` confidence. (Delivery status: a first inference-routing implementation — llm-d, ingress→llm-d→model, shared KV cache — is **in progress** per the [[RackAI Roadmap (Delivery Plan)]], RACKAI-311; the evidence/cost-driven version below is the strategy target beyond it.) New edges:
 
 - Routing reads measured token cost and reliability from the [[Empirical Map]] (not just live economics).
 - Routing dispatches to a [[Governed Harness]] (or a human), not only a deployment config.

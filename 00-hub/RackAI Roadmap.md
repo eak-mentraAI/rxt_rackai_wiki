@@ -159,6 +159,125 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | Managed operations + FDE motion | AI Operations Product workstream | not modeled |
 | Operational leverage (workloads/FTE up and to the right) | North-star metric family | assumed |
 
+## Milestones — the execution spine
+
+The proofs say *what we must be able to claim*; the milestones say *what the teams are actually building to get there.* **These are the real delivery milestones** from the [[RackAI Roadmap (Delivery Plan)|delivery roadmap]] (`reference/RackAI - Roadmap.xlsx`) — native numbering (IAC M1–M4, Platform M1–M4, etc.), Jira IDs, owners, status, and dates preserved so the corpus stays traceable to Jira. Each is placed under the **operator proof it serves**; that placement is the strategic lens applied *to* the delivery plan. Where a proof needs work the delivery plan does not yet contain, it appears as a **⚠ gap** and is carried to Proposed Changes — not invented as a milestone here.
+
+> **Status/dates are the delivery roadmap's own** (`measured` — real Jira/schedule). Confidence in the last column reflects delivery status, not strategy aspiration. The strategy-side items with no delivery milestone yet are marked ⚠ and sink to the Proposed Changes queue.
+
+### Proof 1 — Observe: *measure and operate AI*
+
+The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/identity substrate.
+
+| Milestone | Deliverable | Jira | Owner | Status | Serves |
+|-----------|-------------|------|-------|--------|--------|
+| **IAC M1** | JWT + API-key validation, identity context, APIKey CRD, Gateway auth | RACKAI-204 | Ljungstrom | **Complete** | Identity substrate (all proofs) |
+| **IAC M2** | PlatformRole/RoleBinding CRDs, Authorization Service, RBAC | RACKAI-333 | Ljungstrom | **Complete** | Tenancy/control |
+| **IAC M3** | Audit Log query API, sensitive-access + login + APIKey-lifecycle events | RACKAI-351 | Ljungstrom | **Complete** | Auditability (→ Proof 3) |
+| **Platform M1–M2** | Prometheus/DCGM/Grafana GPU dashboards; tenant-attributed service metrics | RACKAI-353/350 | Sharma | In Progress | Telemetry (flywheel input) |
+| **Platform M3–M4** | Loki logs; VictoriaMetrics 13-mo retention; FineTuningJob metrics | RACKAI-431/432 | Sharma | In Progress | Telemetry retention |
+| **Metering M1** | Project CRD + usage_records + MeteringEvent pipeline w/ inference + FT metering | RACKAI-352 | Rajak | In Progress | Cost/usage capture |
+| **Observability M1** ⭐ | Metrics API (latency/rate/errors, quota util), Workload Status API | — | Audit/Obs | Not Started (crit-path) | The operator dashboard |
+| **M2: AI Performance Benchmarks** | Internal benchmarking process | — | — | Not Started (Pri 5) | Ends "KPIs assumed" |
+| ⚠ **Cost model** (internal cost/GPU-hour) | *not a delivery milestone yet* — Metering captures usage, but cost/GPU-hour modeling is absent | — | — | **gap → P-003** | Cost floor |
+| ⚠ **Supply-abstraction interface** | *not in delivery plan* — control plane assumes owned fleet | — | — | **gap → P-004** | Prevents fleet lock-in |
+
+**Proof 1 read:** measurement substrate is genuinely underway (auth/audit shipped; telemetry + metering in progress). The two strategy gaps are the **cost model** (usage is metered but cost/GPU-hour isn't modeled) and the **supply-abstraction interface**.
+
+### Proof 2 — Decide: *evidence improves how we operate*
+
+| Milestone | Deliverable | Jira | Owner | Status | Serves |
+|-----------|-------------|------|-------|--------|--------|
+| **M2: Inference routing** | llm-d, ingress→llm-d→model, shared KV cache | RACKAI-311 | Chatterjee | In Progress | Routing (→ smart routing) |
+| **M2: Accelerator selection ph3** | node inventory + GPU consumption metrics | RACKAI-336 | Nguy | **Complete** | Placement inputs |
+| **M2: AMD AIM engine / AMD+NVIDIA nodes** | multi-accelerator serving | RACKAI-347/263 | Chatterjee/Gosavi | In Progress / Not Started | Heterogeneous supply |
+| **M2: Speculative decoding, Refrag** | inference perf optimizations | RACKAI-67/374 | Ferrer / — | In Progress | tok/s/GPU, TTFT |
+| **M2: DPO fine tuning** | preference-tuning beyond SFT | RACKAI-252 | Shah | In Progress | Fine-tuning ops |
+| **Uniphore: SFT/LoRA** | dataset mgmt, PEFT/LoRA adapters, deploy/undeploy | — | Rajendra/Neelava | In Progress | Fine-tuning ops (shipped-ish) |
+| ⚠ **Empirical Map v1** + transferable/isolated split | *not in delivery plan* — telemetry exists, but no cross-workload knowledge store | — | — | **gap → P-005** | **The moat** |
+| ⚠ **Evidence-informed routing** (routing reads the map) | delivery routing is llm-d/KV-cache, not empirically-driven | — | — | **gap → P-005** | Flywheel |
+
+**Proof 2 read:** the *ingredients* of good operating decisions are being built (routing, accelerator selection, perf optimizations, fine-tuning), but the **Empirical Map** — the thing that makes decisions *evidence-informed across workloads*, i.e. the moat — is not on the delivery plan. This is the single most important strategy gap.
+
+### Proof 3 — Control: *operate inside an enterprise boundary*
+
+| Milestone | Deliverable | Jira | Owner | Status | Serves |
+|-----------|-------------|------|-------|--------|--------|
+| **IAC M3** (audit) + **Auditing M1–M3** | Audit Service, admission webhook, compliance validation, billing audit | — | Audit/Obs | M3 done; Auditing Not Started | Auditability |
+| **Metering M4** | Quota Enforcement, pre-execution admission control (429/402) | — | — | Not Started | Guardrails |
+| **Uniphore: single-cluster tenancy** | namespace-per-org isolation (shipped foundation) | — | — | In Progress | Isolation |
+| ⚠ **IAC M4** (org-level RBAC + metering/billing/quota perms) | **Won't Do** — dropped from delivery | — | — | **gap → P-006** | Org-level access control |
+| ⚠ **Governed execution harness v1** | *not in delivery plan* | — | — | **gap → P-006** | The operating layer |
+| ⚠ **First compliance attestation** (SOC 2) | *not a delivery milestone* — "compliance validation" is an Auditing sub-task, no attestation milestone | — | — | **gap → P-006** | The gate for regulated buyers |
+| ⚠ **MOE-0 / MOE-1** (operator rehearsal → paid identity proof) | *not modeled in delivery* | — | — | **gap → P-002** | First proof of the identity |
+
+**Proof 3 read:** the delivery plan builds real control-plane pieces (audit, admission control, isolation) but **stops short of the identity proof** — there is no harness, no compliance attestation milestone, no MOE, and org-level RBAC was explicitly dropped (IAC M4 "Won't Do"). This is where the strategy is furthest ahead of delivery.
+
+### Proof 4 — Operate the Estate: *customers delegate the estate*
+
+| Milestone | Deliverable | Jira | Owner | Status | Serves |
+|-----------|-------------|------|-------|--------|--------|
+| **M2: Request new model support** | on-demand model onboarding | RACKAI-354 | Bedre | In Progress | Toward model velocity |
+| **M2: Sunsetting a model** | model lifecycle retirement | RACKAI-372 | — | Not Started | Lifecycle |
+| **M2: Multi region support** | *backlogged (Pri 6, unscheduled)* | — | — | Not Started | Multi-cluster estates |
+| **M2: GPU node access support** | *backlogged (Pri 6, unscheduled)* | — | — | Not Started | Heterogeneous supply |
+| ⚠ **Day-zero model factory, closed-loop optimization** | Engineering-roadmap Phases 4/6 — *not in delivery plan* | — | — | **gap → P-007** | Industrialization |
+| ⚠ **Managed-ops / FDE motion, multi-estate onboarding** | *not modeled* | — | — | **gap → P-007** | The operator business |
+
+**Proof 4 read:** almost entirely gap. The delivery plan has model-lifecycle fragments; multi-region and GPU-node access — prerequisites for heterogeneous multi-estate operation — are explicitly **backlogged at Pri 6**. Proof 4 is a future the delivery plan does not yet fund.
+
+## Milestone → Proof → Objective (the line of sight)
+
+The delivery plan front-loads Proof 1 (measurement substrate), is mid-build on Proof 2 ingredients, thin on Proof 3, and largely absent on Proof 4 — with the moat (Empirical Map) and the identity proof (MOE) as the biggest gaps.
+
+```mermaid
+flowchart LR
+    subgraph OBS[Proof 1 Observe - underway]
+      IAC[IAC M1-M3 done]
+      TEL[Platform/Metering in progress]
+    end
+    subgraph DEC[Proof 2 Decide - ingredients only]
+      RT[Inference routing]
+      MAP[Empirical Map - GAP]
+    end
+    subgraph CTL[Proof 3 Control - thin]
+      AUD[Audit/admission]
+      MOE[Harness + MOE - GAP]
+    end
+    subgraph OPR[Proof 4 Operate - mostly gap]
+      LIFE[Model lifecycle bits]
+      EST[Multi-estate - GAP]
+    end
+    IAC --> TEL --> MAP
+    RT --> MAP --> MOE --> EST
+    MOE --> OBJ[Objective: Private Enterprise AI Operator]
+    EST --> OBJ
+```
+
+- **Proof 1:** genuinely progressing — the substrate the identity rests on is being built.
+- **Proof 2:** ingredients in flight, but the **Empirical Map (the moat) is missing** — the flywheel cannot compound without it.
+- **Proof 3:** control-plane pieces exist, but the **identity proof (harness + attestation + MOE) is absent**, and org-level RBAC was dropped.
+- **Proof 4:** the operator business is not yet funded; multi-region/GPU-node access are Pri-6 backlog.
+
+## Material Progress — baseline → target
+
+Each metric has a **baseline (today)** and the **delivery milestone** that first moves it, or a **gap** if no delivery milestone does. This is what turns "material progress" from assertion into a checkable claim.
+
+| Metric | Baseline (today) | First moved by | Status |
+|--------|------------------|----------------|--------|
+| Identity/auth/RBAC in place | shipped | IAC M1–M2 | **Complete** |
+| Auditability | shipped (query API) | IAC M3 | **Complete**; Auditing M1–M3 pending |
+| GPU/tenant telemetry | partial | Platform M1–M2 | In Progress |
+| Usage/metering captured | partial | Metering M1 | In Progress |
+| Benchmarked perf (TTFT, tok/s/GPU) | none | M2 AI Performance Benchmarks | Not Started |
+| Cost/GPU-hour known | none | — | **GAP → P-003** |
+| % decisions empirically informed | 0% | — (needs Empirical Map) | **GAP → P-005** |
+| Compliance attestation | none | — | **GAP → P-006** |
+| Estates under management | 0 | — (needs MOE) | **GAP → P-002** |
+| Contribution margin / estate | n/a | — | **GAP** (Proof 4) |
+
+The pattern is clear: **delivery is strong on the measurement substrate (Proof 1) and weakest exactly where the operator identity lives (the moat in Proof 2, the identity proof in Proof 3).** That is the agenda for the Proposed Changes below.
+
 ## Workstream View
 
 Cross-cutting owners run *vertically through all four proofs*. Mapped from the Engineering Roadmap's workstreams A–F plus the dev-plan programs — with **AI Operations Product** elevated to first-class, because if the identity is Operator, the operating model is part of the product, not an afterthought.
@@ -195,6 +314,11 @@ This is the working queue. Proposals are drafted, discussed, and — once accept
 |---|-----------------|---------|--------|-----------|
 | **P-001** | Shift fine-tuning *delivery* to a partner (preferred: Uniphore); front-load operator-KPI enablers; protect a thin fine-tuning experiment | Proof 1/2; [[Load-Bearing Bets]]; Inference workstream | **Proposed** | Free the thin Inference pod to focus on what moves operator KPIs, without deferring the wedge experiment. See detail below. |
 | **P-002** | Commit to a first [[Minimum Operable Estate]] as the concrete Proof 3 target, and name its first customer | Proof 3; [[Minimum Operable Estate]]; [[AI Operations Product]]; [[Load-Bearing Bets]] | **Proposed** | Turns "operator" from a claim into a dated deliverable; forces the operational-acceptance and boundary decisions early. See detail below. |
+| **P-003** | Add a **cost-model** deliverable to the delivery roadmap (internal cost/GPU-hour), riding on the Metering pipeline | Proof 1; Metering M1; FinOps workstream | **Proposed** | Delivery meters *usage* but never models *cost/GPU-hour* — the cost floor the whole operator economics rests on. Gap surfaced in Proof 1. See detail below. |
+| **P-004** | Add a **supply-abstraction interface** (`SupplyTarget/AcceleratorPool/ExecutionLocation`) before the control plane hardens | Proof 1; Platform/Control Plane workstream | **Proposed** | Delivery assumes the owned fleet; AMD+NVIDIA and multi-region are bolt-ons. Introduce the abstraction now (cheap) vs. retrofitting later (expensive). See detail below. |
+| **P-005** | Add **Empirical Map v1** + evidence-driven routing as a first-class delivery workstream | Proof 2; Inference routing (RACKAI-311); Measurement workstream | **Proposed** | The moat is absent from delivery: routing is llm-d/KV-cache, telemetry is dashboards — nothing turns operating data into cross-workload decisions. Highest-leverage gap. See detail below. |
+| **P-006** | Add the **Proof-3 control bundle**: governed harness v1, a compliance-attestation milestone, and reinstated org-level access control (IAC M4 was "Won't Do") | Proof 3; IAC M4; Auditing; [[AI Operations Product]] | **Proposed** | Delivery stops short of the identity proof — no harness, no attestation milestone, and org-level RBAC was dropped. These gate every regulated buyer. See detail below. |
+| **P-007** | Fund the **Proof-4 operator business**: unbacklog multi-region + GPU-node access, add day-zero factory / closed-loop, and the managed-ops/FDE motion | Proof 4; M2 multi-region + GPU-node (Pri-6 backlog); [[AI Operations Product]] | **Proposed** | The repeatable, profitable operator business is unfunded; its prerequisites sit at Pri-6. Sequencing dependency, not an ask to start now. See detail below. |
 
 ### P-001 — Fine-tuning: partner the delivery, keep the operations, protect the experiment
 
@@ -256,6 +380,58 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 2. **MOE-1:** named external design-partner profile/customer + target window.
 3. **Proof gates:** measurable pass/fail criteria for Observe, Decide, Control, Operate.
 4. **Commercial gates:** the evidence that customers will delegate this responsibility at economics that produce an attractive managed-service business.
+
+> **P-003 through P-007 are the strategy-driven changes to the *delivery* roadmap** surfaced by reading the real plan through the operator lens (the ⚠ gaps above). Each names the delivery reality it changes, so it is a concrete edit to the plan — not an abstract wish. All are **Proposed, not adopted**; owners/dates stay with the delivery teams.
+
+### P-003 — Add a cost-model deliverable (ride the Metering pipeline)
+
+**Delivery reality.** Metering M1 (RACKAI-352) builds usage capture (`usage_records`, MeteringEvent, inference + FT metering). **Nowhere in the delivery roadmap is internal cost/GPU-hour modeled** — usage ≠ cost.
+
+**Why it matters (operator lens).** The cost floor is the economics the whole operator identity rests on (Proof 1 commercial gate; [[Three Battlegrounds]] "own the economics"). Without it, every margin/pricing number stays `assumed` and [[Cost per GPU-Hour]] / [[Cost per Outcome]] cannot be computed.
+
+**Proposed change.** Add a small cost-model deliverable *downstream of Metering M1* — attribute the metered usage against fleet cost inputs (power, depreciation/lease, networking, overhead) to produce cost/GPU-hour and cost/1M-tokens. Cheap relative to the metering pipeline it rides on.
+
+**Blocks adoption:** owner (FinOps vs Metering team); dependency on the fleet cost inputs (some are finance data, not engineering).
+
+### P-004 — Add the supply-abstraction interface before the control plane hardens
+
+**Delivery reality.** M2 has "AMD+NVIDIA node support" (RACKAI-263) and "AMD AIM engine" (RACKAI-347) as *features*, and multi-region as Pri-6 backlog — i.e. supply diversity is treated as per-hardware bolt-ons on an **owned-fleet-assuming control plane**.
+
+**Why it matters (operator lens).** "Abstract supply, own economics" ([[Three Battlegrounds]]) requires the control plane to address `SupplyTarget / AcceleratorPool / ExecutionLocation` rather than a specific fleet. The abstraction is cheap to introduce now and expensive to retrofit after IAC/Metering/routing all hardcode owned-fleet assumptions.
+
+**Proposed change.** Introduce the supply-abstraction interface as an architectural requirement in the Platform/Control-Plane workstream; owned H100 is implementation #1, AMD (already in flight) becomes #2 behind the same interface.
+
+**Blocks adoption:** architectural review with Team Platform/IAC; confirm it doesn't slow the in-flight AMD work.
+
+### P-005 — Empirical Map v1 + evidence-driven routing (the moat)
+
+**Delivery reality.** Inference routing (RACKAI-311) is llm-d + ingress→model + shared KV cache. Telemetry (Platform M1–M2) produces dashboards. **Nothing turns operating data into cross-workload operating decisions** — there is no Empirical Map on the delivery plan.
+
+**Why it matters (operator lens).** This is the single highest-leverage gap. The [[Empirical Map]] flywheel is *the moat* — the reason customer #100 is cheaper than #1 (Proof 2). Routing that reads measured cost/reliability from the map is what makes decisions evidence-informed rather than static. Without it, RackAI is a good serving stack, not an operator that compounds.
+
+**Proposed change.** Add Empirical Map v1 as a first-class delivery workstream (Measurement & Self-Improvement): capture per-workload×model×hardware reliability + cost from the telemetry/metering already being built, with the **transferable-vs-isolated split** designed in from day one; then feed it into routing (extend RACKAI-311's successor to read the map).
+
+**Blocks adoption:** owner (no delivery team owns "measurement/self-improvement" today); depends on Metering M1 + Platform M1–M2 landing first.
+
+### P-006 — The Proof-3 control bundle (harness v1 + attestation + org RBAC)
+
+**Delivery reality.** The delivery plan builds real control-plane pieces (audit, admission control, isolation) but: **(a)** there is no governed execution harness; **(b)** "compliance validation" is a sub-task of Auditing M3, not a **compliance-attestation milestone**; **(c)** org-level RBAC + metering/billing/quota permissions were **explicitly dropped** (IAC M4 = "Won't Do").
+
+**Why it matters (operator lens).** Proof 3 (Control) is the first proof of the identity. All three of these gate a regulated buyer: without a harness there is no operating layer to govern; without an attestation no regulated customer can adopt; without org-level access control multi-org tenancy is thin.
+
+**Proposed change.** (1) Add governed harness v1 to the delivery plan (currently only in the dev-plan strategy source); (2) turn "compliance validation" into a dated **SOC 2 (Type I / control-subset) attestation milestone**; (3) **reinstate IAC M4** (or an equivalent org-level RBAC deliverable) — revisit the "Won't Do".
+
+**Blocks adoption:** IAC M4 was dropped for a reason (get it); attestation has a long external lead time and a cost/owner; harness needs a home team.
+
+### P-007 — Fund the Proof-4 operator business (sequencing, not "start now")
+
+**Delivery reality.** Multi-region (Pri-6) and GPU-node access (Pri-6) are **backlogged/unscheduled**; there is no day-zero factory, closed-loop optimization, or managed-ops/FDE motion on the plan. Model-lifecycle exists only as fragments (request-new-model, sunsetting).
+
+**Why it matters (operator lens).** Proof 4 (operate a heterogeneous estate, repeatably and profitably) is the actual operator *business*. Multi-region + heterogeneous supply are its prerequisites, and they currently sit at the bottom of the backlog.
+
+**Proposed change.** This is a **sequencing dependency, not a request to start now**: flag that the Proof-4 prerequisites (multi-region, GPU-node access) must leave Pri-6 *before* an external multi-region MOE-1 is viable, and that managed-ops/FDE ([[AI Operations Product]]) needs a delivery home before estates multiply. Adopt as a **watch item** that gates P-002's MOE-1 timing.
+
+**Blocks adoption:** premature to schedule until Proofs 1–3 land; the value now is making the dependency explicit so MOE-1 isn't promised ahead of its prerequisites.
 
 ## See Also
 

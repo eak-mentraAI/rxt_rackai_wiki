@@ -50,6 +50,7 @@ Every source document that feeds the corpus, with classification and provenance.
 |--------|------|----------------|--------|
 | RackAI & Enterprise AI Development Plan | [[RackAI Enterprise AI Development Plan]] | planning | extracted |
 | RackAI Organizational Design (deck) | [[RackAI Organizational Design]] | planning | companion-created, reference-only (org content out of graph scope) |
+| RackAI - Roadmap.xlsx (delivery roadmap) | [[RackAI Roadmap (Delivery Plan)]] | roadmap | companion-created + CSV export (`reference/rackai-roadmap-csv/`); `measured` delivery data |
 
 ## Classification Legend
 
