@@ -87,9 +87,9 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | 3 Control | Will a customer delegate responsibility **and pay us**? (first paid MOE / design partner) |
 | 4 Operate | Can we repeat it **profitably**? (multiple estates, repeatable SKU/boundary, positive contribution margin, workloads/FTE improving) |
 
-### Proof 1 — Observe: *We can measure and operate AI*
+### Proof 1 — Observe: *We understand what is happening and what it costs*
 
-> **Technical exit:** For a production model, Rackspace can **accurately measure** its cost, performance, utilization, reliability, and operational history **on the infrastructure we operate.** (Note: *where/how a workload runs best* is comparative intelligence — that is Proof 2, not Proof 1.)
+> **Technical exit:** For a production model, Rackspace can **accurately measure** its cost, performance, utilization, reliability, and operational history **on the infrastructure we operate.** ("operate" is *earned* by Proof 4 — Proof 1 is understanding, not yet operating on behalf of a customer.) (Note: *where/how a workload runs best* is comparative intelligence — that is Proof 2, not Proof 1.)
 > **Commercial gate:** we have a defensible cost model and a pricing hypothesis for operated workloads.
 
 | Item | Traces to | Confidence |
@@ -105,7 +105,7 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 
 *Why supply abstraction is here, not later: the abstraction is cheap now and expensive later. Building the control plane against `SupplyTarget` from day one prevents baking owned-fleet assumptions into everything. We do not need multi-provider scheduling yet — only the interface.*
 
-### Proof 2 — Decide: *Our accumulated knowledge improves how we operate*
+### Proof 2 — Decide: *Our accumulated knowledge improves decisions*
 
 > **Technical exit (must beat a baseline):** Rackspace can demonstrate at least one placement, routing, model-selection, or configuration decision **informed by accumulated operating evidence** that materially improves an agreed workload KPI **versus a static/default baseline.** This prevents "we built an Empirical Map" from being mistaken for "the flywheel works."
 > **Commercial gate:** we can quantify the customer improvement from that decision ("this saved X / improved Y").
@@ -120,7 +120,7 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | Fine-tuning **operations** (placement, cost-per-job, adapter lifecycle) | dev-plan 4.2; [[LoRA Adapter]] | measured (SFT) |
 | Fine-tuning **experiment** — one instrumented domain-model proof point (central-bet test) | [[Three Battlegrounds]] central bet | measured (SFT) |
 
-### Proof 3 — Control: *We can operate inside an enterprise boundary*
+### Proof 3 — Control: *We can safely assume responsibility inside an enterprise boundary*
 
 > **Technical exit:** Rackspace can take a real enterprise workload and operate it across an approved execution boundary while maintaining customer control, governance, and auditability. **This is the first actual proof of the company identity.**
 > **Commercial gate:** a customer will delegate operational responsibility **and pay for it** — the first paid MOE / design partner.
@@ -142,7 +142,7 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | Supply abstraction v1 (second impl: AMD or partner) | [[Load-Bearing Bets]] | MOE-1 | assumed |
 | First **paid** private enterprise workload (delegation + willingness to pay) | Strategy-derived; [[AI Operations Product]] | MOE-1 | assumed |
 
-### Proof 4 — Operate the Estate: *Customers can delegate the estate to us*
+### Proof 4 — Operate: *We can do it repeatably and profitably across heterogeneous estates*
 
 > **Technical exit:** A customer can give Rackspace operational responsibility for a heterogeneous production AI estate.
 > **Commercial gate:** we can repeat it **profitably** — multiple estates, a repeatable SKU / service boundary, positive contribution margin per estate, and workloads/FTE improving.
@@ -313,11 +313,13 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 | # | Executive decision | What you're actually approving | Implements |
 |---|--------------------|-------------------------------|-----------|
 | **D1** | **Reorient delivery around MOE-0 → MOE-1** | Manage RackAI toward a **dated friendly operating rehearsal (MOE-0)** then a **paying external identity proof (MOE-1)** — *not* toward completion of a feature backlog | P-002 |
-| **D2** | **Build the learning + economics substrate now** | Cost model + supply-abstraction interface + **Empirical Map** — the things that are cheap now and structurally expensive later; the Empirical Map is a **load-bearing architectural capability**, not just another workstream | P-003, P-004, P-005 |
+| **D2** | **Build the substrate that lets RackAI improve economically and operationally with scale** | Not "approve three engineering projects" — approve the substrate behind the flywheel, with three manifestations: **economics** (cost model — know our economics), **supply optionality** (supply-abstraction interface — preserve optionality over supply), and **accumulated operating intelligence** (Empirical Map — compound operating knowledge; **load-bearing**, not just a workstream) | P-003, P-004, P-005 |
 | **D3** | **Establish the enterprise control envelope for MOE-1** | The **minimum** identity/authorization, governed execution, audit, isolation, and **independently-verifiable compliance evidence** required by the MOE-1 customer — outcome, not a specific implementation | P-006 |
 | **D4** | **Narrow where we differentiate** | RackAI will **not** become a differentiated fine-tuning product (partner delivery; retain operations + enough first-party capability to learn); and **do not prematurely build Proof 4** — identify prerequisites, let MOE evidence drive what gets automated | P-001, P-007 |
 
 **The single most important change (D1):** *manage toward a dated MOE-0 and MOE-1, not toward a feature backlog.*
+
+**The flywheel D2 is betting on:** *more estates → more evidence → better decisions → better utilization / cost / reliability → better economics → ability to operate more estates.* D2 funds the substrate (economics + supply optionality + operating intelligence) that makes this loop real rather than rhetorical.
 
 > **Below are the implementation proposals (P-001–P-007) that sit under these decisions.** They are the engineering detail; the executive surface is D1–D4. All are **Proposed, not adopted**; owners/dates stay with the delivery teams. Two were re-scoped per CEO review (2026-09-21): **P-006** is now an *outcome* (control envelope), not "reinstate IAC M4"; **P-001** is *vendor-independent* (Uniphore is a separable choice).
 
@@ -338,7 +340,7 @@ The proof exits above are **success** criteria. A testable strategy also states 
 | # | Thesis under test | Tested by | Kill / weaken criterion |
 |---|-------------------|-----------|-------------------------|
 | **K1** | **Customers will delegate operational control** (not just buy private inference) | **MOE-1** | If, by MOE-1, customers value private inference but **will not delegate operational responsibility or pay Rackspace to assume it**, the "Private Enterprise AI Operator" thesis is weakened — reconsider whether RackAI is primarily an **infrastructure platform** rather than an operator. |
-| **K2** | **The Empirical Map is a real moat** (cross-workload learning compounds) | Empirical Map v1 (P-005) on 2–3 estates | If evidence accumulated across workloads **does not materially improve cost, reliability, placement, or performance versus workload-local optimization**, the Empirical Map is not a meaningful differentiator and should **not** receive disproportionate investment. |
+| **K2** | **The Empirical Map is a real moat** (cross-workload learning **transfers**) | Empirical Map v1 (P-005) on 2–3 estates | Cross-customer learning is **not automatically valuable just because we collect telemetry.** The thing to prove: something learned from workload/customer A is **transferable enough to improve B while respecting isolation boundaries.** If most useful optimization turns out to be highly **workload-specific**, the flywheel is far weaker than the strategy assumes — the Empirical Map is not a meaningful differentiator and should **not** receive disproportionate investment. Test early. |
 | **K3** | **Domain-aligned models beat frontier for our buyers** (the central bet) | Fine-tuning experiment (P-001) | Carried from [[Three Battlegrounds]]: if smaller domain-aligned models fail to reach acceptable quality/cost vs. frontier for the workloads we target, the wedge is wrong. |
 
 K1 and K2 are the two that would most change resource allocation: K1 decides whether we are an operator at all, and K2 decides whether the moat deserves the disproportionate investment D2 asks for. Both are cross-linked to the identity-level scoreboard in [[Three Battlegrounds]].
