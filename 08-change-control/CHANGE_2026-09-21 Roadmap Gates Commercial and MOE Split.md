@@ -10,7 +10,7 @@ source_docs: ["CEO strategy review 2026-09-21"]
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-wiki
-summary: "Change packet: tightened the four-proofs roadmap with proofs-as-gates framing, sharper Proof 1/2 exits, a commercial gate alongside every proof, paired anti-Goodhart north-star metrics, the cross-workload-evidence killer metric, and the MOE-0/MOE-1 split. Also records the prior batch (AI Operations Product note + P-002) that shipped without its own packet."
+summary: "Change packet: added proofs-as-gates, commercial gates, paired north-star metrics, and the MOE-0/MOE-1 split."
 ---
 
 # Change Packet — Roadmap Gates, Commercial Gate & MOE Split (2026-09-21)

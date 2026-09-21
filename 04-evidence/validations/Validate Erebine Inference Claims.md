@@ -10,7 +10,7 @@ source_docs: ["https://erebine.ai", "erebine OpenAI-compatible API probe (2026-0
 confidence: measured
 last_reviewed: 2026-09-15
 parent: hub-evidence
-summary: "Test of Erebine's asserted inference claims against measurable API behavior. Run 2026-09-15: prefix cache confirmed (~97% reuse warm), TTFT/decode measured client-side; router 2.7 ms not client-verifiable; erepress toggle observable but per-request delta not isolated."
+summary: "Validation of Erebine's inference claims vs. measurable API behavior (run 2026-09-15); prefix cache confirmed."
 ---
 
 # Validate Erebine Inference Claims

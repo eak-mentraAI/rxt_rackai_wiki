@@ -10,7 +10,7 @@ source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md,
 confidence: derived
 last_reviewed: 2026-09-04
 parent: hub-evidence
-summary: "Capability-vs-goal matrix: the platform capabilities missing to reach the strategic project-level goals, not just the OpenRouter initiative."
+summary: "Capability-vs-goal matrix: the platform capabilities missing to reach the strategic project-level goals."
 ---
 
 # Capability Gap Register

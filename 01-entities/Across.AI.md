@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-entities
-summary: "Canonical entity: Across.AI, the candidate partner (pending diligence) that could accelerate the moat's harness/orchestration/loop machinery."
+summary: "Canonical entity: Across.AI, candidate partner (pending diligence) that could accelerate the moat machinery."
 ---
 
 # Across.AI

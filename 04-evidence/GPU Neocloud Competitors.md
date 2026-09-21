@@ -10,7 +10,7 @@ source_docs: ["https://www.coreweave.com/", "https://lambda.ai/", "web research 
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-evidence
-summary: "Competitor teardown for Battleground (a) capacity partners: CoreWeave and Lambda — fleet, interconnect, inference products, and why neither is a topology peer to RackAI's PCIe/NVLink-pair ~27B fleet."
+summary: "Battleground (a) capacity competitors: CoreWeave and Lambda, and why neither is a topology peer to RackAI."
 ---
 
 # GPU Neocloud Competitors

@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-wiki
-summary: "View note: projects the dev plan's 8-layer stack + 3 control planes onto the canonical 5-layer knowledge model and its notes."
+summary: "View note: projects the dev plan's 8-layer stack and 3 control planes onto the canonical 5-layer knowledge model."
 ---
 
 # Eight-Layer Stack

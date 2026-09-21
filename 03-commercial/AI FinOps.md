@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-commercial
-summary: "L3 composite: the AI FinOps platform and cost loop (meter → govern → route → reason) that turns metered token spend into budgets, showback, and cost-per-outcome economics."
+summary: "L3 composite: the AI FinOps platform and cost loop turning metered token spend into budgets and cost-per-outcome."
 ---
 
 # AI FinOps

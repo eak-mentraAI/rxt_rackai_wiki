@@ -10,7 +10,7 @@ source_docs: ["CEO strategy review 2026-09-21", "reference/rackai_dev_plan 2.doc
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-wiki
-summary: "Change packet: elevated the strategy note from a battleground map to the Private Enterprise AI Operator identity + theory of advantage, and added the Load-Bearing Bets partner portfolio."
+summary: "Change packet: reframed the strategy note to the operator identity and added the Load-Bearing Bets partner portfolio."
 ---
 
 # Change Packet — Operator Identity & Load-Bearing Bets (2026-09-21)

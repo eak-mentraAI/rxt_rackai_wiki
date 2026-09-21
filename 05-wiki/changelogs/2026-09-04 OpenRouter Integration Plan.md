@@ -10,7 +10,7 @@ source_docs: [openrouter_concepts_integration_provider, openrouter_strategic_vis
 confidence: derived
 last_reviewed: 2026-09-04
 parent: hub-wiki
-summary: "Merged the two OpenRouter reference artifacts into one deliverable with the phased A → quick-wins → public-GLM → AMD-scale sequencing."
+summary: "Merged the two OpenRouter reference artifacts into one deliverable with the full phased integration sequencing."
 ---
 
 # 2026-09-04 — OpenRouter Integration Plan

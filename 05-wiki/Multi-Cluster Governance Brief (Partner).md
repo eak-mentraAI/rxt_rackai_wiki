@@ -10,7 +10,7 @@ source_docs: [rackai_deployment_docs, rackai_user_guide_api_cli, project_specifi
 confidence: assumed
 last_reviewed: 2026-09-16
 parent: hub-wiki
-summary: "Architectural briefing shared with the VMware Avi (Broadcom) team: RackAI's current serving, tenancy, routing, and policy model, the responsibilities RackAI expects to retain, and areas where Avi may provide complementary capabilities."
+summary: "Partner briefing (VMware Avi / Broadcom): RackAI's serving, tenancy, routing, and policy model, and where Avi may."
 ---
 
 # RackAI × VMware Avi — AI Gateway Partner Brief

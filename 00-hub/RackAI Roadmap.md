@@ -10,7 +10,7 @@ source_docs: ["06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-source
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-root
-summary: "The canonical, living roadmap for RackAI — organized around four progressive proofs of the Private Enterprise AI Operator identity (Observe → Decide → Control → Operate), anchored on a Minimum Operable Estate, governed by human-operated→automated maturity, and measured by production workloads under management."
+summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Control, Operate)."
 ---
 
 # RackAI Roadmap

@@ -10,7 +10,7 @@ source_docs: ["06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-source
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-wiki
-summary: "Change packet: created the canonical, living RackAI Roadmap that synthesizes both source spines under the operator identity, with a Proposed-Changes intake for future roadmap edits."
+summary: "Change packet: created the canonical living RackAI Roadmap synthesizing both source spines under the operator identity."
 ---
 
 # Change Packet — Canonical Living Roadmap (2026-09-21)

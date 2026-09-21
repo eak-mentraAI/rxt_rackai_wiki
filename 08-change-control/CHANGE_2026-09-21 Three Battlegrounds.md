@@ -10,7 +10,7 @@ source_docs: ["web research 2026-09-21", "reference/jd/EXTERNAL_PDM_Orchestratio
 confidence: assumed
 last_reviewed: 2026-09-21
 parent: hub-wiki
-summary: "Change packet: added the Three Battlegrounds positioning hub and three per-battleground competitor evidence notes, wired to hubs and crosswalk."
+summary: "Change packet: added the Three Battlegrounds hub and three competitor evidence notes, wired to hubs and crosswalk."
 ---
 
 # Change Packet — Three Battlegrounds & Competitor Evidence Notes (2026-09-21)

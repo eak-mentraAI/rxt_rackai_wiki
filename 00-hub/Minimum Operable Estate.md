@@ -10,7 +10,7 @@ source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "CEO 
 confidence: assumed
 last_reviewed: 2026-09-21
 parent: hub-roadmap
-summary: "The Minimum Operable Estate: the smallest customer environment for which Rackspace can legitimately say 'we operate your AI' — delivered as MOE-0 (operator rehearsal, friendly/internal) then MOE-1 (identity proof, external + paid), anchoring Proof 3 of the RackAI Roadmap."
+summary: "The smallest estate where 'we operate your AI' is true: MOE-0 rehearsal then MOE-1 paid proof; anchors Proof 3."
 ---
 
 # Minimum Operable Estate

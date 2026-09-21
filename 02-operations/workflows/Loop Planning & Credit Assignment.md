@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-operations
-summary: "Workflow: plan the whole task loop (decompose, agents, verify, stop) for lowest cost per outcome, and credit the step that earned the result."
+summary: "Workflow: plan the whole task loop (decompose, agents, verify, stop) for lowest cost per outcome, and credit the step."
 ---
 
 # Loop Planning & Credit Assignment

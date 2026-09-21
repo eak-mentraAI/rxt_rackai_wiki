@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-operations
-summary: "Workflow: check each step of a run — reliability signal, reward signal for the loop, and audit evidence — the hardest problem in the plan."
+summary: "Workflow: check each step of a run for a reliability signal, a reward signal for the loop, and audit evidence."
 ---
 
 # Verification

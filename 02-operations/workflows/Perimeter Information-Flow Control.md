@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-operations
-summary: "Workflow: decide at context-assembly time what data may reach which model or jurisdiction, and prove afterward that it did."
+summary: "Workflow: decide at context-assembly time what data may reach which model or jurisdiction, and prove it afterward."
 ---
 
 # Perimeter Information-Flow Control

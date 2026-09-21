@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-entities
-summary: "Canonical entity: the living record of where each model is reliable and what it costs, per workload, from our own operating data."
+summary: "Canonical entity: the living record of where each model is reliable and what it costs, from our operating data."
 ---
 
 # Empirical Map

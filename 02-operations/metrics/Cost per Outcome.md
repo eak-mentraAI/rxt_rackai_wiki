@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-operations
-summary: "Metric: the cost to produce a completed outcome (not a token), attributed by workload, tenant, and result — the unit routing and FinOps reason about."
+summary: "Metric: the cost to produce a completed outcome (not a token), attributed by workload, tenant, and result — the unit."
 ---
 
 # Cost per Outcome

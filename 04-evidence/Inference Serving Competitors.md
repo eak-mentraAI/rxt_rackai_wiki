@@ -10,7 +10,7 @@ source_docs: ["https://fireworks.ai/", "https://www.together.ai/", "https://www.
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-evidence
-summary: "Competitor teardown for Battleground (b) AI-native inference: Fireworks AI, Together AI, Baseten, Anyscale — positioning, tech, hardware, sovereign posture, and how each maps against RackAI."
+summary: "Battleground (b) inference competitors: Fireworks, Together, Baseten, Anyscale vs. RackAI."
 ---
 
 # Inference Serving Competitors

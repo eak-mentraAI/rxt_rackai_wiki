@@ -10,7 +10,7 @@ source_docs: ["Rack AI v2/README.txt", "Rack AI v2/claude-desktop-config.json", 
 confidence: measured
 last_reviewed: 2026-09-15
 parent: hub-evidence
-summary: "Competitive analysis of Erebine (erebine.ai): a zero-lock-in, OpenAI-compatible inference router plus MCP workspace-intelligence layer, validated against a live API key from the Rack AI v2 bundle."
+summary: "Competitive analysis of Erebine: a zero-lock-in OpenAI-compatible router + MCP workspace layer, validated against a."
 ---
 
 # Erebine Competitive Analysis

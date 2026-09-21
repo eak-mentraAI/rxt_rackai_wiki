@@ -10,7 +10,7 @@ source_docs: ["https://www.palantir.com/", "https://cohere.com/", "https://mistr
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-evidence
-summary: "Competitor teardown for Battleground (c) regulated/sovereign/governed outcomes: Palantir (AIP), Cohere (North), Mistral, Scale AI — including Palantir's partner-and-competitor duality."
+summary: "Battleground (c) sovereign/governed competitors: Palantir, Cohere, Mistral, Scale AI vs. RackAI."
 ---
 
 # Sovereign & Governed AI Competitors

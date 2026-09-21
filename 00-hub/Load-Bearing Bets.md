@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx", "CEO strategy review 2026-09-2
 confidence: assumed
 last_reviewed: 2026-09-21
 parent: hub-root
-summary: "Partner portfolio for the Private Enterprise AI Operator: current load-bearing bets (Palantir, Uniphore, Across.AI candidate) and proposed new bets mapped to the operator stack, each with the gap it fills, confidence, and an exit criterion."
+summary: "Partner portfolio for the operator: current and proposed bets, each with gap, confidence, and exit criterion."
 ---
 
 # Load-Bearing Bets

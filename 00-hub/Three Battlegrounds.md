@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx", "reference/jd/EXTERNAL_PDM_Orc
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-root
-summary: "Company identity and theory of advantage: RackAI as the Private Enterprise AI Operator — what we own (incl. the execution harness), the GPU supply we abstract, what we refuse to compete on, why we compound (transferable operating knowledge), and how the thesis can be proven wrong."
+summary: "Company identity and theory of advantage: RackAI as the Private Enterprise AI Operator."
 ---
 
 # Private Enterprise AI Operator

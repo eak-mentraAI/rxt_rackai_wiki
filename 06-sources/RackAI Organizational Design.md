@@ -10,7 +10,7 @@ source_docs: ["reference/Enterprise AI Cloud - RackAI.pptx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-product
-summary: "Faithful markdown companion of the BU org-design deck: four functions, RackAI org structure, reorg actions, and resourcing asks."
+summary: "Markdown companion of the BU org-design deck: four functions, RackAI org structure, and reorg actions."
 ---
 
 # RACKSPACE AI CLOUD — Organizational Design

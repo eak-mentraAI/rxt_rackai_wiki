@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-product
-summary: "Faithful markdown companion of the BU dev plan: five programs + productization/ops on two tracks (dev/research), built on RackAI as foundation."
+summary: "Markdown companion of the BU dev plan: five programs plus productization/ops on two tracks (dev and research)."
 ---
 
 # RackAI & Enterprise AI — Development Plan

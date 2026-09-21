@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-operations
-summary: "Workflow: improve the system with use — choose the learning path, keep it stable, roll out safely, and transfer learning without moving data."
+summary: "Workflow: improve the system with use — choose the learning path, keep it stable, roll out safely, and transfer."
 ---
 
 # Self-Improvement Loop

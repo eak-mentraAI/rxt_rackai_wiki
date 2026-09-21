@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-entities
-summary: "Canonical entity: the identity an agent acts under and the delegated, task-scoped authority it carries through each hop of a run."
+summary: "Canonical entity: the identity an agent acts under and the delegated, task-scoped authority it carries per run."
 ---
 
 # Agent Identity

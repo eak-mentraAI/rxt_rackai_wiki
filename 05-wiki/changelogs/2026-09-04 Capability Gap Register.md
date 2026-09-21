@@ -10,7 +10,7 @@ source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md,
 confidence: derived
 last_reviewed: 2026-09-04
 parent: hub-wiki
-summary: "Added the Capability Gap Register: a capability-vs-goal matrix of what's missing to reach the strategic project-level goals."
+summary: "Added the Capability Gap Register: a capability-vs-goal matrix of what's missing to reach the strategic goals."
 ---
 
 # 2026-09-04 — Capability Gap Register

@@ -10,7 +10,7 @@ source_docs: ["CEO strategy review 2026-09-21", "00-hub/Three Battlegrounds.md"]
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-wiki
-summary: "Change packet: restructured the canonical roadmap from Now/Next/Later horizons into four progressive proofs (Observe → Decide → Control → Operate), added the Minimum Operable Estate MVP, the human→automated ladder, operator north-star metrics, the AI Operations Product workstream, and moved supply abstraction to Proof 1."
+summary: "Change packet: restructured the roadmap into four proofs, added the Minimum Operable Estate, and the maturity ladder."
 ---
 
 # Change Packet — Roadmap Four-Proofs Restructure + MOE (2026-09-21)

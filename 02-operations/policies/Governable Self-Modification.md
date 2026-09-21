@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-governance
-summary: "Policy: version, attribute, replay, and re-certify a system that rewrites its own behavior, so it stays what a regulator approved."
+summary: "Policy: version, attribute, replay, and re-certify a system that rewrites its own behavior, so it stays governable."
 ---
 
 # Governable Self-Modification
