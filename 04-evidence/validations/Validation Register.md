@@ -27,6 +27,7 @@ The register of validation items — claims, coefficients, and configurations th
 |------|----|--------|--------|
 | [[Validate DeepSeek H100 FP8]] | val-deepseek-h200-fp8 | Benchmark harness + competitive comparison pipeline | open |
 | [[Validate Launch Lag Under 24h]] | val-launch-lag-24h | Instrument Model Launch Factory + measure launch lag | open |
+| [[Validate Erebine Inference Claims]] | val-erebine-inference-claims | OpenAI-compatible harness vs Erebine `ed` endpoint; TTFT/decode/cached_tokens/erepress | run complete 2026-09-15 (E-2 confirmed; E-3/E-4 measured; E-5 partial; E-1 unverifiable); RackAI side-by-side open |
 
 The register extends as items are added.
 

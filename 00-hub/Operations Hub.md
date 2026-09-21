@@ -40,6 +40,18 @@ Layer 2 — the operational ontology / digital twin. How the platform behaves at
 
 Serving/scheduling and optimization workflows serve the whole platform; **Fine-Tuning**, **Identity & Access Control**, **Metering**, **Monitoring & Observability**, and **Audit** are the platform-operations workflows added with the RackAI-platform rescope. Metering and Audit are planned (`assumed`); platform monitoring is shipped.
 
+### Governed Harness & Assurance Workflows (Enterprise AI dev plan)
+
+Net-new workflows from the [[RackAI Enterprise AI Development Plan]], `assumed` confidence. See the [[Eight-Layer Stack]] view for the architecture mapping.
+
+| Workflow | ID |
+|----------|----|
+| [[Verification]] | wf-verification |
+| [[Loop Planning & Credit Assignment]] | wf-loop-planning |
+| [[Self-Improvement Loop]] | wf-self-improvement-loop |
+| [[Eval as CI]] | wf-eval-as-ci |
+| [[Perimeter Information-Flow Control]] | wf-perimeter-info-flow |
+
 ## Events
 
 | Event | ID |
@@ -60,6 +72,7 @@ Serving/scheduling and optimization workflows serve the whole platform; **Fine-T
 | [[Productive GPU Utilization]] | met-gpu-utilization |
 | [[Availability]] | met-availability |
 | [[Model Launch Lag]] | met-model-launch-lag |
+| [[Cost per Outcome]] | met-cost-per-outcome |
 
 See the [[Metric Index]] for the full listing.
 
@@ -93,6 +106,9 @@ See the [[Metric Index]] for the full listing.
 | [[Performance Regression Gate]] | pol-performance-regression-gate |
 | [[Capacity Reservation Policy]] | pol-capacity-reservation |
 | [[Procurement Trigger]] | pol-procurement-trigger |
+| [[Action Controls]] | pol-action-controls |
+| [[Supply Chain Inventory]] | pol-supply-chain-inventory |
+| [[Governable Self-Modification]] | pol-governable-self-modification |
 
 ## Related Hubs
 

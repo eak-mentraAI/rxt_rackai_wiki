@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [request routing, hardware-aware routing, economic routing]
-related: [wf-admission-control, wf-gpu-reallocation, fml-revenue-per-gpu-hour, fml-cost-per-1m-tokens, ent-model, ent-model-deployment, ent-capacity-pool, ent-traffic-class, ent-topology, ent-openrouter-provider-integration]
+related: [wf-admission-control, wf-gpu-reallocation, fml-revenue-per-gpu-hour, fml-cost-per-1m-tokens, ent-model, ent-model-deployment, ent-capacity-pool, ent-traffic-class, ent-topology, ent-openrouter-provider-integration, ent-empirical-map, ent-governed-harness, wf-loop-planning]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03
@@ -44,6 +44,14 @@ stateDiagram-v2
 4. Dispatch — platform-eng; send the request to the best-outcome [[Model Deployment]]; if no healthy candidate exists, defer to [[Admission Control]].
 
 The endpoint abstraction is preserved: customers address one model, routing selects the config.
+
+## Dev-Plan Extension (Enterprise AI)
+
+The [[RackAI Enterprise AI Development Plan]] (thread 1.4) extends routing beyond request-to-pool placement to routing a task to the right **harness, model, or human**, with **measured cost as a first-class input**. `assumed` confidence. New edges:
+
+- Routing reads measured token cost and reliability from the [[Empirical Map]] (not just live economics).
+- Routing dispatches to a [[Governed Harness]] (or a human), not only a deployment config.
+- The whole-loop, learned-optimizer version is [[Loop Planning & Credit Assignment]] (the deep version of this thread).
 
 ## Events Emitted
 

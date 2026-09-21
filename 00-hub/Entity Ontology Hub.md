@@ -54,6 +54,17 @@ Layer 1 — the semantic backbone. Canonical business and domain objects of the 
 | [[Fine-Tuning Job]] | ent-fine-tuning-job | created |
 | [[LoRA Adapter]] | ent-lora-adapter | created |
 
+## Governed Harness & Agentic Entities (Enterprise AI dev plan)
+
+Net-new entities from the [[RackAI Enterprise AI Development Plan]], `assumed` confidence pending ratification. See the [[Eight-Layer Stack]] view for how they map onto the architecture.
+
+| Entity | ID | Status |
+|--------|----|--------|
+| [[Governed Harness]] | ent-governed-harness | created |
+| [[Empirical Map]] | ent-empirical-map | created |
+| [[Agent Identity]] | ent-agent-identity | created |
+| [[Across.AI]] | ent-across-ai | created |
+
 ## OpenRouter Initiative Entities
 
 | Entity | ID | Status |

@@ -44,6 +44,13 @@ Every source document that feeds the corpus, with classification and provenance.
 | Monitoring and Auditability Spec | [[Monitoring and Auditability Spec]] | architecture | extracted |
 | Accelerator Selection Spec | [[Accelerator Selection Spec]] | architecture | extracted |
 
+### RackAI platform — BU planning & org (added 2026-09-17)
+
+| Source | Note | Classification | Status |
+|--------|------|----------------|--------|
+| RackAI & Enterprise AI Development Plan | [[RackAI Enterprise AI Development Plan]] | planning | extracted |
+| RackAI Organizational Design (deck) | [[RackAI Organizational Design]] | planning | companion-created, reference-only (org content out of graph scope) |
+
 ## Classification Legend
 
 strategy · architecture · roadmap · commercial · planning · operational · benchmark · reference

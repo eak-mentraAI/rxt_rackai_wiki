@@ -5,7 +5,7 @@ status: draft
 owner: commercial
 domain: commercial
 aliases: [metering, usage metering, usage capture]
-related: [ent-organization, wf-monitoring, hub-operations]
+related: [ent-organization, wf-monitoring, hub-operations, idx-ai-finops, met-cost-per-outcome]
 source_docs: [metering_spec]
 confidence: assumed
 last_reviewed: 2026-09-04
@@ -53,6 +53,8 @@ All steps are planned (draft PRD); none are shipped.
 | MEASURES | [[Organization]] | → | Usage captured per tenant |
 | DEPENDS_ON | [[Monitoring & Observability]] | → | Relies on telemetry capture |
 | CONSTRAINS | [[Billing & Payment]] | → | Metering feeds billing, but billing is a separate non-goal here |
+| SUPPORTS | [[AI FinOps]] | → | The "meter" step of the cost loop; the shared token-cost spine ([[RackAI Enterprise AI Development Plan]], thread 1.3/5.1) |
+| PRODUCES | [[Cost per Outcome]] | → | Token-spend data attributed by workload/tenant/outcome (`assumed`) |
 
 ## Evidence
 
