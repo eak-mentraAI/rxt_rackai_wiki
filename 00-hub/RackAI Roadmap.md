@@ -89,7 +89,7 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 
 ### Proof 1 — Observe: *We understand what is happening and what it costs*
 
-> **Technical exit:** For a production model, Rackspace can **accurately measure** its cost, performance, utilization, reliability, and operational history **on the infrastructure we operate.** ("operate" is *earned* by Proof 4 — Proof 1 is understanding, not yet operating on behalf of a customer.) (Note: *where/how a workload runs best* is comparative intelligence — that is Proof 2, not Proof 1.)
+> **Technical exit:** For a production model, Rackspace can **accurately measure** its cost, performance, utilization, reliability, and operational history **on the infrastructure we operate.** Two boundaries: "operate" is *earned* by Proof 4 (Proof 1 is understanding, not yet operating on a customer's behalf), and *where/how a workload runs best* is comparative intelligence — that is Proof 2, not Proof 1.
 > **Commercial gate:** we have a defensible cost model and a pricing hypothesis for operated workloads.
 
 | Item | Traces to | Confidence |
@@ -165,7 +165,7 @@ The proofs say *what we must be able to claim*; the milestones say *what the tea
 
 > **Status/dates are the delivery roadmap's own** (`measured` — real Jira/schedule). Confidence in the last column reflects delivery status, not strategy aspiration. The strategy-side items with no delivery milestone yet are marked ⚠ and sink to the Proposed Changes queue.
 
-### Proof 1 — Observe: *measure and operate AI*
+### Proof 1 — Observe: *understand what is happening and what it costs*
 
 The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/identity substrate.
 
@@ -184,7 +184,7 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 
 **Proof 1 read:** measurement substrate is genuinely underway (auth/audit shipped; telemetry + metering in progress). The two strategy gaps are the **cost model** (usage is metered but cost/GPU-hour isn't modeled) and the **supply-abstraction interface**.
 
-### Proof 2 — Decide: *evidence improves how we operate*
+### Proof 2 — Decide: *accumulated knowledge improves decisions*
 
 | Milestone | Deliverable | Jira | Owner | Status | Serves |
 |-----------|-------------|------|-------|--------|--------|
@@ -199,7 +199,7 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 
 **Proof 2 read:** the *ingredients* of good operating decisions are being built (routing, accelerator selection, perf optimizations, fine-tuning), but the **Empirical Map** — the thing that makes decisions *evidence-informed across workloads*, i.e. the moat — is not on the delivery plan. This is the single most important strategy gap.
 
-### Proof 3 — Control: *operate inside an enterprise boundary*
+### Proof 3 — Control: *safely assume responsibility inside an enterprise boundary*
 
 | Milestone | Deliverable | Jira | Owner | Status | Serves |
 |-----------|-------------|------|-------|--------|--------|
@@ -213,7 +213,7 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 
 **Proof 3 read:** the delivery plan builds real control-plane pieces (audit, admission control, isolation) but **stops short of the identity proof** — there is no harness, no compliance attestation milestone, no MOE, and org-level RBAC was explicitly dropped (IAC M4 "Won't Do"). This is where the strategy is furthest ahead of delivery.
 
-### Proof 4 — Operate the Estate: *customers delegate the estate*
+### Proof 4 — Operate: *do it repeatably and profitably across heterogeneous estates*
 
 | Milestone | Deliverable | Jira | Owner | Status | Serves |
 |-----------|-------------|------|-------|--------|--------|
