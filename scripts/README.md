@@ -9,7 +9,7 @@ related: [hub-root, pol-fitness-checklist]
 parent: hub-root
 source_docs: []
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-09-21
 summary: "Documents the frontmatter compliance lint and how enforcement works in this wiki."
 ---
 
@@ -99,22 +99,30 @@ It triggers on every `.md` save, runs the lint against the saved file only, and 
 
 ---
 
-## Optional: Pre-commit Enforcement
+## Pre-commit Enforcement
 
-For enforcement at commit-time rather than save-time:
+Commit-time enforcement is provided by a git `pre-commit` hook that lints the **staged** `.md` files and **blocks** the commit on any violation (missing field, invalid enum, or over-length summary).
+
+Because `.git/hooks/` is not version-controlled, the hook is installed from a tracked script. After cloning, run once:
 
 ```bash
-# .git/hooks/pre-commit (or use husky/lefthook)
-#!/usr/bin/env bash
-STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$' || true)
-if [ -n "$STAGED" ]; then
-  ./scripts/lint-frontmatter.sh $STAGED || {
-    echo ""
-    echo "Commit blocked: frontmatter violations detected. Fix them and re-stage."
-    exit 1
-  }
-fi
+./scripts/install-git-hooks.sh
 ```
+
+This writes `.git/hooks/pre-commit`, which runs:
+
+```bash
+STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$' || true)
+[ -n "$STAGED" ] && ./scripts/lint-frontmatter.sh $STAGED
+```
+
+- Only staged/changed markdown is checked (fast; won't fail on pre-existing violations elsewhere).
+- A non-zero lint exit aborts the commit.
+- Emergency bypass (use sparingly): `git commit --no-verify`.
+
+To change what the hook does, edit `scripts/install-git-hooks.sh` and re-run it — not `.git/hooks/pre-commit` directly — so the hook stays reproducible across clones.
+
+> **Note:** the hook enforces the same rules as the knowledge-platform ingestion schema (including `summary` ≤ 120 chars). Over-length summaries are silently dropped as unstructured shadow nodes on ingestion, so blocking them at commit-time keeps notes renderable in the console.
 
 ---
 
