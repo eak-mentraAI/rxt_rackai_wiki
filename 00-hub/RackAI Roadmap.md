@@ -5,8 +5,8 @@ status: draft
 owner: product
 domain: strategy
 aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operator roadmap, engineering roadmap canonical, four proofs, observe decide control operate, proof roadmap]
-related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness]
-source_docs: ["06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md"]
+related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness]
+source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md"]
 confidence: derived
 last_reviewed: 2026-09-21
 parent: hub-root
@@ -15,14 +15,14 @@ summary: "Canonical living roadmap: four proofs of the operator identity (Observ
 
 # RackAI Roadmap
 
-The **single canonical, living roadmap** for RackAI. Unlike the two source narratives it draws from — the [[Rack AI OpenRouter Engineering Roadmap]] (`validated`, read-only) and the [[RackAI Enterprise AI Development Plan]] (`assumed`, raw projection) — **this note is editable and is where planning actually lives.** Those two remain sources; when a proposed change is accepted, it lands here first, and the sources are left intact per the truth hierarchy.
+The **single canonical, living roadmap** for RackAI. It is built primarily on the **actual delivery roadmap** — the [[RackAI Roadmap (Delivery Plan)]] (`measured`; the staffed, Jira-tracked `reference/RackAI - Roadmap.xlsx`) — which this note **reorders and extends under the operator strategy**: it lifts the real delivery milestones out of their native CSP/M2 grouping and re-places them under the four operator proofs (the reordering), then adds the strategy-driven gaps and proposals the delivery plan does not yet contain (the extension). It further draws on two strategy narratives — the [[Rack AI OpenRouter Engineering Roadmap]] (`validated`, read-only) and the [[RackAI Enterprise AI Development Plan]] (`assumed`, raw projection). **This note is editable and is where planning actually lives;** all three sources remain intact — when a proposed change is accepted, it lands here first, and the sources are left unedited per the truth hierarchy. The delivery roadmap keeps its native numbering, Jira IDs, owners, and status so the corpus stays traceable to Jira.
 
 > **Confidence.** `derived` — this roadmap synthesizes two existing planning spines under the [[Three Battlegrounds|Private Enterprise AI Operator]] identity. Individual items carry the confidence of their source (phase/program/gap). Nothing here upgrades a capability to shipped; the live shipped-vs-planned state is the [[Capability Gap Register]].
 
 ## How to Read This Roadmap
 
 - **North star** is the operator identity, not leaderboard rank. We are building *the best operator of heterogeneous enterprise AI estates*; OpenRouter competitiveness is a **learning vehicle inside** the operator roadmap, not its critical path ([[Three Battlegrounds]]).
-- **The roadmap is organized around four progressive proofs**, not around inherited technical phases: **Observe → Decide → Control → Operate.** Each proof has an exit condition phrased as a claim about *operating an estate*. The two source spines — the [[Rack AI OpenRouter Engineering Roadmap]] (Phases 0–6) and the [[RackAI Enterprise AI Development Plan]] (Programs 1–5, P1–P9) — supply *items that map into these proofs*, but the proofs are the organizing logic.
+- **The roadmap is organized around four progressive proofs**, not around inherited technical phases: **Observe → Decide → Control → Operate.** Each proof has an exit condition phrased as a claim about *operating an estate*. The **delivery roadmap** ([[RackAI Roadmap (Delivery Plan)]]) supplies the real milestones that are **reordered under these proofs**; the two strategy spines — the [[Rack AI OpenRouter Engineering Roadmap]] (Phases 0–6) and the [[RackAI Enterprise AI Development Plan]] (Programs 1–5, P1–P9) — supply the strategy items that **extend** it. The proofs are the organizing logic.
 - **Every item passes one test:** *does this make us materially better at operating a customer's AI estate?* ([[Three Battlegrounds]] strategic choice.)
 - **The MVP is the [[Minimum Operable Estate]]**, not the full platform. We earn the word "Operator" by operating one estate, then ten, then automating what hurts.
 - **Maturity principle:** every capability walks the ladder **human-operated → instrumented → assisted → automated** (see below). We do not automate before we operate.
@@ -471,8 +471,9 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 - [[Three Battlegrounds]] — the identity this roadmap serves
 - [[Minimum Operable Estate]] — the MVP that anchors Proof 3
 - [[Load-Bearing Bets]] — the partner portfolio behind it
-- [[Rack AI OpenRouter Engineering Roadmap]] — source spine (inference operating system)
-- [[RackAI Enterprise AI Development Plan]] — source spine (operator stack)
+- [[RackAI Roadmap (Delivery Plan)]] — **primary source**: the actual delivery roadmap this note reorders + extends
+- [[Rack AI OpenRouter Engineering Roadmap]] — strategy spine (inference operating system)
+- [[RackAI Enterprise AI Development Plan]] — strategy spine (operator stack)
 - [[OpenRouter Integration Plan]] — the gated GTM sequence
 - [[Capability Gap Register]] — live shipped-vs-planned state
 - [[Product Hub]] · [[Rack AI Knowledge Base]]
