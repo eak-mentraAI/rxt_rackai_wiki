@@ -7,3 +7,6 @@
 reference/**/*.annotations.md
 reference/*.annotations.md
 reference/_annotations/
+
+# Ontology discovery working docs (private drafts for the Palantir handoff, not part of the KB)
+_ontology-discovery/

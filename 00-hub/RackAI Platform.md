@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [rackai platform hub, platform hub, rackai product, rmpai, rackai aurora]
-related: [hub-root, hub-openrouter, hub-entities, hub-operations, hub-commercial]
+related: [hub-root, hub-enterprise-ai, hub-openrouter, hub-entities, hub-operations, hub-commercial]
 source_docs: [rackai_prd_uniphore_la.docx, rackai_1_0_0_docs.md, welcome_to_rackai_console.md, rackai_api_reference.md]
 confidence: derived
 last_reviewed: 2026-09-04
