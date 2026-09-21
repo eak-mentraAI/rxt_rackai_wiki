@@ -158,8 +158,10 @@ The thesis should be measured, not merely asserted. Thresholds (`X`/`Y`) are pla
 | 2 | No premium for control | Across `X` qualified opportunities, fewer than `Y%` show measurable willingness to pay for private inference / governance / operational control | assumed |
 | 3 | **Operating layer captured** (highest risk) | Palantir (or equivalent) absorbs the operating layer in ≥ `Y%` of contested deals, such that a separate operator adds no value — see the Palantir boundary in [[Load-Bearing Bets]] | assumed |
 | 4 | Uncompetitive economics | RackAI cannot reach a blended cost-per-1M-tokens within `Y%` of the best partnered/owned supply alternative | assumed |
+| 5 | **Customers won't delegate control** (are we an operator at all?) | By **MOE-1**, customers value private inference but **will not delegate operational responsibility or pay** to have it operated → reconsider whether RackAI is an **infrastructure platform**, not an operator (roadmap K1) | assumed |
+| 6 | **The moat doesn't compound** | Cross-workload evidence (the [[Empirical Map]]) **does not materially beat workload-local optimization** on cost/reliability/placement/performance → the Map is not a differentiator and should not get disproportionate investment (roadmap K2) | assumed |
 
-You do not need the numbers today, but the strategy should eventually own a scoreboard rather than a list.
+You do not need the numbers today, but the strategy should eventually own a scoreboard rather than a list. The [[RackAI Roadmap]] carries these as **kill criteria K1–K3** tied to the concrete proofs (MOE-1 tests delegation; Empirical Map v1 tests the moat).
 
 ## CEO Questions the Team Must Answer Before Ratification
 

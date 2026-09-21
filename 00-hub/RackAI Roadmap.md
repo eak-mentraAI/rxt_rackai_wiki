@@ -306,25 +306,50 @@ Seams where the strategy is still ahead of the plan, tracked for the "Proposed C
 3. ~~**AI Operations Product** — elevated here, but has no canonical workstream/owner note yet.~~ **Closed** — canonical note created: [[AI Operations Product]] (staffing/ownership still open).
 4. **Supply-abstraction interface spec** (`SupplyTarget / AcceleratorPool / ExecutionLocation`) — an architectural requirement without a design note.
 
-## Proposed Changes (intake → review → adopt)
+## Proposed Changes → Four Executive Decisions
 
-This is the working queue. Proposals are drafted, discussed, and — once accepted — folded into the horizon/workstream tables above with a change packet recorded. **Nothing here is adopted until moved up.**
+The strategy-driven changes to the delivery plan are **not seven equivalent backlog edits** — seven proposals invite seven separate debates; **four decisions force a debate about the strategy.** The ask to leadership is to approve four decisions, name MOE-0, establish the MOE-1 customer profile, put dates against them, and have Engineering come back with the roadmap changes needed to hit those proofs. This turns the framework into a **resource-allocation mechanism**, not a feature list.
 
-| # | Proposed change | Affects | Status | Rationale |
-|---|-----------------|---------|--------|-----------|
-| **P-001** | Shift fine-tuning *delivery* to a partner (preferred: Uniphore); front-load operator-KPI enablers; protect a thin fine-tuning experiment | Proof 1/2; [[Load-Bearing Bets]]; Inference workstream | **Proposed** | Free the thin Inference pod to focus on what moves operator KPIs, without deferring the wedge experiment. See detail below. |
-| **P-002** | Commit to a first [[Minimum Operable Estate]] as the concrete Proof 3 target, and name its first customer | Proof 3; [[Minimum Operable Estate]]; [[AI Operations Product]]; [[Load-Bearing Bets]] | **Proposed** | Turns "operator" from a claim into a dated deliverable; forces the operational-acceptance and boundary decisions early. See detail below. |
-| **P-003** | Add a **cost-model** deliverable to the delivery roadmap (internal cost/GPU-hour), riding on the Metering pipeline | Proof 1; Metering M1; FinOps workstream | **Proposed** | Delivery meters *usage* but never models *cost/GPU-hour* — the cost floor the whole operator economics rests on. Gap surfaced in Proof 1. See detail below. |
-| **P-004** | Add a **supply-abstraction interface** (`SupplyTarget/AcceleratorPool/ExecutionLocation`) before the control plane hardens | Proof 1; Platform/Control Plane workstream | **Proposed** | Delivery assumes the owned fleet; AMD+NVIDIA and multi-region are bolt-ons. Introduce the abstraction now (cheap) vs. retrofitting later (expensive). See detail below. |
-| **P-005** | Add **Empirical Map v1** + evidence-driven routing as a first-class delivery workstream | Proof 2; Inference routing (RACKAI-311); Measurement workstream | **Proposed** | The moat is absent from delivery: routing is llm-d/KV-cache, telemetry is dashboards — nothing turns operating data into cross-workload decisions. Highest-leverage gap. See detail below. |
-| **P-006** | Add the **Proof-3 control bundle**: governed harness v1, a compliance-attestation milestone, and reinstated org-level access control (IAC M4 was "Won't Do") | Proof 3; IAC M4; Auditing; [[AI Operations Product]] | **Proposed** | Delivery stops short of the identity proof — no harness, no attestation milestone, and org-level RBAC was dropped. These gate every regulated buyer. See detail below. |
-| **P-007** | Fund the **Proof-4 operator business**: unbacklog multi-region + GPU-node access, add day-zero factory / closed-loop, and the managed-ops/FDE motion | Proof 4; M2 multi-region + GPU-node (Pri-6 backlog); [[AI Operations Product]] | **Proposed** | The repeatable, profitable operator business is unfunded; its prerequisites sit at Pri-6. Sequencing dependency, not an ask to start now. See detail below. |
+| # | Executive decision | What you're actually approving | Implements |
+|---|--------------------|-------------------------------|-----------|
+| **D1** | **Reorient delivery around MOE-0 → MOE-1** | Manage RackAI toward a **dated friendly operating rehearsal (MOE-0)** then a **paying external identity proof (MOE-1)** — *not* toward completion of a feature backlog | P-002 |
+| **D2** | **Build the learning + economics substrate now** | Cost model + supply-abstraction interface + **Empirical Map** — the things that are cheap now and structurally expensive later; the Empirical Map is a **load-bearing architectural capability**, not just another workstream | P-003, P-004, P-005 |
+| **D3** | **Establish the enterprise control envelope for MOE-1** | The **minimum** identity/authorization, governed execution, audit, isolation, and **independently-verifiable compliance evidence** required by the MOE-1 customer — outcome, not a specific implementation | P-006 |
+| **D4** | **Narrow where we differentiate** | RackAI will **not** become a differentiated fine-tuning product (partner delivery; retain operations + enough first-party capability to learn); and **do not prematurely build Proof 4** — identify prerequisites, let MOE evidence drive what gets automated | P-001, P-007 |
+
+**The single most important change (D1):** *manage toward a dated MOE-0 and MOE-1, not toward a feature backlog.*
+
+> **Below are the implementation proposals (P-001–P-007) that sit under these decisions.** They are the engineering detail; the executive surface is D1–D4. All are **Proposed, not adopted**; owners/dates stay with the delivery teams. Two were re-scoped per CEO review (2026-09-21): **P-006** is now an *outcome* (control envelope), not "reinstate IAC M4"; **P-001** is *vendor-independent* (Uniphore is a separable choice).
+
+| # | Proposal | Decision | Class | Status |
+|---|----------|:--------:|-------|--------|
+| **P-002** | Commit to a first [[Minimum Operable Estate]]; name MOE-0 + MOE-1 customer | D1 | **Center of the proposal** | Proposed |
+| **P-005** | Empirical Map v1 + evidence-driven routing (the moat) | D2 | **Center of the proposal** (load-bearing) | Proposed |
+| **P-003** | Cost-model deliverable (internal cost/GPU-hour) on the Metering pipeline | D2 | Do-now (cheap now, expensive later) | Proposed |
+| **P-004** | Supply-abstraction interface before the control plane hardens | D2 | Do-now (cheap now, expensive later) | Proposed |
+| **P-006** | Minimum enterprise **control envelope** required for MOE-1 (outcome-framed) | D3 | Re-scoped from "control bundle" | Proposed |
+| **P-001** | Narrow fine-tuning: partner delivery, retain operations + learning | D4 | Directional; vendor-independent | Proposed |
+| **P-007** | Proof-4 prerequisites as a **dependency declaration** (do not build yet) | D4 | Watch item, not a build ask | Proposed |
+
+## Kill / Falsification Criteria (what would change the thesis)
+
+The proof exits above are **success** criteria. A testable strategy also states what evidence would make us *change the thesis* — otherwise this is an identity we have decided must be true, not a strategy. These are deliberately uncomfortable; that is why they are useful. Leadership should be willing to own them.
+
+| # | Thesis under test | Tested by | Kill / weaken criterion |
+|---|-------------------|-----------|-------------------------|
+| **K1** | **Customers will delegate operational control** (not just buy private inference) | **MOE-1** | If, by MOE-1, customers value private inference but **will not delegate operational responsibility or pay Rackspace to assume it**, the "Private Enterprise AI Operator" thesis is weakened — reconsider whether RackAI is primarily an **infrastructure platform** rather than an operator. |
+| **K2** | **The Empirical Map is a real moat** (cross-workload learning compounds) | Empirical Map v1 (P-005) on 2–3 estates | If evidence accumulated across workloads **does not materially improve cost, reliability, placement, or performance versus workload-local optimization**, the Empirical Map is not a meaningful differentiator and should **not** receive disproportionate investment. |
+| **K3** | **Domain-aligned models beat frontier for our buyers** (the central bet) | Fine-tuning experiment (P-001) | Carried from [[Three Battlegrounds]]: if smaller domain-aligned models fail to reach acceptable quality/cost vs. frontier for the workloads we target, the wedge is wrong. |
+
+K1 and K2 are the two that would most change resource allocation: K1 decides whether we are an operator at all, and K2 decides whether the moat deserves the disproportionate investment D2 asks for. Both are cross-linked to the identity-level scoreboard in [[Three Battlegrounds]].
 
 ### P-001 — Fine-tuning: partner the delivery, keep the operations, protect the experiment
 
 **Proposed by:** CEO/product discussion, 2026-09-21. **Status: Proposed — not adopted.**
 
-**Problem.** "Should we push fine-tuning milestones to Uniphore and focus early effort on operator-KPI work?" The corpus shows the org already *intends* this — [[RackAI Organizational Design]]: "Fine-Tuning — No REQs required currently — will partner with Uniphore," and the Inference pod's fine-tuning line is `[0/1]` staffed. But "fine-tuning" is two things on opposite sides of the [[Three Battlegrounds|harness boundary]], so a blanket defer is wrong.
+**The decision (D4, vendor-independent).** *RackAI will not invest in becoming a differentiated fine-tuning product. We will retain the capabilities needed to **operate** fine-tuning workloads and keep enough first-party capability to **learn** from them.* This maps onto the strategic boundary between what customers build and what Rackspace operates. Whether Uniphore is the delivery partner is a **separate, downstream commercial decision** — do not let it stall the strategy decision.
+
+**Problem.** "Should we push fine-tuning milestones to a partner and focus early effort on operator-KPI work?" The corpus shows the org already *intends* this — [[RackAI Organizational Design]]: "Fine-Tuning — No REQs required currently — will partner with Uniphore," and the Inference pod's fine-tuning line is `[0/1]` staffed. But "fine-tuning" is three things across the [[Three Battlegrounds|harness boundary]], so a blanket defer is wrong.
 
 **The three-way split.**
 
@@ -413,15 +438,21 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 **Blocks adoption:** owner (no delivery team owns "measurement/self-improvement" today); depends on Metering M1 + Platform M1–M2 landing first.
 
-### P-006 — The Proof-3 control bundle (harness v1 + attestation + org RBAC)
+### P-006 — Define and fund the minimum enterprise control envelope for MOE-1
 
-**Delivery reality.** The delivery plan builds real control-plane pieces (audit, admission control, isolation) but: **(a)** there is no governed execution harness; **(b)** "compliance validation" is a sub-task of Auditing M3, not a **compliance-attestation milestone**; **(c)** org-level RBAC + metering/billing/quota permissions were **explicitly dropped** (IAC M4 = "Won't Do").
+*(Re-scoped per CEO review 2026-09-21: framed as an **outcome**, not a fixed engineering bundle. We do not care whether the old IAC M4 is resurrected; we care that MOE-1 has sufficient control boundaries. And we do not hardcode SOC 2 Type I — the required attestation is set by the target customer segment.)*
 
-**Why it matters (operator lens).** Proof 3 (Control) is the first proof of the identity. All three of these gate a regulated buyer: without a harness there is no operating layer to govern; without an attestation no regulated customer can adopt; without org-level access control multi-org tenancy is thin.
+**Delivery reality.** The delivery plan builds real control-plane pieces (audit, admission control, isolation) but stops short of the identity proof: **(a)** no governed execution harness; **(b)** "compliance validation" is a sub-task of Auditing M3, not a compliance-*evidence* milestone; **(c)** org-level RBAC + metering/billing/quota permissions were **explicitly dropped** (IAC M4 = "Won't Do").
 
-**Proposed change.** (1) Add governed harness v1 to the delivery plan (currently only in the dev-plan strategy source); (2) turn "compliance validation" into a dated **SOC 2 (Type I / control-subset) attestation milestone**; (3) **reinstate IAC M4** (or an equivalent org-level RBAC deliverable) — revisit the "Won't Do".
+**Why it matters (operator lens).** Proof 3 (Control) is the first proof of the identity. A regulated buyer needs an operating layer to govern (harness), sufficient organizational identity/authorization/quota/policy boundaries, audit, isolation, and the compliance evidence their segment requires.
 
-**Blocks adoption:** IAC M4 was dropped for a reason (get it); attestation has a long external lead time and a cost/owner; harness needs a home team.
+**Proposed change — the outcome, not the implementation.** Define and fund the **minimum enterprise control envelope required for MOE-1**:
+- **Identity / authorization / quota / policy boundaries** sufficient for the MOE operating model. *Whether that means resurrecting IAC M4 or a different deliverable is an architecture decision* — the roadmap sets the outcome, architecture picks the implementation.
+- **Governed execution** — a harness v1 sufficient to operate the MOE workload (currently only in the dev-plan strategy source).
+- **Audit + isolation** — extend the shipped audit-log API (IAC M3) to the MOE workload.
+- **Minimum independently-verifiable compliance evidence required by MOE-1** — *not* a pre-decided SOC 2 Type I. Establish the evidence bar from the **first design-partner profile**, then identify the actual attestation that segment requires. Avoids building compliance because the roadmap says so rather than because the market boundary requires it.
+
+**Blocks adoption:** the MOE-1 customer segment must be named first (its regulatory requirements set the compliance bar — ties to P-002); IAC M4 was dropped for a reason (get it before deciding whether to reinstate); harness and attestation each need a home team and (for attestation) external lead time.
 
 ### P-007 — Fund the Proof-4 operator business (sequencing, not "start now")
 
