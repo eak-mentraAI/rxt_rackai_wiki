@@ -5,7 +5,7 @@ status: draft
 owner: knowledge-graph-steward
 domain: governance
 aliases: [governance hub, standards hub]
-related: [hub-root, hub-wiki]
+related: [hub-root, hub-wiki, hub-battlegrounds, evd-sovereign-governed-competitors]
 source_docs: [init/init.md, init/agent_guide.md]
 confidence: validated
 last_reviewed: 2026-09-03
@@ -38,6 +38,19 @@ The operating standards and change-control machinery that keep the corpus a cohe
 - `.kiro/hooks/lint-frontmatter-on-save.json` — save-time lint
 - `.kiro/hooks/corpus-fitness-reminder.json` — propagation reminder
 - `.kiro/hooks/validate-summary-length.json` — summary-length guard
+
+## Governance & Assurance Concepts (Enterprise AI dev plan)
+
+Governance/assurance-plane concepts from the [[RackAI Enterprise AI Development Plan]] (Program 2 + productization), `assumed` confidence. Runtime enforcement and audit, distinct from the corpus change-control above.
+
+| Concept | Type | ID |
+|---------|------|----|
+| [[Verification]] | workflow | wf-verification |
+| [[Perimeter Information-Flow Control]] | workflow | wf-perimeter-info-flow |
+| [[Agent Identity]] | entity | ent-agent-identity |
+| [[Action Controls]] | policy | pol-action-controls |
+| [[Supply Chain Inventory]] | policy | pol-supply-chain-inventory |
+| [[Governable Self-Modification]] | policy | pol-governable-self-modification |
 
 ## Related Hubs
 

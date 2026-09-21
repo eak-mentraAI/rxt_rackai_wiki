@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [product hub, strategy hub]
-related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial]
+related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial, hub-battlegrounds]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-04
@@ -44,7 +44,12 @@ Given the fleet's NVL-PCIe topology ceiling (~27B class — see [[Fleet Competit
 
 Productive GPU utilization, tokens/GPU-second, TTFT, and model launch lag — with availability, cost/1M tokens, and revenue/GPU-hour as guardrails. Top-five OpenRouter rank is treated as an outcome, not a directly optimized target.
 
+## Market Positioning
+
+The [[Three Battlegrounds]] note carries the company identity and theory of advantage — **RackAI as the Private Enterprise AI Operator** — with the market map organized by the customer's real alternative (build it themselves / buy capacity / buy an inference platform / buy an enterprise-AI platform) and the compounding operating-telemetry flywheel as the moat. The three-battleground frame (capacity / inference / regulated outcomes) is retained inside it as an internal lens. Competitor teardowns: [[Inference Serving Competitors]], [[GPU Neocloud Competitors]], [[Sovereign & Governed AI Competitors]]. The partner portfolio behind the identity lives in [[Load-Bearing Bets]].
+
 ## Related Hubs
 
 - [[Rack AI Knowledge Base]]
 - [[Commercial & Capacity Hub]]
+- [[Three Battlegrounds]]

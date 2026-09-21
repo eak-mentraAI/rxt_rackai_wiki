@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [commercial hub, capacity hub, L3 hub, economics hub]
-related: [hub-root, hub-operations, hub-evidence]
+related: [hub-root, hub-operations, hub-evidence, hub-battlegrounds, evd-gpu-neocloud-competitors]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03
@@ -29,6 +29,16 @@ The [[Unit Economics Model]] ties the loop together. Underlying formulas and coe
 | [[Gross Margin per Model]] | fml-gross-margin-per-model |
 | [[Cost per GPU-Hour]] | coeff-cost-per-gpu-hour |
 | [[OpenRouter Price]] | coeff-openrouter-price |
+| [[Cost per Outcome]] | met-cost-per-outcome |
+
+## AI FinOps & Cost Loop
+
+The [[AI FinOps]] platform (Enterprise AI dev plan, thread 5.1) extends token-level economics with outcome-level cost, attributed by workload, tenant, and outcome. The cost loop — meter → govern → route → reason — runs across [[Metering]], [[Request Routing]], and [[Cost per Outcome]], with metering as the shared spine. `assumed` confidence.
+
+| Concept | ID |
+|---------|----|
+| [[AI FinOps]] | idx-ai-finops |
+| [[Cost per Outcome]] | met-cost-per-outcome |
 
 ## Capacity & Allocation
 

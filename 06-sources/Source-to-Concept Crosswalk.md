@@ -53,6 +53,18 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Monitoring and Auditability Spec | Platform monitoring (shipped), in-tenant observability + audit (planned) | [[Monitoring & Observability]], [[Audit]] | L2 | derived |
 | Accelerator Selection Spec | AcceleratorClass, GPU scheduling/affinity | [[Accelerator Class]], [[Standard Model Deployment]], [[Fleet Inventory]] | L1/L2 | derived |
 | OpenRouter provider reference | Provider vs private-model paths, P0/P1 readiness gaps | [[OpenRouter Initiative]], [[OpenRouter Provider Integration]], [[Billing & Payment]], [[Model Catalog Endpoint]] | hub/L1 | derived |
+| Erebine bundle + erebine.ai + live API (2026-09-15) | Competitor: zero-lock-in OpenAI-compatible router + MCP workspace-intelligence layer | [[Erebine Competitive Analysis]] | L4 | measured |
+| Market research + CEO strategy review (2026-09-21) | Company identity + theory of advantage: Private Enterprise AI Operator (three-battleground frame as internal lens) | [[Three Battlegrounds]] | hub | derived |
+| CEO strategy review (2026-09-21) | Partner portfolio / load-bearing bets mapped to the operator stack; Palantir boundary | [[Load-Bearing Bets]] | hub | assumed |
+| Web research (2026-09-21): Fireworks, Together, Baseten, Anyscale | Battleground (b) AI-native inference competitors | [[Inference Serving Competitors]] | L4 | derived |
+| Web research (2026-09-21): CoreWeave, Lambda | Battleground (a) GPU-neocloud capacity competitors | [[GPU Neocloud Competitors]] | L4 | derived |
+| Web research (2026-09-21): Palantir, Cohere, Mistral, Scale AI | Battleground (c) sovereign/governed-AI competitors | [[Sovereign & Governed AI Competitors]] | L4 | derived |
+| Dev Plan (2026-09-17) | Portfolio vs product framing; eight-layer stack as a view | [[Enterprise AI Portfolio]], [[Eight-Layer Stack]] | hub/L5 | assumed |
+| Dev Plan | Governed harness + agentic entities | [[Governed Harness]], [[Empirical Map]], [[Agent Identity]], [[Across.AI]] | L1 | assumed |
+| Dev Plan | Assurance & self-improvement workflows | [[Verification]], [[Loop Planning & Credit Assignment]], [[Self-Improvement Loop]], [[Eval as CI]], [[Perimeter Information-Flow Control]] | L2 | assumed |
+| Dev Plan | Operations/governance-plane policies | [[Action Controls]], [[Supply Chain Inventory]], [[Governable Self-Modification]] | L2 | assumed |
+| Dev Plan | Cost loop / tokenomics economics | [[Cost per Outcome]], [[AI FinOps]] | L2/L3 | assumed |
+| RackAI Organizational Design deck (2026-09-17) | Org/operating-model content (functions, pods, reporting lines, reqs) — **reference-only**, not modeled as canonical concepts (out of graph scope per product decision) | *(none — see [[RackAI Organizational Design]])* | — | assumed |
 
 Extend this table as concepts are extracted into canonical notes.
 
