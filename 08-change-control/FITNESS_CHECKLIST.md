@@ -50,6 +50,7 @@ Run on every change.
 | S-13 | Benchmarks resolve | Every performance number traces to a Benchmark Run note or a named production-telemetry source |
 | S-14 | Stable IDs preserved | No canonical ID was changed or recycled |
 | S-15 | Aliases preserved | Deprecated terms moved to aliases, not deleted |
+| S-16 | Summary within limit | Every note's `summary` frontmatter is ≤ 120 characters. Over-length summaries are **blocked** by knowledge-platform ingestion and silently downgrade the note to an unstructured shadow node (searchable but not a proper object in the browse tree). Enforced by `./scripts/lint-frontmatter.sh`. |
 
 ---
 

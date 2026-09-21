@@ -12,6 +12,8 @@
 #      - confidence: assumed|derived|measured|validated
 #      - domain: strategy|product|platform|performance|model-enablement|
 #                infrastructure|reliability|commercial|capacity|governance
+#   4. summary is <= 120 characters (matches knowledge-platform ingestion schema;
+#      over-length summaries are blocked and become unstructured shadow nodes)
 #
 # Usage:
 #   ./scripts/lint-frontmatter.sh              # Lint all .md files
@@ -28,6 +30,9 @@ VALID_STATUS="draft|reviewed|validated|deprecated"
 VALID_CONFIDENCE="assumed|derived|measured|validated"
 VALID_DOMAIN="strategy|product|platform|performance|model-enablement|infrastructure|reliability|commercial|capacity|governance"
 REQUIRED_FIELDS="id type status owner domain confidence last_reviewed aliases related source_docs parent summary"
+# Max summary length — mirrors knowledge-platform ingestion schema
+# (packages/core/src/schemas/frontmatter.ts: summary z.string().max(120)).
+MAX_SUMMARY_LEN=120
 
 ERRORS=0
 FILES_CHECKED=0
@@ -98,6 +103,23 @@ lint_file() {
     if ! echo "$domain_val" | grep -qE "^($VALID_DOMAIN)$"; then
       echo "ERROR: $file — invalid domain: \"$domain_val\""
       echo "       Valid: $VALID_DOMAIN"
+      file_errors=$((file_errors + 1))
+    fi
+  fi
+
+  # Validate summary length (must be <= 120 chars, matching the knowledge-platform
+  # ingestion schema). Over-length summaries are a BLOCKING error there: the file
+  # is downgraded to an unstructured "shadow" node instead of a proper object.
+  local summary_val
+  summary_val=$(echo "$fm" | grep "^summary:" | head -1 | sed 's/^summary: *//')
+  if [ -n "$summary_val" ]; then
+    # Strip a single pair of surrounding quotes (single or double) if present
+    summary_val=$(echo "$summary_val" | sed -e 's/^"\(.*\)"$/\1/' -e "s/^'\(.*\)'$/\1/")
+    local summary_len=${#summary_val}
+    if [ "$summary_len" -gt "$MAX_SUMMARY_LEN" ]; then
+      echo "ERROR: $file — summary is $summary_len characters (max $MAX_SUMMARY_LEN)."
+      echo "       Over-length summaries are blocked by knowledge-platform ingestion"
+      echo "       and become unstructured shadow nodes. Shorten to <= $MAX_SUMMARY_LEN chars."
       file_errors=$((file_errors + 1))
     fi
   fi
