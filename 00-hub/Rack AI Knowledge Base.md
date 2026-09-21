@@ -5,7 +5,7 @@ status: draft
 owner: knowledge-graph-steward
 domain: platform
 aliases: [root hub, home, knowledge base home, rack ai kb, rackai kb]
-related: [hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-entities, hub-operations, hub-commercial, hub-evidence, hub-wiki, hub-governance, hub-product, hub-battlegrounds, hub-load-bearing-bets]
+related: [hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-entities, hub-operations, hub-commercial, hub-evidence, hub-wiki, hub-governance, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-roadmap, hub-minimum-operable-estate]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-04
@@ -71,6 +71,8 @@ Consumers see Model endpoints. They never reference GPU hardware directly. Initi
 | [[Product Hub]] | — | Strategy, model bets, roadmap |
 | [[Three Battlegrounds]] | — | Company identity + theory of advantage: the Private Enterprise AI Operator; competitor map by customer alternative |
 | [[Load-Bearing Bets]] | — | Partner portfolio: current bets (Palantir, Uniphore, Across.AI) + proposed new bets mapped to the operator stack |
+| [[RackAI Roadmap]] | — | The canonical, living roadmap: four proofs (Observe → Decide → Control → Operate) realizing the operator identity |
+| [[Minimum Operable Estate]] | — | The MVP operator target: the smallest estate for which "we operate your AI" is true; anchors Proof 3 |
 
 ## Operating Discipline
 

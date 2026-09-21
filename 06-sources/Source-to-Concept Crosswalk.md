@@ -56,6 +56,9 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Erebine bundle + erebine.ai + live API (2026-09-15) | Competitor: zero-lock-in OpenAI-compatible router + MCP workspace-intelligence layer | [[Erebine Competitive Analysis]] | L4 | measured |
 | Market research + CEO strategy review (2026-09-21) | Company identity + theory of advantage: Private Enterprise AI Operator (three-battleground frame as internal lens) | [[Three Battlegrounds]] | hub | derived |
 | CEO strategy review (2026-09-21) | Partner portfolio / load-bearing bets mapped to the operator stack; Palantir boundary | [[Load-Bearing Bets]] | hub | assumed |
+| Engineering Roadmap + Dev Plan, synthesized + CEO review (2026-09-21) | Canonical living roadmap: four proofs (Observe → Decide → Control → Operate), MOE anchor, human→automated ladder, operator north-star metrics | [[RackAI Roadmap]] | hub | derived |
+| CEO strategy review (2026-09-21) | Minimum Operable Estate — MVP operator target anchoring Proof 3 | [[Minimum Operable Estate]] | hub | assumed |
+| CEO strategy review + Product Operations JD (2026-09-21) | AI Operations Product — operating model / SLOs / incident / FDE motion as a first-class workstream | [[AI Operations Product]] | hub | assumed |
 | Web research (2026-09-21): Fireworks, Together, Baseten, Anyscale | Battleground (b) AI-native inference competitors | [[Inference Serving Competitors]] | L4 | derived |
 | Web research (2026-09-21): CoreWeave, Lambda | Battleground (a) GPU-neocloud capacity competitors | [[GPU Neocloud Competitors]] | L4 | derived |
 | Web research (2026-09-21): Palantir, Cohere, Mistral, Scale AI | Battleground (c) sovereign/governed-AI competitors | [[Sovereign & Governed AI Competitors]] | L4 | derived |

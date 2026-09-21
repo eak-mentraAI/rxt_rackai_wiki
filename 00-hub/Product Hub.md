@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [product hub, strategy hub]
-related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial, hub-battlegrounds]
+related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial, hub-battlegrounds, hub-roadmap]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-04
@@ -46,7 +46,7 @@ Productive GPU utilization, tokens/GPU-second, TTFT, and model launch lag — wi
 
 ## Market Positioning
 
-The [[Three Battlegrounds]] note carries the company identity and theory of advantage — **RackAI as the Private Enterprise AI Operator** — with the market map organized by the customer's real alternative (build it themselves / buy capacity / buy an inference platform / buy an enterprise-AI platform) and the compounding operating-telemetry flywheel as the moat. The three-battleground frame (capacity / inference / regulated outcomes) is retained inside it as an internal lens. Competitor teardowns: [[Inference Serving Competitors]], [[GPU Neocloud Competitors]], [[Sovereign & Governed AI Competitors]]. The partner portfolio behind the identity lives in [[Load-Bearing Bets]].
+The canonical, living plan is the [[RackAI Roadmap]] — horizons and workstreams synthesizing both source spines under the operator identity; it is the editable home where roadmap changes are proposed and adopted. The [[Three Battlegrounds]] note carries the company identity and theory of advantage — **RackAI as the Private Enterprise AI Operator** — with the market map organized by the customer's real alternative (build it themselves / buy capacity / buy an inference platform / buy an enterprise-AI platform) and the compounding operating-telemetry flywheel as the moat. The three-battleground frame (capacity / inference / regulated outcomes) is retained inside it as an internal lens. Competitor teardowns: [[Inference Serving Competitors]], [[GPU Neocloud Competitors]], [[Sovereign & Governed AI Competitors]]. The partner portfolio behind the identity lives in [[Load-Bearing Bets]].
 
 ## Related Hubs
 
