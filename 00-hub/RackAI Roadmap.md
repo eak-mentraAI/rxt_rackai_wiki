@@ -76,6 +76,21 @@ The **single canonical, living roadmap** for RackAI. It is built primarily on th
 
 > **In one line:** Become the Private Enterprise AI Operator by proving Observe → Decide → Control → Operate — starting with one [[Minimum Operable Estate]] and automating what we learn. (The full pitch, moat, and flywheel are in the Executive Summary above.)
 
+## Two Teams, One Roadmap
+
+This roadmap spans two teams split at the Kubernetes line. Every milestone below carries an **Owner** tag so the boundary is explicit.
+
+| Team | Owns | On this roadmap |
+|------|------|-----------------|
+| **RackAI** (this team) | **Above Kubernetes** — inference, serving runtimes, model lifecycle, **inference routing**, fine-tuning, the harness, the [[Empirical Map]], metering economics/cost model, governance software, the operating layer, [[AI Operations Product]] | Owns the operator thesis and most of Proofs 2–4; **consumes** what Infra builds |
+| **Infra** | **Kubernetes and below** — cluster, nodes, GPU fleet, networking, storage, and **cluster observability** | Builds the substrate RackAI runs on; owns most of the Proof-1 CSP Platform Layer |
+
+**The two boundary rules that matter most:**
+- **Observability:** Infra **builds** cluster observability; RackAI **consumes** it (and turns it into operating intelligence — the Empirical Map).
+- **Accelerator selection:** Infra **owns the choice**, but RackAI is a **constraining stakeholder** — if we need to run a model that requires specific GPUs, Infra selects within our constraints. Tagged **Joint (Infra-led)**.
+
+**Owner tags used below:** `RackAI` · `Infra` · `Joint` (with lead noted). Where an item is "Infra builds, we consume," it's tagged `Infra → RackAI`.
+
 ## North Star & Governing Metrics
 
 The north star is **paired** to avoid Goodhart's law: workload count alone could be maximized by onboarding many trivial workloads into one friendly environment while proving nothing about enterprises delegating real responsibility. The strategy is to *operate estates*, not accumulate endpoints — so the count is anchored by estates and by economics.
@@ -209,60 +224,60 @@ The proofs say *what we must be able to claim*; the milestones say *what the tea
 
 The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/identity substrate.
 
-| Milestone | Deliverable | Jira | Owner | Status | Serves |
-|-----------|-------------|------|-------|--------|--------|
-| **IAC M1** | JWT + API-key validation, identity context, APIKey CRD, Gateway auth | RACKAI-204 | Ljungstrom | **Complete** | Identity substrate (all proofs) |
-| **IAC M2** | PlatformRole/RoleBinding CRDs, Authorization Service, RBAC | RACKAI-333 | Ljungstrom | **Complete** | Tenancy/control |
-| **IAC M3** | Audit Log query API, sensitive-access + login + APIKey-lifecycle events | RACKAI-351 | Ljungstrom | **Complete** | Auditability (→ Proof 3) |
-| **Platform M1–M2** | Prometheus/DCGM/Grafana GPU dashboards; tenant-attributed service metrics | RACKAI-353/350 | Sharma | In Progress | Telemetry (flywheel input) |
-| **Platform M3–M4** | Loki logs; VictoriaMetrics 13-mo retention; FineTuningJob metrics | RACKAI-431/432 | Sharma | In Progress | Telemetry retention |
-| **Metering M1** | Project CRD + usage_records + MeteringEvent pipeline w/ inference + FT metering | RACKAI-352 | Rajak | In Progress | Cost/usage capture |
-| **Observability M1** ⭐ | Metrics API (latency/rate/errors, quota util), Workload Status API | — | Audit/Obs | Not Started (crit-path) | The operator dashboard |
-| **M2: AI Performance Benchmarks** | Internal benchmarking process | — | — | Not Started (Pri 5) | Ends "KPIs assumed" |
-| ⚠ **Cost model** (internal cost/GPU-hour) | *not a delivery milestone yet* — Metering captures usage, but cost/GPU-hour modeling is absent | — | — | **gap → P-003** | Cost floor |
-| ⚠ **Supply-abstraction interface** | *not in delivery plan* — control plane assumes owned fleet | — | — | **gap → P-004** | Prevents fleet lock-in |
+| Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
+|-----------|-------------|------|-------|------|--------|--------|
+| **IAC M1** | JWT + API-key validation, identity context, APIKey CRD, Gateway auth | RACKAI-204 | Ljungstrom | Infra → RackAI | **Complete** | Identity substrate (all proofs) |
+| **IAC M2** | PlatformRole/RoleBinding CRDs, Authorization Service, RBAC | RACKAI-333 | Ljungstrom | Infra → RackAI | **Complete** | Tenancy/control |
+| **IAC M3** | Audit Log query API, sensitive-access + login + APIKey-lifecycle events | RACKAI-351 | Ljungstrom | Infra → RackAI | **Complete** | Auditability (→ Proof 3) |
+| **Platform M1–M2** | Prometheus/DCGM/Grafana GPU dashboards; tenant-attributed service metrics | RACKAI-353/350 | Sharma | Infra → RackAI | In Progress | Telemetry (flywheel input) |
+| **Platform M3–M4** | Loki logs; VictoriaMetrics 13-mo retention; FineTuningJob metrics | RACKAI-431/432 | Sharma | Infra → RackAI | In Progress | Telemetry retention |
+| **Metering M1** | Project CRD + usage_records + MeteringEvent pipeline w/ inference + FT metering | RACKAI-352 | Rajak | Joint (Infra pipeline, RackAI economics) | In Progress | Cost/usage capture |
+| **Observability M1** ⭐ | Metrics API (latency/rate/errors, quota util), Workload Status API | — | Audit/Obs | Infra → RackAI | Not Started (crit-path) | The operator dashboard |
+| **M2: AI Performance Benchmarks** | Internal benchmarking process | — | — | **RackAI** | Not Started (Pri 5) | Ends "KPIs assumed" |
+| ⚠ **Cost model** (internal cost/GPU-hour) | *not a delivery milestone yet* — Metering captures usage, but cost/GPU-hour modeling is absent | — | — | **RackAI** | **gap → P-003** | Cost floor |
+| ⚠ **Supply-abstraction interface** | *not in delivery plan* — control plane assumes owned fleet | — | — | **RackAI** | **gap → P-004** | Prevents fleet lock-in |
 
 **Proof 1 read:** measurement substrate is genuinely underway (auth/audit shipped; telemetry + metering in progress). The two strategy gaps are the **cost model** (usage is metered but cost/GPU-hour isn't modeled) and the **supply-abstraction interface**.
 
 ### Proof 2 — Decide: *accumulated knowledge improves decisions*
 
-| Milestone | Deliverable | Jira | Owner | Status | Serves |
-|-----------|-------------|------|-------|--------|--------|
-| **M2: Inference routing** | llm-d, ingress→llm-d→model, shared KV cache | RACKAI-311 | Chatterjee | In Progress | Routing (→ smart routing) |
-| **M2: Accelerator selection ph3** | node inventory + GPU consumption metrics | RACKAI-336 | Nguy | **Complete** | Placement inputs |
-| **M2: AMD AIM engine / AMD+NVIDIA nodes** | multi-accelerator serving | RACKAI-347/263 | Chatterjee/Gosavi | In Progress / Not Started | Heterogeneous supply |
-| **M2: Speculative decoding, Refrag** | inference perf optimizations | RACKAI-67/374 | Ferrer / — | In Progress | tok/s/GPU, TTFT |
-| **M2: DPO fine tuning** | preference-tuning beyond SFT | RACKAI-252 | Shah | In Progress | Fine-tuning ops |
-| **Uniphore: SFT/LoRA** | dataset mgmt, PEFT/LoRA adapters, deploy/undeploy | — | Rajendra/Neelava | In Progress | Fine-tuning ops (shipped-ish) |
-| ⚠ **Empirical Map v1** + transferable/isolated split | *not in delivery plan* — telemetry exists, but no cross-workload knowledge store | — | — | **gap → P-005** | **The moat** |
-| ⚠ **Evidence-informed routing** (routing reads the map) | delivery routing is llm-d/KV-cache, not empirically-driven | — | — | **gap → P-005** | Flywheel |
+| Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
+|-----------|-------------|------|-------|------|--------|--------|
+| **M2: Inference routing** | llm-d, ingress→llm-d→model, shared KV cache | RACKAI-311 | Chatterjee | **RackAI** | In Progress | Routing (→ smart routing) |
+| **M2: Accelerator selection ph3** | node inventory + GPU consumption metrics | RACKAI-336 | Nguy | Joint (Infra-led, RackAI constrains) | **Complete** | Placement inputs |
+| **M2: AMD AIM engine / AMD+NVIDIA nodes** | multi-accelerator serving | RACKAI-347/263 | Chatterjee/Gosavi | Joint (Infra nodes, RackAI serving) | In Progress / Not Started | Heterogeneous supply |
+| **M2: Speculative decoding, Refrag** | inference perf optimizations | RACKAI-67/374 | Ferrer / — | **RackAI** | In Progress | tok/s/GPU, TTFT |
+| **M2: DPO fine tuning** | preference-tuning beyond SFT | RACKAI-252 | Shah | **RackAI** | In Progress | Fine-tuning ops |
+| **Uniphore: SFT/LoRA** | dataset mgmt, PEFT/LoRA adapters, deploy/undeploy | — | Rajendra/Neelava | **RackAI** | In Progress | Fine-tuning ops (shipped-ish) |
+| ⚠ **Empirical Map v1** + transferable/isolated split | *not in delivery plan* — telemetry exists, but no cross-workload knowledge store | — | — | **RackAI** | **gap → P-005** | **The moat** |
+| ⚠ **Evidence-informed routing** (routing reads the map) | delivery routing is llm-d/KV-cache, not empirically-driven | — | — | **RackAI** | **gap → P-005** | Flywheel |
 
 **Proof 2 read:** the *ingredients* of good operating decisions are being built (routing, accelerator selection, perf optimizations, fine-tuning), but the **Empirical Map** — the thing that makes decisions *evidence-informed across workloads*, i.e. the moat — is not on the delivery plan. This is the single most important strategy gap.
 
 ### Proof 3 — Control: *safely assume responsibility inside an enterprise boundary*
 
-| Milestone | Deliverable | Jira | Owner | Status | Serves |
-|-----------|-------------|------|-------|--------|--------|
-| **IAC M3** (audit) + **Auditing M1–M3** | Audit Service, admission webhook, compliance validation, billing audit | — | Audit/Obs | M3 done; Auditing Not Started | Auditability |
-| **Metering M4** | Quota Enforcement, pre-execution admission control (429/402) | — | — | Not Started | Guardrails |
-| **Uniphore: single-cluster tenancy** | namespace-per-org isolation (shipped foundation) | — | — | In Progress | Isolation |
-| ⚠ **IAC M4** (org-level RBAC + metering/billing/quota perms) | **Won't Do** — dropped from delivery | — | — | **gap → P-006** | Org-level access control |
-| ⚠ **Governed execution harness v1** | *not in delivery plan* | — | — | **gap → P-006** | The operating layer |
-| ⚠ **First compliance attestation** (SOC 2) | *not a delivery milestone* — "compliance validation" is an Auditing sub-task, no attestation milestone | — | — | **gap → P-006** | The gate for regulated buyers |
-| ⚠ **MOE-0 / MOE-1** (operator rehearsal → paid identity proof) | *not modeled in delivery* | — | — | **gap → P-002** | First proof of the identity |
+| Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
+|-----------|-------------|------|-------|------|--------|--------|
+| **IAC M3** (audit) + **Auditing M1–M3** | Audit Service, admission webhook, compliance validation, billing audit | — | Audit/Obs | Infra → RackAI | M3 done; Auditing Not Started | Auditability |
+| **Metering M4** | Quota Enforcement, pre-execution admission control (429/402) | — | — | Joint (Infra pipeline, RackAI economics) | Not Started | Guardrails |
+| **Uniphore: single-cluster tenancy** | namespace-per-org isolation (shipped foundation) | — | — | Joint (Infra cluster, RackAI tenancy) | In Progress | Isolation |
+| ⚠ **IAC M4** (org-level RBAC + metering/billing/quota perms) | **Won't Do** — dropped from delivery | — | — | Infra → RackAI | **gap → P-006** | Org-level access control |
+| ⚠ **Governed execution harness v1** | *not in delivery plan* | — | — | **RackAI** | **gap → P-006** | The operating layer |
+| ⚠ **First compliance attestation** (SOC 2) | *not a delivery milestone* — "compliance validation" is an Auditing sub-task, no attestation milestone | — | — | **RackAI** (Infra evidence input) | **gap → P-006** | The gate for regulated buyers |
+| ⚠ **MOE-0 / MOE-1** (operator rehearsal → paid identity proof) | *not modeled in delivery* | — | — | **RackAI** | **gap → P-002** | First proof of the identity |
 
 **Proof 3 read:** the delivery plan builds real control-plane pieces (audit, admission control, isolation) but **stops short of the identity proof** — there is no harness, no compliance attestation milestone, no MOE, and org-level RBAC was explicitly dropped (IAC M4 "Won't Do"). This is where the strategy is furthest ahead of delivery.
 
 ### Proof 4 — Operate: *do it repeatably and profitably across heterogeneous estates*
 
-| Milestone | Deliverable | Jira | Owner | Status | Serves |
-|-----------|-------------|------|-------|--------|--------|
-| **M2: Request new model support** | on-demand model onboarding | RACKAI-354 | Bedre | In Progress | Toward model velocity |
-| **M2: Sunsetting a model** | model lifecycle retirement | RACKAI-372 | — | Not Started | Lifecycle |
-| **M2: Multi region support** | *backlogged (Pri 6, unscheduled)* | — | — | Not Started | Multi-cluster estates |
-| **M2: GPU node access support** | *backlogged (Pri 6, unscheduled)* | — | — | Not Started | Heterogeneous supply |
-| ⚠ **Day-zero model factory, closed-loop optimization** | Engineering-roadmap Phases 4/6 — *not in delivery plan* | — | — | **gap → P-007** | Industrialization |
-| ⚠ **Managed-ops / FDE motion, multi-estate onboarding** | *not modeled* | — | — | **gap → P-007** | The operator business |
+| Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
+|-----------|-------------|------|-------|------|--------|--------|
+| **M2: Request new model support** | on-demand model onboarding | RACKAI-354 | Bedre | **RackAI** | In Progress | Toward model velocity |
+| **M2: Sunsetting a model** | model lifecycle retirement | RACKAI-372 | — | **RackAI** | Not Started | Lifecycle |
+| **M2: Multi region support** | *backlogged (Pri 6, unscheduled)* | — | — | Joint (Infra clusters, RackAI routing) | Not Started | Multi-cluster estates |
+| **M2: GPU node access support** | *backlogged (Pri 6, unscheduled)* | — | — | Infra → RackAI | Not Started | Heterogeneous supply |
+| ⚠ **Day-zero model factory, closed-loop optimization** | Engineering-roadmap Phases 4/6 — *not in delivery plan* | — | — | **RackAI** | **gap → P-007** | Industrialization |
+| ⚠ **Managed-ops / FDE motion, multi-estate onboarding** | *not modeled* | — | — | **RackAI** | **gap → P-007** | The operator business |
 
 **Proof 4 read:** almost entirely gap. The delivery plan has model-lifecycle fragments; multi-region and GPU-node access — prerequisites for heterogeneous multi-estate operation — are explicitly **backlogged at Pri 6**. Proof 4 is a future the delivery plan does not yet fund.
 
@@ -322,18 +337,18 @@ The pattern is clear: **delivery is strong on the measurement substrate (Proof 1
 
 Cross-cutting owners run *vertically through all four proofs*. Mapped from the Engineering Roadmap's workstreams A–F plus the dev-plan programs — with **AI Operations Product** elevated to first-class, because if the identity is Operator, the operating model is part of the product, not an afterthought.
 
-| Workstream | Owns | Source |
-|-----------|------|--------|
-| **[[AI Operations Product]]** | Operating model, service boundaries, SLOs, incident model, customer handoffs, FDE escalation, runbooks, lifecycle responsibility, change management, estate onboarding + operational acceptance criteria | **New — elevated from dev-plan P5/P6 + Product Operations JD** |
-| Platform / Control Plane | Deployment orchestration, registry, capacity, routing, API, lifecycle, **supply-abstraction interface** | Eng. A |
-| Inference Performance Eng | Runtime, kernels, quantization, caching, parallelism, topology | Eng. B |
-| Model Enablement | Radar, intake, compatibility, functional testing, launches | Eng. C |
-| GPU / Infra Eng | Clusters, networking, storage, topology, firmware, health | Eng. D |
-| SRE / Reliability | Availability, observability, incident response, canary, rollback | Eng. E |
-| FinOps / Economics | Cost/token, GPU-hour economics, revenue/GPU-hour, contribution margin | Eng. F; dev-plan Prog 5 |
-| Harness & Orchestration | Execution harness, routing, context/tool controls, memory, runtime | dev-plan Program 1 |
-| Governance & Assurance | Verification, perimeter info-flow, agent identity, **compliance envelope (P1)** | dev-plan Program 2 + P1 |
-| Measurement & Self-Improvement | Empirical Map, eval-as-CI, loop planning, self-improvement | dev-plan Program 3 |
+| Workstream | Team | Owns | Source |
+|-----------|------|------|--------|
+| **[[AI Operations Product]]** | **RackAI** | Operating model, service boundaries, SLOs, incident model, customer handoffs, FDE escalation, runbooks, lifecycle responsibility, change management, estate onboarding + operational acceptance criteria | **New — elevated from dev-plan P5/P6 + Product Operations JD** |
+| Platform / Control Plane | **RackAI** | Deployment orchestration, registry, capacity, routing, API, lifecycle, **supply-abstraction interface** | Eng. A |
+| Inference Performance Eng | **RackAI** | Runtime, kernels, quantization, caching, parallelism, topology | Eng. B |
+| Model Enablement | **RackAI** | Radar, intake, compatibility, functional testing, launches | Eng. C |
+| GPU / Infra Eng | **Infra** | Clusters, networking, storage, topology, firmware, health | Eng. D |
+| SRE / Reliability | Joint (Infra cluster, RackAI service) | Availability, observability, incident response, canary, rollback | Eng. E |
+| FinOps / Economics | **RackAI** | Cost/token, GPU-hour economics, revenue/GPU-hour, contribution margin | Eng. F; dev-plan Prog 5 |
+| Harness & Orchestration | **RackAI** | Execution harness, routing, context/tool controls, memory, runtime | dev-plan Program 1 |
+| Governance & Assurance | **RackAI** | Verification, perimeter info-flow, agent identity, **compliance envelope (P1)** | dev-plan Program 2 + P1 |
+| Measurement & Self-Improvement | **RackAI** | Empirical Map, eval-as-CI, loop planning, self-improvement | dev-plan Program 3 |
 
 Vertically through all four proofs: **AI Operations Product + Compliance + Economics + Telemetry.**
 
