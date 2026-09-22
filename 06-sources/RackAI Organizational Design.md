@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: strategy
 aliases: [org design, organizational design, rackai org, operating model, reorg, resourcing asks]
-related: [hub-product, hub-root, hub-governance, src-rackai-dev-plan, src-strategic-vision]
+related: [hub-product, hub-root, hub-governance, src-rackai-dev-plan, src-strategic-vision, hub-roadmap]
 source_docs: ["reference/Enterprise AI Cloud - RackAI.pptx"]
 confidence: assumed
 last_reviewed: 2026-09-17
@@ -20,6 +20,8 @@ summary: "Markdown companion of the BU org-design deck: four functions, RackAI o
 > **Confidence:** `assumed` — a proposed operating model / internal strategy draft, not a ratified org. Names, headcounts (`[filled/total]`), and REQs are point-in-time and will change.
 >
 > **Sensitivity:** the deck is marked *Confidential — Internal Strategy Draft* and contains named individuals and employee IDs. This companion preserves names and roles as given (real project people, per PII handling for actual project docs) but is itself internal.
+
+> **Cross-team boundary (editorial note, not from the deck).** This deck covers **RackAI's internal structure** (Product / Engineering / Research / AI Strategy pods). The **RackAI ↔ Infra delivery boundary** — RackAI above Kubernetes (inference, serving, routing, models, fine-tuning, harness, Empirical Map, economics, governance software, operating layer) vs. Infra at Kubernetes and below (cluster, nodes, GPU fleet, networking, storage, cluster observability), with the two handoff rules (Infra builds observability / RackAI consumes; Infra-led accelerator selection with RackAI as constraining stakeholder) — is defined and applied per-milestone in the [[RackAI Roadmap#Two Teams, One Roadmap|RackAI Roadmap]]. The deck itself does not describe the Infra team.
 
 ---
 
