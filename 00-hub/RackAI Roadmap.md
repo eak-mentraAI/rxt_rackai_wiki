@@ -19,6 +19,51 @@ The **single canonical, living roadmap** for RackAI. It is built primarily on th
 
 > **Confidence.** `derived` — this roadmap synthesizes two existing planning spines under the [[Three Battlegrounds|Private Enterprise AI Operator]] identity. Individual items carry the confidence of their source (phase/program/gap). Nothing here upgrades a capability to shipped; the live shipped-vs-planned state is the [[Capability Gap Register]].
 
+---
+
+# Executive Summary
+
+*Read this page in five minutes; the rest of the document is the evidence beneath it. Two lines below are drafted for ratification and marked **[proposed]** — they are not yet settled.*
+
+**Where we're going.** RackAI becomes the **Private Enterprise AI Operator** — Rackspace operates production AI for enterprises that cannot hand their data, inference, and operational responsibility to a public AI service ([[Three Battlegrounds]]).
+
+**What customers buy. [proposed — needs ratification]** Rackspace assumes responsibility for **operating a customer's enterprise AI estate** across models, accelerators, and execution environments — providing the infrastructure and control plane *plus* the managed operational layer to run those workloads reliably, securely, and economically. The customer keeps control of their data, models, and governance boundary; Rackspace assumes an increasing share of the operational burden. *(Drafted from the MOE, [[AI Operations Product]], and the commercial gates below; the exact packaging/SKU is a live commercial decision — see Decisions Required.)*
+
+**Why Rackspace (right to win the first estates). [`derived`]**
+1. **Operator heritage** — taking operational responsibility for infrastructure someone else built is Rackspace's core identity; this is its AI-era expression.
+2. **Owned + heterogeneous fleet** — an operated GPU fleet (NVIDIA + AMD) behind a supply-abstraction interface, so we own the economics rather than reselling capacity.
+3. **Private / sovereign posture** — built for the controlled, regulated environments where public inference is a non-starter for a material set of workloads.
+4. **We absorb what customers don't want to build** — the operating layer (harness, governance, lifecycle, economics) between raw GPUs and enterprise outcomes.
+*(Right to win the **first ten** estates; the flywheel below is why estate #100 is cheaper than #1. See [[Three Battlegrounds]] and [[Load-Bearing Bets]].)*
+
+**How we get there.** Four progressive proofs, not a feature backlog: **Observe → Decide → Control → Operate.**
+
+**Where we are today (one line):** the measurement/identity substrate is underway (auth/audit shipped, telemetry + metering in progress); the learning advantage (Empirical Map) and the identity proof (a real operated estate) are **not yet built**.
+
+| Proof | Status | What it means | What happens next |
+|-------|:------:|---------------|-------------------|
+| **Observe** | 🟡 foundations underway | Understand what's happening and what it costs | Finish telemetry + benchmarks + metering; add the missing **cost model** |
+| **Decide** | 🟡 components exist | Accumulated evidence improves decisions | Build the **Empirical Map**; prove one decision beats a static baseline |
+| **Control** | 🔴 not proven | Safely assume responsibility inside an enterprise boundary | **MOE-0** (rehearsal) → **MOE-1** (paid, external) |
+| **Operate** | ⚪ future | Repeat it profitably across heterogeneous estates | Learn from the MOEs *before* industrializing |
+
+**Current focus:** complete **Observe** while beginning **MOE-0** preparation and the minimum Decide/Control dependencies.
+
+**Our moat hypothesis.** The **Empirical Map** — RackAI's accumulated evidence about how models and workloads actually behave across hardware, configurations, and operating conditions. It turns experience from prior estates into better placement, routing, capacity, and operational decisions for future estates. The flywheel: *more estates → more evidence → better decisions → better utilization / cost / reliability → better economics → more estates.*
+
+**Next major proof:** **MOE-0** (friendly operating rehearsal). **First commercial proof:** **MOE-1** (external customer delegates responsibility **and pays**).
+
+**Decisions required from leadership** (the four executive decisions — full detail in the *Proposed Changes → Four Executive Decisions* section below):
+- **D1 — Reorient around MOE-0 → MOE-1** (manage toward a dated operating proof, not a feature backlog). *Open: name MOE-0 + date; name the MOE-1 customer profile + window.*
+- **D2 — Fund the substrate that improves us with scale** (economics + supply optionality + Empirical Map).
+- **D3 — Establish the minimum enterprise control envelope for MOE-1.**
+- **D4 — Narrow where we differentiate** (partner fine-tuning delivery; don't prematurely build Proof 4).
+- **Also unresolved (this document does not yet answer):** what we **stop/deprioritize** to fund this, and the **resource/cost** shifts D1–D4 imply.
+
+**What would change our minds** (kill criteria): **K1** — if customers won't *delegate operational control* (only buy private inference), we may be an infrastructure platform, not an operator. **K2** — if cross-estate evidence doesn't *transfer* to beat workload-local optimization, the Empirical Map isn't a moat. **K3** — if domain-aligned models don't beat frontier for our buyers, the wedge is wrong.
+
+---
+
 ## How to Read This Roadmap
 
 - **North star** is the operator identity, not leaderboard rank. We are building *the best operator of heterogeneous enterprise AI estates*; OpenRouter competitiveness is a **learning vehicle inside** the operator roadmap, not its critical path ([[Three Battlegrounds]]).
