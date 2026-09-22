@@ -71,15 +71,10 @@ The **single canonical, living roadmap** for RackAI. It is built primarily on th
 - **Every item passes one test:** *does this make us materially better at operating a customer's AI estate?* ([[Three Battlegrounds]] strategic choice.)
 - **The MVP is the [[Minimum Operable Estate]]**, not the full platform. We earn the word "Operator" by operating one estate, then ten, then automating what hurts.
 - **Maturity principle:** every capability walks the ladder **human-operated → instrumented → assisted → automated** (see below). We do not automate before we operate.
-- **Proofs are gates, not waterfall phases** (see the callout below the metrics). Later-proof work starts early where lead times or architecture require; we simply cannot *claim* a proof until its exit condition is met.
+- **Proofs are gates, not waterfall phases** (full callout under *The Four Proofs*).
 - **Change workflow:** propose in the "Proposed Changes" section → review → on acceptance, edit the proof/workstream tables and log a change packet in `08-change-control`.
 
-## The Acid Test
-
-> **Strategy:** Become the Private Enterprise AI Operator.
-> **Roadmap:** Observe → Decide → Control → Operate.
-> **Flywheel:** Every estate operated makes the next estate cheaper and better to operate.
-> **Proof:** Start with one [[Minimum Operable Estate]] and progressively automate what we learn.
+> **In one line:** Become the Private Enterprise AI Operator by proving Observe → Decide → Control → Operate — starting with one [[Minimum Operable Estate]] and automating what we learn. (The full pitch, moat, and flywheel are in the Executive Summary above.)
 
 ## North Star & Governing Metrics
 
@@ -108,7 +103,7 @@ Supporting families:
 
 ## Governing Principle — Human-Operated → Automated
 
-Operating knowledge is *created by operating*, so every capability walks this ladder rather than starting automated. This both builds the [[Empirical Map]] and reduces speculative platform engineering.
+Operating knowledge is *created by operating*, so every capability walks this ladder rather than starting automated. This is how the flywheel (Executive Summary) actually gets built — and it reduces speculative platform engineering.
 
 | Capability | Human-operated | Instrumented | Assisted | Automated |
 |-----------|----------------|--------------|----------|-----------|
