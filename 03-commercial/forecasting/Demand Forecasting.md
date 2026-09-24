@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [demand forecasting, demand forecast, capacity forecasting]
-related: [hub-commercial, idx-capacity-pools, idx-fleet-yield, ent-capacity-pool, ent-model]
+related: [hub-commercial, idx-capacity-pools, idx-fleet-yield, ent-capacity-pool, ent-model, idx-gpu-capacity-demand-rationale]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03
@@ -84,3 +84,4 @@ FinOps owns the forecasting workflow end to end, in partnership with the platfor
 
 - [[Commercial & Capacity Hub]]
 - [[Capacity Pool Model]]
+- [[GPU Capacity Demand Rationale]]

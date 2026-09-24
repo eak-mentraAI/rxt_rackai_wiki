@@ -48,6 +48,7 @@ The [[AI FinOps]] platform (Enterprise AI dev plan, thread 5.1) extends token-le
 | [[Capacity Pool Model]] | idx-capacity-pools |
 | [[Model Portfolio Capacity]] | idx-model-portfolio |
 | [[Demand Forecasting]] | wf-demand-forecasting |
+| [[GPU Capacity Demand Rationale]] | idx-gpu-capacity-demand-rationale |
 | [[Fleet Yield Optimization]] | idx-fleet-yield |
 | [[GPU Reallocation]] | wf-gpu-reallocation |
 | [[Capacity Reservation Policy]] | pol-capacity-reservation |
