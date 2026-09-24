@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [ttft, time to first token, p95 ttft, latency to first token]
-related: [met-output-throughput, met-tokens-per-gpu-second, met-availability, wf-admission-control, wf-canary-rollback, pol-admission-control, ent-model-deployment, ent-traffic-class]
+related: [met-output-throughput, met-ttft, met-availability, wf-admission-control, wf-canary-rollback, pol-admission-control, ent-model-deployment, ent-traffic-class, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

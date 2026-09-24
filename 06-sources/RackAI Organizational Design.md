@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: strategy
 aliases: [org design, organizational design, rackai org, operating model, reorg, resourcing asks]
-related: [hub-product, hub-root, hub-governance, src-rackai-dev-plan, src-strategic-vision, hub-roadmap]
+related: [hub-product, hub-root, hub-governance, src-rackai-dev-plan, src-strategic-vision, hub-roadmap, hub-org-design]
 source_docs: ["reference/Enterprise AI Cloud - RackAI.pptx"]
 confidence: assumed
 last_reviewed: 2026-09-17

@@ -5,7 +5,7 @@ status: draft
 owner: infrastructure
 domain: capacity
 aliases: [productive gpu utilization, gpu utilization, hbm utilization, idle capacity]
-related: [met-tokens-per-gpu-second, met-availability, wf-autoscaling, wf-gpu-reallocation, pol-procurement-trigger, ent-capacity-pool, ent-gpu-node]
+related: [met-tokens-per-gpu-second, met-availability, wf-autoscaling, wf-gpu-reallocation, pol-procurement-trigger, ent-capacity-pool, ent-gpu-node, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

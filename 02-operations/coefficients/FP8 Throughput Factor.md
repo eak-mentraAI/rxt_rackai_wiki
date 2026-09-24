@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [fp8 throughput factor, fp8 vs bf16, fp8 benefit]
-related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime]
+related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

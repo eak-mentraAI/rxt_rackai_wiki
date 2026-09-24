@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [output throughput, output tokens per second, requests per second, prefill throughput]
-related: [met-tokens-per-gpu-second, met-ttft, met-gpu-utilization, ent-model-deployment, ent-benchmark-run]
+related: [met-tokens-per-gpu-second, met-ttft, met-gpu-utilization, ent-model-deployment, ent-benchmark-run, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

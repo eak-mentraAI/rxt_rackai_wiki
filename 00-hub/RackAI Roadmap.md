@@ -337,18 +337,18 @@ The pattern is clear: **delivery is strong on the measurement substrate (Proof 1
 
 Cross-cutting owners run *vertically through all four proofs*. Mapped from the Engineering Roadmap's workstreams A–F plus the dev-plan programs — with **AI Operations Product** elevated to first-class, because if the identity is Operator, the operating model is part of the product, not an afterthought.
 
-| Workstream | Team | Owns | Source |
-|-----------|------|------|--------|
-| **[[AI Operations Product]]** | **RackAI** | Operating model, service boundaries, SLOs, incident model, customer handoffs, FDE escalation, runbooks, lifecycle responsibility, change management, estate onboarding + operational acceptance criteria | **New — elevated from dev-plan P5/P6 + Product Operations JD** |
-| Platform / Control Plane | **RackAI** | Deployment orchestration, registry, capacity, routing, API, lifecycle, **supply-abstraction interface** | Eng. A |
-| Inference Performance Eng | **RackAI** | Runtime, kernels, quantization, caching, parallelism, topology | Eng. B |
-| Model Enablement | **RackAI** | Radar, intake, compatibility, functional testing, launches | Eng. C |
-| GPU / Infra Eng | **Infra** | Clusters, networking, storage, topology, firmware, health | Eng. D |
-| SRE / Reliability | Joint (Infra cluster, RackAI service) | Availability, observability, incident response, canary, rollback | Eng. E |
-| FinOps / Economics | **RackAI** | Cost/token, GPU-hour economics, revenue/GPU-hour, contribution margin | Eng. F; dev-plan Prog 5 |
-| Harness & Orchestration | **RackAI** | Execution harness, routing, context/tool controls, memory, runtime | dev-plan Program 1 |
-| Governance & Assurance | **RackAI** | Verification, perimeter info-flow, agent identity, **compliance envelope (P1)** | dev-plan Program 2 + P1 |
-| Measurement & Self-Improvement | **RackAI** | Empirical Map, eval-as-CI, loop planning, self-improvement | dev-plan Program 3 |
+| Workstream | Pillar | Team | Owns | Source |
+|-----------|--------|------|------|--------|
+| **[[AI Operations Product]]** | **[[Product Operations]]** | **RackAI** | Operating model, service boundaries, SLOs, incident model, customer handoffs, FDE escalation, runbooks, lifecycle responsibility, change management, estate onboarding + operational acceptance criteria | **New — elevated from dev-plan P5/P6 + Product Operations JD** |
+| Platform / Control Plane | **[[Inference and Serving Services]]** | **RackAI** | Deployment orchestration, registry, capacity, routing, API, lifecycle, **supply-abstraction interface** | Eng. A |
+| Inference Performance Eng | **[[Inference Optimization]]** | **RackAI** | Runtime, kernels, quantization, caching, parallelism, topology | Eng. B |
+| Model Enablement | **[[Model Services]]** | **RackAI** | Radar, intake, compatibility, functional testing, launches | Eng. C |
+| GPU / Infra Eng | *Infra (below K8s)* | **Infra** | Clusters, networking, storage, topology, firmware, health | Eng. D |
+| SRE / Reliability | Joint: [[Inference and Serving Services]] + Infra | Joint (Infra cluster, RackAI service) | Availability, observability, incident response, canary, rollback | Eng. E |
+| FinOps / Economics | **[[Inference Optimization]]** | **RackAI** | Cost/token, GPU-hour economics, revenue/GPU-hour, contribution margin | Eng. F; dev-plan Prog 5 |
+| Harness & Orchestration | **[[AI Harness]]** | **RackAI** | Execution harness, routing, context/tool controls, memory, runtime | dev-plan Program 1 |
+| Governance & Assurance | **[[AI Governance and Assurance]]** | **RackAI** | Verification, perimeter info-flow, agent identity, **compliance envelope (P1)** | dev-plan Program 2 + P1 |
+| Measurement & Self-Improvement | **[[AI Harness]]** | **RackAI** | Empirical Map, eval-as-CI, loop planning, self-improvement | dev-plan Program 3 |
 
 Vertically through all four proofs: **AI Operations Product + Compliance + Economics + Telemetry.**
 

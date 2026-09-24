@@ -107,16 +107,23 @@ flowchart TD
       APP[Ontologies, agents, applications, workflows, business outcomes]
     end
     subgraph OPERATE["What RackAI operates — the identity"]
-      GOV[Governance + assurance]
-      ORCH[Execution harness: routing, context + tool controls, policy, eval, memory, runtime]
-      INF[Inference operations + models + lifecycle]
-      SEC[Security boundary + observability + economics]
+      GOV["AI Governance & Assurance pillar — runtime policy, provenance, tenant isolation, agent identity, compliance envelope"]
+      ORCH["AI Harness pillar — execution harness: routing, context + tool controls, policy enforcement, eval, memory, runtime, Empirical Map"]
+      OPT["Inference Optimization pillar — serving efficiency, cost floor, benchmark harness, performance-regression gate"]
+      INF["Inference and Serving Services pillar — deployments, runtimes, autoscaling, accelerator allocation, API surface"]
+      MS["Model Services pillar — model catalog, intake, fine-tuning, LoRA lifecycle, versioning, retirement"]
+      PO["Product Operations — launch-readiness, metering, runbooks, compliance evidence assembly (cross-cutting)"]
     end
     subgraph INPUT["Abstracted supply — interchangeable"]
       CAP[GPU supply: RXT / partner / customer / hyperscaler; AMD / NVIDIA]
     end
-    APP --> OPERATE
-    OPERATE --> CAP
+    APP --> GOV
+    GOV --> ORCH
+    ORCH --> OPT
+    OPT --> INF
+    INF --> MS
+    MS --> INPUT
+    PO -. cross-cutting .-> OPERATE
 ```
 
 ## Who We Compete With — Organized by the Customer's Alternative

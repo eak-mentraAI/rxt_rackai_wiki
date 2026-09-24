@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: platform
 aliases: [governed harness, harness, harness layer, agent harness, agent scaffolding]
-related: [ent-model-deployment, ent-serving-runtime, ent-empirical-map, ent-agent-identity, wf-request-routing, wf-verification, hub-entities, src-rackai-dev-plan]
+related: [ent-model-deployment, ent-serving-runtime, ent-empirical-map, ent-agent-identity, wf-request-routing, wf-verification, hub-entities, src-rackai-dev-plan, hub-ai-harness]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17

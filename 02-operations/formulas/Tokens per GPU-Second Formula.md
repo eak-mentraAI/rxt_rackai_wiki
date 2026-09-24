@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [tokens per gpu-second formula, tokens/gpu-second formula]
-related: [met-tokens-per-gpu-second, fml-gpu-hours-per-1m-tokens, fml-cost-per-1m-tokens, coeff-fp8-throughput, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-model-deployment]
+related: [met-tokens-per-gpu-second, fml-gpu-hours-per-1m-tokens, fml-cost-per-1m-tokens, coeff-fp8-throughput, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-model-deployment, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

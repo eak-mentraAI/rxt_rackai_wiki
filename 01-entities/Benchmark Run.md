@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [benchmark run, benchmark, perf run, performance test]
-related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-gpu-node, ent-traffic-class, hub-entities]
+related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-gpu-node, ent-traffic-class, hub-entities, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

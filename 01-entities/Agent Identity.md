@@ -5,7 +5,7 @@ status: draft
 owner: governance
 domain: governance
 aliases: [agent identity, delegated authority, agent identity and delegated authority, scoped tokens, service identity]
-related: [ent-organization, ent-api-key, ent-governed-harness, wf-identity-access, pol-action-controls, wf-perimeter-info-flow, hub-entities, src-rackai-dev-plan]
+related: [ent-organization, ent-api-key, ent-governed-harness, wf-identity-access, pol-action-controls, wf-perimeter-info-flow, hub-entities, src-rackai-dev-plan, hub-ai-governance-assurance, hub-ai-harness]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17

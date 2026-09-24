@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [model deployment, deployment, serving deployment]
-related: [ent-model, ent-model-deployment-spec, ent-serving-runtime, ent-capacity-pool, hub-entities]
+related: [ent-model, ent-model-deployment-spec, ent-serving-runtime, ent-capacity-pool, hub-entities, hub-inference-serving]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

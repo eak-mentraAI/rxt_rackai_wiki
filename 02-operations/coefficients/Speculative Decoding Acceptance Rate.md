@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [speculative decoding acceptance rate, draft token acceptance, spec decode gain]
-related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime]
+related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [cost per 1m tokens, cost per million tokens, cost/token]
-related: [fml-gpu-hours-per-1m-tokens, fml-tokens-per-gpu-second, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, coeff-cost-per-gpu-hour, ent-model-deployment]
+related: [fml-gpu-hours-per-1m-tokens, fml-tokens-per-gpu-second, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, coeff-cost-per-gpu-hour, ent-model-deployment, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

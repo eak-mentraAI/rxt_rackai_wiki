@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: platform
 aliases: [fine-tuning job, finetuning job, training job, sft job]
-related: [ent-dataset, ent-lora-adapter, ent-organization, ent-model, wf-fine-tuning, hub-entities]
+related: [ent-dataset, ent-lora-adapter, ent-organization, ent-model, wf-fine-tuning, hub-entities, hub-model-services]
 source_docs: [rackai_console_docs, rackai_ui_architecture]
 confidence: measured
 last_reviewed: 2026-09-04

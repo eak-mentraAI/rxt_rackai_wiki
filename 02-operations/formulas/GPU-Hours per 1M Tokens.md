@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [gpu-hours per 1m tokens, gpu hours per million tokens]
-related: [fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, met-tokens-per-gpu-second, coeff-cost-per-gpu-hour, ent-model-deployment]
+related: [fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, met-tokens-per-gpu-second, coeff-cost-per-gpu-hour, ent-model-deployment, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

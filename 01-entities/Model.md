@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [model, foundation model, open-weight model, llm]
-related: [ent-model-deployment, ent-model-deployment-spec, ent-openrouter-integration, hub-entities]
+related: [ent-model-deployment, ent-model-deployment-spec, ent-openrouter-integration, hub-entities, hub-model-services]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

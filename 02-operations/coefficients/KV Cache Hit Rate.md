@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [kv cache hit rate, prefix cache hit rate, cache hit rate]
-related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-spec-decode-acceptance, ent-benchmark-run, ent-serving-runtime]
+related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-spec-decode-acceptance, ent-benchmark-run, ent-serving-runtime, hub-inference-optimization]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

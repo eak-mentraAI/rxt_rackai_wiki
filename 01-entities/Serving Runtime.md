@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [serving runtime, inference engine, inference runtime, serving engine]
-related: [ent-model-deployment, ent-model-deployment-spec, ent-gpu-node, ent-benchmark-run, hub-entities]
+related: [ent-model-deployment, ent-model-deployment-spec, ent-gpu-node, ent-benchmark-run, hub-entities, hub-inference-serving]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

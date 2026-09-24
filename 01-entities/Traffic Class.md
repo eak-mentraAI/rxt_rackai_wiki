@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [traffic class, workload class, request class, workload profile]
-related: [ent-model, ent-model-deployment, ent-benchmark-run, ent-openrouter-integration, hub-entities]
+related: [ent-model, ent-model-deployment, ent-benchmark-run, ent-openrouter-integration, hub-entities, hub-inference-serving, hub-ai-harness]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

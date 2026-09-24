@@ -5,7 +5,7 @@ status: draft
 owner: infrastructure
 domain: infrastructure
 aliases: [gpu cluster, cluster, gpu fleet segment]
-related: [ent-gpu-node, ent-region, ent-topology, ent-capacity-pool, hub-entities]
+related: [ent-gpu-node, ent-region, ent-topology, ent-capacity-pool, hub-entities, hub-inference-serving]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

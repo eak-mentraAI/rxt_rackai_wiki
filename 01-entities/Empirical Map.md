@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: performance
 aliases: [empirical map, the map, per-workload measurement, reliability map, cost map]
-related: [ent-governed-harness, ent-model, ent-benchmark-run, wf-request-routing, wf-verification, wf-eval-as-ci, met-cost-per-outcome, hub-entities, src-rackai-dev-plan]
+related: [ent-governed-harness, ent-model, ent-benchmark-run, wf-request-routing, wf-verification, wf-eval-as-ci, met-cost-per-outcome, hub-entities, src-rackai-dev-plan, hub-ai-harness]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17

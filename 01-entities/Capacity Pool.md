@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [capacity pool, pool, gpu pool, capacity allocation]
-related: [ent-gpu-node, ent-gpu-cluster, ent-model, ent-model-deployment, hub-entities]
+related: [ent-gpu-node, ent-gpu-cluster, ent-model, ent-model-deployment, hub-entities, hub-inference-serving]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

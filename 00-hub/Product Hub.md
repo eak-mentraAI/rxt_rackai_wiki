@@ -4,16 +4,18 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [product hub, strategy hub]
-related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial, hub-battlegrounds, hub-roadmap]
+aliases: [product hub, strategy hub, openrouter product hub]
+related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial, hub-battlegrounds, hub-roadmap, hub-org-design, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-04
+last_reviewed: 2026-09-24
 parent: hub-root
 summary: "Strategy, model bets, and engineering roadmap for the OpenRouter initiative on the RackAI platform."
 ---
 
 # Product Hub
+
+> **Scope note.** This hub covers the **OpenRouter inference program** — RackAI's first go-to-market initiative. It is not the full product organization hub. For the six-pillar product organization structure, see [[RackAI Organizational Design]]. For individual pillar hubs, see: [[Inference and Serving Services]] · [[Model Services]] · [[Inference Optimization]] · [[AI Governance and Assurance]] · [[AI Harness]] · [[AI Operations Product]].
 
 Strategy and roadmap for the **OpenRouter inference program** — the first initiative on the [[RackAI Platform]]: the model bets, the operating metrics that drive them, and the phased engineering roadmap. This hub covers the initiative's strategy; the platform it runs on is described in [[RackAI Platform]], and the initiative's integration paths and readiness gaps live in [[OpenRouter Initiative]].
 
