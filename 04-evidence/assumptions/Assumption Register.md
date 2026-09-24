@@ -28,6 +28,9 @@ The register of assumptions baked into the strategy and roadmap that do not yet 
 | [[Speculative Decoding Beneficial]] | asm-spec-decode-beneficial | Acceptance rate + throughput/TTFT under production load | assumed |
 | [[OpenRouter Traffic Follows Performance]] | asm-traffic-follows-performance | Observed traffic-share response to a measured gain | assumed |
 | [[Fleet Competitiveness]] | asm-fleet-competitiveness | H100 benchmark vs frontier + AMD specs + capacity plan | assumed |
+| [[OpenRouter Initial Market Share]] | asm-openrouter-initial-share | Phase 3 live traffic telemetry showing actual RackAI share of model pool | assumed |
+| [[Traffic Peak Multiplier]] | asm-traffic-peak-multiplier | Phase 1 telemetry showing hourly request distribution | assumed |
+| [[Gemma Replica Sizing]] | asm-gemma-replica-sizing | Hardware-fit benchmark on H100 with 262k context at BF16 | assumed |
 
 The register extends as new assumptions are surfaced. When an exit criterion is met, the assumption's confidence is upgraded and a [[Benchmark Library|benchmark]] or validation item records the evidence.
 
