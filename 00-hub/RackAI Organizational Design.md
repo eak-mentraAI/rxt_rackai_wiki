@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [rackai organizational design, org design hub, pillar structure, rackai org, team structure, reorg, six pillars]
-related: [hub-root, hub-rackai-platform, hub-roadmap, hub-battlegrounds, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product, wiki-pillar-working-model, src-rackai-org-design]
+related: [hub-root, hub-rackai-platform, hub-roadmap, hub-battlegrounds, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product, wiki-pillar-working-model, wiki-team-operating-model, src-rackai-org-design]
 source_docs: ["06-sources/RackAI Organizational Design.md", "reference/Enterprise AI Cloud - RackAI.pptx", "reference/jd/EXTERNAL_PDM_Optimization_and_Efficiency_JD.md", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Assurance_and_Governance_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md"]
 confidence: assumed
 last_reviewed: 2026-09-24

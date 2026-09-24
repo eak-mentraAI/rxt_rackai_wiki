@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [pillar working model, pillar boundaries, inter-pillar model, how pillars work together, raci pillars, pillar responsibilities]
-related: [hub-org-design, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product, hub-roadmap]
+related: [hub-org-design, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product, hub-roadmap, wiki-team-operating-model]
 source_docs: ["06-sources/RackAI Organizational Design.md", "reference/jd/EXTERNAL_PDM_Optimization_and_Efficiency_JD.md", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Assurance_and_Governance_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md"]
 confidence: derived
 last_reviewed: 2026-09-24
