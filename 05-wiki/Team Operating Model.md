@@ -215,26 +215,28 @@ Five meeting types. Each has a single owner, a defined purpose, and a hard scope
 
 ## Roadmap Update Process
 
-Roadmaps are updated on a defined cycle — not continuously.
+Roadmaps are updated on a defined cycle — not continuously. The canonical roadmap tool is **Craft.io** — all roadmap updates are made there. The wiki (pillar hub pages) carries the strategic rationale, confidence states, and open questions behind each roadmap item; Craft.io carries the live roadmap itself. Neither replaces the other.
 
 ### Cycle
 
 | Event | Trigger | Owner | Output |
 |---|---|---|---|
-| **Quarterly roadmap update** | Start of each quarter | Pillar PM + engineering lead pair | Proposed next-quarter roadmap; presented at Roadmap Update Session |
-| **Strategy-triggered update** | Strategy Sync decision changes a priority | Edward signals to affected pillar PM; Jovan to affected engineering lead | Pillar pair updates their roadmap within one week; flags seam impacts in writing to affected peers |
-| **Seam-triggered update** | A Seam Check resolution changes scope for a pillar | Affected pillar PM | Roadmap updated within 48h; Product Operations Lead updates launch calendar |
-| **Delivery-reality update** | Shipped reality contradicts a planned capability | Pillar PM + engineering lead | Capability gap register and roadmap updated immediately; flagged to Edward, Jovan, and Product Operations Lead |
+| **Quarterly roadmap update** | Start of each quarter | Pillar PM + engineering lead pair | Proposed next-quarter roadmap updated in Craft.io; presented at Roadmap Update Session |
+| **Strategy-triggered update** | Strategy Sync decision changes a priority | Edward signals to affected pillar PM; Jovan to affected engineering lead | Craft.io updated within one week; seam impacts flagged in writing to affected peers |
+| **Seam-triggered update** | A Seam Check resolution changes scope for a pillar | Affected pillar PM | Craft.io updated within 48h; Product Operations Lead updates launch calendar |
+| **Delivery-reality update** | Shipped reality contradicts a planned capability | Pillar PM + engineering lead | Craft.io and capability gap register updated immediately; flagged to Edward, Jovan, and Product Operations Lead |
 
 ### What a roadmap update must contain
 
-A roadmap update is a written note in the wiki specifying:
+A roadmap item in Craft.io should specify:
 
-1. **What changed** and why (strategy signal, seam resolution, or delivery reality)
+1. **What it is and why** — the product outcome, not just the feature name; linked to the operator proof it serves
 2. **What is now in / out** of the next quarter
-3. **Seam impacts** — which other pillars are affected and what they need to know
-4. **Confidence state** — assumed / derived / measured / validated
-5. **Open questions** — anything requiring Edward, Jovan, or another pillar lead to decide before this roadmap can be executed
+3. **Seam impacts** — tag any other pillars affected so their PMs are notified
+4. **Confidence state** — assumed / derived / measured / validated (use Craft.io's status field consistently with the wiki confidence vocabulary)
+5. **Open questions** — anything requiring Edward, Jovan, or another pillar lead to decide before this item can be executed; flag as a blocker in Craft.io and note the owner
+
+For significant changes — ones that shift strategic direction, change a proof's exit condition, or resolve a gap — also update the relevant pillar hub page in the wiki with the rationale. Craft.io carries the *what and when*; the wiki carries the *why and what we learned*.
 
 Product Operations Lead reviews every roadmap update for launch-calendar impacts before it is considered final.
 
