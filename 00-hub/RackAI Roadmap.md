@@ -6,9 +6,9 @@ owner: product
 domain: strategy
 aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operator roadmap, engineering roadmap canonical, four proofs, observe decide control operate, proof roadmap]
 related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness]
-source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md"]
+source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md", "PM/leadership roadmap review 2026-09-28"]
 confidence: derived
-last_reviewed: 2026-09-21
+last_reviewed: 2026-09-28
 parent: hub-root
 summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Control, Operate)."
 ---
@@ -59,10 +59,71 @@ The **single canonical, living roadmap** for RackAI. It is built primarily on th
 - **D1 — Reorient around MOE-0 → MOE-1** (manage toward a dated operating proof, not a feature backlog). *Open: name MOE-0 + date; name the MOE-1 customer profile + window.*
 - **D2 — Fund the substrate that improves us with scale** (economics + supply optionality + Empirical Map).
 - **D3 — Establish the minimum enterprise control envelope for MOE-1.**
-- **D4 — Narrow where we differentiate** (partner fine-tuning delivery; don't prematurely build Proof 4).
+- **D4 — Narrow where we differentiate** (evaluate partner(s) for fine-tuning delivery, RackAI owns integration/serving; don't prematurely build Proof 4).
 - **Also unresolved (this document does not yet answer):** what we **stop/deprioritize** to fund this, and the **resource/cost** shifts D1–D4 imply.
 
 **What would change our minds** (kill criteria): **K1** — if customers won't *delegate operational control* (only buy private inference), we may be an infrastructure platform, not an operator. **K2** — if cross-estate evidence doesn't *transfer* to beat workload-local optimization, the Empirical Map isn't a moat. **K3** — if domain-aligned models don't beat frontier for our buyers, the wedge is wrong.
+
+---
+
+## The Operating Loop — the system the four proofs build
+
+The four proofs are horizons of *evidence*; this is the *machine* they assemble. Every roadmap item below is ultimately an implementation choice in service of one loop — **meter → characterize → accumulate evidence → decide → route/place → observe → feed back** — wrapped in enterprise governance and made executable across heterogeneous estates. If an item does not strengthen a turn of this loop, it is a technique, not a destination (this is the test applied hardest in Proof 2).
+
+```mermaid
+flowchart LR
+    METER[Meter workload + economics] --> CHAR[Characterize the workload]
+    CHAR --> MAP[Empirical Map accumulates evidence]
+    MAP --> DECIDE[Choose model / runtime / accelerator / config]
+    DECIDE --> PLACE[Route / place the workload]
+    PLACE --> OBSERVE[Observe actual outcome]
+    OBSERVE --> MAP
+    GOV[Enterprise governance envelope] -.wraps.-> DECIDE
+    GOV -.wraps.-> PLACE
+    EST[Heterogeneous estates] -.executes across.-> PLACE
+```
+
+**How the loop maps to the four proofs** — the proofs are stages of making this loop real, not a parallel structure:
+
+| Loop stage | Proof | Canonical home |
+|------------|-------|----------------|
+| Meter workload + economics | 1 Observe | [[Metering]] + cost model (P-003) → [[AI FinOps]], [[Unit Economics Model]] |
+| Characterize the workload | 1→2 | [[Traffic Class]] (workload characterization) |
+| Accumulate evidence | 2 Decide | [[Empirical Map]] (the moat) |
+| Choose model/runtime/accelerator/config | 2 Decide | Workload placement (P-004); [[Request Routing]] |
+| Route / place the workload | 2 Decide | [[Request Routing]]; [[Standard Model Deployment]] |
+| Observe actual outcome → feed back | 2→loop | [[Monitoring & Observability]] → [[Empirical Map]] |
+| Governance envelope around the loop | 3 Control | [[AI Governance and Assurance]], [[Governed Harness]] |
+| Executable across estates | 4 Operate | [[AI Operations Product]], [[Minimum Operable Estate]] |
+
+> **Why this framing matters.** Read as scattered milestones, the roadmap looks like a pile of inference-engineering projects. Read as this loop, most "features" (speculative decoding, AMD AIM, llm-d, Prometheus, RBAC, OpenRouter) stop being roadmap destinations and become *implementation choices in service of the loop*. The differentiated items are the ones that make a **better workload-placement decision**: characterization → Empirical Map → evidence-informed routing → closed-loop optimization. That is the flywheel; everything else serves it.
+
+---
+
+## Sequencing Logic — why this order, when we have no demand signal
+
+**The honest problem this section answers.** A normal roadmap sequences by demand: build what the most customers are asking for, most-asked first. **We do not have that signal** — no signed estate, no production traffic, and the capacity work already states plainly that no measured demand exists ([[GPU Capacity Demand Rationale]]). Without demand, any ordering *looks* arbitrary, and "why cost model before the harness? why the Empirical Map before multi-region?" is a fair and dangerous question. The weak response is to invent a forecast. The strong response is to sequence by a **different, explicit logic** — and say what it is.
+
+> **The ordering hypothesis (state this first, defend the rest against it):** *In the absence of demand signals, we sequence to **buy the most information and preserve the most optionality at the lowest irreversible cost** — not to satisfy a forecast we don't have.* Every item's place in the order should be defensible as one of: it gets more expensive the longer we wait, it keeps future paths open, or it cheaply resolves an uncertainty that would otherwise waste later work. If an item's ordering can't be justified by one of those three, its position **is** arbitrary and should be challenged.
+
+**The three ordering principles (this is the whole logic):**
+
+| # | Principle | The question it answers | Order by | Examples in this roadmap |
+|---|-----------|-------------------------|----------|--------------------------|
+| **1** | **Irreversibility / cost-of-delay** | *What gets more expensive to do the longer we wait?* | Do the cheap-now / expensive-later things first | Workload-placement interface (baking owned-fleet assumptions in later is a rewrite); cost model riding the Metering pipeline (attaching cost later means re-plumbing); compliance envelope kickoff (attestation lead times are long) |
+| **2** | **Optionality** | *What keeps the most future paths open?* | Do the things that avoid lock-in before we know the answer | Supply abstraction (owned/partner/customer/hyperscaler stays open); transferable-vs-isolated telemetry split designed in from day one; partner-evaluated fine-tuning (don't build a toolchain we may not want) |
+| **3** | **Evidence-generation / learning value** | *What most cheaply resolves our biggest uncertainty?* | Do the highest-information experiments first | Prototype the [[Empirical Map]] first (it tests the *thesis itself* — K2); MOE-0 → MOE-1 (tests whether customers delegate-and-pay — K1); the domain-model fine-tuning experiment (tests the central bet — K3) |
+
+**How this maps to the four proofs (so the order isn't just asserted):**
+
+- **Observe before Decide** — not because Observe is "phase 1," but because you cannot make an evidence-informed decision (Proof 2) before you can measure cost and outcome (Proof 1). Measurement is the cheapest, most irreversible-if-skipped substrate: every later claim reads from it. *(Principle 1 + 3.)*
+- **Empirical Map early, inside Proof 2** — sequenced first *within* Decide because it is the highest-information experiment we can run: it tells us whether the differentiated thesis works **at all** before we spend on everything downstream of it. Prototyping it is how we avoid over-investing in a moat that might not compound (K2). *(Principle 3.)*
+- **Control (MOE-0 → MOE-1) pulled earlier than a feature backlog would put it** — because the single largest unknown is not technical, it's *will a customer delegate operational responsibility and pay* (K1). That question is answered only by operating a real estate, so we start MOE design during Proof 1 rather than waiting. An operating proof resolves more uncertainty per dollar than another inference optimization. *(Principle 3.)*
+- **Operate (Proof 4) deliberately last** — multi-region, day-zero factory, closed-loop automation are sequenced *after* the MOEs on purpose: automating and industrializing before we've operated even once would be building for a demand and an operating model we haven't validated. We **do not automate before we operate**. *(Principle 1 inverted: these are the things that are cheap to *delay* and expensive to do *speculatively*.)*
+
+**What this buys us with a skeptical audience.** It reframes the roadmap from *"a bet on demand we can't see"* to *"a deliberately sequenced series of experiments, each chosen to cheaply de-risk the next."* The [[#Kill / Falsification Criteria (what would change the thesis)|kill criteria K1–K3]] are not just success/failure switches — they are the **ordering rationale**: we do the things that test K2 (does the moat compound?), K1 (will customers delegate and pay?), and K3 (do domain models win?) *early and cheaply*, because a "no" on any of them re-orders everything after it. Sequencing toward the kill criteria is how a pre-demand roadmap stays honest.
+
+> **The one-line version for the exec who asks "why this order?":** *We don't have demand data, so we're not pretending to. We're ordering the work to answer our three make-or-break questions as cheaply and early as possible, and to avoid decisions that are cheap today and expensive to unwind later. Demand signal, once it exists (first MOE, first OpenRouter traffic), re-prioritizes from there.*
 
 ---
 
@@ -151,16 +212,18 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 
 | Item | Traces to | Confidence |
 |------|-----------|:----------:|
-| Cost model (internal cost/GPU-hour) | Eng. 0.3; dev-plan Prog 5 | missing |
+| Unit Economics / Cost Intelligence (cost/GPU-hour → cost/token → utilization-adjusted → margin) | Eng. 0.3; dev-plan Prog 5; [[Unit Economics Model]] | missing |
 | Fleet telemetry instrumentation | Eng. 0.2 | missing |
 | Initial benchmark harness | Eng. 0.4 | missing |
 | Metering | Gap Register; dev-plan Prog 5.2 | planned |
 | Basic reliability / observability | Eng. 2.2 / E | planned |
 | GLM 5.3 Flash deployment + OpenRouter Path A (real workloads to exercise the system) | [[Phase 1 Execution Plan — GLM 5.3 Flash Proof Point]]; [[OpenRouter Integration Plan]] Phase 1 | derived / planned |
-| **Supply abstraction — the *interface*, not multi-provider scheduling** (`SupplyTarget / AcceleratorPool / ExecutionLocation`; owned H100 = impl #1) | Strategy-derived architectural requirement ([[Load-Bearing Bets]]) | assumed |
+| **Workload Placement Policy — the *interface*, not multi-provider scheduling** (`SupplyTarget / AcceleratorPool / ExecutionLocation`; owned H100 = impl #1) | Strategy-derived architectural requirement ([[Load-Bearing Bets]]) | assumed |
 | Compliance envelope kickoff (SOC 2 scoping) | dev-plan **P1** ("start first") | missing |
 
-*Why supply abstraction is here, not later: the abstraction is cheap now and expensive later. Building the control plane against `SupplyTarget` from day one prevents baking owned-fleet assumptions into everything. We do not need multi-provider scheduling yet — only the interface.*
+*Why the placement interface is here, not later: the abstraction is cheap now and expensive later. Building the control plane against `SupplyTarget` from day one prevents baking owned-fleet assumptions into everything. We do not need multi-provider scheduling yet — only the interface.*
+
+> **Workload Placement Policy — the unresolved product decision (open question, not just an interface).** The interface above is the *mechanism*; the *product question* is bigger and unsettled: **how much infrastructure choice does the customer get?** The strategic target is an experience closer to *"here is my workload and my constraints"* — RackAI then selects model runtime, accelerator, quantization, replicas, and routing — rather than *"give me 4 B300s."* That abstraction is what makes the [[Empirical Map]] commercially meaningful (RackAI makes the decisions the map informs). But customers have explicitly asked for control over which GPU they deploy on, and today's quota plans are defined in **GPU-centric** terms. So there is a real tension: if we abstract the GPU away, the quota model needs rethinking; if we don't, the placement intelligence has less room to act. **Open question — RackAI selects everything beyond the workload + constraints, or the customer keeps GPU-level control?** Ties to [[Capacity Pool]] quota definitions and the P-004 gap; needs PM ratification.
 
 ### Proof 2 — Decide: *Our accumulated knowledge improves decisions*
 
@@ -236,25 +299,42 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 | **Metering M1** | Project CRD + usage_records + MeteringEvent pipeline w/ inference + FT metering | RACKAI-352 | Rajak | Joint (Infra pipeline, RackAI economics) | In Progress | Cost/usage capture |
 | **Observability M1** ⭐ | Metrics API (latency/rate/errors, quota util), Workload Status API | — | Audit/Obs | Infra → RackAI | Not Started (crit-path) | The operator dashboard |
 | **M2: AI Performance Benchmarks** | Internal benchmarking process | — | — | **RackAI** | Not Started (Pri 5) | Ends "KPIs assumed" |
-| ⚠ **Cost model** (internal cost/GPU-hour) | *not a delivery milestone yet* — Metering captures usage, but cost/GPU-hour modeling is absent | — | — | **RackAI** | **gap → P-003** | Cost floor |
-| ⚠ **Supply-abstraction interface** | *not in delivery plan* — control plane assumes owned fleet | — | — | **RackAI** | **gap → P-004** | Prevents fleet lock-in |
+| ⚠ **Unit Economics / Cost Intelligence** (first-class workstream, not an aside) | *not a delivery milestone yet* — Metering captures **usage**, but no monetary cost is modeled: GPU-hour cost, power + colo + network allocation, accelerator depreciation, storage, cost/token, utilization-adjusted cost, → eventually margin per customer/workload | — | — | **RackAI** (FinOps; Infra + Finance data inputs) | **gap → P-003** | Cost floor — the economics the whole thesis rests on |
+| ⚠ **Workload Placement Policy** (the interface *and* the product decision) | *not in delivery plan* — control plane assumes owned fleet; and the customer-choice question is unresolved | — | — | **RackAI** | **gap → P-004** | Prevents fleet lock-in; defines the operator UX |
 
-**Proof 1 read:** measurement substrate is genuinely underway (auth/audit shipped; telemetry + metering in progress). The two strategy gaps are the **cost model** (usage is metered but cost/GPU-hour isn't modeled) and the **supply-abstraction interface**.
+**Proof 1 read:** measurement substrate is genuinely underway (auth/audit shipped; telemetry + metering in progress). The two strategy gaps are elevated from asides to first-class workstreams. **Cost Intelligence** is fundamental to the RackAI thesis: if we claim we can operate inference more efficiently than customers can themselves, we have to *know* our cost — and today metering deals only in metered usage, not monetary value. This likely needs to tap undercloud metrics (power, networking cost) and finance data (depreciation/lease), not just engineering telemetry. **Workload Placement Policy** is bigger than an interface — see its open product decision below.
 
 ### Proof 2 — Decide: *accumulated knowledge improves decisions*
 
 | Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
 |-----------|-------------|------|-------|------|--------|--------|
-| **M2: Inference routing** | llm-d, ingress→llm-d→model, shared KV cache | RACKAI-311 | Chatterjee | **RackAI** | In Progress | Routing (→ smart routing) |
-| **M2: Accelerator selection ph3** | node inventory + GPU consumption metrics | RACKAI-336 | Nguy | Joint (Infra-led, RackAI constrains) | **Complete** | Placement inputs |
-| **M2: AMD AIM engine / AMD+NVIDIA nodes** | multi-accelerator serving | RACKAI-347/263 | Chatterjee/Gosavi | Joint (Infra nodes, RackAI serving) | In Progress / Not Started | Heterogeneous supply |
-| **M2: Speculative decoding, Refrag** | inference perf optimizations | RACKAI-67/374 | Ferrer / — | **RackAI** | In Progress | tok/s/GPU, TTFT |
-| **M2: DPO fine tuning** | preference-tuning beyond SFT | RACKAI-252 | Shah | **RackAI** | In Progress | Fine-tuning ops |
-| **Uniphore: SFT/LoRA** | dataset mgmt, PEFT/LoRA adapters, deploy/undeploy | — | Rajendra/Neelava | **RackAI** | In Progress | Fine-tuning ops (shipped-ish) |
-| ⚠ **Empirical Map v1** + transferable/isolated split | *not in delivery plan* — telemetry exists, but no cross-workload knowledge store | — | — | **RackAI** | **gap → P-005** | **The moat** |
-| ⚠ **Evidence-informed routing** (routing reads the map) | delivery routing is llm-d/KV-cache, not empirically-driven | — | — | **RackAI** | **gap → P-005** | Flywheel |
+**One test governs everything in this proof:** *does this capability help RackAI make a better workload-placement decision?* That test cleanly splits Proof 2 into the **strategic flywheel** (differentiating) and **techniques** (implementation choices that earn their place only when evidence says they improve an outcome we care about).
 
-**Proof 2 read:** the *ingredients* of good operating decisions are being built (routing, accelerator selection, perf optimizations, fine-tuning), but the **Empirical Map** — the thing that makes decisions *evidence-informed across workloads*, i.e. the moat — is not on the delivery plan. This is the single most important strategy gap.
+**Strategic — the flywheel (differentiating):**
+
+| Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
+|-----------|-------------|------|-------|------|--------|--------|
+| ⚠ **Empirical Map v1** + transferable/isolated split | *not in delivery plan* — telemetry exists, but no cross-workload knowledge store. **Highest-priority experiment: prototype first** — it tests whether the differentiated RackAI thesis works at all (K2) | — | — | **RackAI** | **gap → P-005** | **The moat** |
+| ⚠ **Workload characterization** (analyze real traffic → workload classes) | partial — [[Traffic Class]] concept exists; characterization of *actual* traffic is the OpenRouter-3.3 input, not yet a placement input | — | — | **RackAI** | **gap → P-005** | Feeds the map |
+| ⚠ **Evidence-informed routing** (routing reads the map) | delivery routing is llm-d/KV-cache, not empirically-driven | — | — | **RackAI** | **gap → P-005** | Flywheel |
+| ⚠ **Closed-loop optimization** (outcome feeds back into the map) | Eng. Phase 6 — not in delivery plan | — | — | **RackAI** | **gap → P-007** | Closes the loop |
+| **M2: Inference routing** (the substrate the map plugs into) | llm-d, ingress→llm-d→model, shared KV cache | RACKAI-311 | Chatterjee | **RackAI** | In Progress | Routing substrate |
+| **M2: Accelerator selection ph3** | node inventory + GPU consumption metrics | RACKAI-336 | Nguy | Joint (Infra-led, RackAI constrains) | **Complete** | Placement inputs |
+
+**Techniques — implementation choices, not roadmap destinations** (roadmap them only when empirical evidence says they improve an outcome we care about):
+
+| Technique | Jira | Owner | Status | PM disposition |
+|-----------|------|-------|--------|----------------|
+| Speculative decoding | RACKAI-67 | Ferrer | In Progress | **Reprioritize** — assess against what other offerings already provide before independent investment |
+| Refrag | RACKAI-374 | — | In Progress | **Reprioritize** — low clarity on value; do not independently roadmap without an evidenced outcome |
+| AMD AIM engine / AMD+NVIDIA nodes | RACKAI-347/263 | Chatterjee/Gosavi | In Progress / Not Started | Multi-accelerator serving carries a **cost**: AIM integration trades against the feature set we want in the roadmap. Weigh explicitly |
+| DPO fine-tuning | RACKAI-252 | Shah | In Progress | Preference-tuning beyond SFT — a fine-tuning *technique*; disposition follows P-001 |
+| Uniphore: SFT/LoRA | — | Rajendra/Neelava | In Progress | Dataset mgmt, PEFT/LoRA adapters, deploy/undeploy (shipped-ish) |
+| ⚠ **Semantic router** | — | — | **not captured in delivery** | PM flag: semantic routing work is **absent** from the plan. Only a *technique* until the map shows it improves a placement/routing outcome — then it plugs into evidence-informed routing |
+
+> **Shared KV cache is rudimentary today** and needs more work to give the best experience — but that work needs PM input on the target experience before it is scoped.
+
+**Proof 2 read:** the *ingredients* of good operating decisions are being built (routing, accelerator selection, perf optimizations, fine-tuning), but the **Empirical Map** — the thing that makes decisions *evidence-informed across workloads*, i.e. the moat — is not on the delivery plan. This is the single most important strategy gap. The reframe above is the reviewer's central point: **the strategic chain is `Empirical Map → workload characterization → evidence-informed routing → closed-loop optimization`; the techniques (speculative decoding, Refrag, AMD AIM, DPO, semantic router) are in service of the loop, not destinations.** Prototype the Empirical Map first — it is the highest-value experiment because it tests the differentiated thesis itself.
 
 ### Proof 3 — Control: *safely assume responsibility inside an enterprise boundary*
 
@@ -270,6 +350,26 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 
 **Proof 3 read:** the delivery plan builds real control-plane pieces (audit, admission control, isolation) but **stops short of the identity proof** — there is no harness, no compliance attestation milestone, no MOE, and org-level RBAC was explicitly dropped (IAC M4 "Won't Do"). This is where the strategy is furthest ahead of delivery.
 
+> **This proof is materially underdeveloped relative to its importance, and that is backwards for an enterprise product.** We do not win merely because we can serve tokens; we win when a customer can say *"I can safely let RackAI operate this workload inside my enterprise boundary."* The delivered work is mostly authorization, auditing, quota, and tenancy, while the concepts that actually earn that sentence — governed execution, compliance attestation, the MOEs — are "not in delivery." The response is to name an explicit **Enterprise Control Plane** workstream so these stop being scattered gaps.
+
+### The Enterprise Control Plane (the Proof-3 workstream)
+
+The controls that let a customer delegate operation inside their boundary, treated as one workstream rather than scattered line items. Canonical homes already exist — this groups them under the operator lens; it does not redefine them.
+
+| Control | What it covers | Canonical home | Status |
+|---------|----------------|----------------|:------:|
+| Policy / guardrails | Runtime policy enforcement on what the workload may do | [[AI Governance and Assurance]]; [[Action Controls]] | planned |
+| Workload identity | Scoped, revocable service identities; delegated authority that expires | [[Agent Identity]] | planned |
+| Model provenance | What model/version/weights ran, and the record to prove it | [[AI Governance and Assurance]] (provenance/replay) | assumed |
+| Data / inference isolation | Tenant + workload isolation across the execution boundary | [[Multi-Cluster Governance Brief (Partner)]]; [[Perimeter Information-Flow Control]] | planned |
+| Action authorization | Authorizing outbound actions by identity, before execution | [[Agent Identity]] → [[Action Controls]] | planned |
+| Auditability | An audit that is a query against the platform | [[Audit]] (IAC M3 shipped; Auditing M1–M3 pending) | partial |
+| Compliance **evidence** | The independently-verifiable evidence a regulated buyer's segment requires | [[AI Governance and Assurance]] (compliance envelope) | missing |
+| Human approval where required | Approval gates on high-blast-radius actions | [[Action Controls]] (human-in-the-loop gate) | planned |
+| Governed execution | The harness runtime that enforces all of the above at execution time | [[Governed Harness]] | assumed |
+
+> **Certification is not the same as the product controls that make certification possible.** SOC 2 (and sovereign attestations) matter, but they are a **gate, not the moat** — they get us into deals and do not compound. Distinguish the *certification work* (attestation lead time, auditor evidence) from the *product controls* above that make both certification **and** day-to-day customer governance possible. Build the controls; certify against them; don't confuse the two. (Compliance evidence stays framed as an **outcome** set by the MOE-1 customer segment — see P-006 — not a pre-decided SOC 2 Type I.)
+
 ### Proof 4 — Operate: *do it repeatably and profitably across heterogeneous estates*
 
 | Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
@@ -282,6 +382,56 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 | ⚠ **Managed-ops / FDE motion, multi-estate onboarding** | *not modeled* | — | — | **RackAI** | **gap → P-007** | The operator business |
 
 **Proof 4 read:** almost entirely gap. The delivery plan has model-lifecycle fragments; multi-region and GPU-node access — prerequisites for heterogeneous multi-estate operation — are explicitly **backlogged at Pri 6**. Proof 4 is a future the delivery plan does not yet fund.
+
+> **This may be the most important proof commercially, and it needs more weight than the plan gives it.** *Operating heterogeneous AI estates repeatably* is much closer to Rackspace's natural moat than building another inference server. The three groupings below name the operator *business* Proof 4 must fund; they sequence *after* Proofs 1–3 (P-007 is a dependency declaration, not a "start now"), but they belong on the roadmap explicitly so MOE-1 is never promised ahead of its prerequisites.
+
+**Fleet Operations** — add/remove accelerator capacity · NVIDIA + AMD lifecycle · model deployment lifecycle · upgrade/rollback · health/remediation · capacity management. Canonical homes: [[Capacity Pool Model]], [[GPU Reallocation]], [[Canary & Rollback]], [[Standard Model Deployment]]. *PM note: **GPU node access support** — is this in this team's charter at all? Confirm before scheduling; it may belong to Infra.*
+
+**Model Lifecycle** — request → qualify → benchmark → approve → deploy → observe → upgrade → retire. Canonical homes: [[Model Radar]] (intake), [[Model Launch Factory]] (day-zero pipeline), [[Standard Model Deployment]], [[Canary & Rollback]]. *PM notes: **request new model** will likely run through **SNOW** now (delivery-platform decision still open with RXT); **sunsetting a model** has **no PRD** yet — write it before scheduling retirement.*
+
+**Multi-estate Operations** — RXT cloud · customer private cloud · sovereign deployments · → eventually third-party capacity. Canonical homes: [[AI Operations Product]], [[Multi-Cluster Governance Brief (Partner)]], [[Minimum Operable Estate]]. *PM note: supporting **2 regions** in `rackai.rax.io` under a single RackAI instance likely needs work here — the multi-region prerequisite that gates an external multi-region MOE-1.*
+
+## Cross-Cutting Surfaces
+
+Items that don't sit inside a single proof but run across them: the external distribution surface, the observability split, the fine-tuning stance, and the cost-of-doing-business floor.
+
+### OpenRouter — External Distribution & Validation (a proving ground, not the product)
+
+OpenRouter is **external distribution and validation**, not RackAI's enterprise UX — a mechanism kept **strategically subordinate** to the operator identity. This is the [[Three Battlegrounds|"gym and proving ground"]] framing made concrete: the point is not that OpenRouter becomes the product, but that it lets us **exercise production serving, learn model onboarding quickly, generate workload telemetry, benchmark AMD vs NVIDIA, test price/performance, consume otherwise-idle capacity, and establish public performance credibility.** Every one of those is an input to the operating loop — telemetry into the [[Empirical Map]], onboarding reps into the Model Lifecycle, price/perf into Cost Intelligence. Full sequence: [[OpenRouter Integration Plan]]; hub: [[OpenRouter Initiative]].
+
+| Item | What it is | Serves the loop by | Status |
+|------|-----------|--------------------|:------:|
+| **OpenRouter Provider path** (public models) | Publish RackAI-served public models to OpenRouter traffic | Exercises serving; generates telemetry; public price/perf credibility | planned ([[OpenRouter Initiative]]) |
+| **OpenRouter Private Model path** | Private/BYOM models served behind the OpenRouter surface | Onboarding reps; AMD-vs-NVIDIA benchmarking on real traffic | planned |
+| ⚠ **BYOM in OpenRouter** | Bring-your-own-model onboarding via the OpenRouter surface | Fast model-onboarding learning; idle-capacity consumption | **not captured in delivery** — new item |
+| ⚠ **Inference-aaS in OpenRouter** | Inference-as-a-service offering exposed through OpenRouter | Production serving exercise at scale; price/perf validation | **not captured in delivery** — new item |
+| ⚠ **Inference-as-a-Service direct** (`rackai.rax.io`) | Inferencing for popular models offered as a **direct** RackAI feature | *Open question:* should IaaS be a direct product feature, or stay an OpenRouter-only proving surface? | **open question — needs PM decision** |
+
+> **Keep it subordinate.** The risk the reframe guards against is OpenRouter accidentally becoming its own product strategy. It is a learning vehicle inside the operator roadmap; its outputs feed the loop, they are not the destination.
+
+### Observability — two distinct surfaces, do not conflate
+
+The delivery item *"Observability M1"* raised a fair PM question: **is this observability for the end user, or for Rackers?** The answer is both, but they are **two different products** and should be split. (Boundary rule: Infra **builds** cluster observability; RackAI **consumes** it and turns it into operating intelligence — see *Two Teams, One Roadmap*. Canonical workflow home: [[Monitoring & Observability]].)
+
+| Surface | Audience | What it shows | Why it matters |
+|---------|----------|---------------|----------------|
+| **Customer observability** | The customer buying the workload | Requests, tokens, TTFT, ITL, latency percentiles, errors, throughput, cost, quotas, model/SLA performance | This is **what customers actually buy** — the operator's account of their workload |
+| **RackAI operational intelligence** | RackAI operators | GPU/VRAM utilization, power, queue depth, batching, KV-cache efficiency, accelerator/model efficiency, cost/token, capacity pressure | This is the **operator's** view; it **feeds the [[Empirical Map]]** and the loop |
+
+> The second surface is more ambitious than "model usage metrics." GPU/VRAM, TTFT, and queue length are useful but are an *infrastructure operator's* view; the customer-facing product needs the percentiles/cost/SLA framing. And the operator-intelligence side is the raw material the Empirical Map is built from — the split is not cosmetic, it decides where each metric flows.
+
+### Fine-tuning infrastructure — host the artifact, don't own the toolchain
+
+Consistent with **P-001** (partner delivery, keep operations + the experiment). Additional signal reinforcing the direction: **checkpointing + resume** and the broader fine-tuning stack appear to be **moving external to Rackspace** — so we should not spend scarce engineering cycles rebuilding that toolchain. The general principle: *don't build ML tooling merely because an AI platform could contain it; build the operational capabilities that strengthen RackAI's differentiation.* RackAI should **host and operate the resulting artifact** (the [[LoRA Adapter]] on the fleet — fine-tuning *operations*), not own the entire training toolchain. See P-001 for the three-way split.
+
+### CODB — cost of doing business (surfaced from the delivery CSV, not yet on the roadmap)
+
+Delivery has recurring **CODB** work that never surfaces into the strategic roadmap but gates the operator business. Named here so it isn't invisible:
+
+| Item | What it is | PM note | Status |
+|------|-----------|---------|:------:|
+| ⚠ **Object Store** | Alternative to SeaweedFS for artifact/model/dataset storage | Requires block storage allocated to the product; alternative is **Rackspace Managed Object Store** | open — needs decision |
+| ⚠ **CI system** | Builds + release pipeline | Release process exists for key components but is **missing for some (model and FT images)** | gap |
 
 ## Milestone → Proof → Objective (the line of sight)
 
@@ -361,7 +511,11 @@ Seams where the strategy is still ahead of the plan, tracked for the "Proposed C
 1. **Minimum Operable Estate spec** — needs its own canonical note defining the smallest environment where "we operate your AI" is legitimately true (candidate: 1 customer, 1 private env, 2 models, 1 harness, 1 supply source, basic routing, metering, observability, identity/policy, audit, model lifecycle, human-operated placement).
 2. **Operator KPI instrumentation** — the North-Star families are defined but unmeasured; Proof 1 must land them.
 3. ~~**AI Operations Product** — elevated here, but has no canonical workstream/owner note yet.~~ **Closed** — canonical note created: [[AI Operations Product]] (staffing/ownership still open).
-4. **Supply-abstraction interface spec** (`SupplyTarget / AcceleratorPool / ExecutionLocation`) — an architectural requirement without a design note.
+4. **Supply-abstraction interface spec** (`SupplyTarget / AcceleratorPool / ExecutionLocation`) — an architectural requirement without a design note; now framed as **Workload Placement Policy** (Proof 1), which also carries an unresolved *product* decision (how much GPU-level choice the customer keeps vs. RackAI selecting from workload + constraints).
+5. **Semantic router** — flagged absent from the delivery plan; a routing *technique* with no home until the [[Empirical Map]] shows it improves a placement outcome (Proof 2).
+6. **OpenRouter BYOM + Inference-aaS**, and **Inference-as-a-Service as a direct `rackai.rax.io` feature** — surfaced in Cross-Cutting Surfaces; the direct-IaaS question needs a PM product decision.
+7. **Customer-observability product surface** — distinct from operator intelligence; not yet a named deliverable (Cross-Cutting Surfaces).
+8. **CODB: Object Store (SeaweedFS alternative) and CI for model/FT images** — real delivery work that gates the operator business but never surfaced strategically (Cross-Cutting Surfaces).
 
 ## Proposed Changes → Four Executive Decisions
 
@@ -372,7 +526,7 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 | **D1** | **Reorient delivery around MOE-0 → MOE-1** | Manage RackAI toward a **dated friendly operating rehearsal (MOE-0)** then a **paying external identity proof (MOE-1)** — *not* toward completion of a feature backlog | P-002 |
 | **D2** | **Build the substrate that lets RackAI improve economically and operationally with scale** | Not "approve three engineering projects" — approve the substrate behind the flywheel, with three manifestations: **economics** (cost model — know our economics), **supply optionality** (supply-abstraction interface — preserve optionality over supply), and **accumulated operating intelligence** (Empirical Map — compound operating knowledge; **load-bearing**, not just a workstream) | P-003, P-004, P-005 |
 | **D3** | **Establish the enterprise control envelope for MOE-1** | The **minimum** identity/authorization, governed execution, audit, isolation, and **independently-verifiable compliance evidence** required by the MOE-1 customer — outcome, not a specific implementation | P-006 |
-| **D4** | **Narrow where we differentiate** | RackAI will **not** become a differentiated fine-tuning product (partner delivery; retain operations + enough first-party capability to learn); and **do not prematurely build Proof 4** — identify prerequisites, let MOE evidence drive what gets automated | P-001, P-007 |
+| **D4** | **Narrow where we differentiate** | RackAI will **not** become a differentiated fine-tuning product — **evaluate partner(s) for delivery** (Uniphore leading) while RackAI owns the **integration / model-serving** function + enough first-party capability to learn; and **do not prematurely build Proof 4** — identify prerequisites, let MOE evidence drive what gets automated | P-001, P-007 |
 
 **The single most important change (D1):** *manage toward a dated MOE-0 and MOE-1, not toward a feature backlog.*
 
@@ -387,7 +541,7 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 | **P-003** | Cost-model deliverable (internal cost/GPU-hour) on the Metering pipeline | D2 | Do-now (cheap now, expensive later) | Proposed |
 | **P-004** | Supply-abstraction interface before the control plane hardens | D2 | Do-now (cheap now, expensive later) | Proposed |
 | **P-006** | Minimum enterprise **control envelope** required for MOE-1 (outcome-framed) | D3 | Re-scoped from "control bundle" | Proposed |
-| **P-001** | Narrow fine-tuning: partner delivery, retain operations + learning | D4 | Directional; vendor-independent | Proposed |
+| **P-001** | Narrow fine-tuning: evaluate partner(s) for delivery, RackAI owns integration/serving + learning | D4 | Directional; vendor-independent | Proposed |
 | **P-007** | Proof-4 prerequisites as a **dependency declaration** (do not build yet) | D4 | Watch item, not a build ask | Proposed |
 
 ## Kill / Falsification Criteria (what would change the thesis)
@@ -406,7 +560,9 @@ K1 and K2 are the two that would most change resource allocation: K1 decides whe
 
 **Proposed by:** CEO/product discussion, 2026-09-21. **Status: Proposed — not adopted.**
 
-**The decision (D4, vendor-independent).** *RackAI will not invest in becoming a differentiated fine-tuning product. We will retain the capabilities needed to **operate** fine-tuning workloads and keep enough first-party capability to **learn** from them.* This maps onto the strategic boundary between what customers build and what Rackspace operates. Whether Uniphore is the delivery partner is a **separate, downstream commercial decision** — do not let it stall the strategy decision.
+**The decision (D4, vendor-independent).** *RackAI will not invest in becoming a differentiated fine-tuning product. Fine-tuning **delivery** is a **partner-evaluation problem** — we solve it by evaluating partner(s) in that space (Uniphore the leading candidate), not by building a training toolchain. What RackAI owns is the **integration / model-serving function**: taking the resulting artifact and hosting, serving, and operating it reliably on the fleet.* This maps onto the strategic boundary between what customers build and what Rackspace operates. Which partner wins the evaluation is a **separate, downstream commercial decision** — do not let it stall the strategy decision.
+
+> **The sharper framing (2026-09-28).** The RackAI-owned job here is **integration and model serving**, full stop — the point where a fine-tuned artifact becomes a served, operated, metered [[Model Deployment]] on our fleet. Fine-tuning *delivery* (the training service, data/context assembly, advanced methods) is something we **evaluate partner(s) to solve for**, treating it like any other build-vs-partner integration decision. This is also a **Principle 2 (optionality)** move in the [[#Sequencing Logic — why this order, when we have no demand signal|sequencing logic]]: partner-evaluating delivery avoids committing engineering to a toolchain we may not want, while keeping the serving/operations surface — the part that feeds the [[Empirical Map]] — firmly ours.
 
 **Problem.** "Should we push fine-tuning milestones to a partner and focus early effort on operator-KPI work?" The corpus shows the org already *intends* this — [[RackAI Organizational Design]]: "Fine-Tuning — No REQs required currently — will partner with Uniphore," and the Inference pod's fine-tuning line is `[0/1]` staffed. But "fine-tuning" is three things across the [[Three Battlegrounds|harness boundary]], so a blanket defer is wrong.
 
@@ -414,8 +570,8 @@ K1 and K2 are the two that would most change resource allocation: K1 decides whe
 
 | Bucket | Disposition | Rationale |
 |--------|-------------|-----------|
-| Fine-tuning *delivery* — customer-facing tuning service, data/context assembly, advanced methods (RL/DPO, still "Coming Soon" + unstaffed) | **Partner** (preferred partner: Uniphore, pending validation) | Business-logic-adjacent; "what customers build." Frees the `[2/8]` Inference pod. **Strategic decision is vendor-independent**; Uniphore is the implementation choice, not the strategy. |
-| Fine-tuning *operations* — running tuning jobs efficiently: placement, utilization, cost-per-job, [[LoRA Adapter]] lifecycle on the fleet | **Keep — ours** | Squarely "what we operate"; feeds the [[Empirical Map]] as transferable operating knowledge. |
+| Fine-tuning *delivery* — customer-facing tuning service, data/context assembly, advanced methods (RL/DPO, still "Coming Soon" + unstaffed) | **Evaluate partner(s)** (leading candidate: Uniphore, pending validation) | Business-logic-adjacent; "what customers build." A partner-evaluation/integration decision, not a build. Frees the `[2/8]` Inference pod. **Strategy is vendor-independent**; the winning partner is the implementation choice. |
+| Fine-tuning *integration & serving* — taking the artifact and hosting/serving/operating it: placement, utilization, cost-per-job, [[LoRA Adapter]] lifecycle on the fleet | **Keep — ours (the core RackAI job)** | This is the model-serving function — squarely "what we operate"; feeds the [[Empirical Map]] as transferable operating knowledge. The one part we do **not** hand to a partner. |
 | Fine-tuning *as strategic experiment* — one domain-model proof point on customer/representative data | **Keep thin — do not zero** | This is the wedge and the **first test of the central strategic bet** ([[Three Battlegrounds]]). Deferring all fine-tuning would defer the proof the operator thesis is viable. |
 
 **What front-loads instead (the operator-KPI enablers already in NOW/NEXT):** cost model (Eng. 0.3), telemetry (0.2), benchmark harness (0.4), metering, compliance-envelope kickoff (dev-plan P1). These move workloads-operated, cost-per-outcome, and compliance-coverage.
@@ -424,9 +580,11 @@ K1 and K2 are the two that would most change resource allocation: K1 decides whe
 
 **Dependency / open question (blocks adoption):** the corpus shows the *intent* to partner fine-tuning with Uniphore but not the **commercial/contractual scope** — whether Uniphore is signed to deliver customer fine-tuning as a service, or is only a production tenant (`uniphore.rackai.rax.io`) running its own apps. This determines whether P-001 is "defer to a committed partner" or "defer to a hoped-for partner." **Confirm before adopting.**
 
-**Strategic decision (vendor-independent):** *partner fine-tuning delivery; retain fine-tuning operations and experimental capability.* The implementation decision — *preferred delivery partner: Uniphore, pending commercial/technical validation* — is separable, so the strategy does not depend on one vendor negotiation.
+**Strategic decision (vendor-independent):** *evaluate partner(s) to deliver fine-tuning; RackAI owns the integration / model-serving function (host, serve, operate the artifact) and retains the experimental capability.* The implementation decision — *leading delivery partner: Uniphore, pending commercial/technical validation; other partners in scope* — is separable, so the strategy does not depend on one vendor negotiation.
 
-**On acceptance:** (1) move the operator-KPI enablers' priority up explicitly in Proof 1; (2) add "fine-tuning delivery" as a partner scope in [[Load-Bearing Bets]] (preferred: Uniphore, pending validation) with its own exit criterion; (3) keep one instrumented fine-tuning proof point in Proof 2 tied to the central-bet falsification test; (4) log a change packet.
+**Additional signal (2026-09-28 reviewer feedback).** Fine-tuning infrastructure — specifically **checkpointing + resume** and the broader training stack — appears to be **moving external to Rackspace**. This *reinforces* the P-001 direction: if the toolchain is leaving, do not invest scarce cycles rebuilding it. The line to hold is *host and operate the resulting artifact* (the [[LoRA Adapter]] on the fleet — fine-tuning **operations**, which stays ours), not owning the training toolchain. General principle: don't build ML tooling merely because an AI platform could contain it. See *Cross-Cutting Surfaces → Fine-tuning infrastructure*.
+
+**On acceptance:** (1) move the operator-KPI enablers' priority up explicitly in Proof 1; (2) add "fine-tuning delivery" as a partner scope in [[Load-Bearing Bets]] (preferred: Uniphore, pending validation) with its own exit criterion; (3) keep one instrumented fine-tuning proof point in Proof 2 tied to the central-bet falsification test; (4) confirm whether checkpointing/resume is formally out of scope (moving external) and record it; (5) log a change packet.
 
 ### P-002 — Commit to a first Minimum Operable Estate
 
@@ -485,7 +643,9 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 **Proposed change.** Introduce the supply-abstraction interface as an architectural requirement in the Platform/Control-Plane workstream; owned H100 is implementation #1, AMD (already in flight) becomes #2 behind the same interface.
 
-**Blocks adoption:** architectural review with Team Platform/IAC; confirm it doesn't slow the in-flight AMD work.
+> **Naming.** The *interface/mechanism* is the **supply-abstraction interface** (`SupplyTarget / AcceleratorPool / ExecutionLocation`); the *product policy* that rides on it — how much infrastructure choice the customer gets — is **Workload Placement Policy** (see Proof 1). Same architecture, two lenses: the interface preserves supply optionality; the policy decides who chooses. The unresolved product question (customer keeps GPU-level control vs. RackAI selects from workload + constraints, and the GPU-centric quota tension) belongs to the policy.
+
+**Blocks adoption:** architectural review with Team Platform/IAC; confirm it doesn't slow the in-flight AMD work; plus the Workload Placement Policy product decision above (interacts with [[Capacity Pool]] quota definitions).
 
 ### P-005 — Empirical Map v1 + evidence-driven routing (the moat)
 
