@@ -58,3 +58,4 @@ The partner elements of this portfolio (Palantir, Uniphore, and the Across.AI ca
 - [[Load-Bearing Bets]]
 - [[Three Battlegrounds]]
 - [[Eight-Layer Stack]]
+- [[Enterprise AI Solution Stack (Marketing)]] — external-facing ICP + marketing stack diagram for the public page

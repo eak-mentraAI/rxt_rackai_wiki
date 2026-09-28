@@ -71,6 +71,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Dev Plan | Operations/governance-plane policies | [[Action Controls]], [[Supply Chain Inventory]], [[Governable Self-Modification]] | L2 | assumed |
 | Dev Plan | Cost loop / tokenomics economics | [[Cost per Outcome]], [[AI FinOps]] | L2/L3 | assumed |
 | RackAI Organizational Design deck (2026-09-17) | Org/operating-model content (functions, pods, reporting lines, reqs) — **reference-only**, not modeled as canonical concepts (out of graph scope per product decision) | *(none — see [[RackAI Organizational Design]])* | — | assumed |
+| Three Battlegrounds + Enterprise AI Portfolio + Eight-Layer Stack, projected for external web (2026-09-28) | Public Enterprise AI page: sharpened ICP within the TAM + marketing stack diagram (projection of the operator stack, no new concept) | [[Enterprise AI Solution Stack (Marketing)]] | L5 | derived |
 
 Extend this table as concepts are extracted into canonical notes.
 
