@@ -161,7 +161,7 @@ Per the truth hierarchy — shipped beats planned. The following must be honored
 
 - [[Three Battlegrounds]] — canonical identity, operator stack, own/abstract/partner/refuse stance
 - [[Enterprise AI Portfolio]] — portfolio vs product framing
-- [[Eight-Layer Stack]] — the full architecture decomposition this diagram simplifies
+- [[Eight-Layer Stack]] — the full architecture decomposition (and status-annotated technical stack) this diagram simplifies
 - [[RackAI Platform]] — authoritative source for what is shipped vs planned
 - [[Pillar Working Model]] — what each operated layer actually owns
 - [[Load-Bearing Bets]] — partner elements that complete the portfolio
