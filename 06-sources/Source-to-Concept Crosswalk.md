@@ -73,6 +73,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | RackAI Organizational Design deck (2026-09-17) | Org/operating-model content (functions, pods, reporting lines, reqs) — **reference-only**, not modeled as canonical concepts (out of graph scope per product decision) | *(none — see [[RackAI Organizational Design]])* | — | assumed |
 | Three Battlegrounds + Enterprise AI Portfolio + Eight-Layer Stack, projected for external web (2026-09-28) | Public Enterprise AI page: sharpened ICP within the TAM + marketing stack diagram (projection of the operator stack, no new concept) | [[Enterprise AI Solution Stack (Marketing)]] | L5 | derived |
 | SemiAnalysis InferenceX AgentX + NVIDIA AIPerf (web, 2026-09-28) | External serving-benchmark standard RackAI anchors agentic benchmarking to (methodology, dataset, engine-delta referee for AIM/NIM/vLLM) | [[AgentX Benchmark Standard]] | L4 | asserted |
+| Enterprise AI Portfolio + Eight-Layer Stack + commercial layer + leadership ratification (2026-09-29) | **Canonical product model for Enterprise AI Cloud**: portfolio→product boundary (RackAI at the core), the **three ratified consumption offers** (GPU as a Service / RackAI / Outcome as a Service) with FDE as a cross-cutting add-on, and the DISCOVER/UNDERSTAND/CONSUME/ENGAGE model. Marketing/Sales/packaging derive from it. Offer *structure* ratified; commercial *mechanics* (pricing/billing) not built | [[Enterprise AI Cloud Product Model]] | hub | validated |
 
 Extend this table as concepts are extracted into canonical notes.
 

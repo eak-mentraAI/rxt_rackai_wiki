@@ -118,4 +118,5 @@ The build-versus-consume-versus-partner detail (what RackAI/Uniphore/Palantir co
 - [[RackAI Platform]] — the shipped-product Capability Map this technical view reconciles against
 - [[Capability Gap Register]] — authoritative shipped-vs-planned status per capability
 - [[Enterprise AI Solution Stack (Marketing)]] — the customer-facing projection of the same stack
+- [[Enterprise AI Cloud Product Model]] — the canonical product model (three consumption offers) that maps every capability back to these layers
 - [[Wiki Hub]]

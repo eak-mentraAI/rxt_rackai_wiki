@@ -4,7 +4,7 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [enterprise ai, enterprise ai portfolio, enterprise ai offering, portfolio view]
+aliases: [enterprise ai, enterprise ai portfolio, enterprise ai offering, portfolio view, enterprise ai cloud]
 related: [hub-root, hub-rackai-platform, hub-product, hub-openrouter, src-rackai-dev-plan, hub-battlegrounds, hub-load-bearing-bets, evd-sovereign-governed-competitors]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
@@ -18,6 +18,8 @@ summary: "Portfolio view: the broadly-scoped Enterprise AI offering under which 
 **Enterprise AI** is the **portfolio view** — a broadly-scoped collection of products and capabilities that turns the AI stack into something a regulated enterprise can run. **[[RackAI Platform|RackAI]]** is the **product view**: the narrowly-defined, SKU-packaged product that provides the inference-and-below foundation plus the governance and assurance built into it.
 
 > **Portfolio vs product.** Enterprise AI (portfolio) ⊃ RackAI (product) + partner-packaged components (Palantir) + integration with the customer's data foundation. RackAI is one product in the portfolio; it is the foundation the rest builds on. This distinction comes from the [[RackAI Enterprise AI Development Plan]] and is `assumed` confidence pending ratification.
+
+> **"Enterprise AI Cloud" is the customer-facing name for this portfolio** (from the BU deck `reference/Enterprise AI Cloud - RackAI.pptx`). The canonical model for the portfolio, its RackAI product boundary, and the three ratified consumption offers (GPU as a Service / RackAI / Outcome as a Service) is the [[Enterprise AI Cloud Product Model]]. Marketing, Sales, and packaging all derive from it.
 
 ## What Sits in the Portfolio
 

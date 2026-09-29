@@ -41,6 +41,7 @@ Every priority model gets a continuously updated scorecard tracking the operatin
 - [[Entity Index]] · [[Metric Index]] · [[KPI Hierarchy]]
 - [[Glossary]]
 - [[Serving Platform MOC]]
+- [[Enterprise AI Cloud Product Model]] — canonical product model (portfolio boundary + three consumption offers); the marketing site is derived from it
 - [[2026-09-03 Corpus Buildout]] — buildout changelog
 
 ## Change Control

@@ -159,6 +159,7 @@ Per the truth hierarchy — shipped beats planned. The following must be honored
 
 ## See Also
 
+- [[Enterprise AI Cloud Product Model]] — the canonical product model (portfolio boundary + three consumption offers) this hero framing is derived from
 - [[Three Battlegrounds]] — canonical identity, operator stack, own/abstract/partner/refuse stance
 - [[Enterprise AI Portfolio]] — portfolio vs product framing
 - [[Eight-Layer Stack]] — the full architecture decomposition (and status-annotated technical stack) this diagram simplifies

@@ -17,6 +17,8 @@ summary: "Layer 3 navigation hub for unit economics, capacity allocation, and fo
 
 Layer 3 — how demand maps to capacity and economics. Unit economics, metering and [[Billing & Payment]], pricing (OpenRouter and direct), capacity pools and dynamic allocation, demand forecasting, and fleet yield optimization. OpenRouter is one pricing channel among the platform's commercial surfaces.
 
+> **How customers buy is defined by the [[Enterprise AI Cloud Product Model]]** — the three ratified consumption offers (GPU as a Service / RackAI / Outcome as a Service). That model owns the *offer structure and responsibility boundaries*; this hub owns the *commercial mechanics* (unit economics, metering, pricing, billing) that price and bill those offers. Note the mechanics are largely not built yet ([[Billing & Payment]]).
+
 ## Unit Economics
 
 The [[Unit Economics Model]] ties the loop together. Underlying formulas and coefficients:

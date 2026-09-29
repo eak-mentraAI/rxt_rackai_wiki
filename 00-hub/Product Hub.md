@@ -52,6 +52,7 @@ The canonical, living plan is the [[RackAI Roadmap]] — horizons and workstream
 
 ## Related Hubs
 
+- [[Enterprise AI Cloud Product Model]] — canonical product model: portfolio→product boundary + the three ratified consumption offers
 - [[Rack AI Knowledge Base]]
 - [[Commercial & Capacity Hub]]
 - [[Three Battlegrounds]]
