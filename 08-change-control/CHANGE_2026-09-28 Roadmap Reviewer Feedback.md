@@ -116,3 +116,50 @@ None. The sequencing logic is a reasoning/framing layer (`derived`, consistent w
 - Structural checks: **Pass** — [[Model Deployment]] and [[GPU Capacity Demand Rationale]] verified to exist; both internal heading anchors verified to match exactly.
 - Consistency pass: **Pass** — fine-tuning terminology ("evaluate partner(s) / Uniphore leading / integration & serving") reconciled across all six touchpoints; no competing definition introduced; sequencing logic does not contradict the existing "cheap now / expensive later" and "do not automate before we operate" statements — it names the principle they were already applying.
 - Regressions: none.
+
+---
+
+# 2026-09-28 (addendum 2) — Anchor to SemiAnalysis AgentX Benchmark Standard
+
+## Trigger
+
+Decision to **anchor RackAI's agentic serving benchmarking to the external SemiAnalysis InferenceX AgentX standard** rather than a home-grown harness — for external comparability and as the honest referee for the vLLM-vs-AIM-vs-NIM engine question. Sourced from published SemiAnalysis + NVIDIA AIPerf pages (web, 2026-09-28).
+
+## Objects Changed
+
+- **Added:** `04-evidence/benchmarks/AgentX Benchmark Standard.md` (`bench-agentx-standard`, type `evidence`, confidence `asserted`) — external standard: methodology (capture→transform→reconstruct→replay), v1.0 dataset, what it measures (serving perf) vs not (model quality), why RackAI anchors, honest limits, asserted→measured exit criterion. Disambiguates from the unrelated MBZUAI Agent-X multimodal benchmark.
+- **Changed:**
+  - [[Benchmark Library]] — added an agentic-workload (AgentX) harness dimension, an external-anchor callout, and three planned AgentX runs (GLM/DeepSeek/Nemotron).
+  - [[RackAI Roadmap]] — M2 AI Performance Benchmarks milestone now anchors to AgentX; Proof 2 gains the KV-cache→AgentX link and the "engine question resolved by AgentX measurement, not argument (adopting AIM symmetrically forces NIM — commit to neither)" note.
+  - [[Serving Runtime]] — engine selection framed as measured against AgentX; NIM/AIM as optional measured backends behind the abstraction.
+  - [[Empirical Map]] — cost/performance cells populated by AgentX-anchored runs; AgentX's keep-shape/discard-content method noted as external support for K2; reliability still from [[Verification]].
+  - [[Source-to-Concept Crosswalk]] and [[Source Inventory]] — AgentX registered as a new external L4 source (`asserted`).
+
+## Edges
+
+- **Added:** `bench-agentx-standard` ↔ `ent-serving-runtime`, `ent-empirical-map`, `idx-benchmark-library` (bidirectional `related` frontmatter on all three); AgentX note → [[GLM 5.3 Flash]], [[Verification]], [[Benchmark Run]], [[Traffic Class]], [[RackAI Roadmap]].
+- **Removed:** none.
+
+## Confidence Changes
+
+| Note | Old | New | Reason |
+|------|-----|-----|--------|
+| AgentX Benchmark Standard | — | asserted | External standard, unverified by RackAI; no measured numbers introduced. |
+
+No RackAI performance number was asserted. AgentX's own dataset figures (session counts, median tokens) are labelled `asserted` and attributed to SemiAnalysis. A RackAI AgentX run remains a future `measured` [[Benchmark Run]].
+
+## Open Questions Created
+
+| Question | Affected Docs |
+|----------|---------------|
+| Which priority model + hardware gets the first AgentX run, and against which pinned corpus drop? | [[Benchmark Library]], [[AgentX Benchmark Standard]] |
+| Does AgentX (serving perf) need pairing with a model-quality eval to fully populate an Empirical Map cell's reliability dimension? | [[Empirical Map]], [[Verification]] |
+| AgentX AIPerf implementation is a moving MVP spec — what's our version-pinning policy for comparable runs over time? | [[AgentX Benchmark Standard]] |
+
+## Fitness / Consistency Result
+
+- Structural checks: **Pass** — all AgentX wikilink targets verified to resolve; `bench-agentx-standard` added bidirectionally to the three referencing notes' frontmatter.
+- Consistency pass: **Pass** — One-Concept Rule held: AgentX is an *external standard* (evidence/source), not a redefinition of [[Benchmark Run]] or [[Benchmark Library]]; disambiguated from the same-named MBZUAI model-capability benchmark via explicit callout + alias scoping.
+- Confidence propagation: **Pass** — `asserted` external; nothing downstream upgraded; Empirical Map stays `assumed`.
+- Compliance: external content rephrased, <30 verbatim words/source, inline links to SemiAnalysis + NVIDIA.
+- Regressions: none.

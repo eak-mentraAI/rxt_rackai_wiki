@@ -72,6 +72,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Dev Plan | Cost loop / tokenomics economics | [[Cost per Outcome]], [[AI FinOps]] | L2/L3 | assumed |
 | RackAI Organizational Design deck (2026-09-17) | Org/operating-model content (functions, pods, reporting lines, reqs) — **reference-only**, not modeled as canonical concepts (out of graph scope per product decision) | *(none — see [[RackAI Organizational Design]])* | — | assumed |
 | Three Battlegrounds + Enterprise AI Portfolio + Eight-Layer Stack, projected for external web (2026-09-28) | Public Enterprise AI page: sharpened ICP within the TAM + marketing stack diagram (projection of the operator stack, no new concept) | [[Enterprise AI Solution Stack (Marketing)]] | L5 | derived |
+| SemiAnalysis InferenceX AgentX + NVIDIA AIPerf (web, 2026-09-28) | External serving-benchmark standard RackAI anchors agentic benchmarking to (methodology, dataset, engine-delta referee for AIM/NIM/vLLM) | [[AgentX Benchmark Standard]] | L4 | asserted |
 
 Extend this table as concepts are extracted into canonical notes.
 

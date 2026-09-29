@@ -52,6 +52,12 @@ Every source document that feeds the corpus, with classification and provenance.
 | RackAI Organizational Design (deck) | [[RackAI Organizational Design]] | planning | companion-created, reference-only (org content out of graph scope) |
 | RackAI - Roadmap.xlsx (delivery roadmap) | [[RackAI Roadmap (Delivery Plan)]] | roadmap | companion-created + CSV export (`reference/rackai-roadmap-csv/`); `measured` delivery data |
 
+### External benchmarks & standards (added 2026-09-28)
+
+| Source | Note | Classification | Status |
+|--------|------|----------------|--------|
+| SemiAnalysis InferenceX AgentX + NVIDIA AIPerf (web) | [[AgentX Benchmark Standard]] | benchmark | extracted — external standard, `asserted` until a RackAI run executes |
+
 ## Classification Legend
 
 strategy · architecture · roadmap · commercial · planning · operational · benchmark · reference

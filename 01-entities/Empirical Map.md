@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: performance
 aliases: [empirical map, the map, per-workload measurement, reliability map, cost map]
-related: [ent-governed-harness, ent-model, ent-benchmark-run, wf-request-routing, wf-verification, wf-eval-as-ci, met-cost-per-outcome, hub-entities, src-rackai-dev-plan, hub-ai-harness]
+related: [ent-governed-harness, ent-model, ent-benchmark-run, bench-agentx-standard, wf-request-routing, wf-verification, wf-eval-as-ci, met-cost-per-outcome, hub-entities, src-rackai-dev-plan, hub-ai-harness]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
@@ -50,6 +50,7 @@ L1 — Entity Ontology. The map is a derived record that overlays the serving ch
 ## Evidence
 
 - Source: dev plan Program 1 thread 1.5; cost loop ("meter → govern → route → reason").
+- **Cost/performance cells** are populated by [[Benchmark Run]]s anchored to the external [[AgentX Benchmark Standard]] (SemiAnalysis InferenceX) for agentic workloads; AgentX's own capture→transform method (keep traffic *shape*, discard prompt/code content) mirrors the map's transferable-vs-isolated split and is external support for the K2 thesis. AgentX fills the cost/performance dimension only — the **reliability** dimension still comes from [[Verification]].
 - Confidence rationale: `assumed` — planned build. Downstream confidence (routing, FinOps) may not exceed the map's `assumed` state until the eval framework is measured.
 
 ## See Also

@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [benchmark library, benchmark register, benchmark run register]
-related: [hub-evidence, bench-deepseek-h200-fp8, val-deepseek-h200-fp8, idx-fleet-inventory]
+related: [hub-evidence, bench-deepseek-h200-fp8, bench-agentx-standard, val-deepseek-h200-fp8, idx-fleet-inventory]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
 last_reviewed: 2026-09-03
@@ -38,6 +38,9 @@ The benchmark harness (roadmap Milestone 0.4) is designed to test each priority 
 | Structured output | JSON / schema-constrained generation |
 | Memory consumption | HBM footprint per configuration |
 | Throughput at batch sizes | Throughput across batch configurations |
+| Agentic-workload replay ([[AgentX Benchmark Standard\|AgentX]]) | Multi-turn coding-agent sessions: KV/prefix reuse, inter-turn tool time, TTFT + interactivity + throughput under a concurrency sweep |
+
+> **External anchor.** RackAI anchors its **agentic** serving benchmarks to the SemiAnalysis InferenceX **[[AgentX Benchmark Standard]]** (run via NVIDIA AIPerf, dated-corpus-pinned) so our numbers are comparable to an external reference rather than a home-grown harness. AgentX measures serving performance only (not model quality) and is `asserted` until we execute a run on our fleet.
 
 ## Entries
 
@@ -51,8 +54,11 @@ Priority-model runs planned against the harness, targeting the **actual fleet** 
 | DeepSeek AMD Instinct FP8 (planned) | [[DeepSeek V4 Flash]] | vLLM / SGLang (ROCm — no TensorRT-LLM) | FP8 | [[AMD Instinct]] | planned — awaiting hardware ~Oct 2026 |
 | GLM AMD Instinct FP8 (planned) | [[GLM 5.3 Flash]] | vLLM / SGLang (ROCm) | FP8 | [[AMD Instinct]] | planned — awaiting hardware ~Oct 2026 |
 | DeepSeek L40S FP8 (staging) | [[DeepSeek V4 Flash]] | vLLM / SGLang / TensorRT-LLM | FP8 | [[NVIDIA L40S]] | planned — staging/canary |
+| GLM AgentX (agentic standard) | [[GLM 5.3 Flash]] | vLLM / SGLang (+ NIM/AIM as measured backends) | FP8 | [[NVIDIA H100]] → [[AMD Instinct]] | planned — [[AgentX Benchmark Standard\|AgentX]] via AIPerf |
+| DeepSeek AgentX (agentic standard) | [[DeepSeek V4 Flash]] | vLLM / SGLang | FP8 | [[NVIDIA H100]] | planned — [[AgentX Benchmark Standard\|AgentX]] via AIPerf |
+| Nemotron AgentX (agentic standard) | [[Nemotron 3 Ultra]] | vLLM / SGLang (+ NIM as measured backend) | FP8 | [[NVIDIA H100]] | planned — [[AgentX Benchmark Standard\|AgentX]] via AIPerf |
 
-The register extends as additional runs, hardware configurations, or engines are added.
+The register extends as additional runs, hardware configurations, or engines are added. The **AgentX** rows are the agentic-workload standard runs; the FP8 rows above them remain the fixed-sequence throughput runs. Both are needed — AgentX for agent-traffic realism, fixed-sequence for conventional request streams.
 
 ## See Also
 

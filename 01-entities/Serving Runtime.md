@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [serving runtime, inference engine, inference runtime, serving engine]
-related: [ent-model-deployment, ent-model-deployment-spec, ent-gpu-node, ent-benchmark-run, hub-entities, hub-inference-serving]
+related: [ent-model-deployment, ent-model-deployment-spec, ent-gpu-node, ent-benchmark-run, bench-agentx-standard, hub-entities, hub-inference-serving]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03
@@ -48,6 +48,8 @@ L1 — Entity Ontology. Position in the abstraction chain:
 | NVIDIA Dynamo (or equivalent) | Disaggregated serving (separate prefill/decode) | Large-scale disaggregated deployments | NVIDIA-oriented; ROCm path via equivalent frameworks |
 
 **Hardware constraint:** engine choice is bounded by GPU type. On [[AMD Instinct]] (ROCm) only vLLM and SGLang are available; TensorRT-LLM is CUDA-only. See the [[GPU Type Compatibility Matrix]] for the full engine × GPU-type mapping.
+
+**Engine selection is measured, not asserted.** Which engine (including vendor-blessed `nim`/`aim`) wins for a given model×hardware×workload is an empirical question, benchmarked against the external [[AgentX Benchmark Standard]] for agentic workloads. The vendor engines are treated as optional backends behind this abstraction, selected per [[Benchmark Run]] evidence, not committed to as strategy.
 
 ## Shipped Runtimes (RackAI 1.0.0)
 
