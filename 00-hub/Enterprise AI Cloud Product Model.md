@@ -4,7 +4,7 @@ type: hub
 status: reviewed
 owner: product
 domain: product
-aliases: [enterprise ai cloud product model, eac product model, product model, portfolio product model, consumption model, three consumption offers, three termination points, gpu as a service, gpuaas, rackai offer, outcome as a service, oaas]
+aliases: [enterprise ai cloud product model, eac product model, product model, portfolio product model, consumption model, three consumption offers, three termination points, gpu as a service, gpuaas, gpu on demand, bare metal, kubernetes for ai, rackai offer, outcome as a service, oaas]
 related: [hub-enterprise-ai, hub-rackai-platform, hub-battlegrounds, hub-commercial, hub-product, idx-eight-layer-stack, wiki-pillar-working-model, wiki-enterprise-ai-solution-stack-marketing, wiki-eac-marketing-site-projection, idx-capability-gap-register, hub-model-services, hub-inference-serving, hub-inference-optimization, hub-ai-harness, hub-ai-governance-assurance, hub-ai-operations-product, hub-openrouter, ent-billing-payment]
 source_docs: ["00-hub/Enterprise AI Portfolio.md", "00-hub/Three Battlegrounds.md", "05-wiki/Eight-Layer Stack.md", "05-wiki/Pillar Working Model.md", "00-hub/RackAI Platform.md", "04-evidence/Capability Gap Register.md", "leadership product-model ratification 2026-09-29"]
 confidence: validated
@@ -111,7 +111,7 @@ The capabilities in the six areas are **not each a product.** They resolve into 
 
 | Offer | Customer starts with | Where the stack terminates | What it means to buy |
 |---|---|---|---|
-| **GPU as a Service** *(Infrastructure)* | "I need AI infrastructure / capacity" | Infrastructure ↑ — customer owns what runs above | Rackspace provides compute, networking, storage, capacity and footprint; **the customer owns the models, serving and everything above.** |
+| **GPU as a Service** *(Infrastructure)* | "I need AI infrastructure / capacity" | Infrastructure ↑ — customer owns what runs above | Rackspace provides compute, networking, storage, capacity and footprint; **the customer owns the models, serving and everything above.** Consumption forms: **GPU on Demand** (elastic accelerated instances), **Bare Metal** (dedicated, unvirtualized GPU servers), **Kubernetes for AI** (a managed GPU-ready cluster). |
 | **RackAI** *(AI Platform as a Service)* | "I need to run and adapt my models in production" | Infrastructure → Models → Inference/Orchestration ↑ | Rackspace provides a private production AI runtime — hosting, serving, optimization, orchestration, fine-tuning — across Rackspace, partner or customer infrastructure. **The customer owns the business logic above the platform.** |
 | **Outcome as a Service** *(Managed AI Solution)* | "I need a business outcome" | Infrastructure → Models → Inference → Harness → Agents/Apps → Outcome ↑ | Rackspace assembles and operates the whole stack — solution platforms (Palantir, Uniphore), the harness, RackAI and/or GPUaaS underneath, [[Load-Bearing Bets|partners]], and FDE. **The customer buys the outcome; Rackspace owns assembly and operation.** |
 
@@ -147,7 +147,7 @@ flowchart TD
 
 The model has two axes. **Vertical** is capability ("tell me about inference optimization"); **horizontal** is the consumption offer / responsibility transfer ("how much do I want Rackspace to own"). The three offers are the entry points on the horizontal axis:
 
-- **I need AI infrastructure → GPU as a Service** — the capacity to run AI workloads; the customer owns what runs on it.
+- **I need AI infrastructure → GPU as a Service** — the capacity to run AI workloads; the customer owns what runs on it. Consumed as **GPU on Demand**, **Bare Metal**, or **Kubernetes for AI**.
 - **I need to run my models → RackAI** — a private platform to adapt, serve, optimize and operate production AI.
 - **I need a business outcome → Outcome as a Service** — Rackspace assembles the technology, engineering and operations to solve the problem.
 
@@ -164,7 +164,7 @@ The six capability domains and how each resolves onto the offers. This is the mo
 | **Experiences & Agents** (Enterprise Agents, Agent Harness, AI Experiences, Agent Ecosystem) | **Consumes** RackAI; harness/agents are not RackAI | **Outcome as a Service**; **RackAI** underneath for build-your-own | Harness runtime planned; partner-delivered ([[Load-Bearing Bets]]) |
 | **Models & AI Services** (Catalog, Smart Router, Fine-Tuning & Distillation, Evaluation) | **Fine-Tuning & Distillation IS RackAI**; Catalog/Router/Eval consumed through it | **RackAI** (also inside Outcome) | Catalog + SFT + LoRA shipped; router/eval planned |
 | **Inference & Orchestration** (Hosting & Serving, Batch, Optimization, Workload Orchestration) | **Is RackAI** — primary product domain | **RackAI** (also underneath Outcome) | Serving + endpoints + autoscaling shipped |
-| **AI Infrastructure** (Accelerated Compute, Networking, Storage, Deployment Footprint) | **Supplies** RackAI (substrate below K8s) | **GPU as a Service**; substrate beneath RackAI & Outcome | Fleet + NVIDIA/AMD shipped; multi-region planned/partner |
+| **AI Infrastructure** (Accelerated Compute, Networking, Storage, Deployment Footprint) | **Supplies** RackAI (substrate below K8s) | **GPU as a Service** — consumed as **GPU on Demand**, **Bare Metal**, or **Kubernetes for AI**; also the substrate beneath RackAI & Outcome | Fleet + NVIDIA/AMD shipped; multi-region planned/partner |
 | **Governance & Assurance** (Governance, Assurance) | **Portfolio-wide plane**; RackAI implements its share | **All three** (cross-cutting; not a separate purchase) | Identity/RBAC/audit/isolation shipped; certs + verification planned |
 | **Managed Operations & FDE** (Managed Operations, FDE) | **Operates/delivers** the whole portfolio | The operating/delivery model behind every offer; fullest in **Outcome** | Platform monitoring shipped; metering in progress; cost model missing |
 

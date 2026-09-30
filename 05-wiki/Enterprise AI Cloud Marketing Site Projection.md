@@ -37,7 +37,7 @@ Each screen follows the same sequence — **What it is → Why it matters → Wh
 
 The customer chooses the branch; they are not marched down a single funnel.
 
-> **The strategic "why" behind the three offers** (the narrative Marketing should lead with): the portfolio answers *"how much of production AI do you want to own?"* — **GPUaaS:** you shouldn't have to become an AI-infrastructure operator. **RackAI:** you shouldn't have to become an inference-platform company. **Outcome as a Service:** you shouldn't have to assemble the whole stack just to solve a business problem. The customer chooses where their responsibility stops.
+> **The strategic "why" behind the three offers** (the narrative Marketing should lead with): the portfolio answers *"how much of production AI do you want to own?"* — **GPUaaS:** you shouldn't have to become an AI-infrastructure operator (consumed as **GPU on Demand**, **Bare Metal**, or **Kubernetes for AI**). **RackAI:** you shouldn't have to become an inference-platform company. **Outcome as a Service:** you shouldn't have to assemble the whole stack just to solve a business problem. The customer chooses where their responsibility stops.
 
 ---
 
@@ -307,17 +307,21 @@ A different visitor could stop at **Consume as** and branch straight to "talk to
 | ▸ **AI Storage** | Feed workloads with the performance they need | **Screen 4.3** |
 | ▸ **Deployment Footprint** | Put AI where requirements dictate | **Screen 4.4** |
 
-**Back:** ▸ Enterprise AI Cloud (Screen 0) · **Rolls up to:** **GPU as a Service** (buy the capacity directly; own what runs above). Also the substrate beneath **RackAI** and **Outcome as a Service**.
+**Back:** ▸ Enterprise AI Cloud (Screen 0) · **Rolls up to:** **GPU as a Service** — consumed as **GPU on Demand**, **Bare Metal**, or **Kubernetes for AI** (buy the capacity directly; own what runs above). Also the substrate beneath **RackAI** and **Outcome as a Service**.
 
 > **Copy-safety.** **Shipped:** [[Accelerator Class]] over [[NVIDIA H100]]/[[NVIDIA L40S]]/[[NVIDIA A30]]/[[AMD Instinct]]; [[GPU Fleet]], single-cluster/single-region. **Planned/partner:** Intel Gaudi + CPU; multi-cluster/region governance and production [[Environment]] ([[Multi-Cluster Governance Brief (Partner)]]). Fleet is topology-constrained ([[Fleet Competitiveness]]).
 
 ### Screen 4.1 — Accelerated Compute *(capability view)*
-- **What you see:** Run AI across high-performance NVIDIA and AMD infrastructure.
-- **Why it matters:** GPU supply is scarce, and betting on a single vendor is risky and often expensive. Access to both NVIDIA and AMD — dedicated or shared — gives enterprises capacity and flexibility instead of vendor lock-in.
-- **What's under it:** ▸ NVIDIA GPUs · ▸ AMD GPUs · ▸ CPU · ▸ GPU clusters · ▸ Dedicated capacity · ▸ Shared capacity.
-- **How it works:** Workload → accelerator class → GPU node/cluster.
-- **Canonical mapping:** Compute ([[Accelerator Class]], [[GPU Node]]).
-- **Consume as:** Dedicated GPU capacity · shared capacity · customer-owned infrastructure. *NVIDIA + AMD shipped; Intel Gaudi/CPU planned.*
+- **What you see:** Run AI across high-performance NVIDIA and AMD infrastructure — as on-demand instances, dedicated bare metal, or a managed GPU cluster.
+- **Why it matters:** GPU supply is scarce, and betting on a single vendor is risky and often expensive. Access to both NVIDIA and AMD — and a choice of how to consume it — gives enterprises capacity and flexibility instead of vendor lock-in.
+- **What's under it (the three infrastructure offers):**
+  - ▸ **GPU on Demand** — elastic accelerated instances; spin capacity up and down as workloads need it.
+  - ▸ **Bare Metal** — dedicated, unvirtualized GPU servers for maximum performance, isolation, and control.
+  - ▸ **Kubernetes for AI** — a managed, GPU-ready Kubernetes cluster; bring your own orchestration without operating the control plane.
+  - Plus: ▸ NVIDIA GPUs · ▸ AMD GPUs · ▸ CPU · ▸ Dedicated vs shared capacity.
+- **How it works:** Workload → consumption form (on-demand / bare metal / K8s) → accelerator class → GPU node/cluster.
+- **Canonical mapping:** Compute ([[Accelerator Class]], [[GPU Node]]); runs on the fleet's bare-metal / VM / managed-Kubernetes substrates.
+- **Consume as:** **GPU on Demand · Bare Metal · Kubernetes for AI** — the three infrastructure offers of **GPU as a Service**; also available as customer-owned infrastructure. *NVIDIA + AMD shipped; Intel Gaudi/CPU planned. Commercial packaging per [[Enterprise AI Cloud Product Model]] — name the offer, not a price.*
 - **Deeper:** ↗ **GPU SKUs · hardware specifications · supported accelerators · capacity/topology**. **Back:** ▸ Screen 4.
 
 ### Screen 4.2 — AI Networking *(capability view)*
