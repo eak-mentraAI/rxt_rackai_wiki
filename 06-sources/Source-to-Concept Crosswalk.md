@@ -58,6 +58,10 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | CEO strategy review (2026-09-21) | Partner portfolio / load-bearing bets mapped to the operator stack; Palantir boundary | [[Load-Bearing Bets]] | hub | assumed |
 | Engineering Roadmap + Dev Plan, synthesized + CEO review (2026-09-21) | Canonical living roadmap: four proofs (Observe → Decide → Control → Operate), MOE anchor, human→automated ladder, operator north-star metrics | [[RackAI Roadmap]] | hub | derived |
 | CEO strategy review (2026-09-21) | Minimum Operable Estate — MVP operator target anchoring Proof 3 | [[Minimum Operable Estate]] | hub | assumed |
+| RackAI Project Update (Jun 4 2026 .eml) | Uniphore MVP delivery baseline: completed features, WIP, next milestone, Green status | [[Uniphore Recovery Plan — RackAI Input]] | L5 | measured |
+| RackAI-Roadmap master + Uniphore progress slide + M2 roadmap CSVs | Current four-quarter roadmap; Uniphore-mapped capability status; Jun-vs-slide status conflict | [[Uniphore Recovery Plan — RackAI Input]], [[RackAI Roadmap]] | L5 | derived |
+| IaaS + FTaaS Battlecards (internal, Apr 2025 / Jun 2026) | Fireworks-modeled capability checklist — sales collateral, never shared with Uniphore; not a requirements/acceptance framework | [[Uniphore Recovery Plan — RackAI Input]] | L5 | assumed |
+| questions-to-uniphore + uniphore-phase-1 CSVs | Uniphore MVP scope assumptions (secondhand via PM) and open clarifications | [[Uniphore Recovery Plan — RackAI Input]] | L5 | assumed |
 | CEO strategy review + Product Operations JD (2026-09-21) | AI Operations Product — operating model / SLOs / incident / FDE motion as a first-class workstream | [[AI Operations Product]] | hub | assumed |
 | RackAI - Roadmap.xlsx (2026-09-21) | Actual staffed/Jira-tracked delivery roadmap: CSP Platform Layer, M2 features, Uniphore Phase 1 | [[RackAI Roadmap (Delivery Plan)]] | source | measured |
 | RackAI - Roadmap.xlsx, read through the operator lens (2026-09-21) | Delivery milestones mapped to the four proofs; strategy gaps → proposals P-003–P-007 | [[RackAI Roadmap]] | hub | derived |
