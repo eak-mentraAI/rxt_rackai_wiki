@@ -66,3 +66,18 @@ Framing/discipline edits to [[Uniphore Recovery Plan — RackAI Input]] after le
 - **Added "Recommended meeting narrative"** — a 5–6 sentence spine for the meeting; tables are positioned as supporting evidence beneath it.
 
 Fitness gate re-checked: S-16 summary 115 chars (pass); S-03 new `[[Open Questions]]` link resolves (pass); C-08/C-09 preserved and strengthened (conflict kept open, targets-vs-results discipline reinforced).
+
+---
+
+## Revision — 2026-10-02 (Table B status clarifications)
+
+Status updates to [[Uniphore Recovery Plan — RackAI Input]] §3-B from the owner (clarified delivery states/dates). Also reconciled the §4 battlecard tables so AMD/AIM status is consistent across the note (C-02/C-04).
+
+- Inference routing + shared KV cache → **In progress (due 30 Oct 2026)**
+- Speculative decoding, Refrag → **Planned (Q4 2026)**
+- DPO; context-parallel FT → **In progress (due 30 Oct 2026)** (context-parallel FT itself already complete, RACKAI-340)
+- End-to-end deployment automation (IaC) → **In progress (due 30 Oct 2026)**
+- Inference observability + repeatable benchmarking → **Planned (Q4 2026)**
+- AMD → **AMD inference Complete**; **AMD AIM engine Backlog (partnership-dependent)**. §4 IaaS row updated to ✅ AMD inference; §4 FTaaS row updated to ⚪ AMD FT (gated on the backlogged AIM engine).
+
+No canonical IDs/aliases changed; confidence unchanged; no new performance numbers; crosswalk mappings still accurate. These are more precise delivery states, not new conflicts — the NIM/SFT/LoRA conflict remains the only open status conflict.

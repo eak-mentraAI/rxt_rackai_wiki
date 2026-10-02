@@ -83,12 +83,12 @@ Everything below is the evidence underneath this narrative. Lead with these sent
 ### B. In flight — platform maturation that improves Uniphore's experience
 | Capability | Uniphore need it serves | Status |
 |---|---|---|
-| Inference routing + shared KV cache | Throughput + utilization on H100 fleet | In progress |
-| Speculative decoding, Refrag (GPU-memory defrag) | Lower latency, higher model density | In progress |
-| DPO; context-parallel FT | Preference-tuned + longer-context training | DPO in progress; context-parallel complete |
-| End-to-end deployment automation (IaC) | Repeatable, faster deployments | In progress |
-| Inference observability + repeatable benchmarking | Objective latency/throughput/cost evidence | In progress / building |
-| AMD inference + AMD AIM engine | Accelerator choice beyond NVIDIA | Staging up; AIM in progress; **partnership-dependent** |
+| Inference routing + shared KV cache | Throughput + utilization on H100 fleet | In progress (due 30 Oct 2026) |
+| Speculative decoding, Refrag (GPU-memory defrag) | Lower latency, higher model density | Planned (Q4 2026) |
+| DPO; context-parallel FT | Preference-tuned + longer-context training | In progress (due 30 Oct 2026) — context-parallel FT already complete (RACKAI-340) |
+| End-to-end deployment automation (IaC) | Repeatable, faster deployments | In progress (due 30 Oct 2026) |
+| Inference observability + repeatable benchmarking | Objective latency/throughput/cost evidence | Planned (Q4 2026) |
+| AMD inference + AMD AIM engine | Accelerator choice beyond NVIDIA | AMD inference **Complete**; AMD AIM engine **Backlog (partnership-dependent)** |
 
 ### C. Future alignment — valuable, needs Uniphore validation first
 | Capability | Possible Uniphore fit | Horizon |
@@ -134,7 +134,7 @@ Vito's instruction: build a feature/function map from the FTaaS and IaaS battlec
 | Dynamic autoscaling | ✅ | June (scale-to-zero) | Flagged "out of scope phase 1?" — unconfirmed |
 | Multi-model serving | 📋 | Milestone 3+ | — |
 | High-throughput workloads (GPU alloc, throughput, queue mgmt, concurrency, scheduling) | 🔄 | Routing + KV cache + speculative decoding + Refrag in progress | **No throughput target on record** |
-| GPU-backed inference across NVIDIA **and** AMD | ✅ NVIDIA / 🔄 AMD | AMD MVP delivered; AIM in progress; partnership-dependent | — |
+| GPU-backed inference across NVIDIA **and** AMD | ✅ NVIDIA / ✅ AMD inference | AMD inference complete; AMD AIM engine backlog (partnership-dependent) | — |
 | Integrated observability / monitoring | 🔄 | Platform monitoring in progress | **The data that would let Uniphore articulate "insufficient"** |
 | Operational automation | 🔄 | e2e deployment automation (RACKAI-224) | — |
 | Enterprise security controls | ✅/🔄 | Gateway auth, API keys, RBAC, audit complete; quotas building | — |
@@ -153,7 +153,7 @@ Vito's instruction: build a feature/function map from the FTaaS and IaaS battlec
 | Experiment tracking | 📋 | Q2 '27 roadmap | — |
 | Model versioning & lifecycle management | 🔄 | Model registry delivered; sunsetting/lifecycle in flight | — |
 | GPU-aware training optimization | ✅/🔄 | Accelerator selection complete; Refrag in flight | — |
-| NVIDIA **and** AMD GPU support | ✅ NVIDIA / 🔄 AMD | AMD FT depends on AIM engine (in progress) | — |
+| NVIDIA **and** AMD GPU support | ✅ NVIDIA / ⚪ AMD FT | AMD inference complete, but AMD *fine-tuning* depends on the AMD AIM engine, which is backlog (partnership-dependent) | — |
 | Kubernetes-native training infra | ✅ | KServe-based, upgraded | — |
 | Dedicated / isolated training environments | ✅ | Dedicated Uniphore cluster | — |
 | Secure model artifact management | ✅/🔄 | Local model registry; **private registry requested, priority unset** | Private registry asked for — priority not set |
