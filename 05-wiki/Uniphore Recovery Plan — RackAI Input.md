@@ -93,12 +93,45 @@ Everything below is the evidence underneath this narrative. Lead with these sent
 ### C. Future alignment — valuable, needs Uniphore validation first
 | Capability | Possible Uniphore fit | Horizon |
 |---|---|---|
-| Private inference endpoints / BYOM w/ governance | Possible answer to private-registry ask | Q1–Q2 '27 |
-| Serverless / consumption-based inference | Consumption model vs. Fireworks | Q1 '27 |
-| Embeddings & reranking, guardrails, model lifecycle | Fuller enterprise service layer | Q2 '27 |
-| Tracing, structured output, token management | Developer-experience + governance parity | Q2 '27 |
+|---|---|---|
 
-**Message pattern per item:** *Uniphore need → RackAI capability → expected impact* — not a date commitment.
+Uniphore did not request these; they are the natural maturation of the platform Uniphore already runs on, and each one removes a reason to stay on Fireworks. We present them as *where RackAI is going* and ask which matter to Uniphore — not as commitments. Grouped by the value they create.
+
+**C1 — Consumption & model choice (Q1 '27, "Expansion")**
+| Roadmap capability | Uniphore need it would serve | Expected impact | Horizon |
+|---|---|---|---|
+| **BYOM / Import Model** (with validation + governance) | Direct answer to the standing **private-registry / custom-model** ask | Bring Uniphore's own/custom models into the managed RackAI lifecycle instead of being limited to the catalog | Q1 '27 |
+| **Serverless / consumption-based inference** | A Fireworks-style **pay-per-use** consumption model on bursty workloads | Removes fixed-capacity commitment; cost scales with actual traffic — a direct commercial counter to Fireworks | Q1 '27 |
+| **Standardized benchmarking** | Objective **model / hardware / runtime comparison** | Lets Uniphore see apples-to-apples performance and cost before committing a workload — supports the "did we meet the cost/perf bar" conversation | Q1 '27 |
+| **SGLang + llama.cpp runtimes** | Broader **runtime coverage** beyond vLLM/NIM | More workloads land on an optimal runtime (constrained/quantized or advanced) rather than one-size-fits-all | Q1 '27 |
+
+**C2 — Enterprise model services (Q2 '27, "Enterprise Scale")**
+| Roadmap capability | Uniphore need it would serve | Expected impact | Horizon |
+|---|---|---|---|
+| **Embeddings & reranking APIs** | Managed retrieval models for **RAG / semantic search** | Uniphore builds RAG on RackAI rather than bolting on a separate provider | Q2 '27 |
+| **Guardrails / content safety** | Configurable input/output **safety policy** for customer-facing agents | Production-grade safety for contact-center / CX workloads without custom build | Q2 '27 |
+| **Model lifecycle + model/endpoint health management** | **Onboarding → versioning → retirement**, health + auto-recovery | Operational confidence that production endpoints stay healthy — core to the "production ready" question | Q2 '27 |
+| **Customer model request support** | Formal path to **assess and onboard requested models** (e.g. SLMs relevant to Uniphore) | Predictable intake instead of ad-hoc requests, which was a point of friction | Q2 '27 |
+
+**C3 — Advanced inference & fine-tuning (Q2 '27)**
+| Roadmap capability | Uniphore need it would serve | Expected impact | Horizon |
+|---|---|---|---|
+| **Batch inference** | High-volume **asynchronous** jobs (bulk summarization, offline scoring) | Throughput-optimized path for non-interactive workloads at lower cost | Q2 '27 |
+| **Evaluation framework** | Compare models for **quality / safety / performance / cost** | Gives Uniphore an objective basis for model selection and acceptance | Q2 '27 |
+| **Quantization support** | **Smaller/cheaper** models with preserved quality | Lower cost-per-token and higher density on the H100 fleet | Q2 '27 |
+| **Custom inference containers** | Deploy **approved specialized containers** | Supports non-standard models/runtimes Uniphore may need | Q2 '27 |
+| **Tool/function-calling + Vision/VLM fine-tuning** | Reliable **tool use** and **multimodal** customization | Extends FT beyond text — relevant to agentic and vision workloads | Q2 '27 |
+| **Training experiment tracking + FT checkpoint management** | **Reproducibility**: datasets, metrics, checkpoints, resume | Repeatable, auditable fine-tuning instead of one-shot jobs | Q2 '27 |
+
+**C4 — Secure developer & governance experience (Q2 '27)**
+| Roadmap capability | Uniphore need it would serve | Expected impact | Horizon |
+|---|---|---|---|
+| **Private inference endpoints** | **Isolated** endpoints for sensitive workloads | Stronger isolation/data-sovereignty story for regulated use | Q2 '27 |
+| **Prompt / response logging & tracing** | **Troubleshooting, governance, audit** of inference | Observability into what the models actually did — supports debugging and compliance | Q2 '27 |
+| **Structured output / JSON mode** | **Schema-constrained** outputs for apps and agents | More reliable integration into Uniphore's application layer | Q2 '27 |
+| **API key / token management** | Credential **scopes, rotation, access control** | Enterprise-grade key hygiene for automation-friendly access (a stated Uniphore must-have) | Q2 '27 |
+
+**Message pattern per item:** *Uniphore need → RackAI capability → expected impact* — directional, not a date commitment. Confidence on the Uniphore-relevance of C-items is **Low** (inferred benefit, not a documented Uniphore request); use these to prompt Uniphore to tell us which actually matter.
 
 ---
 

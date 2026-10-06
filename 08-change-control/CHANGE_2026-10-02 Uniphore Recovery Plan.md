@@ -81,3 +81,15 @@ Status updates to [[Uniphore Recovery Plan — RackAI Input]] §3-B from the own
 - AMD → **AMD inference Complete**; **AMD AIM engine Backlog (partnership-dependent)**. §4 IaaS row updated to ✅ AMD inference; §4 FTaaS row updated to ⚪ AMD FT (gated on the backlogged AIM engine).
 
 No canonical IDs/aliases changed; confidence unchanged; no new performance numbers; crosswalk mappings still accurate. These are more precise delivery states, not new conflicts — the NIM/SFT/LoRA conflict remains the only open status conflict.
+
+---
+
+## Revision — 2026-10-02 (expanded §3-C Future alignment)
+
+Expanded [[Uniphore Recovery Plan — RackAI Input]] §3 bucket C from 4 generic rows to 18 real roadmap items grouped into four value themes (C1 consumption & model choice; C2 enterprise model services; C3 advanced inference & FT; C4 secure developer & governance). Rationale: Uniphore didn't request these, but they are the natural maturation of the platform Uniphore already runs on and each removes a reason to stay on Fireworks.
+
+- **Source:** master roadmap deck (`RackAI-Roadmap 2.pptx`, Q1 '27 Expansion + Q2 '27 Enterprise Scale) — already registered in the crosswalk; no new source.
+- **Framing:** each item uses *Uniphore need → RackAI capability → expected impact*; horizons are directional, not commitments.
+- **Confidence:** C-items explicitly labeled **Low** (inferred Uniphore benefit, not a documented request). Note stays `assumed`.
+
+Propagation: no new canonical concept (all items live on [[RackAI Roadmap]]); no dependent notes, formulas, metrics, coefficients, or scorecards affected; crosswalk unchanged; no new performance numbers. Fitness gate: S-16 summary 115 chars (pass); no broken links introduced; C-09 targets-vs-results discipline preserved (directional horizons, Low confidence).
