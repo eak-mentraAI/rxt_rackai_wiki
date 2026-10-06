@@ -10,7 +10,7 @@ source_docs: ["repo review 2026-10-05 (TTFT/output-throughput telemetry gap)", "
 confidence: assumed
 last_reviewed: 2026-10-05
 parent: hub-evidence
-summary: "Product's measurement contract for the RackAI KPI model: the signals we believe we need, why each one earns its place, and the review questions to validate with component owners."
+summary: "Product's measurement contract for the RackAI KPI model: the signals we need, why each matters, and how to review them."
 ---
 
 # KPI Telemetry Target List
