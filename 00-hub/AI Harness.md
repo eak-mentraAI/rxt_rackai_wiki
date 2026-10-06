@@ -133,7 +133,7 @@ flowchart TD
 |---|---|
 | **Proof 1 — Observe** | Inference routing substrate (llm-d); harness architecture design begins |
 | **Proof 2 — Decide** | Empirical Map v1; evidence-informed routing; one placement decision that beats a static baseline |
-| **Proof 3 — Control** | Governed harness v1; agent identity and policy enforcement; durable runtime; per-step verification |
+| **Proof 3 — Assume Responsibility** | Governed harness v1; agent identity and policy enforcement; durable runtime; per-step verification |
 | **Proof 4 — Operate** | Full governed harness runtime; learned orchestration; long-horizon memory; closed-loop optimization |
 
 ---

@@ -19,6 +19,10 @@ summary: "Endpoint uptime for priority models; guardrail metric with a >99.9% ta
 
 Measures whether the endpoint can reliably receive and serve traffic — performance is irrelevant if requests cannot land. Availability is a guardrail metric: it constrains autoscaling, admission control, and canary promotion rather than being independently maximized. Supporting reliability measures include inference error rate, timeout rate, capacity rejection rate, and failed model requests.
 
+## KPI Job
+
+Serves internal operating decisions (guardrail on autoscaling, admission, canary) and commercial commitment (the >99.9% target is a customer-facing promise) — jobs 1 and 3 per [[KPI Telemetry Target List]]. As an SLA-grade number it needs a durable record and a measured baseline before the target is contractually promised.
+
 ## Unit
 
 percentage (uptime over a measurement window).

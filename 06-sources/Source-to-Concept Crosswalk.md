@@ -56,7 +56,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | Erebine bundle + erebine.ai + live API (2026-09-15) | Competitor: zero-lock-in OpenAI-compatible router + MCP workspace-intelligence layer | [[Erebine Competitive Analysis]] | L4 | measured |
 | Market research + CEO strategy review (2026-09-21) | Company identity + theory of advantage: Private Enterprise AI Operator (three-battleground frame as internal lens) | [[Three Battlegrounds]] | hub | derived |
 | CEO strategy review (2026-09-21) | Partner portfolio / load-bearing bets mapped to the operator stack; Palantir boundary | [[Load-Bearing Bets]] | hub | assumed |
-| Engineering Roadmap + Dev Plan, synthesized + CEO review (2026-09-21) | Canonical living roadmap: four proofs (Observe → Decide → Control → Operate), MOE anchor, human→automated ladder, operator north-star metrics | [[RackAI Roadmap]] | hub | derived |
+| Engineering Roadmap + Dev Plan, synthesized + CEO review (2026-09-21) | Canonical living roadmap: four proofs (Observe → Decide → Assume Responsibility → Operate), MOE anchor, human→automated ladder, operator north-star metrics | [[RackAI Roadmap]] | hub | derived |
 | CEO strategy review (2026-09-21) | Minimum Operable Estate — MVP operator target anchoring Proof 3 | [[Minimum Operable Estate]] | hub | assumed |
 | RackAI Project Update (Jun 4 2026 .eml) | Uniphore MVP delivery baseline: completed features, WIP, next milestone, Green status | [[Uniphore Recovery Plan — RackAI Input]] | L5 | measured |
 | RackAI-Roadmap master + Uniphore progress slide + M2 roadmap CSVs | Current four-quarter roadmap; Uniphore-mapped capability status; Jun-vs-slide status conflict | [[Uniphore Recovery Plan — RackAI Input]], [[RackAI Roadmap]] | L5 | derived |

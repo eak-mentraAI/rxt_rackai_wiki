@@ -106,7 +106,7 @@ flowchart TD
 |---|---|
 | **Proof 1 — Observe** | Telemetry, metering, and observability substrate; auth/audit shipped |
 | **Proof 2 — Decide** | Inference routing (llm-d), accelerator selection, heterogeneous hardware serving |
-| **Proof 3 — Control** | Admission control, tenant isolation, multi-cluster serving boundary |
+| **Proof 3 — Assume Responsibility** | Admission control, tenant isolation, multi-cluster serving boundary |
 | **Proof 4 — Operate** | Multi-region support, dynamic fleet/capacity management, supply-abstraction v2 |
 
 See [[RackAI Roadmap]] for full milestone list and status.

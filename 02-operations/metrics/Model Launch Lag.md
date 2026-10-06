@@ -19,6 +19,10 @@ summary: "Elapsed time from publicly usable weights to a production Rack AI endp
 
 Measures how quickly Rackspace turns new model availability into production inference: the elapsed time from publicly usable weights to a production Rack AI endpoint on OpenRouter. It answers whether we can capture demand while a new model is still accelerating, and it is the primary KPI of the [[Model Launch Factory]].
 
+## KPI Job
+
+Serves internal operating decisions (velocity target for the launch factory) and strategic positioning (demand capture while a model is still accelerating) — jobs 1 and 4 per [[KPI Telemetry Target List]]. Different in kind from the serving metrics: it needs the launch pipeline to stamp lifecycle-event timestamps, not a metrics scrape.
+
 ## Unit
 
 hours (reported as median and P90).

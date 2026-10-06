@@ -4,13 +4,13 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operator roadmap, engineering roadmap canonical, four proofs, observe decide control operate, proof roadmap]
+aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operator roadmap, engineering roadmap canonical, four proofs, observe decide control operate, observe decide assume-responsibility operate, proof roadmap]
 related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness]
-source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md", "PM/leadership roadmap review 2026-09-28"]
+source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md", "PM/leadership roadmap review 2026-09-28", "PM/leadership roadmap review 2026-10-06"]
 confidence: derived
-last_reviewed: 2026-09-28
+last_reviewed: 2026-10-06
 parent: hub-root
-summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Control, Operate)."
+summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Assume Responsibility, Operate)."
 ---
 
 # RackAI Roadmap
@@ -38,7 +38,7 @@ The **single canonical, living roadmap** for RackAI. It is built primarily on th
 4. **We absorb what customers don't want to build** — the operating layer (harness, governance, lifecycle, economics) between raw GPUs and enterprise outcomes.
 *(Right to win the **first ten** estates; the flywheel below is why estate #100 is cheaper than #1. See [[Three Battlegrounds]] and [[Load-Bearing Bets]].)*
 
-**How we get there.** Four progressive proofs, not a feature backlog: **Observe → Decide → Control → Operate.**
+**How we get there.** Four progressive proofs, not a feature backlog: **Observe → Decide → Assume Responsibility → Operate.** (Proof 3 was renamed from "Control" on 2026-10-06 — control is a capability that helps *pass* the proof; the proof itself is assuming responsibility for a real customer estate.)
 
 **Where we are today (one line):** the measurement/identity substrate is underway (auth/audit shipped, telemetry + metering in progress); the learning advantage (Empirical Map) and the identity proof (a real operated estate) are **not yet built**.
 
@@ -46,7 +46,7 @@ The **single canonical, living roadmap** for RackAI. It is built primarily on th
 |-------|:------:|---------------|-------------------|
 | **Observe** | 🟡 foundations underway | Understand what's happening and what it costs | Finish telemetry + benchmarks + metering; add the missing **cost model** |
 | **Decide** | 🟡 components exist | Accumulated evidence improves decisions | Build the **Empirical Map**; prove one decision beats a static baseline |
-| **Control** | 🔴 not proven | Safely assume responsibility inside an enterprise boundary | **MOE-0** (rehearsal) → **MOE-1** (paid, external) |
+| **Assume Responsibility** | 🔴 not proven | Safely take over a real customer's AI estate (control is a capability within this) | **MOE-0** (rehearsal) → **MOE-1** (paid, external) = **gate** |
 | **Operate** | ⚪ future | Repeat it profitably across heterogeneous estates | Learn from the MOEs *before* industrializing |
 
 **Current focus:** complete **Observe** while beginning **MOE-0** preparation and the minimum Decide/Control dependencies.
@@ -93,7 +93,7 @@ flowchart LR
 | Choose model/runtime/accelerator/config | 2 Decide | Workload placement (P-004); [[Request Routing]] |
 | Route / place the workload | 2 Decide | [[Request Routing]]; [[Standard Model Deployment]] |
 | Observe actual outcome → feed back | 2→loop | [[Monitoring & Observability]] → [[Empirical Map]] |
-| Governance envelope around the loop | 3 Control | [[AI Governance and Assurance]], [[Governed Harness]] |
+| Governance envelope around the loop | 3 Assume Responsibility | [[AI Governance and Assurance]], [[Governed Harness]] |
 | Executable across estates | 4 Operate | [[AI Operations Product]], [[Minimum Operable Estate]] |
 
 > **Why this framing matters.** Read as scattered milestones, the roadmap looks like a pile of inference-engineering projects. Read as this loop, most "features" (speculative decoding, AMD AIM, llm-d, Prometheus, RBAC, OpenRouter) stop being roadmap destinations and become *implementation choices in service of the loop*. The differentiated items are the ones that make a **better workload-placement decision**: characterization → Empirical Map → evidence-informed routing → closed-loop optimization. That is the flywheel; everything else serves it.
@@ -130,14 +130,14 @@ flowchart LR
 ## How to Read This Roadmap
 
 - **North star** is the operator identity, not leaderboard rank. We are building *the best operator of heterogeneous enterprise AI estates*; OpenRouter competitiveness is a **learning vehicle inside** the operator roadmap, not its critical path ([[Three Battlegrounds]]).
-- **The roadmap is organized around four progressive proofs**, not around inherited technical phases: **Observe → Decide → Control → Operate.** Each proof has an exit condition phrased as a claim about *operating an estate*. The **delivery roadmap** ([[RackAI Roadmap (Delivery Plan)]]) supplies the real milestones that are **reordered under these proofs**; the two strategy spines — the [[Rack AI OpenRouter Engineering Roadmap]] (Phases 0–6) and the [[RackAI Enterprise AI Development Plan]] (Programs 1–5, P1–P9) — supply the strategy items that **extend** it. The proofs are the organizing logic.
+- **The roadmap is organized around four progressive proofs**, not around inherited technical phases: **Observe → Decide → Assume Responsibility → Operate.** Each proof has an exit condition phrased as a claim about *operating an estate*. The **delivery roadmap** ([[RackAI Roadmap (Delivery Plan)]]) supplies the real milestones that are **reordered under these proofs**; the two strategy spines — the [[Rack AI OpenRouter Engineering Roadmap]] (Phases 0–6) and the [[RackAI Enterprise AI Development Plan]] (Programs 1–5, P1–P9) — supply the strategy items that **extend** it. The proofs are the organizing logic.
 - **Every item passes one test:** *does this make us materially better at operating a customer's AI estate?* ([[Three Battlegrounds]] strategic choice.)
 - **The MVP is the [[Minimum Operable Estate]]**, not the full platform. We earn the word "Operator" by operating one estate, then ten, then automating what hurts.
 - **Maturity principle:** every capability walks the ladder **human-operated → instrumented → assisted → automated** (see below). We do not automate before we operate.
 - **Proofs are gates, not waterfall phases** (full callout under *The Four Proofs*).
 - **Change workflow:** propose in the "Proposed Changes" section → review → on acceptance, edit the proof/workstream tables and log a change packet in `08-change-control`.
 
-> **In one line:** Become the Private Enterprise AI Operator by proving Observe → Decide → Control → Operate — starting with one [[Minimum Operable Estate]] and automating what we learn. (The full pitch, moat, and flywheel are in the Executive Summary above.)
+> **In one line:** Become the Private Enterprise AI Operator by proving Observe → Decide → Assume Responsibility → Operate — starting with one [[Minimum Operable Estate]] and automating what we learn. (The full pitch, moat, and flywheel are in the Executive Summary above.)
 
 ## Two Teams, One Roadmap
 
@@ -202,13 +202,14 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 |-------|-----------------------------------------|
 | 1 Observe | Can we quantify the economics? (cost model + pricing hypothesis) |
 | 2 Decide | Can we quantify the customer improvement? ("this decision saved X / improved Y") |
-| 3 Control | Will a customer delegate responsibility **and pay us**? (first paid MOE / design partner) |
+| 3 Assume Responsibility | Will a customer delegate responsibility **and pay us**? (first paid MOE / design partner) |
 | 4 Operate | Can we repeat it **profitably**? (multiple estates, repeatable SKU/boundary, positive contribution margin, workloads/FTE improving) |
 
 ### Proof 1 — Observe: *We understand what is happening and what it costs*
 
+> **Pass/fail test:** For a **representative workload on infrastructure we operate**, Rackspace can accurately measure cost, performance, utilization, reliability, and operational history. **Proof 1 does *not* require a paid enterprise customer — it requires representative workload evidence.** The external, paid validation is Proof 3. This resolves the apparent circularity (Proof 1 informs what we build in Proof 2, but Proof 3 is the first paid customer): the Proof-1 evidence source is **[[GLM 5.3 Flash]] deployment + OpenRouter Path A**, representative traffic that exercises the system without waiting on a signed estate.
 > **Technical exit:** For a production model, Rackspace can **accurately measure** its cost, performance, utilization, reliability, and operational history **on the infrastructure we operate.** Two boundaries: "operate" is *earned* by Proof 4 (Proof 1 is understanding, not yet operating on a customer's behalf), and *where/how a workload runs best* is comparative intelligence — that is Proof 2, not Proof 1.
-> **Commercial gate:** we have a defensible cost model and a pricing hypothesis for operated workloads.
+> **Commercial gate:** we have a defensible cost model and a pricing hypothesis for operated workloads. Margin/pricing stay `assumed` until representative-workload usage exists; they become `measured` only with real traffic (Proof 1 representative, Proof 3 paid).
 
 | Item | Traces to | Confidence |
 |------|-----------|:----------:|
@@ -224,6 +225,8 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 *Why the placement interface is here, not later: the abstraction is cheap now and expensive later. Building the control plane against `SupplyTarget` from day one prevents baking owned-fleet assumptions into everything. We do not need multi-provider scheduling yet — only the interface.*
 
 > **Workload Placement Policy — the unresolved product decision (open question, not just an interface).** The interface above is the *mechanism*; the *product question* is bigger and unsettled: **how much infrastructure choice does the customer get?** The strategic target is an experience closer to *"here is my workload and my constraints"* — RackAI then selects model runtime, accelerator, quantization, replicas, and routing — rather than *"give me 4 B300s."* That abstraction is what makes the [[Empirical Map]] commercially meaningful (RackAI makes the decisions the map informs). But customers have explicitly asked for control over which GPU they deploy on, and today's quota plans are defined in **GPU-centric** terms. So there is a real tension: if we abstract the GPU away, the quota model needs rethinking; if we don't, the placement intelligence has less room to act. **Open question — RackAI selects everything beyond the workload + constraints, or the customer keeps GPU-level control?** Ties to [[Capacity Pool]] quota definitions and the P-004 gap; needs PM ratification.
+>
+> **Resolving product principle (adopted 2026-10-06): *RackAI chooses by default; customers constrain when necessary.*** The two extremes are both wrong. The normal consumption model is: the customer specifies **intent + constraints** — model, workload/SLA, residency, approved accelerator/vendor constraints, economics preference — and **RackAI decides the exact GPU, node, placement, routing, and optimization.** A customer who explicitly requires NVIDIA / AMD / B300 expresses that as a **placement constraint**, not as the base consumption model. This matters strategically: if the customer makes the placement decision by default, we have handed back the single most important decision the [[Empirical Map]] exists to make — the optimization thesis cannot be built on top of customer-chosen hardware. The GPU-centric quota plans therefore need rethinking to be expressible in intent+constraint terms (a [[Capacity Pool]] change, carried under P-004). This principle resolves the direction; the quota-model rework remains the open implementation item.
 
 ### Proof 2 — Decide: *Our accumulated knowledge improves decisions*
 
@@ -240,10 +243,15 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | Fine-tuning **operations** (placement, cost-per-job, adapter lifecycle) | dev-plan 4.2; [[LoRA Adapter]] | measured (SFT) |
 | Fine-tuning **experiment** — one instrumented domain-model proof point (central-bet test) | [[Three Battlegrounds]] central bet | measured (SFT) |
 
-### Proof 3 — Control: *We can safely assume responsibility inside an enterprise boundary*
+### Proof 3 — Assume Responsibility: *We can safely take over a real customer's AI estate*
 
-> **Technical exit:** Rackspace can take a real enterprise workload and operate it across an approved execution boundary while maintaining customer control, governance, and auditability. **This is the first actual proof of the company identity.**
+> **Renamed from "Control" (2026-10-06).** The proof is not a capability called *control* — control (policy, isolation, audit, quota) is **one of the capabilities necessary to pass it**. The proof is the larger claim: *Rackspace can safely assume responsibility for operating a real customer's AI estate.* That reframe makes **MOE-1 the integration test for the whole strategy** rather than one roadmap item among many, and clarifies why the governed harness, isolation, supply abstraction, and the commercial proof all converge here.
+>
+> **Pass/fail test (the proof is passed when, and only when):** an external, regulated customer delegates operational responsibility for a real workload to Rackspace, inside a defined control boundary, **and pays for it** — i.e. **MOE-1 passes its operational-acceptance gate.** Nothing short of MOE-1 passes this proof; MOE-0 is a rehearsal that *builds* the capability.
+> **Technical exit (a capability, not the proof):** Rackspace can take a real enterprise workload and operate it across an approved execution boundary while maintaining customer control, governance, and auditability.
 > **Commercial gate:** a customer will delegate operational responsibility **and pay for it** — the first paid MOE / design partner.
+
+> **MOE-1 is the gate, not a line item.** Read the Proof-3 capabilities below as the ladder *into* the gate: **Capabilities → MOE-0 rehearsal → MOE-1 paid customer → Proof 3 PASSED.** The [[Minimum Operable Estate]] spec is the **acceptance definition** for that gate (what must be true for "we operate your AI" to be legitimate), not another capability to build alongside the rest.
 
 **Two distinct milestones — do not conflate them:**
 
@@ -264,6 +272,7 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 
 ### Proof 4 — Operate: *We can do it repeatably and profitably across heterogeneous estates*
 
+> **Pass/fail test (quantitative):** Rackspace can **onboard and operate additional customers/workloads across heterogeneous estates without labor or cost scaling linearly with workload count.** That is the crisp pass criterion MOE-1 gives Proof 3 and that Proof 4 otherwise lacks. Acceptance measures (instrumented, trending the right way across ≥2–3 estates): **workloads per operator**, **time-to-onboard**, **change failure rate**, **placement automation rate**, **gross margin**, **capacity utilization**, **SLO attainment**. The north-star **workloads/FTE** is the headline of this set.
 > **Technical exit:** A customer can give Rackspace operational responsibility for a heterogeneous production AI estate.
 > **Commercial gate:** we can repeat it **profitably** — multiple estates, a repeatable SKU / service boundary, positive contribution margin per estate, and workloads/FTE improving.
 
@@ -319,7 +328,8 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 | ⚠ **Evidence-informed routing** (routing reads the map) | delivery routing is llm-d/KV-cache, not empirically-driven | — | — | **RackAI** | **gap → P-005** | Flywheel |
 | ⚠ **Closed-loop optimization** (outcome feeds back into the map) | Eng. Phase 6 — not in delivery plan | — | — | **RackAI** | **gap → P-007** | Closes the loop |
 | **M2: Inference routing** (the substrate the map plugs into) | llm-d, ingress→llm-d→model, shared KV cache | RACKAI-311 | Chatterjee | **RackAI** | In Progress | Routing substrate |
-| **M2: Accelerator selection ph3** | node inventory + GPU consumption metrics | RACKAI-336 | Nguy | Joint (Infra-led, RackAI constrains) | **Complete** | Placement inputs |
+| **M2: Accelerator inventory & consumption telemetry** *(renamed from "Accelerator selection ph3" 2026-10-06)* | node inventory + GPU consumption metrics — the **telemetry prerequisite for** accelerator selection, **not** selection itself | RACKAI-336 | Nguy | Joint (Infra-led, RackAI constrains) | **Complete** | Placement inputs (telemetry) |
+| ⚠ **Accelerator selection (evidence-informed)** | the actual *selection* capability — choose engine×accelerator per workload cell; depends on supply abstraction + Empirical Map; decided by AgentX-anchored measurement | — | — | **RackAI** | **gap → P-005** | Placement decision |
 
 **Techniques — implementation choices, not roadmap destinations** (roadmap them only when empirical evidence says they improve an outcome we care about):
 
@@ -334,11 +344,11 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 
 > **Shared KV cache is rudimentary today** and needs more work to give the best experience — but that work needs PM input on the target experience before it is scoped. Its payoff is directly measurable under the [[AgentX Benchmark Standard]], which stresses shared-prefix reuse under agent traffic — so KV-cache work is scored against an external standard, not asserted.
 
-> **The engine question (vLLM vs AIM vs NIM) is resolved by measurement, not argument.** The vendor-blessed engines (AIM on AMD, NIM on NVIDIA) are optional backends behind the serving abstraction; whether they beat tuned vLLM/SGLang for a given model×hardware×workload is an empirical delta the [[AgentX Benchmark Standard]] can produce on our own fleet. Adopting AIM on a "vendor engine is faster" argument would symmetrically force NIM too — so we commit to *neither* as strategy and let the [[Empirical Map]] cell (fed by AgentX) decide per cell. Anchoring to AgentX is what turns that from a debate into a number.
+> **The engine question (vLLM vs AIM vs NIM) is resolved by measurement, not argument.** The vendor-blessed engines (AIM on AMD, NIM on NVIDIA) are optional backends behind the serving abstraction; whether they beat tuned vLLM/SGLang for a given model×hardware×workload is an empirical delta the [[AgentX Benchmark Standard]] can produce on our own fleet. Adopting AIM on a "vendor engine is faster" argument would symmetrically force NIM too — so we commit to *neither* as strategy and let the [[Empirical Map]] cell (fed by AgentX) decide per cell. Anchoring to AgentX is what turns that from a debate into a number. **Ceding single-engine tuning to vendor engines does not hollow out our value — it relocates it up a layer** (engine/model/accelerator *selection*, placement, economics, and on-top optimizations like caching/compression). See [[Inference Optimization]] §*Two Layers of Optimization* for the full "engine = commodity, operating decision = moat" framing and the conditional risk if the operating layer isn't built.
 
 **Proof 2 read:** the *ingredients* of good operating decisions are being built (routing, accelerator selection, perf optimizations, fine-tuning), but the **Empirical Map** — the thing that makes decisions *evidence-informed across workloads*, i.e. the moat — is not on the delivery plan. This is the single most important strategy gap. The reframe above is the reviewer's central point: **the strategic chain is `Empirical Map → workload characterization → evidence-informed routing → closed-loop optimization`; the techniques (speculative decoding, Refrag, AMD AIM, DPO, semantic router) are in service of the loop, not destinations.** Prototype the Empirical Map first — it is the highest-value experiment because it tests the differentiated thesis itself.
 
-### Proof 3 — Control: *safely assume responsibility inside an enterprise boundary*
+### Proof 3 — Assume Responsibility: *safely take over a real customer's AI estate*
 
 | Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
 |-----------|-------------|------|-------|------|--------|--------|
@@ -379,7 +389,7 @@ The controls that let a customer delegate operation inside their boundary, treat
 | **M2: Request new model support** | on-demand model onboarding | RACKAI-354 | Bedre | **RackAI** | In Progress | Toward model velocity |
 | **M2: Sunsetting a model** | model lifecycle retirement | RACKAI-372 | — | **RackAI** | Not Started | Lifecycle |
 | **M2: Multi region support** | *backlogged (Pri 6, unscheduled)* | — | — | Joint (Infra clusters, RackAI routing) | Not Started | Multi-cluster estates |
-| **M2: GPU node access support** | *backlogged (Pri 6, unscheduled)* | — | — | Infra → RackAI | Not Started | Heterogeneous supply |
+| ~~**M2: GPU node access support**~~ | **Out of scope (decided 2026-10-06)** — direct GPU-node access is GPU IaaS; belongs to the GPUaaS/IaaS product boundary, not RackAI | — | — | Infra (not RackAI) | Removed from charter | ~~Heterogeneous supply~~ |
 | ⚠ **Day-zero model factory, closed-loop optimization** | Engineering-roadmap Phases 4/6 — *not in delivery plan* | — | — | **RackAI** | **gap → P-007** | Industrialization |
 | ⚠ **Managed-ops / FDE motion, multi-estate onboarding** | *not modeled* | — | — | **RackAI** | **gap → P-007** | The operator business |
 
@@ -387,7 +397,7 @@ The controls that let a customer delegate operation inside their boundary, treat
 
 > **This may be the most important proof commercially, and it needs more weight than the plan gives it.** *Operating heterogeneous AI estates repeatably* is much closer to Rackspace's natural moat than building another inference server. The three groupings below name the operator *business* Proof 4 must fund; they sequence *after* Proofs 1–3 (P-007 is a dependency declaration, not a "start now"), but they belong on the roadmap explicitly so MOE-1 is never promised ahead of its prerequisites.
 
-**Fleet Operations** — add/remove accelerator capacity · NVIDIA + AMD lifecycle · model deployment lifecycle · upgrade/rollback · health/remediation · capacity management. Canonical homes: [[Capacity Pool Model]], [[GPU Reallocation]], [[Canary & Rollback]], [[Standard Model Deployment]]. *PM note: **GPU node access support** — is this in this team's charter at all? Confirm before scheduling; it may belong to Infra.*
+**Fleet Operations** — add/remove accelerator capacity · NVIDIA + AMD lifecycle · model deployment lifecycle · upgrade/rollback · health/remediation · capacity management. Canonical homes: [[Capacity Pool Model]], [[GPU Reallocation]], [[Canary & Rollback]], [[Standard Model Deployment]]. *PM decision (2026-10-06): **GPU node access support is out of scope for RackAI.** Direct GPU-node (SSH/raw-node) consumption moves back toward GPU IaaS; it belongs to the GPUaaS/IaaS product boundary. RackAI's differentiation is "give us the workload + constraints; we operate the AI execution environment." Reinstate only if a concrete RackAI use case requires it.*
 
 **Model Lifecycle** — request → qualify → benchmark → approve → deploy → observe → upgrade → retire. Canonical homes: [[Model Radar]] (intake), [[Model Launch Factory]] (day-zero pipeline), [[Standard Model Deployment]], [[Canary & Rollback]]. *PM notes: **request new model** will likely run through **SNOW** now (delivery-platform decision still open with RXT); **sunsetting a model** has **no PRD** yet — write it before scheduling retirement.*
 
@@ -449,7 +459,7 @@ flowchart LR
       RT[Inference routing]
       MAP[Empirical Map - GAP]
     end
-    subgraph CTL[Proof 3 Control - thin]
+    subgraph CTL[Proof 3 Assume Responsibility - thin]
       AUD[Audit/admission]
       MOE[Harness + MOE - GAP]
     end
@@ -592,7 +602,7 @@ K1 and K2 are the two that would most change resource allocation: K1 decides whe
 
 **Proposed by:** CEO/product discussion, 2026-09-21. **Status: Proposed — not adopted.**
 
-**Problem.** Proof 3 (Control) is where "operator" stops being a claim and becomes a demonstrated fact, but the roadmap currently describes the [[Minimum Operable Estate]] only as a target shape. Without a *named first customer* and a *date*, Proof 3 stays abstract and the operator identity stays unproven. This proposal commits to one concrete MOE.
+**Problem.** Proof 3 (Assume Responsibility) is where "operator" stops being a claim and becomes a demonstrated fact, but the roadmap currently describes the [[Minimum Operable Estate]] only as a target shape. Without a *named first customer* and a *date*, Proof 3 stays abstract and the operator identity stays unproven. This proposal commits to one concrete MOE.
 
 **What we'd commit to.** The v1 scope in [[Minimum Operable Estate]] (1 customer, 1 private environment, 2 models, 1 harness v1, 1 owned supply source behind the abstraction interface, basic routing, metering, observability, identity/policy, audit, human-operated placement) — operated to a defined SLO with a defined operational-acceptance gate ([[AI Operations Product]]).
 
@@ -622,7 +632,7 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 1. **MOE-0:** named friendly estate + target date.
 2. **MOE-1:** named external design-partner profile/customer + target window.
-3. **Proof gates:** measurable pass/fail criteria for Observe, Decide, Control, Operate.
+3. **Proof gates:** measurable pass/fail criteria for Observe, Decide, Assume Responsibility, Operate.
 4. **Commercial gates:** the evidence that customers will delegate this responsibility at economics that produce an attractive managed-service business.
 
 > **P-003 through P-007 are the strategy-driven changes to the *delivery* roadmap** surfaced by reading the real plan through the operator lens (the ⚠ gaps above). Each names the delivery reality it changes, so it is a concrete edit to the plan — not an abstract wish. All are **Proposed, not adopted**; owners/dates stay with the delivery teams.
@@ -665,7 +675,7 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 **Delivery reality.** The delivery plan builds real control-plane pieces (audit, admission control, isolation) but stops short of the identity proof: **(a)** no governed execution harness; **(b)** "compliance validation" is a sub-task of Auditing M3, not a compliance-*evidence* milestone; **(c)** org-level RBAC + metering/billing/quota permissions were **explicitly dropped** (IAC M4 = "Won't Do").
 
-**Why it matters (operator lens).** Proof 3 (Control) is the first proof of the identity. A regulated buyer needs an operating layer to govern (harness), sufficient organizational identity/authorization/quota/policy boundaries, audit, isolation, and the compliance evidence their segment requires.
+**Why it matters (operator lens).** Proof 3 (Assume Responsibility) is the first proof of the identity. A regulated buyer needs an operating layer to govern (harness), sufficient organizational identity/authorization/quota/policy boundaries, audit, isolation, and the compliance evidence their segment requires.
 
 **Proposed change — the outcome, not the implementation.** Define and fund the **minimum enterprise control envelope required for MOE-1**:
 - **Identity / authorization / quota / policy boundaries** sufficient for the MOE operating model. *Whether that means resurrecting IAC M4 or a different deliverable is an architecture decision* — the roadmap sets the outcome, architecture picks the implementation.
@@ -694,5 +704,6 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 - [[Rack AI OpenRouter Engineering Roadmap]] — strategy spine (inference operating system)
 - [[RackAI Enterprise AI Development Plan]] — strategy spine (operator stack)
 - [[OpenRouter Integration Plan]] — the gated GTM sequence
+- [[Milestone Release Map]] — this roadmap re-projected into major milestone releases across five functional tracks (market + internal communication view)
 - [[Capability Gap Register]] — live shipped-vs-planned state
 - [[Product Hub]] · [[Rack AI Knowledge Base]]

@@ -35,6 +35,7 @@ Layer 4 — the support structure for the model. Benchmark results, competitive 
 - [[Benchmark Library]] — planned/pending [[Benchmark Run]] register
 - [[Open Questions]] — genuine unknowns and surfaced conflicts
 - [[Capability Gap Register]] — capability-vs-goal matrix of what's missing to reach the strategic goals
+- [[KPI Telemetry Target List]] — Product's measurement contract: the signals the KPI model needs, by job, with per-signal collection/retention/attribution review questions
 - [[Erebine Competitive Analysis]] — competitor teardown (erebine.ai) validated against a live API
 - [[Inference Serving Competitors]] — Battleground (b) teardown: Fireworks, Together, Baseten, Anyscale
 - [[GPU Neocloud Competitors]] — Battleground (a) teardown: CoreWeave, Lambda

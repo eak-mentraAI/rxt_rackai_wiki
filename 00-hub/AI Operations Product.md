@@ -47,7 +47,7 @@ This workstream is vertical — it shows up in every proof, deepening as the ope
 |-------|-----------------------------------|
 | **Proof 1 — Observe** | Define the operational-acceptance criteria and the incident/observability baseline; decide what "operable" even means |
 | **Proof 2 — Decide** | Encode operating decisions (placement/routing) as runbooks the [[Empirical Map]] can later assist |
-| **Proof 3 — Control** | Own the operating model for the first [[Minimum Operable Estate]] — SLOs, handoffs, audit, the first FDE onboarding |
+| **Proof 3 — Assume Responsibility** | Own the operating model for the first [[Minimum Operable Estate]] — SLOs, handoffs, audit, the first FDE onboarding |
 | **Proof 4 — Operate the Estate** | Full managed-ops + FDE motion; drive workloads-per-FTE leverage as estates multiply |
 
 ## The Human→Automated Ladder Applies Here Too

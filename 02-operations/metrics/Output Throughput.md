@@ -19,6 +19,10 @@ summary: "How much useful inference work the fleet produces: output tokens/sec a
 
 Measures how much useful inference work the fleet produces. The headline figure is output tokens/sec, with supporting measures for requests/sec, concurrent requests per GPU, and prefill throughput. It complements [[TTFT]] (latency) and [[Tokens per GPU-Second]] (efficiency), and it is optimized separately from TTFT because throughput and latency need different strategies.
 
+## KPI Job
+
+Serves all four jobs (per [[KPI Telemetry Target List]]): internal operating decision, customer-facing experience, commercial commitment (durable record required before pricing or an SLA), and strategic positioning (competitive throughput rank). Rides the same serving-telemetry collection and attribution path as [[TTFT]].
+
 ## Unit
 
 output tokens / second (primary); also requests/second, concurrent requests/GPU, prefill tokens/second.

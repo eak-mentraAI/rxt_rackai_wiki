@@ -19,6 +19,10 @@ summary: "Core infrastructure-efficiency metric: output tokens produced per GPU-
 
 The core efficiency metric — how many output tokens the fleet produces per GPU-second of compute. It answers whether we are becoming better at producing inference from the hardware we own, and it is the primary internal lever behind cost/token. Track per [[Model Deployment]] and per [[Benchmark Run]].
 
+## KPI Job
+
+Serves internal operating decisions (the primary efficiency lever behind the scheduler and cost/token) and strategic positioning (jobs 1 and 4, per [[KPI Telemetry Target List]]). Requires two feeds to meet at deployment grain: the serving output-token count and GPU-seconds consumed — the join point is the open question, not the raw signals.
+
 ## Unit
 
 output tokens / GPU-second.

@@ -128,7 +128,7 @@ The compliance envelope has the longest lead time of any strategic initiative. P
 |---|---|
 | **Proof 1 — Observe** | IAC M1–M3 complete (auth, audit log) — the measurement baseline; SOC 2 scoping kickoff |
 | **Proof 2 — Decide** | Policy-as-code design; agent identity architecture |
-| **Proof 3 — Control** | Runtime policy enforcement, first compliance attestation, tenant isolation enforcement, MOE control boundary |
+| **Proof 3 — Assume Responsibility** | Runtime policy enforcement, first compliance attestation, tenant isolation enforcement, MOE control boundary |
 | **Proof 4 — Operate** | Full governance perimeter across multi-cluster estates; residency enforcement; ISO 42001 / NIST AI RMF |
 
 ---

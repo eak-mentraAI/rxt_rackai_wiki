@@ -49,6 +49,8 @@ The register of genuine unknowns and any surfaced conflicts between sources. Ite
 | Uniphore engagement gap: a dedicated Uniphore production environment (DFW3 undercloud, 8× H100) is Active, but no Uniphore acceptance, production feedback, or current (post-Jun 2026) priorities/success-definition are on record. Is Uniphore still engaged on the production ("DFW Prod") track? | [[Uniphore Recovery Plan — RackAI Input]], [[Environment]], [[Organization]] | open |
 | Uniphore requirement currency: the strongest "Uniphore requirements" we hold (OpenAI-only API, SFT-first, file-upload data, single-cluster, private-registry ask) are secondhand (attributed to Paavan during MVP planning, several flagged "assuming… need clarification"), not direct Uniphore statements. Which still hold? | [[Uniphore Recovery Plan — RackAI Input]] | open |
 
+| Telemetry provenance for the headline KPIs: TTFT and output-token throughput are declared in the roadmap and canon but appear not to be scraped, retained, or attributed per tenant/model today — and every headline metric sits at `assumed` with no confirmed producer. Which signals are collected, at what grain, and where do they live (operational vs. durable usage-grade)? Needs validation with serving, infrastructure, and factory owners. | [[KPI Telemetry Target List]], [[TTFT]], [[Output Throughput]], [[Tokens per GPU-Second]], [[Productive GPU Utilization]], [[Model Launch Lag]] | open |
+
 The register extends as new unknowns or source conflicts surface.
 
 ## See Also

@@ -19,6 +19,10 @@ summary: "Productive inference GPU-hours over available GPU-hours; also HBM util
 
 Measures how effectively available GPU capacity is producing useful inference work — productive inference GPU-hours divided by available GPU-hours. It answers whether we are actually monetizing the fleet. Supporting measures include HBM utilization and idle capacity %, tracked by model and cluster across each [[Capacity Pool]] and [[GPU Node]].
 
+## KPI Job
+
+Serves internal operating decisions (feeds autoscaling, GPU reallocation, and the procurement trigger) and commercial/strategic positioning (fleet monetization) — jobs 1 and 3/4 per [[KPI Telemetry Target List]]. Raw GPU counters likely exist; the open question is reaching model/pool grain, whether from the producer or a downstream join to deployment metadata.
+
 ## Unit
 
 ratio / percentage (productive GPU-hours ÷ available GPU-hours). Supporting: HBM utilization %, idle capacity %.

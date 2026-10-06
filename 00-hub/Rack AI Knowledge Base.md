@@ -71,7 +71,7 @@ Consumers see Model endpoints. They never reference GPU hardware directly. Initi
 | [[Product Hub]] | — | Strategy, model bets, roadmap |
 | [[Three Battlegrounds]] | — | Company identity + theory of advantage: the Private Enterprise AI Operator; competitor map by customer alternative |
 | [[Load-Bearing Bets]] | — | Partner portfolio: current bets (Palantir, Uniphore, Across.AI) + proposed new bets mapped to the operator stack |
-| [[RackAI Roadmap]] | — | The canonical, living roadmap: four proofs (Observe → Decide → Control → Operate) realizing the operator identity |
+| [[RackAI Roadmap]] | — | The canonical, living roadmap: four proofs (Observe → Decide → Assume Responsibility → Operate) realizing the operator identity |
 | [[Minimum Operable Estate]] | — | The MVP operator target: the smallest estate for which "we operate your AI" is true; anchors Proof 3 |
 
 ## Operating Discipline

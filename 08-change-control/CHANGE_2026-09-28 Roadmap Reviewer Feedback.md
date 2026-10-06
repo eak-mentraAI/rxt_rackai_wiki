@@ -163,3 +163,39 @@ No RackAI performance number was asserted. AgentX's own dataset figures (session
 - Confidence propagation: **Pass** — `asserted` external; nothing downstream upgraded; Empirical Map stays `assumed`.
 - Compliance: external content rephrased, <30 verbatim words/source, inline links to SemiAnalysis + NVIDIA.
 - Regressions: none.
+
+---
+
+# 2026-09-28 (addendum 3) — Two Layers of Optimization (what we commoditize vs. own)
+
+## Trigger
+
+Strategic question: if AIM/NIM become RackAI's inference optimization, where does RackAI still add value / can it introduce additional optimization? Needed a canonical answer distinguishing the layer vendor engines commoditize from the layer that is the operator moat.
+
+## Objects Changed
+
+- **Changed:** [[Inference Optimization]] hub — added canonical section *Two Layers of Optimization — what we commoditize vs. own*: **Layer A** (single-deployment engine tuning — ceded to AIM/NIM, a non-compounding treadmill) vs. **Layer B** (cross-deployment operating optimization — the moat), enumerating Layer B's four kinds (engine/model/hardware selection, placement/topology/capacity, economics, cross-engine on-top optimizations), the neutral-referee advantage, and the conditional risk that Layer B value exists only if it is actually built (ties to P-005/D2). Also softened the existing "Optimization levers" scope line to point at the new section so it doesn't read as claiming single-engine tuning as differentiation.
+- **Changed:** [[RackAI Roadmap]] — Proof 2 engine-question callout now points to the Two Layers framing ("engine = commodity, operating decision = moat").
+
+## Edges
+
+- **Added (from Inference Optimization §Two Layers):** [[Serving Runtime]], [[Empirical Map]], [[Request Routing]], [[Capacity Pool]], [[Productive GPU Utilization]], [[GPU Reallocation]], [[Fleet Yield Optimization]], [[Three Battlegrounds]], [[AI FinOps]], [[Unit Economics Model]], [[Cost per Outcome]], [[Erebine Competitive Analysis]] — all pre-existing canonical homes; no new concept defined (One-Concept Rule held — the distinction lives once, in the pillar hub).
+- **Removed:** none.
+
+## Confidence Changes
+
+None. The Layer A/B distinction is `derived` reasoning off the existing [[Three Battlegrounds]] strategy (economics not commoditized; OpenRouter as gym) and the Empirical Map thesis. No new performance numbers; no capability upgraded.
+
+## Open Questions Created
+
+| Question | Affected Docs |
+|----------|---------------|
+| Which Layer-B "on-top" optimizations (semantic caching, in-path token compression, cross-request KV reuse) does RackAI build first, and are they gated on Empirical Map evidence? | [[Inference Optimization]], [[Request Routing]], [[Erebine Competitive Analysis]] |
+| If AMD/AIM economics never reach the viability bar, does the Layer-B selection layer simply route away from AMD — and does that undercut the heterogeneity thesis? | [[Inference Optimization]], [[AMD Instinct]], [[Three Battlegrounds]] |
+
+## Fitness / Consistency Result
+
+- Structural checks: **Pass** — all 13 wikilink targets in the new section verified to resolve.
+- Consistency pass: **Pass** — One-Concept Rule held (distinction canonical in the Inference Optimization hub; roadmap only points to it); reconciled with the hub's existing "Optimization levers" scope line so single-engine tuning is no longer implicitly claimed as the differentiator.
+- Confidence propagation: **Pass** — `derived`, nothing upgraded, no numbers asserted.
+- Regressions: none.

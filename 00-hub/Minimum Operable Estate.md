@@ -15,7 +15,7 @@ summary: "The smallest estate where 'we operate your AI' is true: MOE-0 rehearsa
 
 # Minimum Operable Estate
 
-The **MVP of the Private Enterprise AI Operator.** The [[RackAI Roadmap]] does not roadmap the *full* governed harness first; it roadmaps the smallest environment for which Rackspace can legitimately say **"we operate your AI."** That environment is the Minimum Operable Estate (MOE), and it is the exit target of **Proof 3 — Control**.
+The **MVP of the Private Enterprise AI Operator.** The [[RackAI Roadmap]] does not roadmap the *full* governed harness first; it roadmaps the smallest environment for which Rackspace can legitimately say **"we operate your AI."** That environment is the Minimum Operable Estate (MOE), and it is the exit target of **Proof 3 — Assume Responsibility**.
 
 > **Confidence.** `assumed` — a strategy-derived MVP definition, not a shipped configuration. Its components trace to the [[Capability Gap Register]] (mostly `missing`/`planned`). This note defines the target; adoption of its exact scope is a roadmap change to be accepted through the [[RackAI Roadmap]] Proposed-Changes workflow.
 
@@ -74,7 +74,7 @@ To stay minimum, v1 excludes (deferred to Proof 4 — Operate the Estate):
 ```mermaid
 flowchart LR
     P1[Proof 1 — Observe] --> P2[Proof 2 — Decide]
-    P2 --> P3[Proof 3 — Control: MOE]
+    P2 --> P3[Proof 3 — Assume Responsibility: MOE]
     P3 --> P4[Proof 4 — Operate the Estate]
     MOE[Minimum Operable Estate] -.MVP target of.-> P3
 ```

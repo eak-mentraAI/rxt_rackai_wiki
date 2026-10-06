@@ -114,7 +114,7 @@ flowchart TD
 |---|---|
 | **Proof 1 — Observe** | Establish model benchmark baseline at launch; metering per model |
 | **Proof 2 — Decide** | Fine-tuning operations + domain-model experiment (central-bet test); model selection evidence from the Empirical Map |
-| **Proof 3 — Control** | Model provenance, compliance attestation per model, customer model isolation |
+| **Proof 3 — Assume Responsibility** | Model provenance, compliance attestation per model, customer model isolation |
 | **Proof 4 — Operate** | Day-zero model factory; multi-estate model lifecycle management |
 
 See [[RackAI Roadmap]] for full milestone list.

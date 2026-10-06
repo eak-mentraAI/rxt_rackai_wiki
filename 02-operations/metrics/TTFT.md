@@ -19,6 +19,10 @@ summary: "Time to first token — how quickly users begin receiving a response; 
 
 **Time to first token** — how quickly a user begins receiving a response after issuing a request. This is the canonical TTFT note. Track P50, P95, and P99 plus queueing delay. TTFT is measured independently from output-token throughput because the two require different optimization strategies, and it is a primary latency guardrail across canary, admission control, and the performance regression gate.
 
+## KPI Job
+
+Serves all four jobs (per [[KPI Telemetry Target List]]): internal operating decision (canary/admission guardrail), customer-facing experience (latency shown in scorecards), commercial commitment (candidate SLA — durable record required before any target is promised), and strategic positioning (competitive latency rank). The job set is what sets its grain, retention, and attribution requirements.
+
 ## Unit
 
 milliseconds (per request; reported as P50/P95/P99 percentiles).
