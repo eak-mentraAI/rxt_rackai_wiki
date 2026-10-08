@@ -8,7 +8,7 @@ aliases: [milestone release map, release map, roadmap release view, major releas
 related: [hub-roadmap, hub-product, hub-battlegrounds, hub-minimum-operable-estate, hub-inference-serving, hub-ai-governance-assurance, hub-ai-harness, hub-model-services, hub-inference-optimization, ent-empirical-map, ent-governed-harness, wiki-pillar-working-model]
 source_docs: ["00-hub/RackAI Roadmap.md", "05-wiki/Pillar Working Model.md", "00-hub/Three Battlegrounds.md"]
 confidence: derived
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-08
 parent: hub-roadmap
 summary: "Market-and-internal projection of the four-proof roadmap into major milestone releases across five functional tracks."
 ---
@@ -72,7 +72,7 @@ Three decisions from the roadmap review that shape what the tracks do and don't 
 | **GPU-node access** | *Out of scope for RackAI.* Direct GPU-node (SSH/raw-node) consumption is GPU IaaS and belongs to the GPUaaS/IaaS product boundary. RackAI's model is "give us the workload + constraints; we operate the environment." | Removed from T1.S4; reinstate only if a concrete RackAI use case requires it |
 | **Observability is two products** | *Customer observability* (percentiles, TTFT, TPS, spend, quota — the RackAI product experience) is a distinct surface from *operator intelligence* (GPU/VRAM, queue depth, cache, power, placement signals — feeds the Empirical Map). Same pipeline, different purpose. | Both live in T3.S1 as separate deliverables |
 
-> **A note on "technique" vs "product capability."** Several items that look like roadmap destinations are actually *techniques* in service of an outcome: speculative decoding, Refrag, shared-KV-cache improvements, DPO, AMD AIM, and the semantic router are techniques serving **inference efficiency** or **routing quality** — each earns a place on the roadmap only when evidence (usually the Empirical Map) shows it improves an outcome we care about. The accompanying CSV ([[RackaI Roadmap 10062026.csv|RackaI Roadmap 10062026]]) carries an explicit **Type** (Product capability / Technique) and **Disposition** (Committed / Experiment / Decision Required / Gap / Backlog / Out of Scope / Done) column so this distinction is machine-readable, not just prose.
+> **A note on "technique" vs "product capability."** Several items that look like roadmap destinations are actually *techniques* in service of an outcome: speculative decoding, Refrag, shared-KV-cache improvements, DPO, AMD AIM, and the semantic router are techniques serving **inference efficiency** or **routing quality** — each earns a place on the roadmap only when evidence (usually the Empirical Map) shows it improves an outcome we care about. The accompanying CSV ([[RackAI Roadmap.csv|RackAI Roadmap table]]) carries an explicit **Type** (Product capability / Technique) and **Disposition** (Committed / Experiment / Decision Required / Gap / Backlog / Out of Scope / Done) column so this distinction is machine-readable, not just prose.
 
 ---
 
@@ -83,7 +83,7 @@ Three decisions from the roadmap review that shape what the tracks do and don't 
 | Capability Stage | Theme | What it delivers | Absorbs (roadmap items) | Proof | State |
 |---------|-------|------------------|-------------------------|:-----:|:-----:|
 | **T1.S1 — Identity & Serving Foundations** | "We can serve a model with identity and access control" | JWT + API-key validation, APIKey CRD, gateway auth; RBAC (PlatformRole/RoleBinding); inference routing substrate (llm-d, ingress→model, shared KV cache) | IAC M1–M2; M2 Inference routing (RACKAI-311); accelerator inventory & consumption telemetry (RACKAI-336 - telemetry, not selection) | 1→2 | 🟢/🟡 |
-| **T1.S2 — Workload Placement & Supply Abstraction** | "RackAI chooses by default; customers constrain when necessary" | Supply-abstraction interface (`SupplyTarget / AcceleratorPool / ExecutionLocation`), owned H100 as impl #1; Workload Placement Policy per the adopted principle (customer gives intent+constraints, RackAI picks GPU/node/placement; explicit hardware = a constraint, not the base model) | Workload Placement Policy (P-004 / D2); the interface, not multi-provider scheduling | 1 | 🔴 |
+| **T1.S2 — Workload Placement & Supply Abstraction** | "RackAI chooses by default; customers constrain when necessary" | Supply-abstraction interface (`SupplyTarget / AcceleratorPool / ExecutionLocation`), owned H100 as impl #1; Workload Placement Policy per the adopted principle (customer gives intent+constraints, RackAI picks GPU/node/placement; explicit hardware = a constraint, not the base model); **workload declaration** surface, step 1 of the AI Operating System loop (2026-10-08) | Workload Placement Policy (P-004 / D2); the interface, not multi-provider scheduling | 1 | 🔴 |
 | **T1.S3 — Model Lifecycle** | "Models enter, upgrade, and retire on command" | On-demand model onboarding; model sunsetting; request-new-model flow (SNOW decision open) | M2 Request new model (RACKAI-354); M2 Sunsetting (RACKAI-372) | 4 | 🟡 |
 | **T1.S4 — Multi-Estate Operation** | "We operate heterogeneous estates across regions and clouds" | Multi-region support; second supply impl (AMD/partner) behind the interface; day-zero model factory; closed-loop automation. **GPU-node access is explicitly *out of scope*** — that is GPU IaaS, a different product boundary | Multi-region (Pri-6); supply abstraction v1; Proof-4 industrialization (P-007) | 4 | ⚪/🔴 |
 
@@ -177,6 +177,14 @@ Two channels sit *above* the five tracks and pull demand through them. They are 
 | **MK.S3 — Lifecycle + second reference solution** | "Prove re-instantiation; manage versions" | Versioning, upgrade/rollback, revocation, EOL; second solution/estate proves re-instantiation + FDE delivery leverage | 🔴 proposed |
 | **MK.S4 — Marketplace surface + catalog** | "Customers discover, instantiate, and are metered" | The catalog, instantiation, consumption metering/attribution | 🔴 proposed |
 | **MK.S5 — Third-party / partner / customer authoring** | "Supply beyond FDE" | Open the standard once the trust bar + lifecycle are proven | ⚪ later |
+
+**Concierge Engineer: capability stages** (adopted 2026-10-08, P-008). Unlike the two channels above, this *is* a RackAI product surface: the conversational, user-facing side of the AI Operating System loop (*you tell us what you want, what matters and what you won't compromise; we deliver the how, stay inside your boundaries, and prove what we accomplished*). It spans tracks rather than owning one. Rows in the roadmap CSV; entry/exit criteria in [[RackAI Roadmap]] P-008.
+
+| Stage | Theme | Draws on | Proof | State |
+|-------|-------|----------|:-----:|:-----:|
+| **CE.S0 — Answer** | "Ask RackAI what is happening and what it costs" | T3.S1 (customer observability, Metrics API), T2.S1 (audit); emits content-free gap signals | 1 | 🔴 |
+| **CE.S1 — Act with confirmation** | "RackAI does it, with your approval, under your authority" | T2.S3 (Agent Identity, Action Controls), T1.S2 (workload declaration) | 3 | 🔴 |
+| **CE.S2 — Governed autonomy** | "RackAI acts within delegated authority and knows when to stop" | T2.S3 (incomplete-intent rule, authority decision), T3.S3 (Empirical Map, assisted rung) | 3 | ⚪ |
 
 > **Why a marketplace, not just more features.** Each Packaged Solution is a [[Empirical Map|harness×model workload]] (feeds the moat), re-instantiable FDE output (bends workloads/FTE), and a distributable form of the sovereignty promise. It drives consumption — the demand side of Proof 4. **Boundary (2026-10-06 decision):** marketplace/SDK/governance = RackAI product org; solution authoring = FDE → partners → customers. Full definition + open questions (commercial model, sovereign-tenant certification bar): [[Solution Marketplace]].
 

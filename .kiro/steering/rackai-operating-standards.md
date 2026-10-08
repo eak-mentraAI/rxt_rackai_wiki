@@ -34,6 +34,8 @@ When sources conflict, use this order of authority:
 
 Shipped beats planned: where a platform spec describes a planned capability and a shipped release note/product doc contradicts it, shipped reality wins for "what exists today" and the gap becomes an open question. Planned capability carries `assumed` confidence, never asserted as present.
 
+Corpus beats intake: once a `reference/` file has been entered into the corpus, the corpus note is canonical and the reference file is a stale snapshot, whatever it calls itself. `reference/` sits below every level of this hierarchy for questions about what is current (see the Reference-Is-Intake Rule in `agent-behavior.md`).
+
 Lower layers may reference higher. Higher layers must not depend on lower.
 
 ## Non-Negotiable Standards

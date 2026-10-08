@@ -60,6 +60,22 @@ A review of the 15-change package was accepted with two adjustments (no duplicat
 - **[[Minimum Operable Estate]]**: minimum evidence contract for artifact 4 (performance, policy decisions, actions, outcomes).
 - **[[Three Battlegrounds]]**: the outcome boundary (RackAI owns the realization outcome, not the business result of the customer's application) and step-2 maturity line.
 
+## Sixth pass: reconciled into the complete roadmap
+
+The loop changes had been applied to the wrong file: `reference/rackai-roadmap-csv/` (raw 2026-09-21 xlsx export) instead of the PM-annotated roadmap `05-wiki/RackaI Roadmap 10062026.csv` (14 columns: Track, Proof, Capability Stage, Disposition, PM discussion; the source of [[Milestone Release Map]]), which was the most complete version and already carried the two 2026-10-06 decisions. Reconciled:
+
+- **the PM-annotated roadmap CSV** (58 → 64 rows; untouched rows byte-identical). New rows: *Workload declaration (intent + constraints)* (T1.S2, Decision Required; absorbs the declare-vs-choose decision); *Per-profile SLO thresholds* (T3.S1, Decision Required); *Authority under incomplete intent* (T2.S3, Decision Required); *Concierge Engineer* CE.S0 / CE.S1 / CE.S2 (Cross-track, Gap; agent model placement and liability folded into CE.S1). Annotated with *Loop (2026-10-08)*: AI Performance Benchmarks, Customer observability, Supply-abstraction interface, Empirical Map v1 (acceptance test), IAC M3 + Auditing, Metering M4 (constraint quotas + explicit infeasibility), IAC M4, MOE-1 (evidence contract, outcome boundary, human-operated step 2). No owners, Jira or dates invented.
+- **`reference/rackai-roadmap-csv/`** restored to the faithful xlsx export; [[RackAI Roadmap (Delivery Plan)]] says roadmap changes belong in the PM-annotated CSV.
+- **[[Milestone Release Map]]**: Concierge Engineer stages CE.S0–S2 (a RackAI product surface spanning tracks); workload declaration added to T1.S2.
+- **[[RackAI Roadmap]]**: loop-coverage note and P-008 point to the PM-annotated CSV.
+- The cause of the drift (two roadmap CSVs with no stated precedence) is tabled.
+
+## Seventh pass: review clarifications, reference guard, rename
+
+- **Canonical roadmap table renamed** `05-wiki/RackaI Roadmap 10062026.csv` → **`05-wiki/RackAI Roadmap.csv`** (a dated name read as a snapshot, one cause of the drift). Current notes updated; earlier change records keep the old name as history.
+- **Review clarifications** (roadmap now 66 rows): *Metering M3* row added (QuotaPolicy, prerequisite to M4 enforcement; facts from the 2026-09-21 delivery export, no owner/dates carried); Empirical Map v1 requires a **learning event** (constraints, alternatives, chosen realization, predicted vs actual outcome, delta; v1 passes only when a later decision uses the records and beats the static baseline), mirrored in P-005; *MOE-1 evidence report* row added as a deliverable with an accountable owner still to be named (also in [[Minimum Operable Estate]]); Concierge CE.S2 explicitly **not** a prerequisite for MOE-1 (MOE-1 is human-operated, v0–v1 at most), mirrored in P-008.
+- **Reference guard**: Reference-Is-Intake Rule in `agent-behavior.md`; "corpus beats intake" in the truth hierarchy; `reference/README.md` and the delivery-plan source note no longer call the export authoritative; a "which file is current" callout in [[RackAI Roadmap]]; the pre-commit hook blocks modifying or deleting existing `reference/` files (override `ALLOW_REFERENCE_EDIT=1`).
+
 ## Vocabulary (for engineering, kept out of the identity note)
 
 | Review / AIOS v0.3–v0.4 term | RackAI corpus home |

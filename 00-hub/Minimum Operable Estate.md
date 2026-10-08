@@ -90,7 +90,7 @@ These are `assumed`: a proposed acceptance definition pending ratification (see 
 | **Actions** | What was changed, by whom or by which agent on whose behalf | [[Audit]], [[Agent Identity]] |
 | **Outcomes** | Whether the declared realization outcome was met, and where it was not | The declaration (artifact 1) compared with the three rows above |
 
-It proves the *realization* outcome (SLOs, cost, boundaries held), not the business result of the customer's application (see the outcome boundary in [[Three Battlegrounds]]).
+The report is a deliverable in its own right (roadmap row *MOE-1 evidence report*) and needs a named accountable owner, which is not yet assigned. It proves the *realization* outcome (SLOs, cost, boundaries held), not the business result of the customer's application (see the outcome boundary in [[Three Battlegrounds]]).
 
 ## What the MOE Deliberately Excludes
 

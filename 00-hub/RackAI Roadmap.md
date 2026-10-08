@@ -17,6 +17,8 @@ summary: "Canonical living roadmap: four proofs of the operator identity (Observ
 
 The **single canonical, living roadmap** for RackAI. It is built primarily on the **actual delivery roadmap** — the [[RackAI Roadmap (Delivery Plan)]] (`measured`; the staffed, Jira-tracked `reference/RackAI - Roadmap.xlsx`) — which this note **reorders and extends under the operator strategy**: it lifts the real delivery milestones out of their native CSP/M2 grouping and re-places them under the four operator proofs (the reordering), then adds the strategy-driven gaps and proposals the delivery plan does not yet contain (the extension). It further draws on two strategy narratives — the [[Rack AI OpenRouter Engineering Roadmap]] (`validated`, read-only) and the [[RackAI Enterprise AI Development Plan]] (`assumed`, raw projection). **This note is editable and is where planning actually lives;** all three sources remain intact — when a proposed change is accepted, it lands here first, and the sources are left unedited per the truth hierarchy. The delivery roadmap keeps its native numbering, Jira IDs, owners, and status so the corpus stays traceable to Jira.
 
+> **Which file is current (2026-10-08).** Canonical roadmap table: `05-wiki/RackAI Roadmap.csv` (PM-annotated; projected by [[Milestone Release Map]]). Canonical narrative: this note. Live dates and owners: Craft.io. `reference/RackAI - Roadmap.xlsx` and its CSV export are a 2026-09-21 intake snapshot, never edited and never current.
+
 > **Tooling.** The live roadmap — pillar items, quarterly sequencing, status, and ownership — is maintained in **Craft.io**. This wiki note carries the strategic rationale, the four-proof structure, gap analysis, and confidence states behind each roadmap item. Neither replaces the other: Craft.io is the *what and when*; this note is the *why and what we learned*. See [[Team Operating Model]] for the roadmap update process and the Craft.io↔wiki division of responsibility.
 
 > **Confidence.** `derived` — this roadmap synthesizes two existing planning spines under the [[Three Battlegrounds|Private Enterprise AI Operator]] identity. Individual items carry the confidence of their source (phase/program/gap). Nothing here upgrades a capability to shipped; the live shipped-vs-planned state is the [[Capability Gap Register]].
@@ -99,7 +101,7 @@ flowchart LR
 
 > **What the loop is for (2026-10-08): the AI Operating System loop.** This is how we turn both identity promises into an experience: *you tell us what you want, what matters, and what you won't compromise; we deliver the how, stay inside your boundaries, and prove what we accomplished.* The loop realizes a customer's **declared intent inside their constraints** (the contract between the two identity centres; see [[Three Battlegrounds#The operating philosophy between the centres: intent and constraints|Three Battlegrounds]]). Read the loop as *intent → specification → plan → action → observation → correction*: governance supplies the inherited constraints, the [[Empirical Map]] supplies the discovered ones, the decide/place steps optimize inside the envelope, and assurance proves both the outcome and that the envelope held. This adds no new stage or workstream; it states what the existing stages are accountable to.
 
-**Loop coverage today (2026-10-08).** Where each turn of the contract is delivered, and what is missing. No new workstream: every gap already has a P-item. The matching delivery-plan changes were adopted into the delivery CSVs on 2026-10-08 (see [[RackAI Roadmap (Delivery Plan)]]); new rows are Not Started and unstaffed.
+**Loop coverage today (2026-10-08).** Where each turn of the contract is delivered, and what is missing. No new workstream: every gap already has a P-item. The matching rows are in the PM-annotated roadmap CSV (`05-wiki/RackAI Roadmap.csv`, projected by [[Milestone Release Map]]): six new rows and eight annotated, each marked *Loop (2026-10-08)*; new rows are unstaffed.
 
 | Turn | Delivered by | Status | Closes via |
 |---|---|---|---|
@@ -599,7 +601,7 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 | **P-006** | Minimum enterprise **control envelope** required for MOE-1 (outcome-framed) | D3 | Re-scoped from "control bundle" | Proposed |
 | **P-001** | Narrow fine-tuning: evaluate partner(s) for delivery, RackAI owns integration/serving + learning | D4 | Directional; vendor-independent | Proposed |
 | **P-007** | Proof-4 prerequisites as a **dependency declaration** (do not build yet) | D4 | Watch item, not a build ask | Proposed |
-| **P-008** | Concierge Engineer: conversational declaration surface and first consumer of the control envelope | D3 | Do-now as v0 (read-only); v1/v2 gated on P-004 / P-006 | Delivery rows adopted 2026-10-08 (unstaffed) |
+| **P-008** | Concierge Engineer: conversational declaration surface and first consumer of the control envelope | D3 | Do-now as v0 (read-only); v1/v2 gated on P-004 / P-006 | Roadmap rows adopted 2026-10-08 (CE.S0–S2, unstaffed) |
 
 ## Kill / Falsification Criteria (what would change the thesis)
 
@@ -718,6 +720,8 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 **v1 acceptance test.** Given a customer workload, its SLOs, residency requirements, budget preference and the available accelerator inventory, can RackAI produce an **evidence-backed recommendation**, explain why it chose that realization, and state the assumptions and uncertainty involved? A human approves and executes the recommendation at first (the *assisted* rung); the same contract later supports governed automatic action.
 
+**The learning event (what makes it compound).** Every decision writes a record: declared constraints, alternatives considered, chosen realization, predicted outcome, actual outcome, and the measured delta. v1 passes only when a later decision demonstrably uses those records and beats the static baseline. A recommendation without the record is decision support; the record is what turns it into the flywheel.
+
 **Blocks adoption:** owner (no delivery team owns "measurement/self-improvement" today); depends on Metering M1 + Platform M1–M2 landing first.
 
 ### P-006 — Define and fund the minimum enterprise control envelope for MOE-1
@@ -757,7 +761,7 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 **Not every "can't" is a product gap.** Only "RackAI can't do this yet" is signalled to product. Missing user authority becomes an access request; a customer policy refusal is the boundary working as intended; conflicting constraints are reported as infeasible with trade-offs. Gap signals carry the intent class, missing capability, alternative offered and customer impact, **with no customer content** (the [[Empirical Map]] transferable-vs-isolated split), and are deduplicated, ranked and routed to the [[Capability Gap Register]] automatically. Deciding what to build stays human.
 
-**Phasing (six-month horizon).** v0 Answer, read-only plus gap signals (needs Observability M1, IAC M3). v1 Act with confirmation (needs Agent Identity, Action Controls, the P-004 declaration surface). v2 Governed autonomy (needs the P-006 incomplete-intent rule and the authority decision). Adopted into the delivery plan 2026-10-08 as three M2 Feature rows (Concierge Engineer v0, v1, v2), Not Started, with no owner, priority or dates assigned.
+**Phasing (six-month horizon).** v0 Answer, read-only plus gap signals (needs Observability M1, IAC M3). v1 Act with confirmation (needs Agent Identity, Action Controls, the P-004 declaration surface). v2 Governed autonomy (needs the P-006 incomplete-intent rule and the authority decision). Adopted 2026-10-08 as stages CE.S0–CE.S2 in the PM-annotated roadmap CSV and the [[Milestone Release Map]], with no owner, Jira or dates assigned.
 
 **Quota and commercial actions are gated.** Quota changes carry billing and governance consequences beyond an ordinary workload action, so in v1 and v2 the agent **drafts** a quota change for an authorized approver after a policy check and never applies it directly.
 
@@ -767,7 +771,9 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 |---|---|---|
 | **v0 Answer** | Observability M1 Metrics API available; audit API (IAC M3); gap-signal schema with customer content stripped | Core questions (cost, performance, incidents, quota) answered from the customer's own telemetry with sources cited; gap signals reaching the [[Capability Gap Register]] with no customer content in a reviewed sample; used by MOE-0 operators |
 | **v1 Act with confirmation** | v0 exit; [[Agent Identity]] delegated, task-scoped tokens; [[Action Controls]] confirmation gate; workload declaration surface | Every action confirmed and audited as agent-for-user; reversible actions shown to roll back; no action exceeds the user's authority under adversarial testing (prompt injection, cross-tenant); quota changes only as drafted requests |
-| **v2 Governed autonomy** | v1 exit; P-006 incomplete-intent rule in place; authority decision ratified; P-005 recommendations at the assisted rung | Autonomous actions limited to the reversible class within delegated authority; every escalation and infeasibility report logged; the MOE-1 evidence report shows the envelope held |
+| **v2 Governed autonomy** | v1 exit; P-006 incomplete-intent rule in place; authority decision ratified; P-005 recommendations at the assisted rung | Autonomous actions limited to the reversible class within delegated authority; every escalation and infeasibility report logged; post-MOE-1 evidence reports show the envelope held |
+
+> **Sequencing.** v2 is **not** a prerequisite for MOE-1. MOE-1 is human-operated and may use v0–v1 at most; v2 follows it.
 
 **Blocks adoption:** Observability M1 is not started (critical path); where the agent's own model runs for sovereign customers; liability for agent-taken actions (ties to the authority open question).
 

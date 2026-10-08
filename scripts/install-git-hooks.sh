@@ -7,7 +7,8 @@
 #
 #     ./scripts/install-git-hooks.sh
 #
-# The installed pre-commit hook runs scripts/lint-frontmatter.sh against the
+# The installed pre-commit hook blocks modifying/deleting existing reference/
+# files (intake only), then runs scripts/lint-frontmatter.sh against the
 # staged .md files and blocks the commit if any fail frontmatter validation
 # (missing fields, invalid enums, or over-length summary). This mirrors the
 # knowledge-platform ingestion rules so bad frontmatter never reaches main.
@@ -31,6 +32,23 @@ cat > "$PRE_COMMIT" <<'HOOK'
 set -euo pipefail
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+# Guard: reference/ is intake, not truth (agent-behavior.md, Reference-Is-Intake
+# Rule). Adding new files is fine; modifying, deleting or renaming existing ones
+# is blocked, because the corpus is canonical once a file has been ingested.
+# Deliberate exception: ALLOW_REFERENCE_EDIT=1 git commit ...
+if [ "${ALLOW_REFERENCE_EDIT:-0}" != "1" ]; then
+  REF_CHANGED="$(git diff --cached --name-only --diff-filter=MDR -- reference/)"
+  if [ -n "$REF_CHANGED" ]; then
+    echo "Commit blocked: existing files in reference/ were modified, deleted or renamed:"
+    echo "$REF_CHANGED" | sed 's/^/  /'
+    echo ""
+    echo "reference/ is intake only; put the change in the canonical corpus note or table"
+    echo "(find it with: python3 scripts/kg.py find <topic>). Add new inputs as new files."
+    echo "Deliberate exception: ALLOW_REFERENCE_EDIT=1 git commit ..."
+    exit 1
+  fi
+fi
 
 # Only the markdown files staged for this commit (Added/Copied/Modified).
 # Read NUL-delimited into an array: most note filenames contain spaces, and
@@ -56,4 +74,4 @@ HOOK
 
 chmod +x "$PRE_COMMIT"
 echo "Installed pre-commit hook at $PRE_COMMIT"
-echo "It lints staged .md files with scripts/lint-frontmatter.sh and blocks non-compliant commits."
+echo "It blocks edits to existing reference/ files and lints staged .md files with scripts/lint-frontmatter.sh."
