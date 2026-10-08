@@ -8,7 +8,7 @@ aliases: [capacity reservation policy, warm pool policy, strategic reservation]
 related: [wf-autoscaling, wf-gpu-reallocation, pol-procurement-trigger, met-gpu-utilization, ent-capacity-pool, ent-gpu-node]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-governance
 summary: "Maintain a warm pool, never commit 100% of the fleet, and preserve strategic capacity reservations."
 ---
@@ -34,6 +34,17 @@ Applies to every [[Capacity Pool]] and to fleet-level allocation across all [[GP
 | [[Autoscaling]] | CONSTRAINS → |
 | [[GPU Reallocation]] | CONSTRAINS → |
 | [[Capacity Pool]] | GOVERNS → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSTRAINS | [[Autoscaling]] | → | Minimum warm-capacity floor |
+| CONSTRAINS | [[GPU Reallocation]] | → | Never commit 100% of the fleet; keep strategic reservations |
+| GOVERNS | [[Capacity Pool]] | → | Every pool, including launch/canary and reserve pools |
+| DEPENDS_ON | [[Procurement Trigger]] | ← | Escalates when the warm pool can't be held |
 
 ## Enforcement
 

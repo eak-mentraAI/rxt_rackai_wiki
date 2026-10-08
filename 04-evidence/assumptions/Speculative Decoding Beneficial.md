@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [speculative decoding beneficial, spec decode assumption]
-related: [hub-evidence, bench-deepseek-h200-fp8, asm-traffic-follows-performance]
+related: [hub-evidence, bench-deepseek-h200-fp8, asm-traffic-follows-performance, coeff-spec-decode-acceptance, met-ttft, met-tokens-per-gpu-second]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Belief speculative decoding improves TTFT and throughput for priority models — awaiting production measurement."
 ---
@@ -34,6 +34,16 @@ Performance Lab measurement (roadmap Milestone 3.9) of acceptance rate, throughp
 | [[Speculative Decoding Acceptance Rate]] | SUPPORTS |
 | [[TTFT]] | SUPPORTS |
 | [[Tokens per GPU-Second]] | SUPPORTS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[Speculative Decoding Acceptance Rate]] | → |  |
+| SUPPORTS | [[TTFT]] | → |  |
+| SUPPORTS | [[Tokens per GPU-Second]] | → |  |
 
 ## Status
 

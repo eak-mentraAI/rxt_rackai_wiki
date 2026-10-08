@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [output throughput, output tokens per second, requests per second, prefill throughput]
-related: [met-tokens-per-gpu-second, met-ttft, met-gpu-utilization, ent-model-deployment, ent-benchmark-run, hub-inference-optimization]
+related: [met-tokens-per-gpu-second, met-ttft, met-gpu-utilization, ent-model-deployment, ent-benchmark-run, hub-inference-optimization, fml-tokens-per-gpu-second, wf-model-launch-factory, wf-closed-loop-optimization, pol-performance-regression-gate, evt-performance-regression-detected, evd-kpi-telemetry-targets, val-erebine-inference-claims]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "How much useful inference work the fleet produces: output tokens/sec and related throughput measures."
 ---
@@ -43,6 +43,18 @@ output tokens / second (primary); also requests/second, concurrent requests/GPU,
 | Measures | Direction |
 |----------|-----------|
 | [[Model Deployment]] | MEASURES → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| MEASURES | [[Model Deployment]] | → | Per deployment |
+| PRODUCES | [[Benchmark Run]] | ← | Benchmark runs produce values (none yet) |
+| CONSUMES | [[Tokens per GPU-Second Formula]] | ← | `output_tokens` input |
+| CONSTRAINS | [[TTFT]] | ← | Must not push TTFT past SLO |
+| PRODUCES | [[Model Launch Factory]] | ← | Benchmark stage produces the baseline |
 
 ## Evidence
 

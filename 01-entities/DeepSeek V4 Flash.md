@@ -5,10 +5,10 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [deepseek v4 flash, deepseek v4, deepseek flash]
-related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-capacity-pool, ent-benchmark-run, hub-entities]
+related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-capacity-pool, ent-benchmark-run, hub-entities, ent-market-demand, idx-scorecard-deepseek, val-deepseek-h200-fp8, wf-model-launch-factory, coeff-model-weight-footprint, fml-gpus-per-replica, asm-fleet-competitiveness, bench-openrouter-leaderboard-2026-09]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-entities
 summary: "Priority Model instance: DeepSeek V4 Flash, the win-now / benchmark bet (MoE + MLA)."
 ---
@@ -54,11 +54,19 @@ DeepSeek V4 Flash is a specific Model; its deployments follow the standard chain
 
 | Relationship | Target | Direction | Notes |
 |--------------|--------|-----------|-------|
-| INSTANCE_OF | [[Model]] | → | Priority Model instance |
-| SERVED_BY | [[Model Deployment]] | → | One or more deployments |
-| REQUIRES | [[Serving Runtime]] | → | Expert-parallel-capable engine (e.g., disaggregated serving) |
-| ASSIGNED_TO | [[Capacity Pool]] | → | Dedicated per-model DeepSeek pool |
-| VALIDATED_BY | [[Benchmark Run]] | → | Performance evidence per config |
+| INSTANCE_OF | [[Model]] | → | Priority Model instance (canonical: BELONGS_TO →) |
+| SERVED_BY | [[Model Deployment]] | → | One or more deployments (canonical: SERVES ←) |
+| REQUIRES | [[Serving Runtime]] | → | Expert-parallel-capable engine (e.g., disaggregated serving) (canonical: DEPENDS_ON →) |
+| ASSIGNED_TO | [[Capacity Pool]] | → | Dedicated per-model DeepSeek pool (canonical: ALLOCATES ←) |
+| VALIDATED_BY | [[Benchmark Run]] | → | Performance evidence per config (canonical: VALIDATES ←) |
+| ROUTES_TO | [[Market Demand]] | ← | OpenRouter pool 47.8T tokens/month (measured snapshot); long-context/coding split assumed |
+| MEASURES | [[DeepSeek V4 Flash Scorecard]] | ← | Operating scorecard (all rows assumed; no run yet) |
+| VALIDATES | [[Validate DeepSeek H100 FP8]] | ← | Open: TTFT and tokens/GPU-s at FP8 on H100 |
+| MEASURES | [[DeepSeek H100 FP8 Benchmark]] | ← | Planned run, not executed |
+| DEPENDS_ON | [[Model Launch Factory]] | → | Launch Candidate state runs through the factory |
+| MEASURES | [[Model Weight Footprint]] | ← | ~671 GB at FP8 (V3 reference, assumed) |
+| DEPENDS_ON | [[GPUs per Replica]] | → | ~10 H100 for weights at FP8: exceeds the NVL-PCIe coupled group (illustrative) |
+| CONSTRAINS | [[Fleet Competitiveness]] | ← | Large MoE fights the topology ceiling |
 
 ## Evidence
 

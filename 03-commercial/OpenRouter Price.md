@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [openrouter price, list price, per-1m-token price, model price]
-related: [hub-commercial, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, idx-unit-economics, ent-model]
+related: [hub-commercial, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, idx-unit-economics, ent-model, ent-openrouter-integration, asm-traffic-follows-performance]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-commercial
 summary: "The per-1M-token price Rack AI lists for a model on OpenRouter — the revenue side of unit economics."
 ---
@@ -38,6 +38,18 @@ No Rack AI OpenRouter price has been published yet, so the value is a TBD placeh
 |---------|----|
 | [[Revenue per GPU-Hour]] | fml-revenue-per-gpu-hour |
 | [[Gross Margin per Model]] | fml-gross-margin-per-model |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Revenue per GPU-Hour]] | ← | `price_per_1m_tokens` |
+| CONSUMES | [[Gross Margin per Model]] | ← | `revenue_per_1m` |
+| BELONGS_TO | [[Model]] | → | Set per Model, never per GPU |
+| DEPENDS_ON | [[OpenRouter Provider Integration]] | → | Published as provider metadata (Milestone 2.1) |
+| CONSTRAINS | [[OpenRouter Traffic Follows Performance]] | ← | Price is one routing signal |
 
 ## Change History
 

@@ -5,7 +5,7 @@ status: draft
 owner: knowledge-graph-steward
 domain: governance
 aliases: [acceptance tests, regression tests, graph tests, cc-regression-suite]
-related: [pol-fitness-checklist, chg-kg-test-results, chg-consistency-report]
+related: [pol-fitness-checklist, chg-kg-test-results, chg-consistency-report, pol-change-packet, chg-2026-10-08-typed-edges]
 parent: hub-wiki
 source_docs: [05-wiki/Knowledge Graph Acceptance Test Results.md]
 confidence: validated
@@ -175,8 +175,19 @@ Baseline set on the first full run, 2026-10-08. Full evidence, traversal paths a
 |------|:-------:|:---------------:|-------|
 | 2026-09-03 | — | — | Suite defined; corpus not yet populated |
 | 2026-10-08 | 3.71 | — (first scored run) | Baseline. Warning: R-01, R-02, R-03 at 3.5 (minimum 4). Top fixes: typed Relationships on formulas/metrics/coefficients/events; canonical demand node; FP8 → memory → capacity edges. See [[Knowledge Graph Acceptance Test Results]] |
+| 2026-10-08 (post-fix) | 4.21 | +0.50 | Re-run after [[CHANGE_2026-10-08 Typed Edges and Traversal Fixes]] (typed Relationships on formulas/metrics/coefficients/events/policies/assumptions/validations/evidence and spine workflows; [[Market Demand]] node; FP8 → memory → capacity edges; `related` reciprocity 34% → 64%). Pass: R-01 4.5, R-02 4.0, R-03 4.5, R-04 4.5, R-05 4.0, R-06 4.0, R-07 4.0 |
 
 ---
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| DEPENDS_ON | [[FITNESS_CHECKLIST]] | ← | Section 3 runs these tests |
+| PRODUCES | [[Knowledge Graph Acceptance Test Results]] | → | Run log per execution |
+| MEASURES | [[Serving Platform MOC]] | → | R-01/R-02 traverse the serving chain |
 
 ## See Also
 

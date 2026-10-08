@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [procurement trigger, capacity procurement policy, buy signal]
-related: [pol-capacity-reservation, wf-gpu-reallocation, wf-autoscaling, evt-capacity-reallocation-triggered, met-gpu-utilization, fml-revenue-per-gpu-hour, ent-capacity-pool, ent-gpu-node]
+related: [pol-capacity-reservation, wf-gpu-reallocation, wf-autoscaling, evt-capacity-reallocation-triggered, met-gpu-utilization, fml-revenue-per-gpu-hour, ent-capacity-pool, ent-gpu-node, evt-demand-forecast-published]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: derived
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-governance
 summary: "Conditions under which sustained high utilization and demand forecast trigger capacity procurement."
 ---
@@ -33,6 +33,20 @@ Applies at fleet and [[Capacity Pool]] level, informed by demand forecasting at 
 |--------|--------------|
 | [[GPU Reallocation]] | CONSTRAINS → |
 | [[Capacity Pool]] | GOVERNS → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSTRAINS | [[GPU Reallocation]] | → | Sustained shortfall escalates beyond reshuffling |
+| GOVERNS | [[Capacity Pool]] | → | Fleet and pool level |
+| CONSUMES | [[Productive GPU Utilization]] | → | Sustained near-saturation |
+| CONSUMES | [[Revenue per GPU-Hour]] | → | Spend justification |
+| CONSUMES | [[Demand Forecast Published]] | → | Forecast demand growth |
+| CONSUMES | [[Capacity Reallocation Triggered]] | → | Evaluated when the event fires |
+| DEPENDS_ON | [[Capacity Reservation Policy]] | → | Warm-pool floor that can no longer be held |
 
 ## Enforcement
 

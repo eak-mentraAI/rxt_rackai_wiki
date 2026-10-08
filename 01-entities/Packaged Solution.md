@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: product
 aliases: [packaged solution, solution package, marketplace solution, packaged outcome, solution artifact, agent package, harness package, published solution]
-related: [ent-solution-marketplace, ent-governed-harness, ent-model, ent-model-deployment, ent-dataset, ent-agent-identity, ent-empirical-map, hub-entities, hub-eac-product-model, hub-ai-operations-product, hub-battlegrounds]
+related: [ent-solution-marketplace, ent-governed-harness, ent-model, ent-model-deployment, ent-dataset, ent-agent-identity, ent-empirical-map, hub-entities, hub-eac-product-model, hub-ai-operations-product, hub-battlegrounds, ev-sovereign-private-assistant]
 source_docs: ["00-hub/Enterprise AI Cloud Product Model.md", "01-entities/Governed Harness.md", "00-hub/AI Operations Product.md", "PM/leadership marketplace discussion 2026-10-06"]
 confidence: assumed
 last_reviewed: 2026-10-06

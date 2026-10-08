@@ -5,7 +5,7 @@ status: draft
 owner: research
 domain: performance
 aliases: [loop planning, credit assignment, loop planning and credit assignment, whole-loop planning, failure prediction]
-related: [wf-request-routing, wf-verification, ent-empirical-map, wf-self-improvement-loop, hub-operations, src-rackai-dev-plan]
+related: [wf-request-routing, wf-verification, ent-empirical-map, wf-self-improvement-loop, hub-operations, src-rackai-dev-plan, met-cost-per-outcome]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17

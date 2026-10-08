@@ -8,7 +8,7 @@ aliases: [validate erebine inference claims, erebine benchmark, erebine ttft tes
 related: [hub-evidence, idx-validation-register, evd-erebine-competitive-analysis, met-ttft, met-tokens-per-gpu-second, met-output-throughput, coeff-kv-cache-hit-rate]
 source_docs: ["https://erebine.ai", "erebine OpenAI-compatible API probe (2026-09-15): /v1/models, /v1/endpoints, /<slug>/v1/chat/completions", "scripts/erebine-benchmark.py run 2026-09-15T22:37Z (n=20)"]
 confidence: measured
-last_reviewed: 2026-09-15
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Validation of Erebine's inference claims vs. measurable API behavior (run 2026-09-15); prefix cache confirmed."
 ---
@@ -89,6 +89,17 @@ Raw records: `scripts/erebine-benchmark.py --json` output (kept out of the repo;
 | feasibility-confirmed | inference reachable; TTFT proxy ~624 ms, decode ~52 chunks/s, cached_tokens observable | 2026-09-15 |
 | **run complete** | E-2 confirmed (~97% warm reuse); E-3 TTFT p50 509 ms / p99 3439 ms (client proxy); E-4 83.6 chunks/s; E-5 partial; E-1 unverifiable | 2026-09-15 |
 | open | E-5 billing delta (needs owner erepress off/on); RackAI same-model side-by-side comparison | — |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| VALIDATES | [[Erebine Competitive Analysis]] | → | E-1…E-5 rows |
+| VALIDATES | [[TTFT]] | → | External reference point (client proxy) |
+| VALIDATES | [[Tokens per GPU-Second]] | → | External reference point |
+| VALIDATES | [[KV Cache Hit Rate]] | → | External comparison |
 
 ## Caveats
 

@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [erebine, erebine.ai, erebine analysis, competitor erebine, "the layer underneath"]
-related: [hub-evidence, idx-capability-gap-register, hub-rackai-platform, hub-openrouter, hub-commercial]
+related: [hub-evidence, idx-capability-gap-register, hub-rackai-platform, hub-openrouter, hub-commercial, val-erebine-inference-claims, evd-inference-serving-competitors]
 source_docs: ["Rack AI v2/README.txt", "Rack AI v2/claude-desktop-config.json", "https://erebine.ai", "erebine MCP server (api.erebine.ai) tools/prompts/resources listing", "erebine OpenAI-compatible /v1/models probe"]
 confidence: measured
-last_reviewed: 2026-09-15
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Competitive analysis of Erebine: a zero-lock-in OpenAI-compatible router + MCP workspace layer, validated against a."
 ---
@@ -115,6 +115,15 @@ Commercial model (asserted): **credits metered per token**; plans (Free → Star
 - MCP handshake and every tool call above were issued against `api.erebine.ai` with the bundled key on 2026-09-15; results are quoted from live responses.
 - Inference probe: catalog and `/v1/endpoints` read succeeded; slug-routed chat (`/ed`) returned live completions. An initial name-routed attempt returned `endpoint_not_found` and was corrected once `/v1/endpoints` revealed the slug scheme.
 - Two probe writes (`kiro-probe-1` artifact, one memory) were created on Erebine's side during validation and neutralized afterward; they do not affect the analysis.
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| VALIDATES | [[Validate Erebine Inference Claims]] | ← | Measured run 2026-09-15 |
+| SUPPORTS | [[Capability Gap Register]] | → | Gaps surfaced vs RackAI |
 
 ## See Also
 

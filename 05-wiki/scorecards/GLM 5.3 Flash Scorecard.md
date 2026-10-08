@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [glm scorecard, glm 5.3 flash scorecard]
-related: [hub-wiki, ent-model, met-tokens-per-gpu-second, met-ttft]
+related: [hub-wiki, ent-model, met-tokens-per-gpu-second, met-ttft, ent-glm-5-3-flash, fml-cost-per-1m-tokens, fml-revenue-per-gpu-hour, idx-first-bet-glm]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-wiki
 summary: "Operating scorecard for GLM 5.3 Flash — win-now growth-curve model."
 ---
@@ -41,6 +41,19 @@ This scorecard **summarizes** the operating metrics defined canonically at L2; i
 
 - **Confidence:** all rows are `assumed` — nothing has been measured. Each row will move to `derived`/`measured`/`validated` only when it cites a specific [[Benchmark Run]] or production telemetry source.
 - **OpenRouter rank is an outcome, not a target.** Top-five OpenRouter performance is the external validation that these metrics are moving in the right direction, not a value engineers optimize directly.
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note).
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| MEASURES | [[GLM 5.3 Flash]] | → | Operating scorecard for this model (rows assumed until a Benchmark Run is cited) |
+| DEPENDS_ON | [[Tokens per GPU-Second]] | → |  |
+| DEPENDS_ON | [[TTFT]] | → |  |
+| DEPENDS_ON | [[Cost per 1M Tokens]] | → |  |
+| DEPENDS_ON | [[Revenue per GPU-Hour]] | → |  |
+| SUPPORTS | [[First Bet — GLM 5.3 Flash]] | ← | Recommendation this scorecard tracks |
 
 ## See Also
 

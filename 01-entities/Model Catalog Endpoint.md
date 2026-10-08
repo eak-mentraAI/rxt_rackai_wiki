@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [model catalog endpoint, /models endpoint, models endpoint, catalog api]
-related: [ent-openrouter-integration, ent-model, ent-billing-payment, hub-openrouter, hub-entities, hub-model-services]
+related: [ent-openrouter-integration, ent-model, ent-billing-payment, hub-openrouter, hub-entities, hub-model-services, idx-openrouter-integration-plan]
 source_docs: [openrouter_concepts_integration_provider, rackai_api_reference]
 confidence: assumed
 last_reviewed: 2026-09-04

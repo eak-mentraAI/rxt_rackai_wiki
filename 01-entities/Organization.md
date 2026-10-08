@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [organization, org, tenant, tenant workspace]
-related: [ent-model-deployment, ent-dataset, ent-fine-tuning-job, ent-lora-adapter, ent-model, ent-registry-credential, wf-identity-access, hub-entities]
+related: [ent-model-deployment, ent-dataset, ent-fine-tuning-job, ent-lora-adapter, ent-model, ent-registry-credential, wf-identity-access, hub-entities, wf-audit, wf-metering, ent-api-key, ent-rackai-control-plane, ent-market-demand, ent-agent-identity]
 source_docs: [rackai_console_docs, rackai_api_reference, identity_access_spec]
 confidence: measured
 last_reviewed: 2026-09-04

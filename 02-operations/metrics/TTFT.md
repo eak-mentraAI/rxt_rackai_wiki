@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [ttft, time to first token, p95 ttft, latency to first token]
-related: [met-output-throughput, met-ttft, met-availability, wf-admission-control, wf-canary-rollback, pol-admission-control, ent-model-deployment, ent-traffic-class, hub-inference-optimization]
+related: [met-output-throughput, met-availability, wf-admission-control, wf-canary-rollback, pol-admission-control, ent-model-deployment, ent-traffic-class, hub-inference-optimization, wf-autoscaling, met-tokens-per-gpu-second, evt-performance-regression-detected, asm-spec-decode-beneficial, val-erebine-inference-claims, wf-model-launch-factory, wf-closed-loop-optimization, pol-performance-regression-gate, evt-deployment-canary-passed, idx-scorecard-glm, idx-scorecard-deepseek, idx-scorecard-nemotron, evd-kpi-telemetry-targets]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Time to first token — how quickly users begin receiving a response; track P50/P95/P99 and queueing delay."
 ---
@@ -43,6 +43,23 @@ milliseconds (per request; reported as P50/P95/P99 percentiles).
 | Measures | Direction |
 |----------|-----------|
 | [[Model Deployment]] | MEASURES → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| MEASURES | [[Model Deployment]] | → | Per deployment (P50/P95/P99) |
+| MEASURES | [[Traffic Class]] | → | Per traffic class (latency sensitivity differs) |
+| CONSTRAINS | [[Admission Control]] | → | Primary protected guardrail |
+| CONSTRAINS | [[Canary & Rollback]] | → | Latency rollback signal |
+| CONSTRAINS | [[Autoscaling]] | → | Latency SLO guardrail on scaling |
+| CONSTRAINS | [[Tokens per GPU-Second]] | → | Throughput optimization must not breach TTFT |
+| CONSTRAINS | [[Output Throughput]] | → | Throughput optimization must not breach TTFT |
+| GENERATES | [[Performance Regression Detected]] | → | A TTFT regression fires the event (lab gate only) |
+| SUPPORTS | [[Speculative Decoding Beneficial]] | ← | Assumed TTFT gain |
+| VALIDATES | [[Validate Erebine Inference Claims]] | ← | External client-side TTFT datapoint |
 
 ## Evidence
 

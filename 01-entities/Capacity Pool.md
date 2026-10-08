@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [capacity pool, pool, gpu pool, capacity allocation]
-related: [ent-gpu-node, ent-gpu-cluster, ent-model, ent-model-deployment, hub-entities, hub-inference-serving]
+related: [ent-gpu-node, ent-gpu-cluster, ent-model, ent-model-deployment, hub-entities, hub-inference-serving, ent-gpu-fleet, ent-serving-runtime, fml-gpus-per-replica, met-gpu-utilization, wf-gpu-reallocation, pol-capacity-reservation, pol-procurement-trigger, idx-model-portfolio, wf-autoscaling, wf-model-deployment, evt-capacity-reallocation-triggered, fml-revenue-per-gpu-hour, ent-deepseek-v4-flash, ent-glm-5-3-flash, ent-nemotron-3-ultra, wf-demand-forecasting]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-entities
 summary: "Canonical entity: a logical, software-controlled pool of GPU capacity assigned to a model or purpose."
 ---
@@ -63,9 +63,17 @@ The Capacity Pool is the software-controlled layer that maps deployments onto th
 | Relationship | Target | Direction | Notes |
 |--------------|--------|-----------|-------|
 | ALLOCATES | [[GPU Node]] | → | Maps node/cluster capacity into the pool |
-| DRAWN_FROM_BY | [[Model Deployment]] | ← | Each deployment draws from exactly one pool (invariant) |
-| ASSIGNED_TO | [[Model]] | → | Per-model pools are assigned to a Model |
-| SPANS | [[GPU Cluster]] | → | Capacity may span clusters within the fleet |
+| DRAWN_FROM_BY | [[Model Deployment]] | ← | Each deployment draws from exactly one pool (invariant) (canonical: CONSUMES ←) |
+| ASSIGNED_TO | [[Model]] | → | Per-model pools are assigned to a Model (canonical: ALLOCATES →) |
+| SPANS | [[GPU Cluster]] | → | Capacity may span clusters within the fleet (canonical: USES →) |
+| ALLOCATES | [[GPU Fleet]] | → | Spine hop Pool → Fleet (counterpart of GPU Fleet ALLOCATED_BY) |
+| CONSUMES | [[Serving Runtime]] | ← | Runtime replicas draw GPUs from the pool |
+| CONSTRAINS | [[GPUs per Replica]] | ← | Replica size sets pool sizing |
+| MEASURES | [[Productive GPU Utilization]] | ← | Utilization per pool |
+| ALLOCATES | [[GPU Reallocation]] | ← | GPUs moved between pools |
+| GOVERNS | [[Capacity Reservation Policy]] | ← | Warm pool and reservations |
+| GOVERNS | [[Procurement Trigger]] | ← | Buy signal at pool/fleet level |
+| DEPENDS_ON | [[Model Portfolio Capacity]] | ← | How many models the pools can hold |
 
 ## Graph Invariants
 

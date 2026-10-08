@@ -5,7 +5,7 @@ status: draft
 owner: commercial
 domain: commercial
 aliases: [metering, usage metering, usage capture]
-related: [ent-organization, wf-monitoring, hub-operations, idx-ai-finops, met-cost-per-outcome]
+related: [ent-organization, wf-monitoring, hub-operations, idx-ai-finops, met-cost-per-outcome, ent-billing-payment]
 source_docs: [metering_spec, "reference/RackAI - Roadmap.xlsx"]
 confidence: derived
 last_reviewed: 2026-09-21

@@ -5,10 +5,10 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [model radar, model discovery, model watch pipeline]
-related: [wf-model-launch-factory, ent-model, evt-new-model-detected, hub-operations]
+related: [wf-model-launch-factory, ent-model, evt-new-model-detected, hub-operations, ent-market-demand, met-model-launch-lag]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Continuously tracks emerging models and maintains a Launch Now / Prepare Next / Watch pipeline."
 ---
@@ -62,6 +62,18 @@ stateDiagram-v2
 |------------|------|-------|
 | [[Model]] | PRODUCES | Feeds candidate Models into the pipeline |
 | [[Model Launch Factory]] | FEEDS | Launch Candidates flow into the factory |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Market Demand]] | → | OpenRouter demand is a tracked source |
+| GENERATES | [[New Model Detected]] | → |  |
+| PRODUCES | [[Model]] | → | Candidate Models into the pipeline |
+| DEPENDS_ON | [[Model Launch Factory]] | ← | Launch Candidates flow into the factory (original: FEEDS) |
+| MEASURES | [[Model Launch Lag]] | ← | Primary KPI |
 
 ## Ownership
 

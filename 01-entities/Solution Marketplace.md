@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: product
 aliases: [solution marketplace, marketplace, rackai marketplace, solution distribution surface, solution catalog, agent marketplace, app marketplace, harness marketplace, fde marketplace]
-related: [ent-packaged-solution, ent-governed-harness, ent-openrouter-integration, ent-model-deployment, ent-empirical-map, ent-agent-identity, hub-entities, hub-eac-product-model, hub-ai-operations-product, idx-eight-layer-stack, hub-openrouter, hub-battlegrounds]
+related: [ent-packaged-solution, ent-governed-harness, ent-openrouter-integration, ent-model-deployment, ent-empirical-map, ent-agent-identity, hub-entities, hub-eac-product-model, hub-ai-operations-product, idx-eight-layer-stack, hub-openrouter, hub-battlegrounds, ev-sovereign-private-assistant]
 source_docs: ["00-hub/Enterprise AI Cloud Product Model.md", "05-wiki/Eight-Layer Stack.md", "00-hub/AI Operations Product.md", "00-hub/Three Battlegrounds.md", "PM/leadership marketplace discussion 2026-10-06"]
 confidence: assumed
 last_reviewed: 2026-10-06

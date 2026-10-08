@@ -5,7 +5,7 @@ status: draft
 owner: research
 domain: governance
 aliases: [self-improvement loop, the loop, learning loop, safe online update, stable governable self-improvement, transfer across deployments]
-related: [wf-verification, wf-loop-planning, ent-empirical-map, pol-governable-self-modification, wf-canary-rollback, pol-performance-regression-gate, hub-operations, src-rackai-dev-plan]
+related: [wf-verification, wf-loop-planning, ent-empirical-map, pol-governable-self-modification, wf-canary-rollback, pol-performance-regression-gate, hub-operations, src-rackai-dev-plan, ent-across-ai]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17

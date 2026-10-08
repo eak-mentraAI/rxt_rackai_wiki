@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [fp8 quality neutral, fp8 lossless assumption]
-related: [hub-evidence, bench-deepseek-h200-fp8, asm-h200-sufficient]
+related: [hub-evidence, bench-deepseek-h200-fp8, asm-h200-sufficient, coeff-fp8-throughput, wf-quantization-program, fml-cost-per-1m-tokens, val-deepseek-h200-fp8]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Belief that serving priority models at FP8 does not materially degrade output quality — awaiting Rack AI benchmark."
 ---
@@ -34,6 +34,17 @@ A Rack AI quality benchmark comparing the priority models at FP8 vs BF16 (academ
 | [[FP8 Throughput Factor]] | SUPPORTS |
 | [[Quantization Program]] | SUPPORTS |
 | [[Cost per 1M Tokens]] | SUPPORTS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[FP8 Throughput Factor]] | → | Quality-safe precision lever |
+| SUPPORTS | [[Quantization Program]] | → | FP8 as default candidate |
+| SUPPORTS | [[Cost per 1M Tokens]] | → | Lower cost without quality loss |
+| VALIDATES | [[Quantization Program]] | ← | Program's quality benchmark is the exit criterion |
 
 ## Status
 

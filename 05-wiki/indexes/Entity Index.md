@@ -8,7 +8,7 @@ aliases: [entity index, L1 entity listing, entities index]
 related: [hub-wiki, hub-entities, idx-moc-serving-platform]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-wiki
 summary: "Index of the canonical Layer-1 entities of the RackAI platform plus priority model instances."
 ---
@@ -23,6 +23,7 @@ Lists the canonical Layer-1 (L1) entities that form the semantic backbone of the
 
 | Item | ID | Type | Status | Confidence |
 |------|----|------|--------|:----------:|
+| [[Market Demand]] | ent-market-demand | entity | draft | derived |
 | [[Model]] | ent-model | entity | draft | validated |
 | [[Model Class]] | ent-model-class | entity | draft | measured |
 | [[Model Deployment]] | ent-model-deployment | entity | draft | validated |

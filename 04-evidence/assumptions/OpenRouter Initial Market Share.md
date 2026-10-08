@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: commercial
 aliases: [openrouter initial market share, rackspace openrouter share, provider pool share assumption]
-related: [hub-evidence, idx-assumption-register, idx-gpu-capacity-demand-rationale, asm-traffic-follows-performance, bench-openrouter-leaderboard-2026-09, idx-openrouter-integration-plan]
+related: [hub-evidence, idx-assumption-register, idx-gpu-capacity-demand-rationale, asm-traffic-follows-performance, bench-openrouter-leaderboard-2026-09, idx-openrouter-integration-plan, ent-market-demand, wf-demand-forecasting, met-gpu-utilization, asm-traffic-peak-multiplier, ent-glm-5-3-flash]
 source_docs: ["reference/RackAI - GPU Capacity.xlsx"]
 confidence: assumed
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "RackAI will capture <1% of a model's OpenRouter pool volume at launch, growing to 15–25% base case."
 ---
@@ -42,6 +42,19 @@ Phase 3 live traffic telemetry showing actual RackAI share of the GLM provider p
 | [[GPU Capacity Demand Rationale]] | SUPPORTS |
 | [[Demand Forecasting]] | CONSTRAINS |
 | [[Productive GPU Utilization]] | CONSTRAINS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[GPU Capacity Demand Rationale]] | → | Share scenarios |
+| CONSTRAINS | [[Demand Forecasting]] | → |  |
+| CONSTRAINS | [[Productive GPU Utilization]] | → |  |
+| CONSTRAINS | [[Market Demand]] | → | RackAI's captured share of pool volume |
+| DEPENDS_ON | [[OpenRouter Traffic Follows Performance]] | → | Share grows with rank |
+| DEPENDS_ON | [[OpenRouter Leaderboard Snapshot]] | → | Pool volume (measured, 2026-09-03) |
 
 ## Status
 

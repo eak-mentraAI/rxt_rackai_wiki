@@ -8,7 +8,7 @@ aliases: [sovereign competitors, governed ai competitors, palantir, palantir aip
 related: [hub-evidence, hub-battlegrounds, hub-load-bearing-bets, hub-governance, hub-enterprise-ai, hub-rackai-platform, evd-inference-serving-competitors, evd-gpu-neocloud-competitors]
 source_docs: ["https://www.palantir.com/", "https://cohere.com/", "https://mistral.ai/", "https://scale.com/", "web research 2026-09-21"]
 confidence: derived
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Battleground (c) sovereign/governed competitors: Palantir, Cohere, Mistral, Scale AI vs. RackAI."
 ---
@@ -80,6 +80,14 @@ Competitor profiles for the customers we meet in the **enterprise-AI-platform** 
 | Palantir partner-vs-competitor boundary: which layers do we cede vs. contest? | [[Three Battlegrounds]], [[Enterprise AI Portfolio]] | High |
 | Which compliance envelope (FedRAMP High? IL levels? ISO 42001?) is the minimum viable gate for our first regulated buyer? | [[Governance Hub]], dev-plan P1 | High |
 | Can RackAI's neutral (non-hyperscaler-entangled) posture be a positioning asset vs. Scale/Meta? | [[Three Battlegrounds]] | Medium |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[Three Battlegrounds]] | → | Battleground (c) |
 
 ## See Also
 

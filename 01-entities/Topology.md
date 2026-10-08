@@ -5,7 +5,7 @@ status: draft
 owner: infrastructure
 domain: infrastructure
 aliases: [topology, interconnect topology, fabric topology, numa topology]
-related: [ent-gpu-node, ent-gpu-cluster, ent-model-deployment, ent-serving-runtime, hub-entities]
+related: [ent-gpu-node, ent-gpu-cluster, ent-model-deployment, ent-serving-runtime, hub-entities, wf-autoscaling, wf-model-deployment, wf-request-routing, fml-gpus-per-replica, asm-fleet-competitiveness, ent-region]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

@@ -5,10 +5,10 @@ status: draft
 owner: reliability
 domain: reliability
 aliases: [deployment canary passed, canary gate passed, canary cleared]
-related: [wf-canary-rollback, wf-model-launch-factory, wf-closed-loop-optimization, ent-model-deployment, ent-benchmark-run]
+related: [wf-canary-rollback, wf-model-launch-factory, wf-closed-loop-optimization, ent-model-deployment, ent-benchmark-run, wf-request-routing, met-model-launch-lag, met-ttft, met-availability]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Signals that a deployment cleared the canary gate and may proceed to full production."
 ---
@@ -45,6 +45,22 @@ Signals that a [[Model Deployment]] has cleared the canary gate — no breach of
 | [[Model Launch Factory]] | Proceeds to OpenRouter publication |
 | [[Request Routing]] | Adds deployment to eligible production pools |
 | Reliability dashboards | Records promotion event |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GENERATES | [[Canary & Rollback]] | ← | Canary gate cleared |
+| GENERATES | [[Closed-Loop Optimization]] | ← | Promoted config clears canary |
+| CONSUMES | [[Model Launch Factory]] | ← | Proceeds to OpenRouter publication |
+| CONSUMES | [[Request Routing]] | ← | Adds deployment to eligible pools |
+| DEPENDS_ON | [[Model Launch Lag]] | ← | Stops the launch-lag clock |
+| DEPENDS_ON | [[TTFT]] | → | Gate threshold (`ttft_p95`) |
+| DEPENDS_ON | [[Availability]] | → | Gate threshold |
+| DEPENDS_ON | [[Benchmark Run]] | → | `benchmark_ref` comparison baseline |
+| SUPPORTS | [[Model Deployment]] | → | Marks the Canary → Production lifecycle transition |
 
 ## See Also
 

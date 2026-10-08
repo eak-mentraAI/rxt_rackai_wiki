@@ -8,7 +8,7 @@ aliases: [crosswalk, source-to-concept crosswalk, source mapping]
 related: [hub-root, idx-source-inventory]
 source_docs: []
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-root
 summary: "Maps source documents to the canonical concepts they support."
 ---
@@ -21,6 +21,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 
 | Source | Concept | Canonical Note | Layer | Confidence |
 |--------|---------|----------------|-------|:----------:|
+| Strategic Vision + Engineering Roadmap + OpenRouter Leaderboard Snapshot + GPU Capacity workbook | Market demand (head of the serving chain): OpenRouter pool volume and direct-tenant demand per Model × Traffic Class | [[Market Demand]] | L1 | derived |
 | Strategic Vision | Model bets (DeepSeek, GLM, Nemotron) | [[DeepSeek V4 Flash]], [[GLM 5.3 Flash]], [[Nemotron 3 Ultra]] | L1 | assumed |
 | Strategic Vision | Operating KPIs / scorecard | [[KPI Hierarchy]], [[Model Scorecard]] | L5 | validated |
 | Strategic Vision | Cost/efficiency economic loop | [[Unit Economics Model]] | L3 | derived |

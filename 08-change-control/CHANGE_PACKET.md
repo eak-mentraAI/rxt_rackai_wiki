@@ -5,11 +5,11 @@ status: draft
 owner: knowledge-graph-steward
 domain: governance
 aliases: [change packet, change request, edit plan, cc-change-packet]
-related: [pol-fitness-checklist, chg-consistency-report]
+related: [pol-fitness-checklist, chg-consistency-report, pol-regression-suite]
 parent: hub-wiki
 source_docs: [init/agent_guide.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 summary: "Template for structured change proposals in the Rack AI OpenRouter wiki."
 ---
 
@@ -123,6 +123,15 @@ Change request
 ```
 
 ---
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| DEPENDS_ON | [[FITNESS_CHECKLIST]] | → | Gates that must pass |
+| PRODUCES | [[CONSISTENCY_REPORT]] | → | Consistency output |
 
 ## See Also
 

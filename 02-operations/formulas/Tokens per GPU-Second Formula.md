@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [tokens per gpu-second formula, tokens/gpu-second formula]
-related: [met-tokens-per-gpu-second, fml-gpu-hours-per-1m-tokens, fml-cost-per-1m-tokens, coeff-fp8-throughput, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-model-deployment, hub-inference-optimization]
+related: [met-tokens-per-gpu-second, fml-gpu-hours-per-1m-tokens, fml-cost-per-1m-tokens, coeff-fp8-throughput, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-model-deployment, hub-inference-optimization, met-output-throughput, idx-gpu-capacity-demand-rationale, fml-revenue-per-gpu-hour]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Computes output tokens produced per GPU-second from token count and GPU-seconds consumed."
 ---
@@ -53,6 +53,22 @@ Runtime optimizations (FP8, speculative decoding, KV/prefix cache) act as multip
 | [[Tokens per GPU-Second]] | CONSUMES |
 | [[GPU-Hours per 1M Tokens]] | CONSUMES |
 | [[Cost per 1M Tokens]] | CONSUMES |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Output Throughput]] | → | `output_tokens` from serving telemetry / benchmark |
+| CONSUMES | [[Benchmark Run]] | → | `wall_clock_seconds` from the benchmark harness (no run yet) |
+| DEPENDS_ON | [[Model Deployment]] | → | `gpu_count` from the deployment spec |
+| CONSUMES | [[FP8 Throughput Factor]] | → | Precision modifier (optional) |
+| CONSUMES | [[Speculative Decoding Acceptance Rate]] | → | Spec-decode modifier (optional); compresses under saturation |
+| CONSUMES | [[KV Cache Hit Rate]] | → | Cache modifier (optional); workload-dependent |
+| DERIVES | [[Tokens per GPU-Second]] | → | Computes the headline efficiency metric |
+| CONSUMES | [[GPU-Hours per 1M Tokens]] | ← | Downstream: GPU-hours → [[Cost per 1M Tokens]] (transitive) |
+| CONSUMES | [[GPU Capacity Demand Rationale]] | ← | Converts demand tokens/s into GPU counts |
 
 ## Worked Example
 

@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [model portfolio capacity, capacity-aware portfolio, portfolio sequencing, how many models fit]
-related: [hub-commercial, asm-fleet-competitiveness, fml-gpus-per-replica, idx-capacity-pools, wf-demand-forecasting, wf-gpu-reallocation]
+related: [hub-commercial, asm-fleet-competitiveness, fml-gpus-per-replica, idx-capacity-pools, wf-demand-forecasting, wf-gpu-reallocation, ent-capacity-pool, idx-first-bet-glm]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: derived
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-commercial
 summary: "Capacity-aware view: how many priority models actually fit on the current fleet, and how to sequence the bets."
 ---
@@ -61,6 +61,19 @@ Staging (4× H100 + 6× [[NVIDIA L40S]]) and dev (A30) are pre-production and ca
 | [[Capacity Pool Model]] | idx-capacity-pools | Pool taxonomy |
 | [[GPU Reallocation]] | wf-gpu-reallocation | Time-sharing between models |
 | [[Demand Forecasting]] | wf-demand-forecasting | What to prioritize |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note).
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSTRAINS | [[GPUs per Replica]] | ← | Replica size determines what fits |
+| CONSTRAINS | [[Fleet Competitiveness]] | ← | Topology ceiling (~27B class) |
+| DEPENDS_ON | [[Capacity Pool]] | → | Pools hold the portfolio |
+| SUPPORTS | [[Demand Forecasting]] | → | What to prioritize |
+| SUPPORTS | [[GPU Reallocation]] | → | Time-sharing between models |
+| SUPPORTS | [[First Bet — GLM 5.3 Flash]] | → | Fit-first sequencing |
 
 ## See Also
 

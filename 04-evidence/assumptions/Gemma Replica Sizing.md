@@ -8,7 +8,7 @@ aliases: [gemma replica sizing, gemma 4 31b gpu per replica, gemma hardware fit]
 related: [hub-evidence, idx-assumption-register, idx-gpu-capacity-demand-rationale, fml-gpus-per-replica, ent-gpu-node, asm-fleet-competitiveness]
 source_docs: ["reference/RackAI - GPU Capacity.xlsx"]
 confidence: assumed
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Gemma 4 31B at BF16 with 262k context requires 2× H100 per serving replica."
 ---
@@ -47,6 +47,15 @@ A hardware-fit benchmark running Gemma 4 31B BF16 at 262k context on H100 NVL PC
 |----------|------|
 | [[GPU Capacity Demand Rationale]] | SUPPORTS |
 | [[GPUs per Replica]] | SUPPORTS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[GPU Capacity Demand Rationale]] | → | 2× H100 per replica |
+| SUPPORTS | [[GPUs per Replica]] | → | Applies the formula |
 
 ## Status
 

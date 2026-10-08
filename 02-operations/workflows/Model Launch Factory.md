@@ -5,10 +5,10 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [model launch factory, day-zero factory, launch pipeline]
-related: [wf-model-deployment, wf-canary-rollback, evt-new-model-detected, evt-deployment-canary-passed, met-model-launch-lag, ent-model, ent-benchmark-run]
+related: [wf-model-deployment, wf-canary-rollback, evt-new-model-detected, evt-deployment-canary-passed, met-model-launch-lag, ent-model, ent-benchmark-run, wf-model-radar, fml-gpus-per-replica, coeff-model-weight-footprint, met-ttft, met-tokens-per-gpu-second, fml-cost-per-1m-tokens, val-launch-lag-24h, met-output-throughput, idx-phase1-execution-glm, ent-deepseek-v4-flash, ent-glm-5-3-flash]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Day-zero factory that moves a new model from radar detection to OpenRouter publication in a repeatable pipeline."
 ---
@@ -70,6 +70,30 @@ Target: **<24h median / <72h P90** launch lag, measured as [[Model Launch Lag]].
 | [[Benchmark Run]] | DEPENDS_ON | Performance evidence before canary |
 | [[OpenRouter Provider Integration]] | DEPENDS_ON | Final publication surface |
 | [[Model Launch Lag]] | MEASURED_BY | Headline KPI for the factory |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[New Model Detected]] | → | Trigger: starts intake |
+| GENERATES | [[New Model Detected]] | → | Via its Radar step ([[Model Radar]]) |
+| DEPENDS_ON | [[Model Radar]] | → | Supplies launch candidates |
+| CONSUMES | [[Model Weight Footprint]] | → | Intake extracts memory requirements |
+| CONSUMES | [[GPUs per Replica]] | → | Hardware-fit step: minimum GPU count |
+| DEPENDS_ON | [[Topology]] | → | Hardware-fit step: topology requirement |
+| DEPENDS_ON | [[Standard Model Deployment]] | → | Standard deployment contract for placement |
+| DEPENDS_ON | [[Benchmark Run]] | → | Performance evidence before canary |
+| PRODUCES | [[TTFT]] | → | Benchmark stage baseline |
+| PRODUCES | [[Output Throughput]] | → | Benchmark stage baseline |
+| PRODUCES | [[Tokens per GPU-Second]] | → | Benchmark stage baseline |
+| PRODUCES | [[Cost per 1M Tokens]] | → | Benchmark stage baseline |
+| DEPENDS_ON | [[Canary & Rollback]] | → | Promotion and rollback gate |
+| CONSUMES | [[Deployment Canary Passed]] | → | Proceeds to publication |
+| DEPENDS_ON | [[OpenRouter Provider Integration]] | → | Final publication surface |
+| MEASURES | [[Model Launch Lag]] | ← | Headline KPI |
+| VALIDATES | [[Validate Launch Lag Under 24h]] | ← | Open validation |
 
 ## Ownership
 

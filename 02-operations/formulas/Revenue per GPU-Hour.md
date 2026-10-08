@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [revenue per gpu-hour, revenue/gpu-hour, gpu-hour yield]
-related: [fml-tokens-per-gpu-second, fml-gross-margin-per-model, fml-cost-per-1m-tokens, coeff-openrouter-price, met-tokens-per-gpu-second, ent-model-deployment, ent-capacity-pool]
+related: [fml-tokens-per-gpu-second, fml-gross-margin-per-model, fml-cost-per-1m-tokens, coeff-openrouter-price, met-tokens-per-gpu-second, ent-model-deployment, ent-capacity-pool, wf-gpu-reallocation, wf-request-routing, pol-procurement-trigger, evt-capacity-reallocation-triggered, idx-scorecard-glm, idx-scorecard-deepseek, idx-unit-economics, idx-fleet-yield]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Computes revenue produced per GPU-hour from throughput and OpenRouter token price."
 ---
@@ -47,6 +47,22 @@ revenue_per_gpu_hour = (tokens_per_gpu_second × 3600 / 1e6) × price_per_1m_tok
 | [[Gross Margin per Model]] | CONSUMES |
 | [[GPU Reallocation]] | CONSUMES |
 | [[Request Routing]] | CONSUMES |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Tokens per GPU-Second]] | → | `tokens_per_gpu_second` input |
+| CONSUMES | [[OpenRouter Price]] | → | `price_per_1m_tokens` input |
+| MEASURES | [[Model Deployment]] | → | Yield per deployment |
+| MEASURES | [[Capacity Pool]] | → | Yield signal used to rank pools |
+| DEPENDS_ON | [[Gross Margin per Model]] | ← | Margin per GPU-hour view |
+| CONSUMES | [[GPU Reallocation]] | ← | Economic ranking |
+| CONSUMES | [[Request Routing]] | ← | Economic scoring |
+| CONSUMES | [[Procurement Trigger]] | ← | Spend justification |
+| GENERATES | [[Capacity Reallocation Triggered]] | → | Crossing the revenue/GPU-hour threshold can fire the event |
 
 ## Worked Example
 

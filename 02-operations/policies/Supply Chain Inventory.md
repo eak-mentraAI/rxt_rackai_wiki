@@ -5,10 +5,10 @@ status: draft
 owner: governance
 domain: governance
 aliases: [supply chain inventory, config inventory, supply chain and config inventory, sbom, running-system inventory]
-related: [pol-action-controls, pol-governable-self-modification, wf-audit, hub-governance, src-rackai-dev-plan]
+related: [pol-action-controls, pol-governable-self-modification, wf-audit, hub-governance, src-rackai-dev-plan, ent-governed-harness, ent-model-deployment]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
-last_reviewed: 2026-09-17
+last_reviewed: 2026-10-08
 parent: hub-governance
 summary: "Policy: keep an inventory of what's in the running system — models, prompts, tools, components — with provenance."
 ---
@@ -36,6 +36,17 @@ All models, prompts, tools, and components deployed in any [[Environment]], acro
 | [[Governed Harness]] | GOVERNS → components inventoried |
 | [[Model Deployment]] | GOVERNS → model version + provenance recorded |
 | [[Audit]] | SUPPORTS → inventory feeds audit answers |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GOVERNS | [[Governed Harness]] | → | Components inventoried |
+| GOVERNS | [[Model Deployment]] | → | Model version + provenance recorded |
+| SUPPORTS | [[Audit]] | → | Inventory feeds audit answers |
+| SUPPORTS | [[Governable Self-Modification]] | → | What changed |
 
 ## Enforcement
 

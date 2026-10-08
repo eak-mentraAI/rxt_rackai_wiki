@@ -4,16 +4,111 @@ type: change
 status: draft
 owner: knowledge-graph-steward
 domain: governance
-aliases: [kg test results, regression suite results, graph acceptance test log, regression baseline 2026-10-08]
-related: [pol-regression-suite, pol-fitness-checklist, chg-consistency-report, idx-moc-serving-platform, idx-open-questions, idx-benchmark-library]
-source_docs: [08-change-control/REGRESSION_SUITE.md, "python3 .claude/tools/kg.py run 2026-10-08"]
+aliases: [kg test results, regression post-fix 2026-10-08, regression suite results, graph acceptance test log, regression baseline 2026-10-08]
+related: [chg-2026-10-08-typed-edges, pol-regression-suite, pol-fitness-checklist, chg-consistency-report, idx-moc-serving-platform, idx-open-questions, idx-benchmark-library]
+source_docs: [08-change-control/REGRESSION_SUITE.md, "python3 .claude/tools/kg.py run 2026-10-08", "python3 scripts/kg.py post-fix run 2026-10-08"]
 confidence: measured
 last_reviewed: 2026-10-08
 parent: pol-regression-suite
-summary: "First regression suite run (R-01 to R-07): avg 3.71/5, Warning; R-01 to R-03 below the 4/5 minimum."
+summary: "Regression suite runs R-01 to R-07: baseline avg 3.71 (Warning); post-fix re-run avg 4.21 (Pass)."
 ---
 
 # Knowledge Graph Acceptance Test Results
+
+## Run 2026-10-08 (post-fix)
+
+A re-run of R-01 to R-07 after the fixes in [[CHANGE_2026-10-08 Typed Edges and Traversal Fixes]] (baseline improvement actions 1–3, plus `related` reciprocity from action 7). The method, grader and strictness are the same as in the baseline run below. The only tool was the committed `python3 scripts/kg.py` (same parser). Section reads happened only where `show` pointed to a needed section.
+
+**Average: 4.21 / 5 (+0.50). Verdict: Acceptable (suite status: Pass).** Every test now meets its minimum. R-01 to R-03 moved from 3.5 to at least 4.0. No test is below 4.0.
+
+### Scorecard (post-fix vs baseline)
+
+| Test | Minimum | Baseline | Post-fix | Δ | Status | kg.py calls (base → now) | Section reads / greps (base → now) |
+|------|:-------:|:--------:|:--------:|:-:|:------:|:------------------------:|:----------------------------------:|
+| R-01 | ≥ 4 | 3.5 | **4.5** | +1.0 | Pass | 31 → 15 | 2 → 1 |
+| R-02 | ≥ 4 | 3.5 | **4.0** | +0.5 | Pass (at minimum) | 10 → 10 | 3 → 0 |
+| R-03 | ≥ 4 | 3.5 | **4.5** | +1.0 | Pass | 11 → 10 | 1 → 0 |
+| R-04 | ≥ 4 | 4.0 | **4.5** | +0.5 | Pass | 9 → 8 | 3 → 1 |
+| R-05 | ≥ 3.5 | 3.5 | **4.0** | +0.5 | Pass | 7 → 8 | 2 → 2 |
+| R-06 | ≥ 3.5 | 3.5 | **4.0** | +0.5 | Pass | 27 → 3 | 1 script → 1 script |
+| R-07 | ≥ 3.5 | 4.0 | **4.0** | 0 | Pass | 4 → 4 | 3 → 3 |
+| **Average** | ≥ 4.0 | **3.71** | **4.21** | **+0.50** | **Pass** | **99 → 58** | **15 → 8** |
+
+### Graph metrics (recounted with the same `kg.load()` on HEAD and on the working tree)
+
+| Metric | Baseline | Post-fix |
+|---|---|---|
+| Typed edges (rows parsed from `## Relationships` tables) | 213 | **671** |
+| Typed edges on canonical types | 97 (46%) | **555 (83%)**. Every new edge is canonical. The 116 legacy non-canonical edges are unchanged |
+| Formula / metric / coefficient / event notes with typed edges | 0 / 24 | **24 / 24** |
+| Policy / assumption / validation / evidence notes with typed edges | 0 / 30 | **27 / 30**. The 3 `04-evidence/benchmarks/` notes were out of scope (concurrent session) |
+| Workflows with typed edges | 5 / 21 | **16 / 21** (11 spine workflows added) |
+| `related` reciprocity | 34% (487/1414) | **64% (1178/1848)** |
+| Canonical demand node | none | [[Market Demand]] (`ent-market-demand`) |
+| Broken references (`kg.py broken`) | 0 | 0 |
+
+The baseline row figures are a recount using the same script on `HEAD`. The baseline text below reports 35% (485/1403) for reciprocity and "0/36" for L2/L4 coverage; those were counted slightly differently.
+
+### R-01 — 4.5 (was 3.5)
+
+`find "market demand"` now resolves to [[Market Demand]]. From there `out` gives `ROUTES_TO` [[Model]] / [[DeepSeek V4 Flash]] (47.8T tokens/month pool volume, measured snapshot), `USES` [[Traffic Class]], `FORECASTS ←` [[Demand Forecasting]], and `CONSUMES ←` [[Model Radar]]. The spine is typed at every hop. DeepSeek V4 Flash → `SERVED_BY` [[Model Deployment]] → `RUNS_ON` [[Serving Runtime]] → **`CONSUMES` [[Capacity Pool]]** (new) → **`ALLOCATES` [[GPU Fleet]]** (new) / [[GPU Node]] → `CONSTRAINED_BY` [[Topology]], `BELONGS_TO` [[Region]]. Formulas are now reachable from entities through `MEASURES ←` rows on Model Deployment: [[Tokens per GPU-Second]], [[TTFT]], [[Cost per 1M Tokens]], [[Revenue per GPU-Hour]], plus [[Productive GPU Utilization]] on Capacity Pool. Workflows are reachable through typed rows: [[Request Routing]] `ROUTES_TO`, [[Autoscaling]] `ALLOCATES`, [[Admission Control]] `CONSTRAINS`, [[Standard Model Deployment]] `PRODUCES`, and DeepSeek `DEPENDS_ON` [[Model Launch Factory]]. Owners come from `show`.
+
+Remaining gaps (−0.5): the long-context / coding share of DeepSeek demand is `assumed`, with no per-Traffic-Class volume. There is no canonical demand *metric*. The 116 legacy non-canonical spine edges (`SERVED_BY`, `RUNS_ON`, ...) are annotated with their canonical equivalent in the Notes column but are not normalized.
+
+### R-02 — 4.0 (was 3.5)
+
+`out` and `in` on [[Tokens per GPU-Second]] are now directional. `DERIVES ←` the formula, `CONSTRAINS ←` [[Serving Runtime]] (batching, kernels, parallelism and cache), `PRODUCES ←` [[Benchmark Run]]. Downstream it shows `CONSUMES ←` [[GPU-Hours per 1M Tokens]] and [[Revenue per GPU-Hour]], and `GENERATES →` [[Performance Regression Detected]]. The formula's inputs give the causes mechanically: [[FP8 Throughput Factor]] (quantization), [[KV Cache Hit Rate]] (`DEPENDS_ON` [[Traffic Class]], which covers traffic-mix shift), [[Speculative Decoding Acceptance Rate]] (saturation), [[Output Throughput]], and Model Deployment `gpu_count`. Add [[Topology]] `CONSTRAINS` Model Deployment, and [[Autoscaling]] `ALLOCATES` / [[Productive GPU Utilization]] for scaling. That is 7 causes, all from typed edges. The economics chain to [[Cost per 1M Tokens]] → [[Gross Margin per Model]] / [[Request Routing]] is typed. No section reads were needed.
+
+Remaining gaps (−1.0): still **no production-telemetry anomaly event**. [[Performance Regression Detected]] is lab/promotion scope only, and the demand and routing layers have 2 events. Noisy neighbour / multi-tenant contention is still not modelled (`find noisy` and `find batching` return nothing). There is no telemetry baseline.
+
+### R-03 — 4.5 (was 3.5)
+
+`out` [[FP8 Throughput Factor]] separates consumers from producers and evidence. Consumers are `CONSUMES ←` [[Tokens per GPU-Second Formula]] and **[[GPUs per Replica]]**, plus `DEPENDS_ON ←` **[[Model Weight Footprint]]**. Producer: `PRODUCES ←` [[Quantization Program]], which is now a link. Evidence: [[FP8 Quality Neutral]], [[Validate DeepSeek H100 FP8]], [[DeepSeek H100 FP8 Benchmark]]. Constraint: [[GPU Type Compatibility Matrix]]. The memory branch that was missing is now mechanical: GPUs per Replica `CONSTRAINS` [[Capacity Pool]] and [[Model Portfolio Capacity]], and is `CONSUMES ←` by [[Standard Model Deployment]], [[Model Launch Factory]], [[Cost per 1M Tokens]] (replica fixed cost) and [[Fleet Competitiveness]]. The throughput branch runs Formula → metric → GPU-Hours / Revenue → Cost → Gross Margin, then Request Routing, GPU Reallocation and both scorecards (`DEPENDS_ON`). Direction (`→`/`←`) separates inputs from consumers, so the result no longer mixes upstream and downstream notes. Confidence: everything stays `assumed`.
+
+Remaining gap (−0.5): impact stops at class level, because there are no concrete Model Deployment or Capacity Pool instances. [[Unit Economics Model]] is reached only through [[Cost per GPU-Hour]] and backlinks.
+
+### R-04 — 4.5 (was 4.0)
+
+[[GLM 5.3 Flash]] now links to its scorecard (`MEASURES ←`), to [[First Bet — GLM 5.3 Flash]] (`SUPPORTS ←`) and to [[GPUs per Replica]] / [[Model Weight Footprint]] (TBD). The scorecard `DEPENDS_ON` [[Cost per 1M Tokens]] → `CONSUMES` [[GPU-Hours per 1M Tokens]] + [[Cost per GPU-Hour]] (TBD, `assumed`) → [[Tokens per GPU-Second]] ← [[Tokens per GPU-Second Formula]] → coefficients (all `assumed`) → [[Benchmark Run]] (none). Terminal point: "projected, not yet benchmarked". This is stated honestly, and no target is presented as measured.
+
+Remaining gaps (−0.5): there is still no GLM benchmark definition or validation item. The `bench-/val-deepseek-h200-fp8` ID/title mismatch is still not raised as an open question. Both need `04-evidence/benchmarks/`, which was out of scope for this change.
+
+### R-05 — 4.0 (was 3.5)
+
+[[Model Radar]] (`CONSUMES` [[Market Demand]], `GENERATES` [[New Model Detected]]) → [[Model Launch Factory]]. Its hardware-fit step now has typed `CONSUMES` [[GPUs per Replica]] / [[Model Weight Footprint]] and `DEPENDS_ON` [[Topology]]. The benchmark stage `PRODUCES` baselines for [[TTFT]], [[Output Throughput]], [[Tokens per GPU-Second]] and [[Cost per 1M Tokens]]. [[Standard Model Deployment]] `PRODUCES` the [[Model Deployment]] (Provisioning). [[Canary & Rollback]] `GOVERNS` its promotion, and [[Deployment Canary Passed]] `SUPPORTS` the Canary → Production transition. That closes the lifecycle cross-reference gap.
+
+Remaining gaps (−1.0): only 2 of about 7 transitions emit events (baseline action 4 is not done). There is no per-stage telemetry. Capacity Pool allocation for a new model goes through Standard Model Deployment `DEPENDS_ON` Capacity Pool, not an explicit allocation step.
+
+### R-06 — 4.0 (was 3.5)
+
+From the table above: typed coverage on L2/L4 notes went from 0 to 51/54 (the 3 benchmark notes were out of scope). Canonical edge share went from 46% to 83%. Reciprocity went from 34% to 64%. Broken references: 0. Entity coverage: 24/24 canonical Layer-1 types, plus the new [[Market Demand]] head node. Lifecycles: 31/40 entities. State machines: 16/21 workflows. Confidence distribution: assumed 80, validated 73, derived 49, measured 30.
+
+Remaining gaps (−1.0): reciprocity is still below the ≥ 80% target. 116 legacy edges are non-canonical. Lifecycles, state machines, orphan changelogs and the definition-vs-value confidence question (action 8) are unchanged. `kg.py` still has no `orphans`/`health` command, so a script is still needed. It is now 1 script instead of 25 `show` calls, because typed-coverage counts come straight from `kg.load()`.
+
+### R-07 — 4.0 (unchanged)
+
+The same three deliverables (exec, perf-eng, FinOps) are still coherent. The FinOps chain is now typed end to end. No score change: the [[KPI Hierarchy]] "Gross margin / model" link and the canonical metrics for error rate, queueing delay and capability coverage are still missing (action 9). No measured numbers exist.
+
+### Remaining actions after this run
+
+Baseline actions 1–3 are done. Action 7 is partly done (64% reciprocity). Still open:
+
+| # | Action | Raises |
+|---|---|---|
+| 4 | Fill out the event catalog, including a **production** throughput/latency anomaly event. Model noisy-neighbour contention and batching as explicit runtime concepts | R-02, R-05 |
+| 5 | GLM 5.3 Flash benchmark definition and validation item. Open question for the `bench-/val-deepseek-h200-fp8` ID mismatch. *Needs `04-evidence/benchmarks/`, which the concurrent benchmarking session owns* | R-04 |
+| 6 | Normalize the 116 legacy non-canonical edges, or formally accept documented aliases. Spine entities now carry `(canonical: …)` hints | R-01, R-06 |
+| 7 | Raise reciprocity from 64% to ≥ 80%. The remaining one-way pairs mostly point at hub/index/source/change notes, or at hub-like entities where only typed relationships were mirrored | R-06 |
+| 8–9 | Definition-vs-value confidence; lifecycles and state machines; KPI Hierarchy gross-margin link and the missing guardrail metrics | R-06, R-07 |
+| 10 | `kg.py`: print Notes in `out`; add `orphans`/`health`; label the `in` direction column | efficiency |
+| new | Typed Relationships for the 3 `04-evidence/benchmarks/` notes, and edges from [[Benchmark Run]] / accelerator entities back to the new formula/coefficient edges. *Owned by the concurrent session* | R-03, R-04, R-06 |
+| new | Add a canonical demand metric, e.g. RackAI routed tokens per Model × Traffic Class, once Phase 1 telemetry exists | R-01, R-02 |
+
+---
+
+## Baseline Run (2026-10-08)
+
+The original baseline run is kept unchanged below.
 
 ## Summary
 
