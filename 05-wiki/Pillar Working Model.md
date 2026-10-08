@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [pillar working model, pillar boundaries, inter-pillar model, how pillars work together, raci pillars, pillar responsibilities]
-related: [hub-org-design, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product, hub-roadmap, wiki-team-operating-model]
+related: [hub-org-design, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product, hub-roadmap, wiki-team-operating-model, pol-benchmark-evidence-chain]
 source_docs: ["06-sources/RackAI Organizational Design.md", "reference/jd/EXTERNAL_PDM_Optimization_and_Efficiency_JD.md", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Assurance_and_Governance_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md"]
 confidence: derived
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-07
 parent: hub-org-design
 summary: "How the six RackAI pillars divide responsibility, make joint decisions, and interact day-to-day."
 ---
@@ -226,6 +226,25 @@ The harness consumes inference endpoints. When the serving plane changes its API
 | Maintain the serving API contract (what endpoints the harness can rely on) | Inference and Serving Services |
 | Communicate harness requirements back to the serving API (latency SLOs, streaming behavior, token-level control needs) | AI Harness |
 | Validate that a serving runtime change does not break harness contracts | Joint — Harness signs off before Serving ships |
+
+---
+
+### 8. Benchmark Evidence Chain Handoffs
+**Pillars:** Inference Optimization + Inference and Serving Services + AI Governance & Assurance (+ Infra below the K8s line)
+
+The [[Benchmark Evidence Chain]] splits a hardware performance story into five tiers with one owner each and a named artifact at every seam.
+
+| Responsibility | Owner |
+|---|---|
+| B1 node acceptance, B2 Validated Cluster Profile (incl. vendor-reference reproduction) | Infra |
+| Accept the Validated Cluster Profile at the Kubernetes line | Inference and Serving Services |
+| B3 Benchmark Cards + evidence bundles (single owner — cites the VCP, does not co-own Infra's tier) | Inference Optimization |
+| B4 Service Qualification Record (SLO-qualified operating point, failover, soak) | Inference and Serving Services |
+| Co-sign B4 performance-isolation and private/sovereign-operation results | AI Governance & Assurance |
+| B5 Economics Sheet | Inference Optimization (FinOps) |
+| Check external claims against tier claim rights | Product Operations |
+
+**Working rule:** a claim may only be made at the highest tier completed, and must cite a currently valid artifact from every tier beneath it. Each tier feeds an existing gate: VCP acceptance (hardware), T4.S5 (serving selection), the Model Launch Gate (product qualification), the Proof-1 commercial gate (commercial).
 
 ---
 

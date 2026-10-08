@@ -8,7 +8,7 @@ aliases: [operations hub, L2 hub, digital twin hub]
 related: [hub-root, hub-entities, hub-commercial]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-root
 summary: "Layer 2 navigation hub for the serving-platform operational ontology."
 ---
@@ -68,6 +68,10 @@ Net-new workflows from the [[RackAI Enterprise AI Development Plan]], `assumed` 
 |--------|----|
 | [[Tokens per GPU-Second]] | met-tokens-per-gpu-second |
 | [[TTFT]] (P50/P95/P99) | met-ttft |
+| [[TPOT]] (TPOT / ITL) | met-tpot |
+| [[Goodput]] | met-goodput |
+| [[SLO Attainment]] | met-slo-attainment |
+| [[Energy per Token]] | met-energy-per-token |
 | [[Output Throughput]] | met-output-throughput |
 | [[Productive GPU Utilization]] | met-gpu-utilization |
 | [[Availability]] | met-availability |
@@ -104,6 +108,7 @@ See the [[Metric Index]] for the full listing.
 |--------|----|
 | [[Admission Control Policy]] | pol-admission-control |
 | [[Performance Regression Gate]] | pol-performance-regression-gate |
+| [[Benchmark Evidence Chain]] | pol-benchmark-evidence-chain |
 | [[Capacity Reservation Policy]] | pol-capacity-reservation |
 | [[Procurement Trigger]] | pol-procurement-trigger |
 | [[Action Controls]] | pol-action-controls |

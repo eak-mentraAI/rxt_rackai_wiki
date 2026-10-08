@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: performance
 aliases: [inference optimization, optimization pillar, serving efficiency, inference performance engineering, ai optimization and efficiency]
-related: [hub-rackai-platform, hub-roadmap, hub-inference-serving, hub-model-services, hub-ai-harness, hub-commercial, hub-org-design, wiki-pillar-working-model, ent-accelerator-class, ent-gpu-h100, ent-gpu-l40s, ent-gpu-a30, ent-gpu-amd-instinct, ent-benchmark-run, met-ttft, met-output-throughput, met-gpu-utilization, fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, fml-gpu-hours-per-1m-tokens, coeff-fp8-throughput, coeff-kv-cache-hit-rate, coeff-spec-decode-acceptance]
+related: [hub-rackai-platform, hub-roadmap, hub-inference-serving, hub-model-services, hub-ai-harness, hub-commercial, hub-org-design, wiki-pillar-working-model, ent-accelerator-class, ent-gpu-h100, ent-gpu-l40s, ent-gpu-a30, ent-gpu-amd-instinct, ent-benchmark-run, met-ttft, met-output-throughput, met-gpu-utilization, fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, fml-gpu-hours-per-1m-tokens, coeff-fp8-throughput, coeff-kv-cache-hit-rate, coeff-spec-decode-acceptance, pol-benchmark-evidence-chain, bench-amd-mi350p-qualification]
 source_docs: ["reference/jd/EXTERNAL_PDM_Optimization_and_Efficiency_JD.md", "reference/RackAI - Roadmap.xlsx", "06-sources/Rack AI OpenRouter Engineering Roadmap.md"]
 confidence: derived
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-07
 parent: hub-org-design
 summary: "Pillar hub: serving efficiency, cost floor, benchmark harness, optimization levers, and the performance-regression gate."
 ---
@@ -68,6 +68,9 @@ This is not the same as *running the serving infrastructure* (that is [[Inferenc
 | Metric / Formula | What it measures | Note |
 |---|---|---|
 | [[TTFT]] | Time to first token (latency experience) | Primary user-facing latency metric |
+| [[TPOT]] | Time per output token / inter-token latency | Decode-phase latency |
+| [[Goodput]] | Throughput within SLO thresholds | The honest capacity number |
+| [[Energy per Token]] | J/token, tokens/kWh | Co-measured with serving runs |
 | [[Output Throughput]] | Tokens/second generated | System throughput |
 | [[Tokens per GPU-Second Formula]] | Productive throughput per GPU | The efficiency numerator |
 | [[Cost per 1M Tokens]] | Total cost / tokens served | The cost-floor anchor |
@@ -96,6 +99,8 @@ This is not the same as *running the serving infrastructure* (that is [[Inferenc
 ## Key Entities and Notes
 
 - [[Benchmark Run]] — the canonical record of a measurement event
+- [[Benchmark Evidence Chain]] — the B1–B5 tiers, handoffs, and claim rights this pillar runs (B3, B5) and reviews
+- [[AMD MI350P Qualification Plan]] — first application of the chain
 - [[Accelerator Class]] — the hardware classes benchmarks target
 - [[NVIDIA H100]], [[NVIDIA L40S]], [[NVIDIA A30]], [[AMD Instinct]] — the GPU classes in scope
 - [[GPU Fleet]] — the fleet being optimized

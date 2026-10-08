@@ -8,7 +8,7 @@ aliases: [open questions, open questions register, unknowns register]
 related: [hub-evidence, idx-validation-register, idx-benchmark-library]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-evidence
 summary: "Register of genuine unknowns and surfaced source conflicts affecting the evidence layer."
 ---
@@ -28,7 +28,17 @@ The register of genuine unknowns and any surfaced conflicts between sources. Ite
 | Internal cost per GPU-hour is not yet established. | [[Cost per GPU-Hour]], and all downstream economics | open |
 | Whether prefill/decode disaggregation is economically justified for these workloads. | [[Request Routing]] | open |
 | Can the current [[NVIDIA H100]] fleet (80GB HBM3, 20 in SPOT) serve the large MoE priority models at competitive TTFT/throughput without H200/Blackwell-class memory? Competitors may run newer hardware. | [[Available Hardware Sufficient for Priority Models]], [[DeepSeek H100 FP8 Benchmark]] | open |
-| AMD MI350P order: confirm quantity and ETA (~Oct 2026); confirm 8-way PCIe pool config. | [[AMD Instinct]], [[Fleet Inventory]] | open |
+| AMD MI350P order: confirm quantity and ETA (~Oct 2026); confirm 8-way PCIe pool config. Now reported deployed (2026-10-07): confirm quantity, per-GPU HBM, and node topology — required for the B2 Validated Cluster Profile. | [[AMD Instinct]], [[Fleet Inventory]], [[AMD MI350P Qualification Plan]] | open |
+| No per-profile SLO thresholds (TTFT/TPOT percentile limits, attainment target) are ratified, so B4 service qualification, [[Goodput]], and [[SLO Attainment]] cannot be scored. Owner: Product (PM Inference/Serving). | [[Benchmark Evidence Chain]], [[SLO Attainment]], [[Goodput]], [[Traffic Class]] | open |
+| Standard benchmark profile shapes (input/output length distributions, arrival processes, prefix/cache-hit assumptions per Interactive / Throughput / Long Context profile) are not defined; until they are, cards across runs are not comparable. | [[Benchmark Evidence Chain]], [[Traffic Class]] | open |
+| Who runs the B2 vendor-reference reproduction (AMD ROCm vLLM container on the bare cluster): Infra, as part of the Validated Cluster Profile, or Inference Optimization on Infra's cluster? The Kubernetes-line rule puts it with Infra; the skills sit with Inference Optimization. | [[Benchmark Evidence Chain]], [[AMD MI350P Qualification Plan]], [[Pillar Working Model]] | open |
+| MI350P reference model and reproduction contract: Llama-70B class vs gpt-oss class, which named AMD published result, which matching conditions and permitted deviations, what tolerance. Must be fixed before B2. | [[AMD MI350P Qualification Plan]], [[Benchmark Evidence Chain]] | open |
+| What should MI350P evidence prove first: technical competitiveness with NVIDIA, enterprise production readiness, or better economics for specific workloads? All three are needed eventually; the order sets initial scope and what goes to market first. Leadership decision. | [[AMD MI350P Qualification Plan]], [[MI350P Serving Competitive]] | open |
+| Should vendor-reference reproduction gate **infrastructure acceptance** (B2) or only **serving qualification**? The policy now records "infrastructure accepted" and "reference performance validated" as separate outcomes; AMD's published configuration may differ from ours in topology, software or settings. | [[Benchmark Evidence Chain]], [[AMD MI350P Qualification Plan]] | open |
+| What existing MI350P evidence (AMD, engineering, earlier internal tests) can be reused at its tier, and what is genuinely missing? | [[AMD MI350P Qualification Plan]], [[Benchmark Library]] | open |
+| Competitive band for [[MI350P Serving Competitive]]: what counts as a "win" — performance parity, better economics at the same SLO, or supporting workloads that would otherwise need more NVIDIA GPUs — and what counts as "competitive" for C1 performance (a proposal on the table: SLO-qualified goodput per GPU ≥ 90% of H100 — illustrative, not ratified) and for C3 economics (cost per 1M successful tokens vs H100). Product decision. | [[MI350P Serving Competitive]] | open |
+| User model for capacity claims: what arrival rate per user, think time, active fraction, and token distributions turn "concurrent requests" into "users supported"? Required before any user-count claim. | [[Benchmark Evidence Chain]], [[AMD MI350P Qualification Plan]], [[Traffic Class]] | open |
+| Power telemetry at deployment grain: can Infra's GPU telemetry (`amd-smi` / DCGM) be co-sampled with serving runs so [[Energy per Token]] is measurable? | [[Energy per Token]], [[KPI Telemetry Target List]] | open |
 | ROCm serving constraint: TensorRT-LLM and FlashAttention-3 have no ROCm equivalent, so AMD Instinct is limited to vLLM/SGLang. Does any priority model's optimal config depend on a CUDA-only path, and what is the throughput penalty on ROCm? | [[AMD Instinct]], [[Serving Runtime]], [[GPU Type Compatibility Matrix]] | open |
 | Topology ceiling: NVL-PCIe pairs (and MI350P PCIe) cap servable models at ~27B class. When/whether do we invest in SXM clusters or UBB8 to reach frontier models and top-10? | [[Fleet Competitiveness]], [[Topology]], [[Model Portfolio Capacity]] | open |
 | OpenRouter API conformance: which capability/provider requirements are we short on, and how much will they down-rank us until met? | [[OpenRouter Provider Integration]], [[Fleet Competitiveness]] | open |

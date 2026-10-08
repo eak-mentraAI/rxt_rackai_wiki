@@ -8,7 +8,7 @@ aliases: [kpi hierarchy, headline kpis, kpi tree]
 related: [hub-wiki, idx-metrics, src-engineering-roadmap, src-strategic-vision]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-wiki
 summary: "The four headline engineering KPIs, their supporting guardrails, and the executive milestone sequence M1-M10."
 ---
@@ -44,6 +44,9 @@ Top-five OpenRouter rank is treated as an **outcome**, not a directly optimized 
 | Availability | [[Availability]] | ↑ (>99.9% for priority models) |
 | Error rate | — | ↓ |
 | Queueing delay | — | ↓ |
+| Decode latency | [[TPOT]] | ↓ |
+| SLO attainment / goodput | [[SLO Attainment]], [[Goodput]] | ↑ (thresholds not ratified) |
+| Energy per token | [[Energy per Token]] | ↓ |
 | Capability coverage | — | ↑ |
 | Cost / 1M tokens | [[Cost per 1M Tokens]] | ↓ |
 | Revenue / GPU-hour | [[Revenue per GPU-Hour]] | ↑ |

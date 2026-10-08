@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [benchmark run, benchmark, perf run, performance test]
-related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-gpu-node, ent-traffic-class, hub-entities, hub-inference-optimization]
+related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-gpu-node, ent-traffic-class, hub-entities, hub-inference-optimization, pol-benchmark-evidence-chain, idx-benchmark-library]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-entities
 summary: "Canonical entity: a single measured performance test that anchors every performance claim."
 ---
@@ -38,6 +38,15 @@ A Benchmark Run is a measurement over a point in this chain — it observes a Mo
 | Hardware | GPU type/count and node config | struct | validated |
 | Config | Parallelism and serving flags | struct | validated |
 | Traffic profile | Workload shape used (see [[Traffic Class]]) | ref | validated |
+| Benchmark tier | B1–B5 tier the run evidences (see [[Benchmark Evidence Chain]]) | enum | assumed |
+| Cluster profile | Validated Cluster Profile ID@version (infrastructure only) the run executed on (required for B3+) | ref | assumed |
+| Serving configuration | Runtime image digest, engine version, model/tokenizer revision, parallelism, batching, KV-cache flags | struct | assumed |
+| Load mode | Closed-loop concurrency or open-loop arrival rate (+ distribution) | enum | assumed |
+| Evidence bundle | Link to retained raw per-request data, telemetry, scripts, repeats and variance | ref | assumed |
+| Test class | Standard-compliant / standard-inspired / RackAI-internal | enum | assumed |
+| Concurrency | Concurrent in-flight requests (not users) at each checkpoint | int | measured |
+| TPOT / ITL | Decode latency ([[TPOT]]) | measure | measured |
+| Energy | Energy per output token ([[Energy per Token]]), co-measured | measure | measured |
 | TTFT | Time to first token | measure | measured |
 | Throughput | Output tokens per second | measure | measured |
 | Tokens per GPU-second | Efficiency metric | measure | measured |
@@ -61,6 +70,7 @@ A Benchmark Run is a measurement over a point in this chain — it observes a Mo
 | USES | [[Traffic Class]] | → | Run is driven by a characterized workload |
 | VALIDATES | [[Model Deployment Specification]] | → | Confirms the spec's benchmark profile |
 | RUN_ON | [[GPU Node]] | → | Measured on specific hardware |
+| GOVERNED_BY | [[Benchmark Evidence Chain]] | ← | Tier, card format, cluster-profile citation, claim rights |
 
 ## Graph Invariants
 
@@ -77,3 +87,4 @@ A Benchmark Run is a measurement over a point in this chain — it observes a Mo
 - [[Entity Ontology Hub]]
 - [[Model Deployment]]
 - [[Traffic Class]]
+- [[Benchmark Evidence Chain]] — tiers, handoffs, and the Benchmark Card format that renders runs

@@ -8,7 +8,7 @@ aliases: [capability gap register, capability gaps, gap register, capability-vs-
 related: [hub-evidence, hub-rackai-platform, hub-product, hub-roadmap, idx-open-questions, idx-validation-register, idx-kpi-hierarchy, src-strategic-vision, src-engineering-roadmap, src-rackai-delivery-roadmap]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md, rackai_platform_prd, rackai_release_1_0_0, metering_spec, identity_access_spec, monitoring_audit_spec, "reference/RackAI - Roadmap.xlsx"]
 confidence: derived
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-07
 parent: hub-evidence
 summary: "Capability-vs-goal matrix: the platform capabilities missing to reach the strategic project-level goals."
 ---
@@ -64,7 +64,7 @@ Goal: treat every priority model as an optimization program measured against the
 |---------------------|-------|:----------:|---------------|
 | Production telemetry / benchmark runs | missing | assumed | No [[Benchmark Run]] or telemetry exists yet |
 | GPU telemetry (compute / HBM / bandwidth / power) | partial | derived | Platform Prometheus shipped; per-GPU KPI visibility unconfirmed |
-| Benchmark harness + performance lab | planned | assumed | Optimal serving engine per model unknown |
+| Benchmark harness + performance lab | planned | assumed | Optimal serving engine per model unknown; tiers, handoffs, and claim rights now defined in [[Benchmark Evidence Chain]]; first program [[AMD MI350P Qualification Plan]] |
 | Fleet inventory / hardware-fit confirmation | partial | assumed | H100 sufficiency for large MoE; ~27B topology ceiling; L40S-vs-L40; A30 role |
 | [[TTFT]] / [[Tokens per GPU-Second]] / [[Productive GPU Utilization]] measured | planned | assumed | All four headline KPIs sit at assumed |
 
