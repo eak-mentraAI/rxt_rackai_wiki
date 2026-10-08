@@ -139,3 +139,19 @@ REQUIRED_FIELDS="id type status owner domain confidence last_reviewed aliases re
 ```
 
 Keep these in sync with `.kiro/steering/rackai-operating-standards.md`. The steering file defines the rules; the lint enforces them; the hook makes enforcement frictionless.
+
+---
+
+## Graph Query Tool — `scripts/kg.py`
+
+Fast, read-only knowledge-graph lookups over the working tree (Python stdlib, no install). It resolves both link systems — frontmatter IDs (`id` / `parent` / `related`) and body `[[wikilinks]]` (by filename, vault path, id, H1 title, or alias) — plus typed edges from `## Relationships` tables.
+
+```bash
+python3 scripts/kg.py find <text>     # id/title/alias, then summary matches
+python3 scripts/kg.py show <ref>      # frontmatter + section headings (no body) — then read only the needed section
+python3 scripts/kg.py out <ref>       # parent, related IDs, typed Relationship edges, other links
+python3 scripts/kg.py in <ref>        # children, typed inbound edges, related-by, backlinks (propagation impact)
+python3 scripts/kg.py children|type <type> [domain]|hubs|broken|stats   # add --json for machine output
+```
+
+Use it before bulk-reading files: `find` → `show` → read one section → expand with `out` / `in`. `broken` lists unresolved references (fitness check S-03). The same file is shared verbatim across the sister wikis; the canonical copy lives in RackAI Wiki.
