@@ -8,7 +8,7 @@ aliases: [entity hub, L1 hub, entities hub]
 related: [hub-root, hub-operations]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-root
 summary: "Layer 1 navigation hub for canonical inference-platform entities."
 ---
@@ -21,6 +21,7 @@ Layer 1 — the semantic backbone. Canonical business and domain objects of the 
 
 | Entity | ID | Status |
 |--------|----|--------|
+| [[Market Demand]] | ent-market-demand | created |
 | [[Model]] | ent-model | created |
 | [[Model Class]] | ent-model-class | created |
 | [[Model Deployment]] | ent-model-deployment | created |

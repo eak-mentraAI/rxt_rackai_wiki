@@ -5,10 +5,10 @@ status: draft
 owner: infrastructure
 domain: capacity
 aliases: [autoscaling, replica scaling, elastic capacity]
-related: [wf-gpu-reallocation, wf-admission-control, pol-capacity-reservation, met-gpu-utilization, met-ttft, ent-model-deployment, ent-capacity-pool, ent-gpu-node, ent-topology]
+related: [wf-gpu-reallocation, wf-admission-control, pol-capacity-reservation, met-gpu-utilization, met-ttft, ent-model-deployment, ent-capacity-pool, ent-gpu-node, ent-topology, evt-demand-forecast-published, evt-capacity-reallocation-triggered, pol-procurement-trigger]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Add or remove serving replicas while respecting load time, topology, warm capacity, and latency SLO."
 ---
@@ -62,6 +62,21 @@ Constraints respected: **model load time, weight transfer time, topology, GPU av
 | [[Productive GPU Utilization]] | DEPENDS_ON | Scaling signal |
 | [[TTFT]] | CONSTRAINED_BY | Latency SLO guardrail |
 | [[Topology]] | CONSTRAINED_BY | Placement of new replicas |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| ALLOCATES | [[Model Deployment]] | → | Adds/removes replicas |
+| DEPENDS_ON | [[Capacity Pool]] | → | Pool headroom bounds scaling |
+| DEPENDS_ON | [[Productive GPU Utilization]] | → | Scaling signal |
+| CONSUMES | [[Demand Forecast Published]] | → | Scale ahead of predicted load |
+| CONSTRAINS | [[Capacity Reservation Policy]] | ← | Warm-capacity floor |
+| CONSTRAINS | [[TTFT]] | ← | Latency guardrail |
+| CONSTRAINS | [[Topology]] | ← | Placement of new replicas |
+| GENERATES | [[Capacity Reallocation Triggered]] | → | Need exceeds pool headroom |
 
 ## Ownership
 

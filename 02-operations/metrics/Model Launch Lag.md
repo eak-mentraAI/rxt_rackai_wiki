@@ -5,10 +5,10 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [model launch lag, launch lag, time to production]
-related: [wf-model-launch-factory, evt-new-model-detected, evt-deployment-canary-passed, ent-model, ent-openrouter-integration]
+related: [wf-model-launch-factory, evt-new-model-detected, evt-deployment-canary-passed, ent-model, ent-openrouter-integration, wf-model-radar, val-launch-lag-24h, evd-kpi-telemetry-targets]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Elapsed time from publicly usable weights to a production Rack AI endpoint; target <24h median / <72h P90."
 ---
@@ -43,6 +43,19 @@ hours (reported as median and P90).
 | Measures | Direction |
 |----------|-----------|
 | [[Model]] | MEASURES → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| MEASURES | [[Model]] | → | Per model launch |
+| MEASURES | [[Model Launch Factory]] | → | Headline KPI of the factory |
+| MEASURES | [[Model Radar]] | → | Radar's primary KPI |
+| DEPENDS_ON | [[New Model Detected]] | → | Clock start |
+| DEPENDS_ON | [[Deployment Canary Passed]] | → | Clock stop (then publication) |
+| VALIDATES | [[Validate Launch Lag Under 24h]] | ← | Open validation of the <24h median target |
 
 ## Evidence
 

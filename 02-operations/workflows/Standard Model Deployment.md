@@ -5,10 +5,10 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [standard model deployment, deployment workflow, artifact pipeline]
-related: [wf-model-launch-factory, wf-canary-rollback, ent-model, ent-model-deployment, ent-model-deployment-spec, ent-serving-runtime, ent-capacity-pool, ent-gpu-node, ent-topology]
+related: [wf-model-launch-factory, wf-canary-rollback, ent-model, ent-model-deployment, ent-model-deployment-spec, ent-serving-runtime, ent-capacity-pool, ent-gpu-node, ent-topology, fml-gpus-per-replica, idx-phase1-execution-glm]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Standardized path from validated weights to a running deployment via the Model Deployment Specification."
 ---
@@ -63,6 +63,21 @@ stateDiagram-v2
 | [[Capacity Pool]] | DEPENDS_ON | Source of GPU capacity |
 | [[Topology]] | CONSTRAINED_BY | Placement respects topology requirements |
 | [[Canary & Rollback]] | HANDS_OFF_TO | Promotion to production |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| PRODUCES | [[Model Deployment]] | → | Provisions the deployment (lifecycle: Provisioning) |
+| DEPENDS_ON | [[Model Deployment Specification]] | → |  |
+| DEPENDS_ON | [[Serving Runtime]] | → | Best engine per model |
+| DEPENDS_ON | [[Capacity Pool]] | → | Source of GPU capacity |
+| CONSUMES | [[GPUs per Replica]] | → | Placement / minimum GPU count |
+| CONSTRAINS | [[Topology]] | ← | Placement respects topology |
+| DEPENDS_ON | [[Canary & Rollback]] | ← | Canary takes the provisioned deployment (original: HANDS_OFF_TO) |
+| DEPENDS_ON | [[Model Launch Factory]] | ← | Factory uses the standard contract |
 
 ## Ownership
 

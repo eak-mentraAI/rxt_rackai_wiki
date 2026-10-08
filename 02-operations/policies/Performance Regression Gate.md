@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [performance regression gate, performance ci/cd gate, regression policy]
-related: [wf-closed-loop-optimization, evt-performance-regression-detected, met-ttft, met-tokens-per-gpu-second, met-output-throughput, ent-model-deployment, ent-benchmark-run]
+related: [wf-closed-loop-optimization, evt-performance-regression-detected, met-ttft, met-tokens-per-gpu-second, met-output-throughput, ent-model-deployment, ent-benchmark-run, wf-quantization-program, wf-eval-as-ci, wf-verification, wf-self-improvement-loop]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-governance
 summary: "No change reaches production if it materially worsens key performance signals; performance gates CI/CD."
 ---
@@ -33,6 +33,20 @@ Applies to every candidate change evaluated in [[Closed-Loop Optimization]] — 
 |--------|--------------|
 | [[Closed-Loop Optimization]] | GOVERNS → |
 | [[Model Deployment]] | CONSTRAINS → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GOVERNS | [[Closed-Loop Optimization]] | → | CI/CD performance gate |
+| CONSTRAINS | [[Model Deployment]] | → | No regressing config reaches production |
+| CONSTRAINS | [[Quantization Program]] | → | Approved precisions must clear the gate |
+| CONSUMES | [[Performance Regression Detected]] | → | Breach blocks promotion |
+| DEPENDS_ON | [[Benchmark Run]] | → | Reference baseline for comparison |
+| DEPENDS_ON | [[TTFT]] | → | Protected signal |
+| DEPENDS_ON | [[Tokens per GPU-Second]] | → | Protected signal |
 
 ## Enforcement
 

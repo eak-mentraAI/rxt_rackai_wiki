@@ -5,10 +5,10 @@ status: draft
 owner: governance
 domain: governance
 aliases: [action controls, blast radius, action controls and blast radius, approval gates, containment]
-related: [ent-agent-identity, wf-perimeter-info-flow, pol-supply-chain-inventory, hub-governance, src-rackai-dev-plan]
+related: [ent-agent-identity, wf-perimeter-info-flow, pol-supply-chain-inventory, hub-governance, src-rackai-dev-plan, ent-governed-harness]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
-last_reviewed: 2026-09-17
+last_reviewed: 2026-10-08
 parent: hub-governance
 summary: "Policy: gate what an agent can do to the world — approval gates, rate limits, reversibility, containment."
 ---
@@ -35,6 +35,15 @@ All outbound/side-effecting actions taken by a [[Governed Harness]] or its agent
 |--------|--------------|
 | [[Governed Harness]] | CONSTRAINS → outbound actions gated |
 | [[Agent Identity]] | DEPENDS_ON ← must know the actor before gating actions |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSTRAINS | [[Governed Harness]] | → | Outbound actions gated |
+| DEPENDS_ON | [[Agent Identity]] | → | Must know the actor before gating actions |
 
 ## Enforcement
 

@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [serving runtime, inference engine, inference runtime, serving engine]
-related: [ent-model-deployment, ent-model-deployment-spec, ent-gpu-node, ent-benchmark-run, bench-agentx-standard, hub-entities, hub-inference-serving]
+related: [ent-model-deployment, ent-model-deployment-spec, ent-gpu-node, ent-benchmark-run, bench-agentx-standard, hub-entities, hub-inference-serving, ent-capacity-pool, met-tokens-per-gpu-second, wf-closed-loop-optimization, coeff-fp8-throughput, coeff-kv-cache-hit-rate, coeff-spec-decode-acceptance, wf-model-deployment, ent-gpu-a30, ent-topology, ent-gpu-h100, ent-deepseek-v4-flash, ent-gpu-l40s, ent-accelerator-class, ent-gpu-amd-instinct, ent-glm-5-3-flash, ent-model-class, ent-nemotron-3-ultra]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-entities
 summary: "Canonical entity: the inference engine, version, and config that executes a Model."
 ---
@@ -77,11 +77,15 @@ The roadmap's broader engine set (SGLang, TensorRT-LLM, NVIDIA Dynamo) is **plan
 
 | Relationship | Target | Direction | Notes |
 |--------------|--------|-----------|-------|
-| RUNS | [[Model Deployment]] | ← | A deployment runs on exactly one runtime config (invariant) |
-| REQUIRED_BY | [[Model Deployment Specification]] | ← | Declared by the deployment spec |
-| RUNS_ON | [[GPU Node]] | → | Executes on GPU hardware |
-| MEASURED_BY | [[Benchmark Run]] | ← | Runtime config is a benchmark dimension |
-| SELECTED_FOR | [[Model]] | → | Best engine chosen per model |
+| RUNS | [[Model Deployment]] | ← | A deployment runs on exactly one runtime config (invariant) (canonical: USES ←) |
+| REQUIRED_BY | [[Model Deployment Specification]] | ← | Declared by the deployment spec (canonical: DEPENDS_ON ←) |
+| RUNS_ON | [[GPU Node]] | → | Executes on GPU hardware (canonical: USES →) |
+| MEASURED_BY | [[Benchmark Run]] | ← | Runtime config is a benchmark dimension (canonical: MEASURES ←) |
+| SELECTED_FOR | [[Model]] | → | Best engine chosen per model (canonical: SERVES →) |
+| CONSUMES | [[Capacity Pool]] | → | Spine hop Runtime → Pool: replicas execute on GPUs drawn from the deployment's pool |
+| CONSTRAINS | [[Tokens per GPU-Second]] | → | Batching, kernels, parallelism and cache config set achievable throughput |
+| PRODUCES | [[Closed-Loop Optimization]] | ← | Promoted runtime configs |
+| DEPENDS_ON | [[FP8 Throughput Factor]] | ← | FP8 needs engine support |
 
 ## Evidence
 

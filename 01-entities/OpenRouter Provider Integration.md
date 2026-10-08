@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [openrouter provider integration, openrouter integration, provider integration, openrouter provider]
-related: [ent-model, ent-model-deployment, ent-traffic-class, ent-benchmark-run, hub-entities]
+related: [ent-model, ent-model-deployment, ent-traffic-class, ent-benchmark-run, hub-entities, met-availability, wf-request-routing, asm-traffic-follows-performance, ent-model-catalog-endpoint, ent-market-demand, ent-openrouter-private-model, coeff-openrouter-price, ent-billing-payment]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: validated
 last_reviewed: 2026-09-03

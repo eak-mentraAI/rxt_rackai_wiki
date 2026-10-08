@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: governance
 aliases: [audit, audit trail, audit log]
-related: [ent-organization, ent-rackai-control-plane, wf-monitoring, hub-operations]
+related: [ent-organization, ent-rackai-control-plane, wf-monitoring, hub-operations, pol-governable-self-modification, pol-supply-chain-inventory]
 source_docs: [monitoring_audit_spec]
 confidence: assumed
 last_reviewed: 2026-09-04

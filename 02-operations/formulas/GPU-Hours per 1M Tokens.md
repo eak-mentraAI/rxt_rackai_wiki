@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [gpu-hours per 1m tokens, gpu hours per million tokens]
-related: [fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, met-tokens-per-gpu-second, coeff-cost-per-gpu-hour, ent-model-deployment, hub-inference-optimization]
+related: [fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, met-tokens-per-gpu-second, coeff-cost-per-gpu-hour, ent-model-deployment, hub-inference-optimization, idx-gpu-capacity-demand-rationale, idx-unit-economics]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Converts tokens-per-GPU-second into the GPU-hours required to produce one million tokens."
 ---
@@ -44,6 +44,17 @@ gpu_hours_per_1m = 1e6 / (tokens_per_gpu_second × 3600)
 | Consumer | Type |
 |----------|------|
 | [[Cost per 1M Tokens]] | CONSUMES |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Tokens per GPU-Second]] | → | `tokens_per_gpu_second` input |
+| DEPENDS_ON | [[Tokens per GPU-Second Formula]] | → | Upstream formula that computes the input |
+| CONSUMES | [[Cost per 1M Tokens]] | ← | Cost formula multiplies by cost per GPU-hour |
+| CONSUMES | [[GPU Capacity Demand Rationale]] | ← | Capacity sizing |
 
 ## Worked Example
 

@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [nemotron 3 ultra, nemotron 3, nemotron ultra]
-related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-capacity-pool, ent-benchmark-run, hub-entities]
+related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-capacity-pool, ent-benchmark-run, hub-entities, coeff-model-weight-footprint]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

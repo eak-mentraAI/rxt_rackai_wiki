@@ -8,7 +8,7 @@ aliases: [sovereign private assistant, private chatgpt, sovereign chatgpt, racka
 related: [ent-packaged-solution, ent-solution-marketplace, ent-governed-harness, ent-model, ent-dataset, hub-battlegrounds, hub-ai-operations-product, hub-eac-product-model]
 source_docs: ["01-entities/Packaged Solution.md", "01-entities/Solution Marketplace.md", "00-hub/Three Battlegrounds.md", "PM/leadership marketplace discussion 2026-10-06"]
 confidence: assumed
-last_reviewed: 2026-10-06
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Worked Packaged Solution example: a ChatGPT-like assistant over a private corpus and the customer's sovereign models."
 ---
@@ -69,6 +69,18 @@ This is the [[Three Battlegrounds]] harness boundary applied to a concrete solut
 
 - Source: 2026-10-06 marketplace discussion (the sovereign-ChatGPT-over-private-corpus example given as a representative Packaged Solution).
 - Confidence rationale: `assumed` — an illustrative design, not a benchmarked or shipped solution. No performance or cost number is asserted; cost-per-outcome would be `measured` only from a real instantiation.
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| IMPLEMENTS | [[Packaged Solution]] | → | The unit this example instantiates |
+| USES | [[Governed Harness]] | → | The machinery it wraps |
+| USES | [[Model]] | → | Customer's sovereign models, served via [[Model Deployment]] |
+| USES | [[Dataset]] | → | Private corpus binding |
+| DEPENDS_ON | [[Solution Marketplace]] | → | Where it would be published |
 
 ## See Also
 

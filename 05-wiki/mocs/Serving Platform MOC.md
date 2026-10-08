@@ -8,7 +8,7 @@ aliases: [serving platform moc, serving map of content, abstraction chain moc]
 related: [hub-wiki, idx-entities, idx-kb-architecture]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-wiki
 summary: "Map of content from market demand to GPU topology along the abstraction chain, linking each entity and workflow."
 ---
@@ -21,7 +21,7 @@ A map of content that walks the canonical abstraction chain of the Rack AI infer
 
 ## Abstraction Chain
 
-1. **Market Demand** — signal from OpenRouter traffic and the ecosystem that drives which models to serve.
+1. **[[Market Demand]]** — demand per Model and [[Traffic Class]] from the OpenRouter provider pool and direct tenants; forecast by [[Demand Forecasting]].
 2. **[[Model]]** — the canonical open-weight model Rack AI chooses to serve.
 3. **[[Model Deployment]]** — a running instance of a model, declaring a [[Model Deployment Specification]].
 4. **[[Serving Runtime]]** — the inference engine and configuration executing the deployment.

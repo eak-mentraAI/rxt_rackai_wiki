@@ -5,7 +5,7 @@ status: draft
 owner: knowledge-graph-steward
 domain: governance
 aliases: [acceptance tests, regression tests, graph tests, cc-regression-suite]
-related: [pol-fitness-checklist, chg-kg-test-results, chg-consistency-report]
+related: [pol-fitness-checklist, chg-kg-test-results, chg-consistency-report, pol-change-packet, chg-2026-10-08-typed-edges]
 parent: hub-wiki
 source_docs: [05-wiki/Knowledge Graph Acceptance Test Results.md]
 confidence: validated
@@ -154,18 +154,18 @@ Formal acceptance tests that verify the knowledge graph can reason over the Rack
 
 ## Baseline Scores
 
-Baseline set on the first full run, 2026-10-08. Full evidence, traversal paths and efficiency counts are in [[Knowledge Graph Acceptance Test Results]].
+**Current baseline: 2026-10-08 post-fix run** (adopted by product-owner decision, 2026-10-08). It replaces the first scored run of the same day (3.71, Warning), which is kept in Score History. Full evidence, traversal paths and efficiency counts are in [[Knowledge Graph Acceptance Test Results]].
 
 | Test | Baseline Score | Minimum | Notes |
 |------|:--------------:|:-------:|-------|
-| R-01 | 3.5 | ≥ 4 | Entity spine fully typed; no canonical demand node; entities have no typed edges to formulas or workflows; 54% of edge types are non-canonical |
-| R-02 | 3.5 | ≥ 4 | 7 causes enumerable, but the reverse walk uses untyped `related-by`; no production-telemetry anomaly event; noisy neighbour not modelled |
-| R-03 | 3.5 | ≥ 4 | Formula/scorecard/commercial impact traversable; FP8 → Model Weight Footprint → GPUs per Replica → Capacity Pool branch missing; inputs and consumers not distinguished |
-| R-04 | 4.0 | ≥ 4 | Chain ends honestly at `assumed` (Cost per GPU-Hour TBD, no benchmark run); no GLM benchmark/validation note; H100/H200 ID mismatch |
-| R-05 | 3.5 | ≥ 3.5 | Launch Factory state machine and Model Deployment lifecycle work together; only 2 of ~7 transitions emit events; no formula links for capacity or economics |
-| R-06 | 3.5 | ≥ 3.5 | 0 broken refs, 24/24 entity coverage, 10 minor orphans; 0/36 L2/L4 notes have typed edges; 35% `related` reciprocity |
-| R-07 | 4.0 | ≥ 3.5 | Exec, perf-eng and FinOps deliverables coherent and traceable; no measured numbers yet; KPI Hierarchy guardrail links incomplete |
-| **Average** | **3.71** | **≥ 4.0** | **Warning / Conditional pass**: R-01 to R-03 below their minimum; no hard stop |
+| R-01 | 4.5 | ≥ 4 | Demand → GPU topology traversable via typed edges from [[Market Demand]] down the spine |
+| R-02 | 4.0 | ≥ 4 | At minimum: no production anomaly event; noisy neighbour not modelled |
+| R-03 | 4.5 | ≥ 4 | FP8 → Model Weight Footprint → GPUs per Replica → Capacity Pool branch present |
+| R-04 | 4.5 | ≥ 4 | Chain ends honestly at `assumed`; no measured benchmark yet |
+| R-05 | 4.0 | ≥ 3.5 | Launch-transition events still sparse |
+| R-06 | 4.0 | ≥ 3.5 | 0 broken refs; typed edges 671 (83% canonical); `related` reciprocity 64% |
+| R-07 | 4.0 | ≥ 3.5 | Deliverables coherent and traceable; no measured numbers yet |
+| **Average** | **4.21** | **≥ 4.0** | **Pass** — every test at or above its minimum; suite took 58 `kg.py` calls (was 99) |
 
 ---
 
@@ -174,9 +174,20 @@ Baseline set on the first full run, 2026-10-08. Full evidence, traversal paths a
 | Date | Average | Δ from Previous | Notes |
 |------|:-------:|:---------------:|-------|
 | 2026-09-03 | — | — | Suite defined; corpus not yet populated |
-| 2026-10-08 | 3.71 | — (first scored run) | Baseline. Warning: R-01, R-02, R-03 at 3.5 (minimum 4). Top fixes: typed Relationships on formulas/metrics/coefficients/events; canonical demand node; FP8 → memory → capacity edges. See [[Knowledge Graph Acceptance Test Results]] |
+| 2026-10-08 | 3.71 | — (first scored run) | First baseline (superseded the same day). Warning: R-01, R-02, R-03 at 3.5 (minimum 4). Top fixes: typed Relationships on formulas/metrics/coefficients/events; canonical demand node; FP8 → memory → capacity edges. See [[Knowledge Graph Acceptance Test Results]] |
+| 2026-10-08 (post-fix) | 4.21 | +0.50 | Re-run after [[CHANGE_2026-10-08 Typed Edges and Traversal Fixes]] (typed Relationships on formulas/metrics/coefficients/events/policies/assumptions/validations/evidence and spine workflows; [[Market Demand]] node; FP8 → memory → capacity edges; `related` reciprocity 34% → 64%). Pass: R-01 4.5, R-02 4.0, R-03 4.5, R-04 4.5, R-05 4.0, R-06 4.0, R-07 4.0. **Adopted as baseline** (owner decision 2026-10-08) |
 
 ---
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| DEPENDS_ON | [[FITNESS_CHECKLIST]] | ← | Section 3 runs these tests |
+| PRODUCES | [[Knowledge Graph Acceptance Test Results]] | → | Run log per execution |
+| MEASURES | [[Serving Platform MOC]] | → | R-01/R-02 traverse the serving chain |
 
 ## See Also
 

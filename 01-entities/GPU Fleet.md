@@ -5,7 +5,7 @@ status: draft
 owner: infrastructure
 domain: infrastructure
 aliases: [gpu fleet, fleet, gpu inventory]
-related: [ent-gpu-node, ent-gpu-cluster, ent-capacity-pool, ent-region, hub-entities, hub-inference-serving, hub-inference-optimization]
+related: [ent-gpu-node, ent-gpu-cluster, ent-capacity-pool, ent-region, hub-entities, hub-inference-serving, hub-inference-optimization, met-gpu-utilization, coeff-cost-per-gpu-hour, idx-fleet-inventory, ent-gpu-a30, ent-gpu-h100, ent-gpu-l40s, ent-accelerator-class, ent-gpu-amd-instinct]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

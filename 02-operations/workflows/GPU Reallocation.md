@@ -5,10 +5,10 @@ status: draft
 owner: infrastructure
 domain: capacity
 aliases: [gpu reallocation, capacity reallocation, fleet rebalancing]
-related: [wf-autoscaling, wf-request-routing, pol-capacity-reservation, pol-procurement-trigger, evt-capacity-reallocation-triggered, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, met-gpu-utilization, ent-capacity-pool, ent-gpu-node]
+related: [wf-autoscaling, wf-request-routing, pol-capacity-reservation, pol-procurement-trigger, evt-capacity-reallocation-triggered, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, met-gpu-utilization, ent-capacity-pool, ent-gpu-node, evt-demand-forecast-published, idx-model-portfolio]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Move GPUs among model pools by demand, utilization, economics, and strategic priority; human-approved then automatic."
 ---
@@ -63,6 +63,22 @@ Decision inputs: **demand, utilization, queue depth, revenue/GPU-hour, marginal 
 | [[Revenue per GPU-Hour]] | CONSUMES | Economic ranking |
 | [[Gross Margin per Model]] | CONSUMES | Marginal contribution |
 | [[Productive GPU Utilization]] | DEPENDS_ON | Utilization signal |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| ALLOCATES | [[Capacity Pool]] | → | Moves GPUs among model pools |
+| CONSUMES | [[Capacity Reallocation Triggered]] | → | Trigger |
+| GENERATES | [[Capacity Reallocation Triggered]] | → | Re-emitted on cascading rebalance |
+| CONSUMES | [[Demand Forecast Published]] | → | Rebalance toward predicted demand |
+| CONSUMES | [[Revenue per GPU-Hour]] | → | Economic ranking |
+| CONSUMES | [[Gross Margin per Model]] | → | Marginal contribution |
+| DEPENDS_ON | [[Productive GPU Utilization]] | → | Utilization signal |
+| CONSTRAINS | [[Capacity Reservation Policy]] | ← | Never commit 100% |
+| CONSTRAINS | [[Procurement Trigger]] | ← | Sustained shortfall escalates |
 
 ## Ownership
 

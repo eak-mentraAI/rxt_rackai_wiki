@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [api key, api credential, programmatic credential]
-related: [ent-organization, wf-identity-access, ent-openrouter-private-model, hub-entities]
+related: [ent-organization, wf-identity-access, ent-openrouter-private-model, hub-entities, idx-openrouter-integration-plan, ent-agent-identity]
 source_docs: [identity_access_spec, "reference/RackAI - Roadmap.xlsx"]
 confidence: measured
 last_reviewed: 2026-09-21

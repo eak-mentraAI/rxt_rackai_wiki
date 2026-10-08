@@ -5,10 +5,10 @@ status: draft
 owner: reliability
 domain: reliability
 aliases: [admission control, overload protection, load shedding]
-related: [pol-admission-control, wf-autoscaling, wf-request-routing, met-ttft, met-availability, ent-model-deployment, ent-traffic-class]
+related: [pol-admission-control, wf-autoscaling, wf-request-routing, met-ttft, met-availability, ent-model-deployment, ent-traffic-class, evt-capacity-reallocation-triggered]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Protect TTFT and availability under overload by capping concurrency, queue length, and heavy requests."
 ---
@@ -59,6 +59,19 @@ Controls: **maximum concurrency, context-heavy requests, queue length, burst tra
 | [[TTFT]] | CONSTRAINED_BY | Primary protected guardrail |
 | [[Availability]] | CONSTRAINED_BY | Secondary protected guardrail |
 | [[Traffic Class]] | DEPENDS_ON | Differentiated shaping by class |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| IMPLEMENTS | [[Admission Control Policy]] | → | Enforces the overload rule (original: GOVERNED_BY) |
+| CONSTRAINS | [[Model Deployment]] | → | Throttles/defers/rejects excess load |
+| CONSTRAINS | [[TTFT]] | ← | Primary protected guardrail |
+| CONSTRAINS | [[Availability]] | ← | Secondary protected guardrail |
+| DEPENDS_ON | [[Traffic Class]] | → | Shaping per class |
+| GENERATES | [[Capacity Reallocation Triggered]] | → | Sustained shedding |
 
 ## Ownership
 

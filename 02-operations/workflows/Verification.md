@@ -5,7 +5,7 @@ status: draft
 owner: governance
 domain: governance
 aliases: [verification, per-step verification, step verification, reward signal, audit evidence]
-related: [ent-empirical-map, ent-governed-harness, wf-self-improvement-loop, wf-eval-as-ci, wf-loop-planning, pol-performance-regression-gate, hub-operations, hub-governance, src-rackai-dev-plan]
+related: [ent-empirical-map, ent-governed-harness, wf-self-improvement-loop, wf-eval-as-ci, wf-loop-planning, pol-performance-regression-gate, hub-operations, hub-governance, src-rackai-dev-plan, met-cost-per-outcome, wf-perimeter-info-flow, ent-across-ai]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17

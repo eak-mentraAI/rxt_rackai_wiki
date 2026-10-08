@@ -5,10 +5,10 @@ status: draft
 owner: rackai-product
 domain: commercial
 aliases: [cost per outcome, cost-per-outcome, token cost per outcome]
-related: [ent-empirical-map, wf-request-routing, wf-loop-planning, fml-cost-per-1m-tokens, met-tokens-per-gpu-second, hub-operations, hub-commercial, src-rackai-dev-plan]
+related: [ent-empirical-map, wf-request-routing, wf-loop-planning, fml-cost-per-1m-tokens, met-tokens-per-gpu-second, hub-operations, hub-commercial, src-rackai-dev-plan, ent-governed-harness, idx-ai-finops, wf-verification, wf-metering, evd-kpi-telemetry-targets]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
-last_reviewed: 2026-09-17
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Metric: the cost to produce a completed outcome (not a token), attributed by workload, tenant, and result — the unit."
 ---
@@ -42,6 +42,21 @@ Currency per completed outcome (e.g. $/outcome), attributable by workload, tenan
 |----------|-----------|
 | [[Governed Harness]] | MEASURES → cost to complete a workload |
 | [[Model]] | MEASURES → per-workload outcome cost |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| MEASURES | [[Governed Harness]] | → | Cost to complete a workload |
+| MEASURES | [[Model]] | → | Per-workload outcome cost |
+| DEPENDS_ON | [[Empirical Map]] | → | Cost dimension of the map |
+| CONSUMES | [[Cost per 1M Tokens]] | → | Token cost aggregated over the steps of an outcome |
+| CONSUMES | [[Request Routing]] | ← | Outcome-aware routing (dev-plan extension) |
+| CONSUMES | [[Loop Planning & Credit Assignment]] | ← | Credit assignment uses outcome cost |
+| CONSUMES | [[AI FinOps]] | ← | FinOps cost loop |
+| CONSTRAINS | [[Verification]] | ← | Reliability bar must still be met |
 
 ## Evidence
 

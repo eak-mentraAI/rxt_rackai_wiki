@@ -8,7 +8,7 @@ aliases: [gpu neocloud competitors, neocloud, coreweave, lambda, lambda labs, ca
 related: [hub-evidence, hub-battlegrounds, hub-commercial, hub-rackai-platform, evd-inference-serving-competitors, evd-sovereign-governed-competitors, asm-fleet-competitiveness]
 source_docs: ["https://www.coreweave.com/", "https://lambda.ai/", "web research 2026-09-21"]
 confidence: derived
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Battleground (a) capacity competitors: CoreWeave and Lambda, and why neither is a topology peer to RackAI."
 ---
@@ -63,6 +63,15 @@ Competitor profiles for **[[Three Battlegrounds|Battleground (a) — capacity pa
 | CoreWeave sovereign-region + HIPAA specifics | this note, [[Three Battlegrounds]] | Low |
 | Lambda sovereign/on-prem availability after the Aug 2025 hardware shutdown | this note | Low |
 | Should RackAI source overflow capacity from a neocloud partner rather than compete? | [[Commercial & Capacity Hub]], [[Capacity Pool]] | Medium |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[Three Battlegrounds]] | → | Battleground (a) |
+| SUPPORTS | [[Fleet Competitiveness]] | → | Neither is a topology peer |
 
 ## See Also
 

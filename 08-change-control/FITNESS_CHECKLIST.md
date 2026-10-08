@@ -9,7 +9,7 @@ related: [pol-regression-suite, pol-change-packet, chg-consistency-report]
 parent: hub-wiki
 source_docs: [init/init.md, init/agent_guide.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 summary: "Gate criteria checklist for corpus changes in the Rack AI OpenRouter wiki."
 ---
 
@@ -135,6 +135,16 @@ comm -23 /tmp/targets.txt /tmp/files.txt
 ```
 
 ---
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| DEPENDS_ON | [[REGRESSION_SUITE]] | → | Section 3 runs the acceptance tests |
+| PRODUCES | [[CONSISTENCY_REPORT]] | → | Output of the consistency pass |
+| DEPENDS_ON | [[CHANGE_PACKET]] | ← | A change packet must pass these gates |
 
 ## See Also
 

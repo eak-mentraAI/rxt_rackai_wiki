@@ -5,7 +5,7 @@ status: draft
 owner: commercial
 domain: commercial
 aliases: [billing, payment, billing and payment, payout, invoicing]
-related: [wf-metering, hub-commercial, hub-openrouter, ent-openrouter-integration, idx-open-questions]
+related: [wf-metering, hub-commercial, hub-openrouter, ent-openrouter-integration, idx-open-questions, idx-openrouter-integration-plan, ent-model-catalog-endpoint]
 source_docs: [metering_spec, openrouter_concepts_integration_provider]
 confidence: assumed
 last_reviewed: 2026-09-04

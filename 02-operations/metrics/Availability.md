@@ -5,10 +5,10 @@ status: draft
 owner: reliability
 domain: reliability
 aliases: [availability, uptime, endpoint availability]
-related: [met-ttft, met-gpu-utilization, wf-canary-rollback, wf-admission-control, pol-admission-control, ent-model-deployment, ent-openrouter-integration]
+related: [met-ttft, met-gpu-utilization, wf-canary-rollback, wf-admission-control, pol-admission-control, ent-model-deployment, ent-openrouter-integration, evt-deployment-canary-passed, evd-kpi-telemetry-targets]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Endpoint uptime for priority models; guardrail metric with a >99.9% target."
 ---
@@ -43,6 +43,17 @@ percentage (uptime over a measurement window).
 | Measures | Direction |
 |----------|-----------|
 | [[Model Deployment]] | MEASURES → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| MEASURES | [[Model Deployment]] | → | Per deployment endpoint |
+| DEPENDS_ON | [[OpenRouter Provider Integration]] | → | Endpoint health/status telemetry source |
+| CONSTRAINS | [[Admission Control]] | → | Secondary protected guardrail |
+| CONSTRAINS | [[Canary & Rollback]] | → | Availability rollback signal |
 
 ## Evidence
 

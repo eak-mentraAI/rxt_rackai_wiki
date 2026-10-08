@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: governance
 aliases: [identity & access control, identity and access control, iam, auth, rbac]
-related: [ent-organization, ent-api-key, ent-rackai-control-plane, hub-operations]
+related: [ent-organization, ent-api-key, ent-rackai-control-plane, hub-operations, ent-agent-identity]
 source_docs: [identity_access_spec, rackai_api_reference]
 confidence: derived
 last_reviewed: 2026-09-04

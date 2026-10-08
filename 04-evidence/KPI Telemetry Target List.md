@@ -8,7 +8,7 @@ aliases: [kpi telemetry targets, telemetry target list, measurement contract, te
 related: [hub-evidence, idx-metrics, idx-kpi-hierarchy, met-ttft, met-output-throughput, met-tokens-per-gpu-second, met-gpu-utilization, met-availability, met-model-launch-lag, met-cost-per-outcome, ent-empirical-map, hub-operations, hub-commercial]
 source_docs: ["repo review 2026-10-05 (TTFT/output-throughput telemetry gap)", "openrouter_engineering_roadmap.md", "openrouter_strategic_vision.md"]
 confidence: assumed
-last_reviewed: 2026-10-05
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Product's measurement contract for the RackAI KPI model: the signals we need, why each matters, and how to review them."
 ---
@@ -129,6 +129,21 @@ These are **not telemetry asks.** The review surfaced that the [[KPI Hierarchy]]
 Across serving, GPU, and economic telemetry, we need a reliable way to associate measurements with the dimensions the KPI requires: model, deployment/pool, tenant/project, and ultimately revenue/cost where applicable.
 
 My assumption is that attribution should happen as close to the producer as practical, particularly where later joins would be ambiguous, but I'd like engineering to validate the right boundary for each producer. The requirement is less "every metric needs tenant_id" and more **"we cannot lose the ability to reliably attribute usage and performance at the grain required by the KPI."**
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[TTFT]] | → | Measurement contract |
+| SUPPORTS | [[Output Throughput]] | → | Measurement contract |
+| SUPPORTS | [[Tokens per GPU-Second]] | → | Measurement contract |
+| SUPPORTS | [[Productive GPU Utilization]] | → | Measurement contract |
+| SUPPORTS | [[Availability]] | → | Measurement contract |
+| SUPPORTS | [[Model Launch Lag]] | → | Measurement contract |
+| SUPPORTS | [[Cost per Outcome]] | → | Measurement contract |
+| SUPPORTS | [[KPI Hierarchy]] | → |  |
 
 ## See Also
 

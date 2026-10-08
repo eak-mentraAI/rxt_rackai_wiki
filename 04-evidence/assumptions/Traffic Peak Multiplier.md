@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: capacity
 aliases: [traffic peak multiplier, peak to average ratio, peak traffic multiplier, 3x peak assumption]
-related: [hub-evidence, idx-assumption-register, idx-gpu-capacity-demand-rationale, wf-demand-forecasting, asm-openrouter-initial-share]
+related: [hub-evidence, idx-assumption-register, idx-gpu-capacity-demand-rationale, wf-demand-forecasting, asm-openrouter-initial-share, ent-market-demand]
 source_docs: ["reference/RackAI - GPU Capacity.xlsx"]
 confidence: assumed
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Inference traffic peaks at 3× the daily average; used to size GPU capacity floor for prod deployments."
 ---
@@ -40,6 +40,16 @@ Phase 1 private-model telemetry showing the hourly request distribution over at 
 |----------|------|
 | [[GPU Capacity Demand Rationale]] | SUPPORTS |
 | [[Demand Forecasting]] | CONSTRAINS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[GPU Capacity Demand Rationale]] | → | Peak GPU requirement |
+| CONSTRAINS | [[Demand Forecasting]] | → |  |
+| CONSTRAINS | [[Market Demand]] | → | 3× peak-to-average shape |
 
 ## Status
 

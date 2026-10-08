@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [closed-loop optimization, config experimentation, automated promotion]
-related: [pol-performance-regression-gate, evt-performance-regression-detected, evt-deployment-canary-passed, met-tokens-per-gpu-second, met-ttft, met-output-throughput, ent-model-deployment, ent-benchmark-run]
+related: [pol-performance-regression-gate, evt-performance-regression-detected, evt-deployment-canary-passed, met-tokens-per-gpu-second, met-ttft, met-output-throughput, ent-model-deployment, ent-benchmark-run, ent-serving-runtime, wf-quantization-program, wf-canary-rollback]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Continuous config experimentation with regression gates and automated lab-to-production promotion."
 ---
@@ -60,6 +60,21 @@ stateDiagram-v2
 | [[Benchmark Run]] | DEPENDS_ON | Experiment measurement |
 | [[Canary & Rollback]] | HANDS_OFF_TO | Safe promotion path |
 | [[Tokens per GPU-Second]] | DEPENDS_ON | Primary efficiency signal |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GOVERNS | [[Performance Regression Gate]] | ← | CI/CD performance gate |
+| PRODUCES | [[Serving Runtime]] | → | Promoted runtime configs (kernels, batching, quantization, parallelism, cache) |
+| DEPENDS_ON | [[Benchmark Run]] | → | Experiment measurement |
+| DEPENDS_ON | [[Tokens per GPU-Second]] | → | Primary efficiency signal |
+| DEPENDS_ON | [[Canary & Rollback]] | → | Safe promotion path (original: HANDS_OFF_TO) |
+| GENERATES | [[Performance Regression Detected]] | → |  |
+| GENERATES | [[Deployment Canary Passed]] | → |  |
+| SUPPORTS | [[Quantization Program]] | ← | Quantization feeds the loop |
 
 ## Ownership
 

@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [inference serving competitors, fireworks, fireworks ai, together, together ai, baseten, anyscale, ray, battleground b competitors]
-related: [hub-evidence, hub-battlegrounds, hub-product, hub-rackai-platform, evd-erebine-competitive-analysis, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors]
+related: [hub-evidence, hub-battlegrounds, hub-product, hub-rackai-platform, evd-erebine-competitive-analysis, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, idx-capability-gap-register]
 source_docs: ["https://fireworks.ai/", "https://www.together.ai/", "https://www.baseten.co/", "https://www.anyscale.com/", "web research 2026-09-21"]
 confidence: derived
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Battleground (b) inference competitors: Fireworks, Together, Baseten, Anyscale vs. RackAI."
 ---
@@ -83,6 +83,15 @@ Competitor profiles for **[[Three Battlegrounds|Battleground (b) — AI-native i
 | Confirm Fireworks' actual certification set (ISO 27001/42001, HIPAA) against its trust page | this note | Medium |
 | Does Baseten's self-hosted VPC + HIPAA posture directly contest RackAI's sovereign wedge? | [[Three Battlegrounds]], [[Sovereign & Governed AI Competitors]] | High |
 | Do we need a competing developer memory / agent surface (cf. Erebine)? | [[Erebine Competitive Analysis]] | Medium |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[Three Battlegrounds]] | → | Battleground (b) |
+| SUPPORTS | [[Capability Gap Register]] | → |  |
 
 ## See Also
 

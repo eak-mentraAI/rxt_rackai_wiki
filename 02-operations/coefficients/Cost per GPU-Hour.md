@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [cost per gpu-hour, gpu-hour cost, internal gpu cost]
-related: [fml-cost-per-1m-tokens, fml-gross-margin-per-model, met-gpu-utilization, ent-gpu-node, ent-capacity-pool]
+related: [fml-cost-per-1m-tokens, fml-gross-margin-per-model, met-gpu-utilization, ent-gpu-node, ent-capacity-pool, ent-gpu-fleet, idx-unit-economics, fml-gpu-hours-per-1m-tokens]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Internal all-in cost to run one GPU for one hour: power, DC, depreciation, network, storage, licensing, ops."
 ---
@@ -36,6 +36,17 @@ The internal all-in cost to operate one GPU for one hour for a given hardware co
 |---------|----|
 | [[Cost per 1M Tokens]] | fml-cost-per-1m-tokens |
 | [[Gross Margin per Model]] | fml-gross-margin-per-model |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Cost per 1M Tokens]] | ← | `cost_per_gpu_hour` input |
+| DEPENDS_ON | [[Gross Margin per Model]] | ← | Indirect, through Cost per 1M Tokens |
+| DEPENDS_ON | [[GPU Fleet]] | → | Per hardware configuration in the fleet (Milestone 0.3) |
+| DEPENDS_ON | [[Unit Economics Model]] | ← | Cost side of the economic loop |
 
 ## Change History
 

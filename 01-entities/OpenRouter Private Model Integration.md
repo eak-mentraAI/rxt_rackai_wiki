@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: product
 aliases: [openrouter private model, private model integration, private models, path a]
-related: [ent-openrouter-integration, ent-model-deployment, ent-api-key, hub-openrouter, hub-entities]
+related: [ent-openrouter-integration, ent-model-deployment, ent-api-key, hub-openrouter, hub-entities, idx-openrouter-integration-plan]
 source_docs: [openrouter_concepts_integration_provider, identity_access_spec]
 confidence: derived
 last_reviewed: 2026-09-04

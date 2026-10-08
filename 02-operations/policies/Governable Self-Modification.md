@@ -8,7 +8,7 @@ aliases: [governable self-modification, self-modification, re-certification, cer
 related: [wf-self-improvement-loop, pol-supply-chain-inventory, wf-audit, wf-canary-rollback, hub-governance, src-rackai-dev-plan]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
-last_reviewed: 2026-09-17
+last_reviewed: 2026-10-08
 parent: hub-governance
 summary: "Policy: version, attribute, replay, and re-certify a system that rewrites its own behavior, so it stays governable."
 ---
@@ -37,6 +37,17 @@ All self-modifications produced by the [[Self-Improvement Loop]] in any regulate
 | [[Supply Chain Inventory]] | USES → what changed and its provenance |
 | [[Canary & Rollback]] | USES → safe rollout / undo of a change |
 | [[Audit]] | SUPPORTS → re-certification evidence |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GOVERNS | [[Self-Improvement Loop]] | → | Learning stays certifiable |
+| USES | [[Supply Chain Inventory]] | → | What changed and its provenance |
+| USES | [[Canary & Rollback]] | → | Safe rollout / undo of a change |
+| SUPPORTS | [[Audit]] | → | Re-certification evidence |
 
 ## Enforcement
 

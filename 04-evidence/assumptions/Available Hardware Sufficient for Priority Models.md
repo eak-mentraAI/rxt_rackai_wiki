@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [available hardware sufficient, h100 sufficient, fleet hardware fit assumption, h200 sufficient]
-related: [hub-evidence, bench-deepseek-h200-fp8, asm-fp8-quality-neutral, ent-gpu-h100, ent-gpu-amd-instinct, idx-fleet-inventory, asm-mi350p-serving-competitive]
+related: [hub-evidence, bench-deepseek-h200-fp8, asm-fp8-quality-neutral, ent-gpu-h100, ent-gpu-amd-instinct, idx-fleet-inventory, val-deepseek-h200-fp8, asm-fleet-competitiveness, asm-traffic-follows-performance, asm-mi350p-serving-competitive]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Belief the current/incoming fleet can serve priority MoE models competitively — awaiting fit and benchmarks."
 ---
@@ -38,6 +38,20 @@ Automated hardware-fit testing (roadmap Milestone 4.5) plus benchmark runs (Mile
 | [[NVIDIA H100]] | SUPPORTS |
 | [[AMD Instinct]] | SUPPORTS |
 | [[DeepSeek H100 FP8 Benchmark]] | SUPPORTS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSTRAINS | [[GPU Node]] | → |  |
+| CONSTRAINS | [[Capacity Pool]] | → |  |
+| SUPPORTS | [[NVIDIA H100]] | → | Fitting models only |
+| SUPPORTS | [[AMD Instinct]] | → | Adds capacity, not ceiling (PCIe) |
+| SUPPORTS | [[DeepSeek H100 FP8 Benchmark]] | → | Planned run tests it |
+| SUPPORTS | [[Fleet Competitiveness]] | ← | Topology-ceiling analysis |
+| VALIDATES | [[Validate DeepSeek H100 FP8]] | ← | Can move it to measured or refute it |
 
 ## Status
 

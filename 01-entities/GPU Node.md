@@ -5,7 +5,7 @@ status: draft
 owner: infrastructure
 domain: infrastructure
 aliases: [gpu node, node, gpu host, server]
-related: [ent-gpu-cluster, ent-region, ent-topology, ent-capacity-pool, ent-model-deployment, hub-entities, hub-inference-serving]
+related: [ent-gpu-cluster, ent-region, ent-topology, ent-capacity-pool, ent-model-deployment, hub-entities, hub-inference-serving, wf-monitoring, ent-gpu-a30, ent-gpu-h100, ent-gpu-l40s, ent-accelerator-class, ent-serving-runtime, ent-gpu-amd-instinct, ent-benchmark-run, ent-gpu-fleet]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03

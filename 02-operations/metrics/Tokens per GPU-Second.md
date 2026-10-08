@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [tokens per gpu-second, tokens/gpu-second, tokens/sec/gpu, core efficiency metric]
-related: [fml-tokens-per-gpu-second, fml-gpu-hours-per-1m-tokens, fml-cost-per-1m-tokens, met-output-throughput, met-ttft, ent-model-deployment, ent-benchmark-run]
+related: [fml-tokens-per-gpu-second, fml-gpu-hours-per-1m-tokens, fml-cost-per-1m-tokens, met-output-throughput, met-ttft, ent-model-deployment, ent-benchmark-run, fml-revenue-per-gpu-hour, ent-serving-runtime, wf-closed-loop-optimization, evt-performance-regression-detected, asm-spec-decode-beneficial, val-deepseek-h200-fp8, val-erebine-inference-claims, wf-model-launch-factory, pol-performance-regression-gate, idx-scorecard-glm, idx-scorecard-deepseek, evd-kpi-telemetry-targets]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Core infrastructure-efficiency metric: output tokens produced per GPU-second."
 ---
@@ -43,6 +43,25 @@ output tokens / GPU-second.
 | Measures | Direction |
 |----------|-----------|
 | [[Model Deployment]] | MEASURES → |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| MEASURES | [[Model Deployment]] | → | Tracked per deployment |
+| DERIVES | [[Tokens per GPU-Second Formula]] | ← | Formula computes this metric |
+| PRODUCES | [[Benchmark Run]] | ← | Benchmark runs produce values (none yet) |
+| CONSTRAINS | [[Serving Runtime]] | ← | Batching, kernels, parallelism and cache config set achievable throughput |
+| CONSUMES | [[GPU-Hours per 1M Tokens]] | ← | Downstream cost chain |
+| CONSUMES | [[Revenue per GPU-Hour]] | ← | Downstream yield |
+| DEPENDS_ON | [[Closed-Loop Optimization]] | ← | Primary efficiency signal of the loop |
+| CONSTRAINS | [[TTFT]] | ← | Throughput gains must not breach the TTFT SLO |
+| GENERATES | [[Performance Regression Detected]] | → | A material drop in a candidate config fires the event (lab gate only) |
+| SUPPORTS | [[Speculative Decoding Beneficial]] | ← | Assumed throughput gain |
+| VALIDATES | [[Validate DeepSeek H100 FP8]] | ← | Would set the first measured baseline |
+| VALIDATES | [[Validate Erebine Inference Claims]] | ← | External competitive datapoint |
 
 ## Evidence
 
