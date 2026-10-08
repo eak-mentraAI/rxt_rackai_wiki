@@ -112,8 +112,8 @@ Because `.git/hooks/` is not version-controlled, the hook is installed from a tr
 This writes `.git/hooks/pre-commit`, which runs:
 
 ```bash
-STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$' || true)
-[ -n "$STAGED" ] && ./scripts/lint-frontmatter.sh $STAGED
+# staged .md paths, read NUL-delimited so filenames with spaces are linted
+git diff --cached --name-only --diff-filter=ACM -z  →  ./scripts/lint-frontmatter.sh "${STAGED[@]}"
 ```
 
 - Only staged/changed markdown is checked (fast; won't fail on pre-existing violations elsewhere).

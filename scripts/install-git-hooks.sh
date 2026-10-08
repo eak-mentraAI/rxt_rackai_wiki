@@ -33,15 +33,20 @@ set -euo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 
 # Only the markdown files staged for this commit (Added/Copied/Modified).
-STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$' || true)
+# Read NUL-delimited into an array: most note filenames contain spaces, and
+# word-splitting a plain string would silently lint nothing.
+STAGED=()
+while IFS= read -r -d '' f; do
+  [[ "$f" == *.md ]] && STAGED+=("$f")
+done < <(git diff --cached --name-only --diff-filter=ACM -z)
 
-if [ -z "$STAGED" ]; then
+if [ ${#STAGED[@]} -eq 0 ]; then
   exit 0
 fi
 
 # Pass the staged files to the shared lint script. It exits non-zero on any
 # violation, which aborts the commit.
-if ! (cd "$REPO_ROOT" && IFS=$'\n' ./scripts/lint-frontmatter.sh $STAGED); then
+if ! (cd "$REPO_ROOT" && ./scripts/lint-frontmatter.sh "${STAGED[@]}"); then
   echo ""
   echo "Commit blocked: frontmatter violations detected in staged markdown."
   echo "Fix the issues above and re-stage. To bypass in an emergency: git commit --no-verify"
