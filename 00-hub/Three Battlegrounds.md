@@ -4,11 +4,11 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [private enterprise ai operator, enterprise ai operator, operator thesis, company identity, three battlegrounds, battlegrounds, market battlegrounds, where we play, identity anchor, positioning model, theory of advantage, two centres of gravity, sovereign provider, operator identity, sovereign identity]
-related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map, hub-minimum-operable-estate, pol-benchmark-evidence-chain]
-source_docs: ["reference/rackai_dev_plan 2.docx", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md", "04-evidence/assumptions/Fleet Competitiveness.md", "04-evidence/Capability Gap Register.md", "CEO strategy review 2026-09-21"]
+aliases: [private enterprise ai operator, enterprise ai operator, operator thesis, company identity, three battlegrounds, battlegrounds, market battlegrounds, where we play, identity anchor, positioning model, theory of advantage, two centres of gravity, sovereign provider, operator identity, sovereign identity, intent and constraints, operating envelope, declared intent, operating philosophy, governed autonomy, ai operating system, ai operating system loop, aios loop]
+related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map, hub-minimum-operable-estate, pol-benchmark-evidence-chain, hub-ai-governance-assurance, ent-governed-harness, ent-agent-identity, hub-roadmap, idx-open-questions, pol-action-controls, wf-request-routing]
+source_docs: ["reference/rackai_dev_plan 2.docx", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md", "04-evidence/assumptions/Fleet Competitiveness.md", "04-evidence/Capability Gap Register.md", "CEO strategy review 2026-09-21", "roadmap review feedback 2026-10-08 (intent + constraints)"]
 confidence: derived
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-08
 parent: hub-root
 summary: "Company identity and theory of advantage: RackAI as the Private Enterprise AI Operator."
 ---
@@ -53,8 +53,8 @@ The identity name already pairs the two halves. Each defines part of the shape o
 
 | Centre | Promise | What it requires |
 |--------|---------|------------------|
-| **Operator** | We take responsibility for running it | SLOs, incidents, model lifecycle, capacity and cost, accountable to the customer ([[Minimum Operable Estate]], MOE-1) |
-| **Sovereign provider** | It stays theirs, and they can verify it | Customer control of where data, models, inference and operations execute, inside a boundary we can prove (control envelope, isolation, audit, provenance, no uncontrolled egress) |
+| **Operator** | We take responsibility for running it: **delivering the intended outcome**, including the decisions, adaptations, controls and evidence along the way | SLOs, incidents, model lifecycle, capacity and cost, accountable to the customer ([[Minimum Operable Estate]], MOE-1) |
+| **Sovereign provider** | It stays theirs, and they can verify it: the enterprise keeps meaningful control of its **intent, authority, data, execution boundaries and evidence**, even as models, tools and implementations change | Customer control of where data, models, inference and operations execute, inside a boundary we can prove (control envelope, isolation, audit, provenance, no uncontrolled egress) |
 
 **Positioning model** (the intersection we deliberately target, not a claim that no one else can be there; some managed providers offer private deployments, and some public platforms offer real operational guarantees):
 
@@ -64,6 +64,60 @@ The identity name already pairs the two halves. Each defines part of the shape o
 | **Customer runs it** | Private infrastructure | Public AI services |
 
 Proving the sovereign half takes more than infrastructure qualification. Benchmarking ([[Benchmark Evidence Chain]]) evidences one part of it: capacity we control, whose performance we can prove, with no uncontrolled egress. The minimum control envelope and MOE-1 establish the rest.
+
+### The operating philosophy between the centres: intent and constraints
+
+> **You tell us what you want, what matters, and what you won't compromise. We deliver the how, stay inside your boundaries, and prove what we accomplished.**
+
+This is **not a third centre** (added 2026-10-08, after the roadmap review). It is the operating philosophy that connects the two: **the sovereign boundary establishes what the enterprise controls; the operator takes responsibility for what happens within it.** It is the contract each centre is measured against. It also names what crosses the harness boundary below: the customer owns *what* the work is for; we own *how* it gets done.
+
+**The AI Operating System loop is how we turn both promises into an experience.** It is not a separate product or layer; it is the loop the platform runs for every declaration:
+
+| Step | The customer | RackAI | Centre it serves |
+|---|---|---|---|
+| **1. Tell us** | Declares what they want, what matters, and what they won't compromise | Turns it into an actionable objective; resolves ambiguity; inherits and discovers the remaining constraints | Both |
+| **2. We deliver the how** | Does not prescribe the implementation | Finds capabilities, plans, places, executes, observes and adapts toward the original intent | Operator |
+| **3. Inside your boundaries** | Keeps control of intent, authority, data, execution boundaries and evidence | Acts only within delegated authority; clarifies, escalates or stops; reports infeasibility instead of relaxing a hard constraint | Sovereign provider |
+| **4. Prove it** | Can verify | Shows the outcome was achieved **and** the boundaries held | Both |
+
+At the platform level this is the roadmap's [[RackAI Roadmap#The Operating Loop — the system the four proofs build|operating loop]] (intent → specification → plan → action → observation → correction); [[Minimum Operable Estate|MOE-1]] is where it is first proven with a paying customer.
+
+| | Operator: "we run it" | Sovereign provider: "it stays theirs, verifiably" |
+|---|---|---|
+| **What it owes the declaration** | Realization: interpret the intent, plan, execute, observe, adapt | The envelope: hard constraints hold, and are never relaxed without saying so |
+| **What it must prove** | That the outcome was achieved | That it was achieved inside the boundary |
+
+The customer cannot list every constraint, and should not have to. The **operating envelope** is built from four sources, and each already has a home:
+
+| Constraint source | Example | Home |
+|---|---|---|
+| **Declared:** stated by the customer | Deadline, budget, quality bar, exclusions | The customer's business logic |
+| **Inherited:** policy, delegated authority, org context | Residency, approved models, required approvals, retention | [[AI Governance and Assurance]] (the minimum control envelope, D3 / P-006), [[Agent Identity]] |
+| **Discovered:** what the estate makes possible | Capacity, latency, failures, cost | The [[Empirical Map]] and the [[RackAI Roadmap#The Operating Loop — the system the four proofs build\|operating loop]] |
+| **Derived:** what follows from the intent or the chosen plan | Dependencies, ordering | The orchestrator inside the [[Governed Harness]] |
+
+Each constraint is also **hard** (never violated), **soft** (a preference, traded off in optimization) or **adaptive** (changes with context, state or authority). The operator optimizes inside the envelope; governance sets part of the envelope but does not do the optimizing.
+
+**When the declaration is incomplete.** It almost always will be. The rule: **autonomy expands with evidence, delegated authority and reversibility, and contracts as uncertainty or consequence rises.** In practice the system:
+
+- **infers** when the consequences are low, reversible and within authority;
+- **asks** when ambiguity materially changes the outcome;
+- **escalates or stops** when the action is consequential, unsafe or outside delegated authority;
+- **reports infeasibility** when constraints conflict, and never relaxes a hard constraint silently.
+
+That last rule is where the two centres meet. A system that quietly relaxes a residency rule to hit a deadline has been a good operator and a broken sovereign provider at the same time.
+
+**Five behaviors, not five products.** The philosophy shows up as five behaviors of components we already have. None is a new product, pillar or engine; each must be delivered by the existing ones, and any addition has to justify itself against the two centres.
+
+| Behavior | Serves | Delivered by (existing) |
+|---|---|---|
+| **Intent to objective:** turn what the enterprise wants into something actionable; resolve ambiguity; understand constraints | Both | Declaration surface (P-004); [[Governed Harness]] |
+| **Objective to realization:** discover capabilities, plan and execute without the user prescribing the implementation | Operator | [[Governed Harness]]; the operating loop's decide and place stages ([[Empirical Map]], [[Request Routing]]) |
+| **Continuous adaptation:** notice change and adjust without losing the original intent | Operator | Observe → [[Empirical Map]] → correct (closed loop, P-007) |
+| **Governed autonomy:** act within delegated authority; know when to clarify, escalate or stop | Sovereign | [[Agent Identity]], [[Action Controls]], the incomplete-intent rule (P-006) |
+| **Evidence and assurance:** show the outcome was achieved *and* the boundaries were respected | Both | [[AI Governance and Assurance]], [[Benchmark Evidence Chain]], MOE-1 evidence report |
+
+**How this sharpens the test.** The strategic-choice test still stands. The contract tells us how to score it: a better operator realizes more declared intent with less specification; a more credible sovereign provider widens what the customer can safely leave undeclared, because the inherited envelope holds and can be shown. Unresolved: when intent is incomplete, who has the authority to turn our interpretation into a commitment that can't be undone ([[Open Questions]]).
 
 ## What We Own, Commoditize, and Refuse
 
@@ -81,6 +135,8 @@ A strategy says no. This is the load-bearing part of the identity.
 The hinge of the whole identity is the split between the **execution harness** (ours) and the **business logic** (the customer's / partner's). Blur it and the collision with Palantir and every application platform becomes inevitable — a CEO can fairly ask "why wouldn't AIP just do your harness?"
 
 > **Rackspace owns the execution harness. Customers and partners own the business logic — the thing the agent is trying to accomplish.**
+
+What crosses this boundary is the **declaration of intent and constraints** (above). The customer owns the declaration. We own its realization and the evidence for it.
 
 | RackAI owns (execution harness) | Customer / partner owns (business logic) |
 |---|---|
@@ -139,7 +195,7 @@ flowchart TD
     subgraph INPUT["Abstracted supply — interchangeable"]
       CAP[GPU supply: RXT / partner / customer / hyperscaler; AMD / NVIDIA]
     end
-    APP --> GOV
+    APP -- "declares intent + constraints" --> GOV
     GOV --> ORCH
     ORCH --> OPT
     OPT --> INF

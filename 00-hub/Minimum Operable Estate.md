@@ -8,7 +8,7 @@ aliases: [minimum operable estate, moe, mvp operator, operator mvp, smallest ope
 related: [hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register]
 source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "CEO strategy review 2026-09-21"]
 confidence: assumed
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-08
 parent: hub-roadmap
 summary: "The smallest estate where 'we operate your AI' is true: MOE-0 rehearsal then MOE-1 paid proof; anchors Proof 3."
 ---
@@ -73,13 +73,13 @@ MOE-1 changes **who is accountable for the outcome, and who controls where it ru
 
 **Proposed acceptance evidence for MOE-1**, the five things you could point at. If we can't show all five, MOE-1 hasn't happened:
 
-1. A signed scope of delegated responsibility (serving, reliability, model lifecycle, incident response, capacity and cost).
+1. A signed scope of delegated responsibility (serving, reliability, model lifecycle, incident response, capacity and cost), written as the customer's **declared intent and constraints**: what they want, the hard limits, and what we may decide without asking.
 2. Agreed SLOs and an incident path the customer can see.
 3. Running inside the customer's boundary, with an audit trail they can inspect.
-4. A recurring evidence report on cost, performance and incidents.
+4. A recurring evidence report on cost, performance and incidents, showing both that the outcome was met **and that the declared envelope held**, including any escalations or infeasibility reports.
 5. An invoice for operating, not just for capacity.
 
-These are `assumed`: a proposed acceptance definition pending ratification (see Open Questions).
+These are `assumed`: a proposed acceptance definition pending ratification (see Open Questions). Artifacts 1 and 4 are the intent-and-constraints contract ([[Three Battlegrounds]]) made concrete: MOE-1 is where the contract is first proven, not just stated.
 
 ## What the MOE Deliberately Excludes
 

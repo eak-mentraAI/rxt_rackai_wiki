@@ -8,7 +8,7 @@ aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operat
 related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness, ent-solution-marketplace, ent-packaged-solution, ev-sovereign-private-assistant, wiki-milestone-release-map]
 source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md", "PM/leadership roadmap review 2026-09-28", "PM/leadership roadmap review 2026-10-06"]
 confidence: derived
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-08
 parent: hub-root
 summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Assume Responsibility, Operate)."
 ---
@@ -78,7 +78,8 @@ flowchart LR
     DECIDE --> PLACE[Route / place the workload]
     PLACE --> OBSERVE[Observe actual outcome]
     OBSERVE --> MAP
-    GOV[Enterprise governance envelope] -.wraps.-> DECIDE
+    INTENT[Customer declares intent + constraints] --> GOV
+    GOV[Operating envelope: declared + inherited + discovered constraints] -.wraps.-> DECIDE
     GOV -.wraps.-> PLACE
     EST[Heterogeneous estates] -.executes across.-> PLACE
 ```
@@ -93,8 +94,27 @@ flowchart LR
 | Choose model/runtime/accelerator/config | 2 Decide | Workload placement (P-004); [[Request Routing]] |
 | Route / place the workload | 2 Decide | [[Request Routing]]; [[Standard Model Deployment]] |
 | Observe actual outcome → feed back | 2→loop | [[Monitoring & Observability]] → [[Empirical Map]] |
-| Governance envelope around the loop | 3 Assume Responsibility | [[AI Governance and Assurance]], [[Governed Harness]] |
+| Operating envelope around the loop (governance sets the inherited part) | 3 Assume Responsibility | [[AI Governance and Assurance]], [[Governed Harness]] |
 | Executable across estates | 4 Operate | [[AI Operations Product]], [[Minimum Operable Estate]] |
+
+> **What the loop is for (2026-10-08): the AI Operating System loop.** This is how we turn both identity promises into an experience: *you tell us what you want, what matters, and what you won't compromise; we deliver the how, stay inside your boundaries, and prove what we accomplished.* The loop realizes a customer's **declared intent inside their constraints** (the contract between the two identity centres; see [[Three Battlegrounds#The operating philosophy between the centres: intent and constraints|Three Battlegrounds]]). Read the loop as *intent → specification → plan → action → observation → correction*: governance supplies the inherited constraints, the [[Empirical Map]] supplies the discovered ones, the decide/place steps optimize inside the envelope, and assurance proves both the outcome and that the envelope held. This adds no new stage or workstream; it states what the existing stages are accountable to.
+
+**Loop coverage today (2026-10-08).** Where each turn of the contract is delivered, and what is missing. No new workstream: every gap already has a P-item.
+
+| Turn | Delivered by | Status | Closes via |
+|---|---|---|---|
+| Declare intent + constraints | No customer-facing declaration; quota plans are GPU-centric | Principle adopted 2026-10-06, surface missing | **P-004** (declaration surface) |
+| Declared constraints: SLOs | Per-profile SLO thresholds | Not ratified | Open question; MOE-1 artifact 2 |
+| Inherited constraints | IAC M1–M3 shipped; IAC M4 Won't Do; [[Agent Identity]] and [[Action Controls]] planned | Partial | **P-006** |
+| Discovered constraints | Platform M1–M4 telemetry, accelerator inventory (done); Observability M1 not started; cost model and [[Empirical Map]] missing | Partial | P-003, **P-005** |
+| Plan / decide | llm-d routing substrate in progress; evidence-informed selection missing | Partial | **P-005** |
+| Act | Deployments and serving | Exists | — |
+| Observe → correct | Telemetry in progress; closed loop missing | Partial | P-005 → P-007 |
+| Prove the outcome | [[Benchmark Evidence Chain]]; SLO attainment unscorable without SLOs | Blocked | SLO ratification |
+| Prove the envelope held | Audit partial; compliance evidence missing | Partial | **P-006** |
+| Handle incomplete intent | Primitives only: Metering M4 admission control (reject), Action Controls approval gate (escalate) | Unowned | **P-006** (incomplete-intent rule) |
+
+At the workload level this is a six-month contract ("give us the workload and constraints; we operate it"). The enterprise-objective level ("cut cloud cost 20% without hurting reliability") sits in the [[Governed Harness]] and follows MOE-1.
 
 > **Why this framing matters.** Read as scattered milestones, the roadmap looks like a pile of inference-engineering projects. Read as this loop, most "features" (speculative decoding, AMD AIM, llm-d, Prometheus, RBAC, OpenRouter) stop being roadmap destinations and become *implementation choices in service of the loop*. The differentiated items are the ones that make a **better workload-placement decision**: characterization → Empirical Map → evidence-informed routing → closed-loop optimization. That is the flywheel; everything else serves it.
 
@@ -679,6 +699,8 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 > **Naming.** The *interface/mechanism* is the **supply-abstraction interface** (`SupplyTarget / AcceleratorPool / ExecutionLocation`); the *product policy* that rides on it — how much infrastructure choice the customer gets — is **Workload Placement Policy** (see Proof 1). Same architecture, two lenses: the interface preserves supply optionality; the policy decides who chooses. The unresolved product question (customer keeps GPU-level control vs. RackAI selects from workload + constraints, and the GPU-centric quota tension) belongs to the policy.
 
+**Declaration surface (2026-10-08).** P-004 also owns *what the customer declares versus what we choose*: the customer-facing half of the intent-and-constraints contract ([[Three Battlegrounds]]). Today there is no customer-facing declaration object. The [[Model Deployment Specification]] is our realization record (GPU, quantization, parallelism, runtime), and should be **derived from** a declaration (model or capability, workload profile and SLO, residency, approved vendors, economics preference) rather than authored in its place. A customer GPU pin stays possible, expressed as a hard placement constraint. The quota rework is the same item.
+
 **Blocks adoption:** architectural review with Team Platform/IAC; confirm it doesn't slow the in-flight AMD work; plus the Workload Placement Policy product decision above (interacts with [[Capacity Pool]] quota definitions).
 
 ### P-005 — Empirical Map v1 + evidence-driven routing (the moat)
@@ -703,6 +725,7 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 - **Identity / authorization / quota / policy boundaries** sufficient for the MOE operating model. *Whether that means resurrecting IAC M4 or a different deliverable is an architecture decision* — the roadmap sets the outcome, architecture picks the implementation.
 - **Governed execution** — a harness v1 sufficient to operate the MOE workload (currently only in the dev-plan strategy source).
 - **Audit + isolation** — extend the shipped audit-log API (IAC M3) to the MOE workload.
+- **The incomplete-intent rule** (2026-10-08): when a declaration is underspecified, the platform *infers* (low consequence, reversible, within authority), *asks*, *escalates or stops*, or *reports infeasibility*, and never relaxes a hard constraint silently. Build it from existing primitives: Metering M4 admission control (reject), [[Action Controls]] approval gates (escalate), [[Agent Identity]] delegated authority (what may be inferred). The authority question is open ([[Open Questions]]).
 - **Minimum independently-verifiable compliance evidence required by MOE-1** — *not* a pre-decided SOC 2 Type I. Establish the evidence bar from the **first design-partner profile**, then identify the actual attestation that segment requires. Avoids building compliance because the roadmap says so rather than because the market boundary requires it.
 
 **Blocks adoption:** the MOE-1 customer segment must be named first (its regulatory requirements set the compliance bar — ties to P-002); IAC M4 was dropped for a reason (get it before deciding whether to reinstate); harness and attestation each need a home team and (for attestation) external lead time.

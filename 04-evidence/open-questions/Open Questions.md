@@ -8,7 +8,7 @@ aliases: [open questions, open questions register, unknowns register]
 related: [hub-evidence, idx-validation-register, idx-benchmark-library]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Register of genuine unknowns and surfaced source conflicts affecting the evidence layer."
 ---
@@ -45,6 +45,7 @@ The register of genuine unknowns and any surfaced conflicts between sources. Ite
 | Price competitiveness (routing gate G3): can projected GLM 5.3 Flash cost/token on SPOT H100 FP8 land within the competitive band of live GLM providers on OpenRouter? Price routes before performance, so this gates the public launch. | [[OpenRouter Integration Plan]], [[Cost per 1M Tokens]], [[Cost per GPU-Hour]], [[GLM 5.3 Flash]] | open |
 | SPOT-capacity reliability: can public OpenRouter traffic meet the >99.9% availability target while served on preemptible SPOT H100 capacity? | [[OpenRouter Integration Plan]], [[Availability]], [[Fleet Inventory]] | open |
 | Confirm GLM 5.3 Flash's actual footprint fits 2–4 H100 at FP8 (first-bet dependency). | [[First Bet — GLM 5.3 Flash]], [[GLM 5.3 Flash]], [[GPUs per Replica]] | open |
+| Authority to commit under incomplete intent: when a customer's declaration is underspecified, who (or what delegated authority) can turn RackAI's interpretation into an executable commitment, especially an irreversible one? Sets where *infer* ends and *ask / escalate* begins in the intent-and-constraints contract. Leadership + product decision; shapes the MOE-1 control envelope (D3). | [[Three Battlegrounds]], [[Agent Identity]], [[AI Governance and Assurance]], [[Minimum Operable Estate]] | open |
 | Proof-point model: roadmap says DeepSeek first, fit analysis says GLM first. | [[DeepSeek-First vs GLM-First Sequencing]] | resolved (GLM-first) |
 | Is "i40's" in staging confirmed to be [[NVIDIA L40S]] (vs L40)? Affects FP8 capability assumptions. | [[NVIDIA L40S]], [[Fleet Inventory]] | open |
 | Exact RackAI dev A30 count is TBD. | [[NVIDIA A30]], [[Fleet Inventory]] | open |

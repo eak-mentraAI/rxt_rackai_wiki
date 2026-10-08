@@ -8,7 +8,7 @@ aliases: [model deployment specification, deployment spec, deployment contract, 
 related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-capacity-pool, ent-benchmark-run, hub-entities, hub-inference-serving, wf-model-deployment]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-entities
 summary: "Canonical entity: the declared contract every Model Deployment must satisfy."
 ---
@@ -18,6 +18,8 @@ summary: "Canonical entity: the declared contract every Model Deployment must sa
 ## Definition
 
 A **Model Deployment Specification** is the declared, versioned contract that every [[Model Deployment]] must satisfy before it can serve traffic. It states, up front, what a deployment of a given [[Model]] is supposed to be — its identity and version, weight source, runtime, quantization, supported context, GPU requirement, parallelism, API capabilities, routing and scaling policy, health checks, and reference benchmark profile. The spec is the intent; the deployment is the realization. Each Model Deployment declares exactly one specification.
+
+> **Position in the customer contract (2026-10-08).** Relative to the *customer*, the spec is RackAI's realization choice, not the customer's declaration. Under the adopted placement principle ("RackAI chooses by default; customers constrain when necessary"), it should be derived from the customer's declared intent and constraints, with any customer GPU pin carried as a hard placement constraint. The declaration surface is carried under P-004 in the [[RackAI Roadmap]].
 
 ## Layer
 
