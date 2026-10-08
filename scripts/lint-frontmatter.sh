@@ -49,6 +49,7 @@ is_skipped() {
     *" - Companion.md") return 1 ;;
     reference/*|*/reference/*) return 0 ;;
     _ontology-discovery/*|*/_ontology-discovery/*) return 0 ;;  # gitignored private drafts
+    CLAUDE.md|AGENTS.md) return 0 ;;  # local agent quick-start files (git-excluded), not corpus notes
     # Same exclusions as the full-repo find below, so explicit/staged files match.
     templates/*|*/templates/*|.kiro/*|*/.kiro/*|.obsidian/*|*/.obsidian/*) return 0 ;;
   esac

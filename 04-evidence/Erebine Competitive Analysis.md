@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [erebine, erebine.ai, erebine analysis, competitor erebine, "the layer underneath"]
-related: [hub-evidence, idx-capability-gap-register, hub-rackai-platform, hub-openrouter-initiative, hub-commercial-capacity]
+related: [hub-evidence, idx-capability-gap-register, hub-rackai-platform, hub-openrouter, hub-commercial]
 source_docs: ["Rack AI v2/README.txt", "Rack AI v2/claude-desktop-config.json", "https://erebine.ai", "erebine MCP server (api.erebine.ai) tools/prompts/resources listing", "erebine OpenAI-compatible /v1/models probe"]
 confidence: measured
 last_reviewed: 2026-09-15

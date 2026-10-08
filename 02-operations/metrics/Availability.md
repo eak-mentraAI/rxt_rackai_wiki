@@ -5,7 +5,7 @@ status: draft
 owner: reliability
 domain: reliability
 aliases: [availability, uptime, endpoint availability]
-related: [met-ttft, met-gpu-utilization, wf-canary-rollback, wf-admission-control, pol-admission-control, ent-model-deployment, ent-openrouter-provider-integration]
+related: [met-ttft, met-gpu-utilization, wf-canary-rollback, wf-admission-control, pol-admission-control, ent-model-deployment, ent-openrouter-integration]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-09-03

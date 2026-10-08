@@ -5,7 +5,7 @@ status: draft
 owner: knowledge-graph-steward
 domain: governance
 aliases: [acceptance tests, regression tests, graph tests, cc-regression-suite]
-related: [pol-fitness-checklist, chg-kg-test-results]
+related: [pol-fitness-checklist, chg-consistency-report]
 parent: hub-wiki
 source_docs: [05-wiki/Knowledge Graph Acceptance Test Results.md]
 confidence: validated
@@ -179,6 +179,6 @@ The baseline is established on the first full run once the entity and operationa
 
 ## See Also
 
-- [[Knowledge Graph Acceptance Test Results]] — detailed test run log
+- [[CONSISTENCY_REPORT]] — output template for a consistency / test run (no standalone test-run log exists yet)
 - [[FITNESS_CHECKLIST]] — structural and consistency checks
 - [[CHANGE_PACKET]] — required before edits

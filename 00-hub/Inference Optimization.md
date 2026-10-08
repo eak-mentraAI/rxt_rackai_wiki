@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: performance
 aliases: [inference optimization, optimization pillar, serving efficiency, inference performance engineering, ai optimization and efficiency]
-related: [hub-rackai-platform, hub-roadmap, hub-inference-serving, hub-model-services, hub-ai-harness, hub-commercial, hub-org-design, wiki-pillar-working-model, ent-accelerator-class, ent-nvidia-h100, ent-nvidia-l40s, ent-nvidia-a30, ent-amd-instinct, ent-benchmark-run, met-ttft, met-output-throughput, met-productive-gpu-utilization, fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, fml-gpu-hours-per-1m-tokens, coef-fp8-throughput-factor, coef-kv-cache-hit-rate, coef-speculative-decoding-acceptance-rate]
+related: [hub-rackai-platform, hub-roadmap, hub-inference-serving, hub-model-services, hub-ai-harness, hub-commercial, hub-org-design, wiki-pillar-working-model, ent-accelerator-class, ent-gpu-h100, ent-gpu-l40s, ent-gpu-a30, ent-gpu-amd-instinct, ent-benchmark-run, met-ttft, met-output-throughput, met-gpu-utilization, fml-tokens-per-gpu-second, fml-cost-per-1m-tokens, fml-gpu-hours-per-1m-tokens, coeff-fp8-throughput, coeff-kv-cache-hit-rate, coeff-spec-decode-acceptance]
 source_docs: ["reference/jd/EXTERNAL_PDM_Optimization_and_Efficiency_JD.md", "reference/RackAI - Roadmap.xlsx", "06-sources/Rack AI OpenRouter Engineering Roadmap.md"]
 confidence: derived
 last_reviewed: 2026-09-24

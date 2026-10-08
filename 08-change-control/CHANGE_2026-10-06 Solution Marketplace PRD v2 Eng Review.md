@@ -53,7 +53,7 @@ No performance numbers asserted. Metric baselines remain zero/none; the ladder n
 
 - **Dependent notes updated?** Release map re-synced. The [[Solution Marketplace]] and [[Packaged Solution]] *entities* were checked — their definitions still hold (the manifest/binding/lifecycle detail is PRD-level requirement depth, not a redefinition of the entity); the entity's lifecycle-states remain consistent with the new phasing. No entity edit required.
 - **Canonical IDs/aliases preserved?** Yes.
-- **Formulas/metrics/coefficients/scorecards?** The metric ladder names product metrics (delivery leverage, adoption) that are **PRD-local success measures**, not new canonical [[Metric]] notes; if any graduate to tracked metrics they'd get canonical homes then. None created now.
+- **Formulas/metrics/coefficients/scorecards?** The metric ladder names product metrics (delivery leverage, adoption) that are **PRD-local success measures**, not new canonical [[Metric Index|Metric]] notes; if any graduate to tracked metrics they'd get canonical homes then. None created now.
 - **Source-to-Concept Crosswalk?** No new source concept — same 2026-10-06 initiative, deeper spec; logged here.
 - **One-Concept / layer purity?** Held — PRD projects from the entities; manifest/binding/lifecycle are requirements, not competing definitions.
 

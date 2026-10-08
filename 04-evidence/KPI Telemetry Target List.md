@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: performance
 aliases: [kpi telemetry targets, telemetry target list, measurement contract, telemetry gap review, metric provenance review]
-related: [hub-evidence, idx-metrics, idx-kpi-hierarchy, met-ttft, met-output-throughput, met-tokens-per-gpu-second, met-gpu-utilization, met-availability, met-model-launch-lag, met-cost-per-outcome, ent-empirical-map, hub-operations, hub-commercial-capacity]
+related: [hub-evidence, idx-metrics, idx-kpi-hierarchy, met-ttft, met-output-throughput, met-tokens-per-gpu-second, met-gpu-utilization, met-availability, met-model-launch-lag, met-cost-per-outcome, ent-empirical-map, hub-operations, hub-commercial]
 source_docs: ["repo review 2026-10-05 (TTFT/output-throughput telemetry gap)", "openrouter_engineering_roadmap.md", "openrouter_strategic_vision.md"]
 confidence: assumed
 last_reviewed: 2026-10-05

@@ -4,7 +4,7 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [ai operations product, aiops product, operating model, managed ai operations, fde motion, operator delivery motion, run-the-service]
+aliases: [ai operations product, aiops product, operating model, managed ai operations, fde motion, operator delivery motion, run-the-service, product operations]
 related: [hub-roadmap, hub-battlegrounds, hub-minimum-operable-estate, hub-load-bearing-bets, hub-governance, hub-operations, src-rackai-dev-plan, wiki-pillar-working-model, hub-org-design]
 source_docs: ["reference/jd/EXTERNAL_PDM_Product_Operations_JD.md", "06-sources/RackAI Enterprise AI Development Plan.md", "00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "CEO strategy review 2026-09-21"]
 confidence: assumed

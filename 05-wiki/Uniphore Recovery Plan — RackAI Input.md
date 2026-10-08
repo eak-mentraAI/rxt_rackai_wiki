@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [uniphore recovery plan, uniphore rackai recovery, uniphore partnership recovery, uniphore battlecard map, customer zero recovery plan]
-related: [hub-wiki, hub-rackai-roadmap, ent-model-deployment, ent-organization, wf-fine-tuning, wf-serving-lifecycle, idx-open-questions]
+related: [hub-wiki, hub-roadmap, ent-model-deployment, ent-organization, wf-fine-tuning, hub-model-services, idx-open-questions]
 source_docs: [rackai_project_update_jun_2026, rackai_roadmap_master, rackai_roadmap_uniphore, rackai_m2_roadmap_csv, questions_to_uniphore_csv, uniphore_phase_1_csv, project_specific_rackai_docs, iaas_battlecard, ftaas_battlecard]
 confidence: assumed
 last_reviewed: 2026-10-02

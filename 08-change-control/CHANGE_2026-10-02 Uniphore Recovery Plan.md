@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: governance
 aliases: [uniphore recovery plan ingestion 2026-10-02, uniphore battlecard map change]
-related: [idx-uniphore-recovery-plan, idx-open-questions, idx-crosswalk, hub-rackai-roadmap]
+related: [idx-uniphore-recovery-plan, idx-open-questions, idx-crosswalk, hub-roadmap]
 source_docs: ["05-wiki/Uniphore Recovery Plan — RackAI Input.md", "reference/FW- RackAI Project Update - Jun 4 2026.eml", "reference/RackAI-Roadmap 2.pptx", "reference/RackAI-Roadmap-Uniphore.pptx", "reference/IaaS Battlecard .pdf", "reference/FTaaS Battlecard .pdf"]
 confidence: assumed
 last_reviewed: 2026-10-02
