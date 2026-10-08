@@ -8,7 +8,7 @@ aliases: [fleet inventory, gpu inventory, ground truth inventory, phase 0 invent
 related: [hub-evidence, ent-gpu-fleet, ent-gpu-node, ent-gpu-cluster, idx-open-questions]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: measured
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-evidence
 summary: "Phase-0 ground-truth GPU fleet inventory across the SPOT, RackAI staging, and RackAI dev environments."
 ---
@@ -54,7 +54,7 @@ The SPOT H100s are the **NVL PCIe** variant, not SXM. This is the single most im
 
 ## Incoming Capacity
 
-- **AMD Instinct MI350P** — a large order, ETA approximately **October 2026**. We can position an **8-way MI350P** inference pool, a real step up in capacity. But it is a **PCIe accelerator**, so it carries the *same* horizontal-scaling limitation as the H100 NVL: it will not scale a workload across a large interconnected group the way an SXM part (H200) or UBB8 platform (B300) does. It also introduces the ROCm serving path (vLLM/SGLang only) — see [[GPU Type Compatibility Matrix]].
+- **AMD Instinct MI350P** — a large order, ETA approximately **October 2026**; reported deployed 2026-10-07 (operator-reported; counts and topology to be captured in the B2 Validated Cluster Profile — see [[AMD MI350P Qualification Plan]]). We can position an **8-way MI350P** inference pool, a real step up in capacity. But it is a **PCIe accelerator**, so it carries the *same* horizontal-scaling limitation as the H100 NVL: it will not scale a workload across a large interconnected group the way an SXM part (H200) or UBB8 platform (B300) does. It also introduces the ROCm serving path (vLLM/SGLang only) — see [[GPU Type Compatibility Matrix]].
 
 ## Path to Top-Tier
 

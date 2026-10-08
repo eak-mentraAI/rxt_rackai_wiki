@@ -8,7 +8,7 @@ aliases: [metric index, metrics index, L2 metric listing]
 related: [hub-wiki, hub-operations, idx-kpi-hierarchy]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-wiki
 summary: "Index of the canonical Layer-2 operating metrics for the Rack AI inference platform."
 ---
@@ -25,6 +25,10 @@ Lists the canonical Layer-2 (L2) operational metrics that define how the Rack AI
 |------|----|------|--------|:----------:|
 | [[Tokens per GPU-Second]] | met-tokens-per-gpu-second | metric | draft | assumed |
 | [[TTFT]] | met-ttft | metric | draft | assumed |
+| [[TPOT]] | met-tpot | metric | draft | assumed |
+| [[Goodput]] | met-goodput | metric | draft | assumed |
+| [[SLO Attainment]] | met-slo-attainment | metric | draft | assumed |
+| [[Energy per Token]] | met-energy-per-token | metric | draft | assumed |
 | [[Output Throughput]] | met-output-throughput | metric | draft | assumed |
 | [[Productive GPU Utilization]] | met-gpu-utilization | metric | draft | assumed |
 | [[Availability]] | met-availability | metric | draft | assumed |

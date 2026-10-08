@@ -8,7 +8,7 @@ aliases: [milestone release map, release map, roadmap release view, major releas
 related: [hub-roadmap, hub-product, hub-battlegrounds, hub-minimum-operable-estate, hub-inference-serving, hub-ai-governance-assurance, hub-ai-harness, hub-model-services, hub-inference-optimization, ent-empirical-map, ent-governed-harness, wiki-pillar-working-model]
 source_docs: ["00-hub/RackAI Roadmap.md", "05-wiki/Pillar Working Model.md", "00-hub/Three Battlegrounds.md"]
 confidence: derived
-last_reviewed: 2026-10-06
+last_reviewed: 2026-10-07
 parent: hub-roadmap
 summary: "Market-and-internal projection of the four-proof roadmap into major milestone releases across five functional tracks."
 ---
@@ -137,7 +137,7 @@ Three decisions from the roadmap review that shape what the tracks do and don't 
 | **T4.S2 — Multi-Model & Portfolio** | "We run a rotating portfolio, not a single model" | Multi-model operation; the win-now + bet-ahead portfolio ([[DeepSeek V4 Flash]], GLM, [[Nemotron 3 Ultra]]) | Multi-model operation (Eng. 2.5); [[Product Hub]] model bets | 2 | 🟡 |
 | **T4.S3 — Fine-Tuning: Served, Not Built** | "We host and operate the artifact; a partner delivers the training" | Fine-tuning **operations** (placement, cost-per-job, [[LoRA Adapter]] lifecycle); SFT/LoRA shipped; delivery evaluated to partner(s), Uniphore leading | P-001 / D4; fine-tuning ops (dev-plan 4.2) | 2 | 🟢/🔴 |
 | **T4.S4 — Domain-Model Proof Point** | "A domain-aligned model beats frontier for a target workload" | One instrumented domain-model experiment tied to the central-bet test | Fine-tuning experiment (central bet); [[Three Battlegrounds]] | 2 | 🔴 |
-| **T4.S5 — Engine & Accelerator Selection** | "We pick the best engine×accelerator per cell, proven by measurement" | vLLM / AIM / NIM as measured backends behind the serving abstraction; AMD+NVIDIA nodes; selection decided by AgentX-anchored runs, not argument | AMD AIM (RACKAI-347/263); engine question (AgentX); [[Inference Optimization]] Two Layers | 2 | 🟡/🔴 |
+| **T4.S5 — Engine & Accelerator Selection** | "We pick the best engine×accelerator per cell, proven by measurement" | vLLM / AIM / NIM as measured backends behind the serving abstraction; AMD+NVIDIA nodes; selection decided by AgentX-anchored runs under the [[Benchmark Evidence Chain]] (first: [[AMD MI350P Qualification Plan]]), not argument | AMD AIM (RACKAI-347/263); engine question (AgentX); [[Inference Optimization]] Two Layers | 2 | 🟡/🔴 |
 
 **Line of sight:** S1–S2 are the OpenRouter proving ground (subordinate to the operator identity — a gym, not the product); S3 narrows where we differentiate (partner the delivery, keep the serving); **S4 is the central-bet falsification test** ([[RackAI Roadmap#Kill / Falsification Criteria (what would change the thesis)|K3]]); S5 relocates optimization value up a layer — engine tuning is a commodity, *selection* is the moat.
 

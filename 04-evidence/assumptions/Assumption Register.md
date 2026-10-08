@@ -8,7 +8,7 @@ aliases: [assumption register, assumptions index, belief register]
 related: [hub-evidence, idx-validation-register, idx-open-questions]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-evidence
 summary: "Register of stated beliefs that lack direct evidence, each with an owner and an exit criterion."
 ---
@@ -25,6 +25,7 @@ The register of assumptions baked into the strategy and roadmap that do not yet 
 |------------|----|--------------------------|:----------:|
 | [[FP8 Quality Neutral]] | asm-fp8-quality-neutral | Rack AI FP8-vs-BF16 quality benchmark on priority models | assumed |
 | [[Available Hardware Sufficient for Priority Models]] | asm-h200-sufficient | Hardware-fit + benchmark runs on H100 / AMD Instinct | assumed |
+| [[MI350P Serving Competitive]] | asm-mi350p-serving-competitive | Three clauses, each on matched MI350P + H100 evidence: C1 performance (B3→B4), C2 operability (B4), C3 economics (B5) | assumed |
 | [[Speculative Decoding Beneficial]] | asm-spec-decode-beneficial | Acceptance rate + throughput/TTFT under production load | assumed |
 | [[OpenRouter Traffic Follows Performance]] | asm-traffic-follows-performance | Observed traffic-share response to a measured gain | assumed |
 | [[Fleet Competitiveness]] | asm-fleet-competitiveness | H100 benchmark vs frontier + AMD specs + capacity plan | assumed |

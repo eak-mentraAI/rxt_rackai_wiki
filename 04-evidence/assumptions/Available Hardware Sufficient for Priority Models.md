@@ -5,17 +5,17 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [available hardware sufficient, h100 sufficient, fleet hardware fit assumption, h200 sufficient]
-related: [hub-evidence, bench-deepseek-h200-fp8, asm-fp8-quality-neutral, ent-gpu-h100, ent-gpu-amd-instinct, idx-fleet-inventory]
+related: [hub-evidence, bench-deepseek-h200-fp8, asm-fp8-quality-neutral, ent-gpu-h100, ent-gpu-amd-instinct, idx-fleet-inventory, asm-mi350p-serving-competitive]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-evidence
 summary: "Belief the current/incoming fleet can serve priority MoE models competitively — awaiting fit and benchmarks."
 ---
 
 # Available Hardware Sufficient for Priority Models
 
-> **Stable-ID note:** the frontmatter ID (`asm-h200-sufficient`) retains its original slug. The assumption has been corrected to the actual fleet — there are **no H200s** (see [[Fleet Inventory]]). "h200 sufficient" is kept as an alias.
+> **Stable-ID note:** the frontmatter ID (`asm-h200-sufficient`) retains its original slug. The assumption has been corrected to the actual fleet — there are **no H200s** (see [[Fleet Inventory]]). "h200 sufficient" is kept as an alias. This note covers *fit and sufficiency* of H100 and MI350P for priority models; it is not the H100-vs-MI350P *competitiveness* claim, which lives in [[MI350P Serving Competitive]].
 
 ## Statement
 

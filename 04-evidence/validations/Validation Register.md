@@ -8,7 +8,7 @@ aliases: [validation register, validation index]
 related: [hub-evidence, val-deepseek-h200-fp8, val-launch-lag-24h]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-evidence
 summary: "Register of validation items — what must be verified, each currently open."
 ---
@@ -26,6 +26,7 @@ The register of validation items — claims, coefficients, and configurations th
 | Item | ID | Method | Status |
 |------|----|--------|--------|
 | [[Validate DeepSeek H100 FP8]] | val-deepseek-h200-fp8 | Benchmark harness + competitive comparison pipeline | open |
+| [[Validate MI350P Qualification]] | val-mi350p-qualification | Control record: per-tier decisions, evidence IDs, acceptors, restrictions, revalidation | open — Pass 0 blocked on topology |
 | [[Validate Launch Lag Under 24h]] | val-launch-lag-24h | Instrument Model Launch Factory + measure launch lag | open |
 | [[Validate Erebine Inference Claims]] | val-erebine-inference-claims | OpenAI-compatible harness vs Erebine `ed` endpoint; TTFT/decode/cached_tokens/erepress | run complete 2026-09-15 (E-2 confirmed; E-3/E-4 measured; E-5 partial; E-1 unverifiable); RackAI side-by-side open |
 

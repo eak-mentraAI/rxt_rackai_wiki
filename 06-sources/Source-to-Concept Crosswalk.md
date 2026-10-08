@@ -8,7 +8,7 @@ aliases: [crosswalk, source-to-concept crosswalk, source mapping]
 related: [hub-root, idx-source-inventory]
 source_docs: []
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-07
 parent: hub-root
 summary: "Maps source documents to the canonical concepts they support."
 ---
@@ -80,6 +80,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | SemiAnalysis InferenceX AgentX + NVIDIA AIPerf (web, 2026-09-28) | External serving-benchmark standard RackAI anchors agentic benchmarking to (methodology, dataset, engine-delta referee for AIM/NIM/vLLM) | [[AgentX Benchmark Standard]] | L4 | asserted |
 | Enterprise AI Portfolio + Eight-Layer Stack + commercial layer + leadership ratification (2026-09-29) | **Canonical product model for Enterprise AI Cloud**: portfolio→product boundary (RackAI at the core), the **three ratified consumption offers** (GPU as a Service / RackAI / Outcome as a Service) with FDE as a cross-cutting add-on, and the DISCOVER/UNDERSTAND/CONSUME/ENGAGE model. Marketing/Sales/packaging derive from it. Offer *structure* ratified; commercial *mechanics* (pricing/billing) not built | [[Enterprise AI Cloud Product Model]] | hub | validated |
 | Enterprise AI Cloud Product Model, rendered for the public web (2026-09-29) | Marketing-site **projection** of the product model: screen-by-screen click-through (Screen 0 → domain → capability, with UNDERSTAND/CONSUME/ENGAGE branches). Derived view, not a source of truth; product model is authoritative | [[Enterprise AI Cloud Marketing Site Projection]] | L5 | derived |
+| Operator brief: MI350P benchmarking program (2026-10-07) + external anchors (MLPerf Inference, vLLM serving benchmark, AMD ROCm vLLM benchmark container, RCCL tests, InferenceX AgentX) | Benchmark tiers B1–B5, ownership seams, handoff artifacts, claim rights, Benchmark Card format, standard profiles; MI350P qualification program; new serving metrics (TPOT/ITL, goodput, SLO attainment, energy per token) | [[Benchmark Evidence Chain]], [[AMD MI350P Qualification Plan]], [[TPOT]], [[Goodput]], [[SLO Attainment]], [[Energy per Token]], [[MI350P Serving Competitive]] | L2/L4 | assumed |
 
 Extend this table as concepts are extracted into canonical notes.
 
