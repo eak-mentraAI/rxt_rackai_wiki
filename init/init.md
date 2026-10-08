@@ -202,7 +202,7 @@ Includes:
 
 Every note must declare a type. Use one of:
 
-`entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`.
+`entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`, `prd`, `projection`, `companion`.
 
 Do not mix incompatible roles in one note unless the note is explicitly a hub or index.
 
@@ -215,7 +215,7 @@ Every note begins with YAML frontmatter:
 ```yaml
 ---
 id: unique-stable-id
-type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary
+type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary | prd | projection | companion
 status: draft | reviewed | validated | deprecated
 owner: team-or-role
 domain: strategy | product | platform | performance | model-enablement | infrastructure | reliability | commercial | capacity | governance

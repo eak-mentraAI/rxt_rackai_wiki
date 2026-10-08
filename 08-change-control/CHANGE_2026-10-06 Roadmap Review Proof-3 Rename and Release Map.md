@@ -10,7 +10,7 @@ source_docs: ["PM/leadership roadmap review 2026-10-06", "00-hub/RackAI Roadmap.
 confidence: derived
 last_reviewed: 2026-10-06
 parent: hub-wiki
-summary: "Roadmap review: renamed Proof 3 Control -> Assume Responsibility, added per-proof pass/fail tests, resolved the Proof-1/Proof-3 evidence circularity, adopted the placement principle, ruled GPU-node access out of scope, split technique from capability, and reworked the release CSV + map (Release -> Capability Stage)."
+summary: "Roadmap review: Proof 3 renamed Assume Responsibility; pass/fail tests; placement principle; release map rework."
 ---
 
 # 2026-10-06 — Roadmap Review: Proof-3 Rename, Proof Pass/Fail Tests, Release CSV + Map Rework

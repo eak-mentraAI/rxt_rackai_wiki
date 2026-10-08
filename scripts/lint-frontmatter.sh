@@ -7,13 +7,17 @@
 #      last_reviewed, aliases, related, source_docs, parent, summary
 #   3. Enum fields have valid values:
 #      - type: entity|workflow|event|metric|formula|coefficient|policy|
-#              assumption|validation|evidence|source|hub|index|change|glossary
+#              assumption|validation|evidence|source|hub|index|change|glossary|prd|projection|companion
 #      - status: draft|reviewed|validated|deprecated
 #      - confidence: assumed|derived|measured|validated
 #      - domain: strategy|product|platform|performance|model-enablement|
 #                infrastructure|reliability|commercial|capacity|governance
 #   4. summary is <= 120 characters (matches knowledge-platform ingestion schema;
 #      over-length summaries are blocked and become unstructured shadow nodes)
+#
+# reference/ holds raw context material for AI agents and intentionally has no
+# frontmatter, so it is skipped — except "* - Companion.md" files, which are
+# structured notes and are linted.
 #
 # Usage:
 #   ./scripts/lint-frontmatter.sh              # Lint all .md files
@@ -25,7 +29,7 @@
 
 set -euo pipefail
 
-VALID_TYPES="entity|workflow|event|metric|formula|coefficient|policy|assumption|validation|evidence|source|hub|index|change|glossary"
+VALID_TYPES="entity|workflow|event|metric|formula|coefficient|policy|assumption|validation|evidence|source|hub|index|change|glossary|prd|projection|companion"
 VALID_STATUS="draft|reviewed|validated|deprecated"
 VALID_CONFIDENCE="assumed|derived|measured|validated"
 VALID_DOMAIN="strategy|product|platform|performance|model-enablement|infrastructure|reliability|commercial|capacity|governance"
@@ -37,6 +41,19 @@ MAX_SUMMARY_LEN=120
 ERRORS=0
 FILES_CHECKED=0
 FILES_FAILED=0
+
+# reference/ is skipped except companion files (see header); _ontology-discovery/
+# is gitignored private working material and never reaches the corpus.
+is_skipped() {
+  case "$1" in
+    *" - Companion.md") return 1 ;;
+    reference/*|*/reference/*) return 0 ;;
+    _ontology-discovery/*|*/_ontology-discovery/*) return 0 ;;  # gitignored private drafts
+    # Same exclusions as the full-repo find below, so explicit/staged files match.
+    templates/*|*/templates/*|.kiro/*|*/.kiro/*|.obsidian/*|*/.obsidian/*) return 0 ;;
+  esac
+  return 1
+}
 
 lint_file() {
   local file="$1"
@@ -134,7 +151,7 @@ lint_file() {
 if [ $# -gt 0 ]; then
   # Lint specific files passed as arguments
   for f in "$@"; do
-    if [ -f "$f" ] && [[ "$f" == *.md ]]; then
+    if [ -f "$f" ] && [[ "$f" == *.md ]] && ! is_skipped "$f"; then
       FILES_CHECKED=$((FILES_CHECKED + 1))
       lint_file "$f"
     fi
@@ -143,6 +160,7 @@ else
   # Lint all .md files in the repo (excluding .git, .obsidian, .kiro, templates)
   REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
   while IFS= read -r -d '' f; do
+    is_skipped "${f#"$REPO_ROOT"/}" && continue
     FILES_CHECKED=$((FILES_CHECKED + 1))
     lint_file "$f"
   done < <(find "$REPO_ROOT" -name "*.md" \

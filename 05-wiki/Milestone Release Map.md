@@ -158,6 +158,30 @@ Three decisions from the roadmap review that shape what the tracks do and don't 
 
 ---
 
+## Cross-Cutting Consumption Surfaces (how demand reaches the tracks)
+
+Two channels sit *above* the five tracks and pull demand through them. They are not tracks (not subsystems of the operating loop) — they are **consumption surfaces** at the [[Eight-Layer Stack|Consumption layer]]. Both route into the serving chain via Model endpoints; neither is a RackAI platform product (both *consume* RackAI).
+
+| Surface | What it distributes | Audience | Boundary | Proof | State |
+|---------|---------------------|----------|----------|:-----:|:-----:|
+| **OpenRouter channel** | Model endpoints | External public traffic | A proving ground / gym, kept subordinate to the operator identity | 1→2 | 🟡 |
+| **[[Solution Marketplace]]** | [[Packaged Solution|Packaged Solutions]] (agents/apps/harnesses that serve an outcome) | RackAI customers | **RackAI builds the rails (marketplace + Solution SDK + certification + isolation); FDEs author the solutions** | 4 (SDK earlier) | 🔴 proposed |
+
+**Solution Marketplace — capability stages** (proposed; **prototype-first** — build one reusable solution, then extract the standard from it, per [[Solution Marketplace PRD]] §8; mostly Proof 4, S0–S1 start earlier):
+
+| Stage | Theme | What it delivers | State |
+|-------|-------|------------------|:-----:|
+| **MK.S0 — Reference implementation / learning prototype** | "Build one reusable solution before designing the standard" | FDE builds [[Sovereign Private Assistant]] with the smallest packaging convention; learn common-vs-bespoke (discovers the D-0 package contract) | 🔴 proposed |
+| **MK.S1 — Extract the Solution Standard** | "Turn S0's lessons into the SDK + manifest contract" | SDK, capability/permission manifest, binding-policy model | 🔴 proposed |
+| **MK.S2 — Two-layer trust gate** | "A third-party solution can run safely in a tenant" | Package certification + per-estate instantiation validation; isolation bar | 🔴 proposed |
+| **MK.S3 — Lifecycle + second reference solution** | "Prove re-instantiation; manage versions" | Versioning, upgrade/rollback, revocation, EOL; second solution/estate proves re-instantiation + FDE delivery leverage | 🔴 proposed |
+| **MK.S4 — Marketplace surface + catalog** | "Customers discover, instantiate, and are metered" | The catalog, instantiation, consumption metering/attribution | 🔴 proposed |
+| **MK.S5 — Third-party / partner / customer authoring** | "Supply beyond FDE" | Open the standard once the trust bar + lifecycle are proven | ⚪ later |
+
+> **Why a marketplace, not just more features.** Each Packaged Solution is a [[Empirical Map|harness×model workload]] (feeds the moat), re-instantiable FDE output (bends workloads/FTE), and a distributable form of the sovereignty promise. It drives consumption — the demand side of Proof 4. **Boundary (2026-10-06 decision):** marketplace/SDK/governance = RackAI product org; solution authoring = FDE → partners → customers. Full definition + open questions (commercial model, sovereign-tenant certification bar): [[Solution Marketplace]].
+
+---
+
 ## The Two Headline Releases (what to communicate externally)
 
 The five tracks ladder up to **two cross-track releases** that are the actual market-and-internal story — the identity proofs from the roadmap, expressed as releases:
@@ -217,4 +241,5 @@ The releases are not a parallel ask — they implement the same [[RackAI Roadmap
 - [[Three Battlegrounds]] — the operator identity the releases serve
 - [[Capability Gap Register]] — live shipped-vs-planned state (the authority on 🟢/🟡/🔴)
 - [[Empirical Map]] — the Track 3 moat
+- [[Solution Marketplace]] — the second consumption channel (cross-cutting); [[Packaged Solution]] · [[Sovereign Private Assistant]]
 - [[Product Hub]] · [[RackAI Platform]]

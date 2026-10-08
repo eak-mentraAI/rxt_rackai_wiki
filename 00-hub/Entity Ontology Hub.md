@@ -73,6 +73,15 @@ Net-new entities from the [[RackAI Enterprise AI Development Plan]], `assumed` c
 | [[OpenRouter Private Model Integration]] | ent-openrouter-private-model | created |
 | [[Model Catalog Endpoint]] | ent-model-catalog-endpoint | created |
 
+## Consumption / Distribution Entities (proposed)
+
+Consumption-layer channels and the unit they distribute. `assumed` confidence — proposed in the 2026-10-06 marketplace discussion, modeled on the [[RackAI Roadmap]] as a cross-cutting surface. See [[Eight-Layer Stack]] (Consumption layer).
+
+| Entity | ID | Status |
+|--------|----|--------|
+| [[Solution Marketplace]] | ent-solution-marketplace | created |
+| [[Packaged Solution]] | ent-packaged-solution | created |
+
 ## Priority Model Instances
 
 | Model | ID | Role |

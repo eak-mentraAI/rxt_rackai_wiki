@@ -10,7 +10,7 @@ source_docs: ["05-wiki/Uniphore Recovery Plan — RackAI Input.md", "reference/F
 confidence: assumed
 last_reviewed: 2026-10-02
 parent: hub-wiki
-summary: "Added the Uniphore recovery-plan note; registered its sources and three surfaced open questions (status conflict, engagement gap, requirement currency)."
+summary: "Added the Uniphore recovery-plan note; registered its sources and three surfaced open questions."
 ---
 
 # 2026-10-02 — Uniphore Recovery Plan Ingestion

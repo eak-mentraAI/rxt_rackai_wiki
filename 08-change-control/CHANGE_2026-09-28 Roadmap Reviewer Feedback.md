@@ -10,7 +10,7 @@ source_docs: ["PM/leadership roadmap review 2026-09-28", "00-hub/RackAI Roadmap.
 confidence: validated
 last_reviewed: 2026-09-28
 parent: hub-wiki
-summary: "Incorporated PM/leadership roadmap-review feedback into the canonical RackAI Roadmap: operating loop, cost intelligence, placement policy, Proof 2/3/4 reframes, OpenRouter distribution, observability split."
+summary: "Folded PM/leadership review into the RackAI Roadmap: operating loop, cost intelligence, placement, Proof 2-4 reframes."
 ---
 
 # 2026-09-28 — Roadmap Reviewer Feedback Incorporation

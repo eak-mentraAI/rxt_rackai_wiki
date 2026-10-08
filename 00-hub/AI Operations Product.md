@@ -25,6 +25,13 @@ A managed-services labor business scales headcount with customers. An *operator 
 
 Especially true for Rackspace: taking operational responsibility for infrastructure someone else created is the historical identity ([[Three Battlegrounds]]). AI Operations Product is the AI-era expression of it.
 
+> **How the three pieces fit (operating-platform framing, 2026-10-06).** The evolved [[Enterprise AI Cloud Product Model|RackAI boundary]] is *operating platform = core + rails*. Three concepts compose cleanly under it, and it is worth stating which does what so they are not confused:
+> - **[[Solution Marketplace]] scales *what* gets operated** — FDE-authored [[Packaged Solution|Packaged Solutions]], authored once and instantiated across estates, grow the operated workload count without growing FDE headcount.
+> - **AI Operations Product (this workstream) defines *how* it gets operated** — the operating model, SLOs, incident model, acceptance gate, and FDE motion.
+> - **The [[Empirical Map]] makes RackAI *better* at operating it** — accumulated cross-workload evidence improves placement/routing/capacity decisions.
+>
+> **The identity, stated precisely:** RackAI is the operating *platform* that makes the operator model scalable; **Rackspace Managed Operations exercises operational responsibility through that platform**; FDE/partners/customers build the solutions on it. "Operator" is a *company* claim exercised through the platform — it is not a claim that the platform operates itself.
+
 ## What This Workstream Owns
 
 | Area | Scope |
@@ -74,3 +81,4 @@ Per the roadmap's governing principle, the operating model starts human-run and 
 - [[Minimum Operable Estate]] — the first estate this workstream operates
 - [[Three Battlegrounds]] — why the operating model is product, not overhead
 - [[Empirical Map]] — the flywheel that bends the labor curve
+- [[Solution Marketplace]] — where FDE output becomes a distributable [[Packaged Solution]] (one authored, many instantiated — the workloads/FTE lever)

@@ -10,7 +10,7 @@ source_docs: []
 confidence: measured
 last_reviewed: 2026-09-04
 parent: hub-rackai-platform
-summary: "Source: RackAI product documentation (web console + CLI/API user guide) — the shipped product experience and vocabulary."
+summary: "Source: RackAI product docs (web console + CLI/API user guide) — the shipped product experience and vocabulary."
 ---
 
 # RackAI Console and CLI Docs

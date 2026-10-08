@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operator roadmap, engineering roadmap canonical, four proofs, observe decide control operate, observe decide assume-responsibility operate, proof roadmap]
-related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness]
+related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness, ent-solution-marketplace, ent-packaged-solution, ev-sovereign-private-assistant, wiki-milestone-release-map]
 source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md", "PM/leadership roadmap review 2026-09-28", "PM/leadership roadmap review 2026-10-06"]
 confidence: derived
 last_reviewed: 2026-10-06
@@ -403,9 +403,13 @@ The controls that let a customer delegate operation inside their boundary, treat
 
 **Multi-estate Operations** — RXT cloud · customer private cloud · sovereign deployments · → eventually third-party capacity. Canonical homes: [[AI Operations Product]], [[Multi-Cluster Governance Brief (Partner)]], [[Minimum Operable Estate]]. *PM note: supporting **2 regions** in `rackai.rax.io` under a single RackAI instance likely needs work here — the multi-region prerequisite that gates an external multi-region MOE-1.*
 
+**Consumption at scale (the demand side of Proof 4)** — the **[[Solution Marketplace]]** distributing FDE-authored [[Packaged Solution|Packaged Solutions]] across estates is how the operator business *drives consumption* without scaling FDE headcount linearly (workloads/FTE). Canonical home: [[Solution Marketplace]] (Cross-Cutting Surfaces above). Sequenced here because repeatable, profitable, cross-estate distribution is a Proof-4 claim; the SDK + first FDE reference solution can start earlier as a proving ground.
+
+> **Product-boundary decision (2026-10-06): marketplace rails = RackAI; solution authoring = FDE (then partners/customers).** RackAI the product org owns the marketplace, the Solution SDK/packaging standard, the certification gate, and the tenant isolation for third-party-authored solutions. FDEs are the canonical supply side, authoring [[Packaged Solution|Packaged Solutions]] to that standard. This keeps "RackAI" from leaking upward into "RackAI owns all the apps" ([[Enterprise AI Cloud Product Model]] convention) and mirrors the [[Three Battlegrounds]] harness boundary. Same shape as the GPU-node-access and FDE decisions: name what is ours (the rails) vs. what is author/partner/customer (the business logic).
+
 ## Cross-Cutting Surfaces
 
-Items that don't sit inside a single proof but run across them: the external distribution surface, the observability split, the fine-tuning stance, and the cost-of-doing-business floor.
+Items that don't sit inside a single proof but run across them: the two external consumption channels (OpenRouter and the Solution Marketplace), the observability split, the fine-tuning stance, and the cost-of-doing-business floor.
 
 ### OpenRouter — External Distribution & Validation (a proving ground, not the product)
 
@@ -420,6 +424,22 @@ OpenRouter is **external distribution and validation**, not RackAI's enterprise 
 | ⚠ **Inference-as-a-Service direct** (`rackai.rax.io`) | Inferencing for popular models offered as a **direct** RackAI feature | *Open question:* should IaaS be a direct product feature, or stay an OpenRouter-only proving surface? | **open question — needs PM decision** |
 
 > **Keep it subordinate.** The risk the reframe guards against is OpenRouter accidentally becoming its own product strategy. It is a learning vehicle inside the operator roadmap; its outputs feed the loop, they are not the destination.
+
+### Solution Marketplace — Consumption Driver (the second channel) [proposed]
+
+The **[[Solution Marketplace]]** is the **second consumption channel**, structurally alongside OpenRouter but aimed inward at RackAI customers rather than outward at public traffic. Where OpenRouter distributes *model endpoints*, the marketplace distributes **[[Packaged Solution|Packaged Solutions]]** — agents, apps, and harnesses that serve a specific outcome (e.g. the [[Sovereign Private Assistant]]: a RackAI-aware private ChatGPT over a customer's own corpus and sovereign models, built to answer alpha-leakage concerns). Its purpose is to **drive consumption**: a solution authored once is instantiated across many estates, so demand scales without engineering scaling linearly. Full definition + boundary: [[Solution Marketplace]]; product requirements: [[Solution Marketplace PRD]].
+
+> **The boundary this draws (the point of the whole surface).** *RackAI (product org) builds the **rails** — the marketplace, the **Solution SDK**/packaging standard, the certification gate, and the tenant isolation that lets a third-party-authored solution run safely. FDEs (then partners, then customers) are the **supply side** — they author the solutions to that standard and submit them for placement. RackAI never authors the example solutions; the authors never build the platform.* This mirrors the [[Three Battlegrounds]] harness boundary (horizontal machinery is ours; business logic is the author's) and the [[Pillar Working Model]] producer/consumer discipline (the owner defines the contract; producers author to it).
+
+| Item | What it is | Serves the strategy by | Status |
+|------|-----------|------------------------|:------:|
+| **Solution SDK + packaging standard** | What makes a solution admissible + RackAI-aware | The rails FDEs author against | ⚠ proposed |
+| **Submission → certification → publication gate** | Trust/isolation bar a solution passes to list | Lets third-party-authored solutions run inside (sovereign) tenants safely | ⚠ proposed |
+| **Marketplace surface + catalog** | Discovery, instantiation, metering/attribution | The consumption driver itself | ⚠ proposed |
+| **FDE reference solutions** (e.g. [[Sovereign Private Assistant]]) | The first + canonical supply | Proves the loop; re-instantiable across estates (workloads/FTE) | ⚠ proposed |
+| **Third-party / partner / customer authoring** | Supply beyond FDE | Scales the catalog once the trust bar is proven | ⚠ later |
+
+> **Why it belongs on the roadmap (and is not just more surface).** Each solution is a [[Governed Harness|harness]]×[[Model]] workload the [[Empirical Map]] measures — the marketplace is a **telemetry source feeding the moat**, not only a storefront. It bends the **workloads-per-ops-FTE** curve ([[AI Operations Product]]) by making FDE output re-instantiable. And it turns the sovereignty promise into a **distributable product**. It is primarily a **Proof 4 (Operate at Scale)** surface — repeatable, profitable distribution across estates — though the SDK + one reference solution can start earlier as a proving ground, exactly as OpenRouter does. **Open questions:** the commercial model (author rev-share vs. bundled into Outcome as a Service) and the certification bar for a third-party solution inside a sovereign tenant — both tracked in [[Solution Marketplace]].
 
 ### Observability — two distinct surfaces, do not conflate
 
@@ -705,5 +725,6 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 - [[RackAI Enterprise AI Development Plan]] — strategy spine (operator stack)
 - [[OpenRouter Integration Plan]] — the gated GTM sequence
 - [[Milestone Release Map]] — this roadmap re-projected into major milestone releases across five functional tracks (market + internal communication view)
+- [[Solution Marketplace]] — the second consumption channel (FDE-authored solutions, RackAI-governed); [[Packaged Solution]] · [[Sovereign Private Assistant]]
 - [[Capability Gap Register]] — live shipped-vs-planned state
 - [[Product Hub]] · [[Rack AI Knowledge Base]]

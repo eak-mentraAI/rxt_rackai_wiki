@@ -10,7 +10,7 @@ source_docs: ["00-hub/RackAI Roadmap.md", "05-wiki/Pillar Working Model.md", "00
 confidence: derived
 last_reviewed: 2026-10-06
 parent: hub-wiki
-summary: "Added a Milestone Release Map — a Layer-5 projection of the four-proof roadmap into major milestone releases across five functional tracks for market + internal communication."
+summary: "Added the Milestone Release Map: Layer-5 projection of the four-proof roadmap into releases across five tracks."
 ---
 
 # 2026-10-06 — Milestone Release Map

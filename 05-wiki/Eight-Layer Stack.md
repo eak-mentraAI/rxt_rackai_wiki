@@ -25,7 +25,7 @@ The knowledge base's **five layers** (L1 entities → L2 operations → L3 comme
 
 | Dev-plan layer/plane | Knowledge layer | Canonical home(s) |
 |---|---|---|
-| **Consumption** | Initiatives / channels | [[OpenRouter Initiative]] (distribution channel), direct tenant consumption, Uniphore apps ([[Enterprise AI Portfolio]]) |
+| **Consumption** | Initiatives / channels | [[OpenRouter Initiative]] (distribution channel), [[Solution Marketplace]] (FDE-authored [[Packaged Solution|Packaged Solutions]]), direct tenant consumption, Uniphore apps ([[Enterprise AI Portfolio]]) |
 | **Orchestration** | L2 | [[Request Routing]] (+ [[Loop Planning & Credit Assignment]]) |
 | **Harness** | L1 + L2 | [[Governed Harness]]; runtime overlaps [[Serving Runtime]] |
 | **Inference** | L1 + L2 | [[Model Deployment]], [[Serving Runtime]]; [[Request Routing]], [[Quantization Program]] |
@@ -119,4 +119,5 @@ The build-versus-consume-versus-partner detail (what RackAI/Uniphore/Palantir co
 - [[Capability Gap Register]] — authoritative shipped-vs-planned status per capability
 - [[Enterprise AI Solution Stack (Marketing)]] — the customer-facing projection of the same stack
 - [[Enterprise AI Cloud Product Model]] — the canonical product model (three consumption offers) that maps every capability back to these layers
+- [[Solution Marketplace]] — the second Consumption-layer channel (after OpenRouter): FDE-authored [[Packaged Solution|Packaged Solutions]], RackAI-governed
 - [[Wiki Hub]]

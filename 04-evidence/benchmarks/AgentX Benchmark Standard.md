@@ -7,15 +7,15 @@ domain: performance
 aliases: [agentx, agent-x, inferencex agentx, semianalysis agentx, agentx mvp, agentx benchmark standard]
 related: [hub-evidence, idx-benchmark-library, ent-benchmark-run, ent-serving-runtime, ent-empirical-map, ent-glm-5-3-flash, ent-traffic-class, hub-roadmap]
 source_docs: ["https://inferencex.semianalysis.com/agentx", "https://inferencex.semianalysis.com/glossary/agentx", "https://docs.nvidia.com/aiperf/tutorials/datasets-inputs/inference-x-agent-x-mvp-benchmark"]
-confidence: asserted
+confidence: assumed
 last_reviewed: 2026-09-28
 parent: hub-evidence
-summary: "External serving-benchmark standard (SemiAnalysis InferenceX AgentX) RackAI anchors its agentic-workload benchmarking to."
+summary: "External serving-benchmark standard (SemiAnalysis InferenceX AgentX) anchoring RackAI agentic-workload benchmarks."
 ---
 
 # AgentX Benchmark Standard
 
-> **This note describes an *external* standard, not a RackAI run.** Confidence is `asserted` — the methodology and figures below are SemiAnalysis/NVIDIA published claims we have not independently verified. It does **not** upgrade to `measured`; a RackAI AgentX run is a separate [[Benchmark Run]] entry in the [[Benchmark Library]] that lands `measured` once executed on our fleet. *Content rephrased for compliance with licensing restrictions.*
+> **This note describes an *external* standard, not a RackAI run.** Confidence is `assumed` (the weakest canonical state) — the methodology and figures below are SemiAnalysis/NVIDIA published claims we have not independently verified. It does **not** upgrade to `measured`; a RackAI AgentX run is a separate [[Benchmark Run]] entry in the [[Benchmark Library]] that lands `measured` once executed on our fleet. *Content rephrased for compliance with licensing restrictions.*
 
 ## What AgentX Is
 
@@ -55,14 +55,14 @@ Two reading rules from the source: report **throughput together with TTFT and in
 
 ## Honest Limits
 
-- **External and `asserted`** — every figure here is SemiAnalysis/NVIDIA's claim, unverified by RackAI. No number here is `measured`.
+- **External and `assumed`** — every figure here is SemiAnalysis/NVIDIA's claim, unverified by RackAI. No number here is `measured`.
 - **Serving performance only** — an AgentX cell fills the **cost/performance** side of an Empirical Map cell; the **reliability** side still needs [[Verification]].
 - **MVP / moving spec** — the AIPerf implementation is a work-in-progress; pin a dated corpus drop for any comparable run.
 - **Provider-side opacity** — the client can't see chat templates, proprietary tokenizers, server tools, or exact image/document token expansion; AgentX uses deterministic placeholders for these.
 
-## Exit Criterion (asserted → measured)
+## Exit Criterion (assumed → measured)
 
-This note stays `asserted`. Running AgentX (via AIPerf, dated-corpus-pinned) against a priority model on our fleet creates a `measured` [[Benchmark Run]] in the [[Benchmark Library]] and is what feeds the [[Empirical Map]] and the M2 AI Performance Benchmarks milestone.
+This note stays `assumed`. Running AgentX (via AIPerf, dated-corpus-pinned) against a priority model on our fleet creates a `measured` [[Benchmark Run]] in the [[Benchmark Library]] and is what feeds the [[Empirical Map]] and the M2 AI Performance Benchmarks milestone.
 
 ## See Also
 

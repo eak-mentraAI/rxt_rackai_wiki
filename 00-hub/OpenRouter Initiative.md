@@ -62,4 +62,5 @@ The consolidated go-to-market and integration plan — merging the reference doc
 - [[Product Hub]] — strategy, model bets, roadmap
 - [[OpenRouter Integration Plan]] — merged plan: paths, verified requirements, phased sequencing
 - [[OpenRouter Provider Integration]] — canonical entity for the provider path
+- [[Solution Marketplace]] — the **second** consumption channel (sibling to this one): inward to RackAI customers, distributing FDE-authored [[Packaged Solution|Packaged Solutions]] rather than model endpoints to public traffic
 - [[Rack AI Knowledge Base]]

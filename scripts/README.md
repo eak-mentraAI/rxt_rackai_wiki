@@ -28,7 +28,7 @@ Every markdown file in the wiki (outside `templates/`, `.kiro/`, `.obsidian/`) m
 ```yaml
 ---
 id: unique-stable-id
-type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary
+type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary | prd | projection | companion
 status: draft | reviewed | validated | deprecated
 owner: team-or-role
 domain: strategy | product | platform | performance | model-enablement | infrastructure | reliability | commercial | capacity | governance
@@ -46,7 +46,7 @@ summary: "One-line description of note purpose."
 
 | Field | Valid Values |
 |-------|-------------|
-| `type` | `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary` |
+| `type` | `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`, `prd`, `projection`, `companion` |
 | `status` | `draft`, `reviewed`, `validated`, `deprecated` |
 | `confidence` | `assumed`, `derived`, `measured`, `validated` |
 | `domain` | `strategy`, `product`, `platform`, `performance`, `model-enablement`, `infrastructure`, `reliability`, `commercial`, `capacity`, `governance` |
@@ -83,7 +83,7 @@ scripts/lint-frontmatter.sh
 | 0 | All files pass validation |
 | 1 | One or more files have violations |
 
-`templates/`, `.kiro/`, `.obsidian/`, and `.git/` are excluded — templates intentionally contain placeholder enum values (`type: entity | ...`) that are not valid final values.
+`templates/`, `.kiro/`, `.obsidian/`, and `.git/` are excluded — templates intentionally contain placeholder enum values (`type: entity | ...`) that are not valid final values. `reference/` is also excluded (raw context material for AI agents, no frontmatter by design), except `* - Companion.md` files, which are structured notes and are linted. This applies both to full-repo runs and to files passed explicitly (so the pre-commit hook skips them too).
 
 ---
 

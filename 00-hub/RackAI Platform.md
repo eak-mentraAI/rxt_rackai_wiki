@@ -17,6 +17,8 @@ summary: "Top-line view of the RackAI platform: what it is, its capabilities, an
 
 **RackAI** is Rackspace's Kubernetes-native AI **inference and fine-tuning platform**. Tenants (organizations) deploy models to get OpenAI-compatible endpoints, fine-tune them with their own data, and manage the model lifecycle — all on Rackspace GPU infrastructure. This hub is the top-line product view; the OpenRouter inference program is one initiative that sits on top of it.
 
+> **Two senses of "RackAI" (reconciled 2026-10-06).** This hub describes **what is shipped today** — the inference + fine-tuning platform (`measured`). The [[Enterprise AI Cloud Product Model]] sets the **strategic product boundary**, which evolved to *private AI operating platform = core + rails* (adding the SDK, [[Solution Marketplace|marketplace]], packaging/certification, and metering/instantiation as the "rails"). Those rails are `assumed`/proposed, not built — see the [[Capability Gap Register]]. Both are correct: this hub states *what exists*, the product model states *the target boundary*. Widening the boundary did not upgrade any capability to shipped.
+
 > **Naming:** RackAI is canonical. `RMPAI` (main PRD) and `RackAI Aurora` (a technical spec) are aliases of the same product.
 
 ## What RackAI Is Today (shipped)

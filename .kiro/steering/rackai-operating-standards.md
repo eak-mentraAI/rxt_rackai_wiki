@@ -70,7 +70,10 @@ Hub pages, entity pages, workflow pages, indexes, MOCs, evidence pages, changelo
 
 ## Canonical Note Types
 
-Every note must declare a type: `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`.
+Every note must declare a type: `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`, `prd`, `projection`, `companion`.
+
+`companion` — a lossless markdown digital twin of a non-markdown source (PDF, DOCX, XLSX, PPTX, image) kept in `reference/`, named `<source> - Companion.md` beside the original. `reference/` material itself carries no frontmatter by design; only its companion files do, and they are linted.
+
 
 ## Frontmatter Standard
 
@@ -79,7 +82,7 @@ Every note begins with YAML frontmatter:
 ```yaml
 ---
 id: unique-stable-id
-type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary
+type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary | prd | projection | companion
 status: draft | reviewed | validated | deprecated
 owner: team-or-role
 domain: strategy | product | platform | performance | model-enablement | infrastructure | reliability | commercial | capacity | governance

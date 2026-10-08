@@ -10,7 +10,7 @@ source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
 last_reviewed: 2026-09-03
 parent: hub-evidence
-summary: "Verify a known-architecture model moves weights to production in under 24h median via the launch factory — status open."
+summary: "Verify a known-architecture model reaches production in under 24h median via the launch factory — status open."
 ---
 
 # Validate Launch Lag Under 24h

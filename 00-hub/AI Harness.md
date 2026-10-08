@@ -10,7 +10,7 @@ source_docs: ["reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "refe
 confidence: assumed
 last_reviewed: 2026-09-24
 parent: hub-org-design
-summary: "Pillar hub: execution layer above inference — context, tools, memory, guardrails, orchestration, and the Empirical Map."
+summary: "Pillar hub: execution layer above inference — context, tools, memory, guardrails, orchestration, Empirical Map."
 ---
 
 # AI Harness

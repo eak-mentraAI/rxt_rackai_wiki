@@ -6,11 +6,11 @@ owner: product
 domain: product
 aliases: [enterprise ai cloud product model, eac product model, product model, portfolio product model, consumption model, three consumption offers, three termination points, gpu as a service, gpuaas, gpu on demand, bare metal, kubernetes for ai, rackai offer, outcome as a service, oaas]
 related: [hub-enterprise-ai, hub-rackai-platform, hub-battlegrounds, hub-commercial, hub-product, idx-eight-layer-stack, wiki-pillar-working-model, wiki-enterprise-ai-solution-stack-marketing, wiki-eac-marketing-site-projection, idx-capability-gap-register, hub-model-services, hub-inference-serving, hub-inference-optimization, hub-ai-harness, hub-ai-governance-assurance, hub-ai-operations-product, hub-openrouter, ent-billing-payment]
-source_docs: ["00-hub/Enterprise AI Portfolio.md", "00-hub/Three Battlegrounds.md", "05-wiki/Eight-Layer Stack.md", "05-wiki/Pillar Working Model.md", "00-hub/RackAI Platform.md", "04-evidence/Capability Gap Register.md", "leadership product-model ratification 2026-09-29"]
+source_docs: ["00-hub/Enterprise AI Portfolio.md", "00-hub/Three Battlegrounds.md", "05-wiki/Eight-Layer Stack.md", "05-wiki/Pillar Working Model.md", "00-hub/RackAI Platform.md", "04-evidence/Capability Gap Register.md", "leadership product-model ratification 2026-09-29", "01-entities/Solution Marketplace.md", "PM/leadership marketplace discussion 2026-10-06"]
 confidence: validated
-last_reviewed: 2026-09-29
+last_reviewed: 2026-10-06
 parent: hub-enterprise-ai
-summary: "Canonical Enterprise AI Cloud product model: portfolio-vs-product boundary and three ratified consumption offers."
+summary: "Canonical Enterprise AI Cloud product model: RackAI boundary (core + rails) and three ratified consumption offers."
 ---
 
 # Enterprise AI Cloud Product Model
@@ -29,22 +29,43 @@ The **canonical product model** for the [[Enterprise AI Portfolio|Enterprise AI 
 
 The whole point of leading with **Enterprise AI Cloud** is that RackAI must **not** become the accidental name for everything. The model uses one strict convention throughout:
 
-> **RackAI is the inference and fine-tuning platform.** It is named as RackAI in exactly two places: **Inference & Orchestration** (its primary product domain) and **Fine-Tuning & Distillation** (within Models & AI Services). Everywhere else, name the **relationship to RackAI**, not RackAI itself.
+> **RackAI is the private AI operating platform.** It provides the model, inference, orchestration, and governance-integrated runtime (**the core**) *and* the SDK, marketplace, packaging/certification standard, tenant isolation, and metering/instantiation machinery (**the rails**) on which Rackspace FDEs, partners, and customers build and distribute AI solutions. **RackAI owns the platform and distribution machinery; solution authors own the business logic and the outcome-specific implementation.**
+
+> **Boundary evolution (2026-10-06).** This widens the earlier convention ("RackAI is the inference and fine-tuning platform") to reflect the [[Solution Marketplace]] decision. The sharper frame: **RackAI owns the factory and the marketplace, not everything produced by the factory.** The anti-leak discipline is unchanged — "RackAI" still must not become the name for the solutions, outcomes, or business logic built on it. What changed is that the **rails** (SDK, marketplace, certification, governance-integrated runtime, metering) are now explicitly *inside* the RackAI boundary, not outside it.
+
+> **Two senses of "RackAI," reconciled.** The **shipped-product** definition ([[RackAI Platform]], Glossary) remains *"Kubernetes-native inference and fine-tuning platform"* — accurate for **what exists today** (`measured`/shipped). The **strategic** definition here — *private AI operating platform (core + rails)* — is the **target product boundary** the marketplace implies, and the rails are `assumed`/proposed, not shipped ([[Capability Gap Register]]). Both are true at different time horizons; this note sets the *boundary*, the platform hub states *what is built*. Widening the boundary does **not** upgrade any capability to shipped.
+
+RackAI is now named as RackAI in **three** places — **Inference & Orchestration** (the core), **Fine-Tuning & Distillation**, and the **Platform Rails** (SDK / marketplace / packaging & certification / governance-integrated runtime / metering & instantiation). Everywhere else, name the **relationship to RackAI**, not RackAI itself.
+
+### Layered ownership (who owns which layer)
+
+| Layer | Who owns it | Role |
+|---|---|---|
+| GPU / infrastructure | **Infrastructure** (below K8s) | Supplies execution capacity |
+| **RackAI core** | **RackAI** | Models, inference, routing, optimization, lifecycle, fine-tuning |
+| **RackAI platform rails** | **RackAI** | Harness/runtime interfaces, governance integration, [[Solution Marketplace\|marketplace]], SDK, packaging/certification, tenant isolation, metering/instantiation |
+| **Solutions** | **FDE → partners → customers** | Author domain/business logic ([[Packaged Solution\|Packaged Solutions]]) *on* the RackAI rails |
+| **Managed Operations** | **Rackspace Managed Operations** | Operates the resulting estate/service through the platform |
+| **Customer outcome** | **FDE / partner / customer** | What the solution actually accomplishes |
 
 The four relationship verbs — use these instead of letting "RackAI" leak upward or outward:
 
 | Area | Relationship to RackAI | Say this, not "RackAI" |
 |---|---|---|
-| **Experiences & Agents** (incl. Agent Harness) | **Consumes** RackAI | "the harness/agent capability consumes RackAI inference + model services" |
+| **Experiences & Agents** (incl. Agent Harness) | **Built on** RackAI rails; the *harness runtime interface* is RackAI, the *agent/business logic* is not | "authored on RackAI rails; consumes RackAI core" |
 | **Models & AI Services** | **Fine-Tuning & Distillation is RackAI**; Catalog / Router / Evaluation are portfolio capabilities that use it | name RackAI only on Fine-Tuning & Distillation |
-| **Inference & Orchestration** | **Is RackAI** (primary product domain) | "RackAI core" |
+| **Inference & Orchestration** | **Is RackAI** (the core) | "RackAI core" |
+| **Platform rails** (SDK / marketplace / packaging / certification / metering) | **Is RackAI** (the rails) | "RackAI rails" |
 | **AI Infrastructure** | **Supplies** RackAI (physical/compute substrate below K8s) | "provides the substrate RackAI consumes" |
-| **Governance & Assurance** | **Enterprise AI Cloud-wide plane**; RackAI **implements** the controls/evidence required *within its own boundary* | "portfolio-wide plane; RackAI implements its share" |
-| **Managed Operations & FDE** | **Operates / delivers** the whole portfolio (not just RackAI) | "Rackspace operating + delivery model across the portfolio" |
+| **Governance & Assurance** | **Enterprise AI Cloud-wide plane**; RackAI **implements** the controls/evidence within its boundary and **integrates** them into the rails | "portfolio-wide plane; RackAI implements + integrates its share" |
+| **Solutions / outcomes** (what's built on the rails) | **Not RackAI** — FDE/partner/customer business logic | "authored on RackAI; not RackAI" |
+| **Managed Operations & FDE** | **Operates / delivers** the whole portfolio *through* the platform (not RackAI itself) | "Rackspace operating + delivery model across the portfolio" |
 
-> **The one-sentence ownership picture:** *Enterprise AI Cloud is what we take to market. RackAI is the platform that makes private model adaptation and production inference possible. Infrastructure supplies it; experiences consume it; governance controls it (portfolio-wide, RackAI implements its share); Managed Operations runs the whole; FDE turns it into outcomes.*
+> **The one-sentence ownership picture:** *Enterprise AI Cloud is what we take to market. RackAI is the private AI operating platform — the core (models, inference, orchestration, runtime) plus the rails (SDK, marketplace, certification, metering) — that makes production AI buildable and distributable. Infrastructure supplies it; solution authors (FDE → partners → customers) build on it; governance controls it (portfolio-wide, RackAI integrates its share); Managed Operations runs the resulting estates through it; the outcome is the author's.*
 
-> **Note on "Rackspace owns the execution harness."** [[Three Battlegrounds]] states Rackspace owns the execution harness as part of the *operator identity* — that is a **company/portfolio** claim and remains true. It does **not** make the harness *RackAI-the-platform*. The Agent Harness is an Enterprise AI Cloud capability that **consumes** RackAI inference + model services. Company-level "Rackspace owns the harness" and product-level "RackAI is inference + fine-tuning" are both true; this convention keeps them from being conflated.
+> **FDE creates leverage for RackAI; FDE does not become RackAI.** The marketplace makes this cleaner, not blurrier: RackAI provides the operating platform, SDK, marketplace, certification/isolation/governance, and deployment/instantiation/metering, and operates the resulting workloads; **FDE/partners/customers create the solution, own the domain logic, package to the RackAI standard, and publish.** An FDE solution authored once and distributed across estates is a *mechanism RackAI provides to raise workloads/FTE* ([[AI Operations Product]]) — not a reason to fold FDE into the platform. See [[Solution Marketplace]] for the full two-sided boundary.
+
+> **Note on "Rackspace owns the execution harness."** [[Three Battlegrounds]] states Rackspace owns the execution harness as part of the *operator identity*. Under the evolved boundary this is cleaner: the **harness *runtime interface* is part of the RackAI rails**, while the **agent's goal / business logic authored on it is not** RackAI. Company-level "Rackspace owns the harness" and product-level "RackAI is the operating platform (core + rails)" are both true; the solution logic built on the harness stays the author's.
 
 ---
 
@@ -84,7 +105,7 @@ flowchart TD
 **Same truth, different depth.** A CIO may branch straight to CONSUME — *"Inference → that's RackAI, let's talk"* — and never touch architecture. An architect branches to UNDERSTAND — *"Inference → Model Hosting → canonical mapping → serving-runtime docs."* Both are legitimate; neither is forced through the other's path. Each branch terminates cleanly: UNDERSTAND at authoritative technical docs, CONSUME at an offer, ENGAGE at the operating model. The model is the **connective tissue** between capability, product, architecture, and operations — it is none of them and does not replace any of them.
 
 > **The governing principle** (resolves the original tension between the two competing stack diagrams):
-> **The canonical stack defines how the platform works. This product model defines how the portfolio is packaged and consumed. They are not competing architectures.** Every capability must trace cleanly to one or more canonical layers ([[Eight-Layer Stack]]), and to exactly one product boundary (is it RackAI, or does it consume/supply/operate RackAI).
+> **The canonical stack defines how the platform works. This product model defines how the portfolio is packaged and consumed. They are not competing architectures.** Every capability must trace cleanly to one or more canonical layers ([[Eight-Layer Stack]]), and to exactly one product boundary (is it RackAI — core or rails — or does it build-on / consume / supply / operate RackAI).
 
 > **Each representation has one job — and none redefines another.** *Product does not redefine Architecture. Architecture does not redefine the capability taxonomy. And capabilities do not become SKUs.* This model owns the **capability → offer → boundary** mapping; UNDERSTAND points at the [[Eight-Layer Stack|architecture]] and technical docs; ENGAGE points at the [[AI Operations Product|operating/delivery model]]. The public marketing site is a **projection** of this model — see [[Enterprise AI Cloud Marketing Site Projection]].
 
@@ -148,7 +169,7 @@ flowchart TD
 The model has two axes. **Vertical** is capability ("tell me about inference optimization"); **horizontal** is the consumption offer / responsibility transfer ("how much do I want Rackspace to own"). The three offers are the entry points on the horizontal axis:
 
 - **I need AI infrastructure → GPU as a Service** — the capacity to run AI workloads; the customer owns what runs on it. Consumed as **GPU on Demand**, **Bare Metal**, or **Kubernetes for AI**.
-- **I need to run my models → RackAI** — a private platform to adapt, serve, optimize and operate production AI.
+- **I need to run my models → RackAI** — a private AI operating platform to adapt, serve, optimize and operate production AI, **and to build and distribute solutions on** (including instantiating [[Packaged Solution|Packaged Solutions]] from the [[Solution Marketplace]]).
 - **I need a business outcome → Outcome as a Service** — Rackspace assembles the technology, engineering and operations to solve the problem.
 
 The embedded progression: **give me the infrastructure → give me the AI platform → give me the outcome.** Each is a legitimate termination point. Capabilities resolve **up or down** into one or more offers; they are not products in their own right.
@@ -161,7 +182,8 @@ The six capability domains and how each resolves onto the offers. This is the mo
 
 | Capability domain | RackAI relationship | Rolls up to (offer) | Shipped anchor ([[Capability Gap Register]]) |
 |---|---|---|---|
-| **Experiences & Agents** (Enterprise Agents, Agent Harness, AI Experiences, Agent Ecosystem) | **Consumes** RackAI; harness/agents are not RackAI | **Outcome as a Service**; **RackAI** underneath for build-your-own | Harness runtime planned; partner-delivered ([[Load-Bearing Bets]]) |
+| **Experiences & Agents** (Enterprise Agents, Agent Harness, AI Experiences, Agent Ecosystem) | **Built on** RackAI rails; the harness *runtime interface* is RackAI, the agent/business logic is **not** | **Outcome as a Service**; **RackAI** underneath for build-your-own | Harness runtime planned; partner-delivered ([[Load-Bearing Bets]]) |
+| **Platform Rails** (SDK, [[Solution Marketplace\|Marketplace]], packaging/certification, metering/instantiation) | **IS RackAI** (the rails) — the distribution machinery solutions are authored on | **RackAI** (drives consumption into **Outcome**) | `assumed`/proposed — SDK, marketplace, certification not built ([[Capability Gap Register]]) |
 | **Models & AI Services** (Catalog, Smart Router, Fine-Tuning & Distillation, Evaluation) | **Fine-Tuning & Distillation IS RackAI**; Catalog/Router/Eval consumed through it | **RackAI** (also inside Outcome) | Catalog + SFT + LoRA shipped; router/eval planned |
 | **Inference & Orchestration** (Hosting & Serving, Batch, Optimization, Workload Orchestration) | **Is RackAI** — primary product domain | **RackAI** (also underneath Outcome) | Serving + endpoints + autoscaling shipped |
 | **AI Infrastructure** (Accelerated Compute, Networking, Storage, Deployment Footprint) | **Supplies** RackAI (substrate below K8s) | **GPU as a Service** — consumed as **GPU on Demand**, **Bare Metal**, or **Kubernetes for AI**; also the substrate beneath RackAI & Outcome | Fleet + NVIDIA/AMD shipped; multi-region planned/partner |
@@ -179,7 +201,8 @@ The One-Concept discipline requires every capability trace to a canonical home. 
 | Capability domain | Canonical layers ([[Eight-Layer Stack]]) | Owning pillar ([[Pillar Working Model]]) | RackAI's role |
 |---|---|---|---|
 | **Enterprise AI Cloud** (portfolio) | The whole stack | Portfolio — [[Enterprise AI Portfolio]] | RackAI is the platform at its core, not the whole |
-| Experiences & Agents | Consumption, Harness, Orchestration | [[AI Harness]] | **Consumes** RackAI |
+| Experiences & Agents | Consumption, Harness, Orchestration | [[AI Harness]] | **Built on** RackAI rails; harness runtime interface is RackAI, agent logic is not |
+| Platform Rails (SDK, Marketplace, packaging/certification, metering) | Consumption | [[Solution Marketplace]] · [[AI Operations Product]] | **IS RackAI** (the rails) |
 | Models & AI Services | Model, Data, Orchestration | [[Model Services]], [[Inference Optimization]] | **Fine-Tuning & Distillation IS RackAI**; rest use it |
 | Inference & Orchestration | Orchestration, Inference, Compute | [[Inference and Serving Services]], [[Inference Optimization]] | **IS RackAI** (primary product domain) |
 | AI Infrastructure | Compute, Infrastructure, Data | Infra (below K8s) | **Supplies** RackAI |
@@ -200,3 +223,4 @@ The One-Concept discipline requires every capability trace to a canonical home. 
 - [[Capability Gap Register]] — per-capability shipped/planned status
 - [[Pillar Working Model]] — which pillar owns each capability
 - [[Billing & Payment]] — the commercial-mechanics gap: offer tiers ratified, pricing/billing not built
+- [[Solution Marketplace]] — the Consumption-layer surface distributing FDE-authored [[Packaged Solution|Packaged Solutions]]; resolves into the **Outcome as a Service** offer (RackAI builds the rails + SDK + governance; FDE/partners/customers author the solutions)

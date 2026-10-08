@@ -10,7 +10,7 @@ source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
 parent: hub-governance
-summary: "Policy: maintain an inventory of what's in the running system — models, prompts, tools, components — with provenance."
+summary: "Policy: keep an inventory of what's in the running system — models, prompts, tools, components — with provenance."
 ---
 
 # Supply Chain Inventory

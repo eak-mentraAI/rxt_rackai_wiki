@@ -72,6 +72,23 @@ Run after any meaningful update.
 
 ---
 
+## Section 2b — PRD Checks
+
+Run on any PRD (`05-wiki/<Thing> PRD.md`, `type: prd`). Governed by `.kiro/steering/prd-standards.md` (a portable standard shared across sibling wiki repos). A PRD is not review-ready until all applicable checks pass.
+
+| # | Check | Pass Criteria |
+|---|-------|---------------|
+| P-01 | Canonical link | The PRD links to the canonical concept note and does **not** redefine it (projection, not definition); the canonical ID is in `related` |
+| P-02 | Minimum viable set | All ten required items are answered: problem/hypothesis, users, goals+non-goals, functional reqs, non-functional reqs, scope/phasing, success metrics, kill criterion, open decisions, dependencies |
+| P-03 | Boundary stated | A scope line names what the PRD covers **and** what it explicitly does not (the ownership boundary) |
+| P-04 | Requirements testable | Functional reqs are numbered and verifiable, prioritized MUST/SHOULD/MAY; no stale internal cross-references (e.g. dangling `FR-x`) |
+| P-05 | Kill criterion present | There is an explicit kill/falsification criterion — what evidence would stop or redirect the initiative |
+| P-06 | Open decisions owned | Each open decision is numbered with an owner and what it blocks; unresolved specifics are decisions, not invented requirements |
+| P-07 | Confidence honesty | A proposed/unbuilt PRD is `confidence: assumed` with a status banner; it does not read as a committed build or assert unbuilt capability; metric targets are postures, not measured values (ties S-13) |
+| P-08 | Shape compliance | Authored from `templates/prd.md`; frontmatter complete; `summary` ≤ 120 chars (S-16); located in `05-wiki/` with a `prd-` ID |
+
+---
+
 ## Section 3 — Regression Acceptance Checks
 
 Run periodically and before release. See [[REGRESSION_SUITE]] for full test definitions.

@@ -51,7 +51,7 @@ A strategy says no. This is the load-bearing part of the identity.
 
 | Stance | Layer | Position |
 |--------|-------|----------|
-| **We own** | AI-native infrastructure + inference **operations** + the **execution harness** | Fleet economics, inference, routing, fine-tuning, model lifecycle, orchestration, observability, security boundary, reliability, and the harness runtime (see boundary below) — "the ugly middle between GPUs and enterprise AI outcomes." |
+| **We own** | AI-native infrastructure + inference **operations** + the **execution harness** + the **platform rails** | Fleet economics, inference, routing, fine-tuning, model lifecycle, orchestration, observability, security boundary, reliability, the harness runtime (see boundary below), and the **operating-platform rails** — the SDK, [[Solution Marketplace\|marketplace]], packaging/certification, and metering/instantiation on which solutions are built and distributed. "The ugly middle between GPUs and enterprise AI outcomes" — now explicitly including the *distribution* machinery, not just the serving machinery. |
 | **We abstract** | GPU **supply** | Supply is interchangeable — RXT-owned, partner, customer-owned, hyperscaler, AMD or NVIDIA. We do **not** commoditize the *economics*: the intelligence deciding **how to consume supply** (placement + cost) belongs to us and feeds the [[Empirical Map]]. We do not need to become [[GPU Neocloud Competitors\|CoreWeave]]. |
 | **We partner for** | Data/context, application, consumption, governance-acceleration | The "what customers build" and "how context is assembled" tiers — [[Load-Bearing Bets]] (Palantir, Uniphore, and proposed new bets). |
 | **We refuse to compete on** | Frontier GPU cloud; public-inference API share; proprietary foundation models; replacing Palantir/Foundry-class application platforms | Each of these is a different company than the operator. |
@@ -67,6 +67,8 @@ The hinge of the whole identity is the split between the **execution harness** (
 | Model routing + placement, context controls, tool-execution controls, policy enforcement, evaluation, memory infrastructure, observability, the runtime | Ontologies, the agent's goal, applications, workflows, business outcomes |
 
 The harness is horizontal infrastructure that is the same shape across customers; the business logic is what differs. Owning the harness is defensible precisely because it is *not* the customer's differentiated logic — it is the operating machinery every workload needs regardless of what it is trying to do.
+
+> **The same logic extends to the platform rails (2026-10-06).** The [[Solution Marketplace]], the Solution SDK, the packaging/certification standard, and metering/instantiation are *also* horizontal machinery that is the same shape across customers — so by the identical argument they are **owned** (they are part of the RackAI **rails**; see [[Enterprise AI Cloud Product Model]]). What stays on the customer/partner/FDE side is unchanged: the **[[Packaged Solution|solution's]] goal, logic, and outcome**. The company identity is therefore sharper than "operator of inference": **RackAI is the operating *platform* (core + rails) that makes the operator model scalable; [[AI Operations Product|Rackspace Managed Operations]] exercises operational responsibility through it; FDE/partners/customers build solutions on it.**
 
 ## What Compounds — The Theory of Advantage
 
