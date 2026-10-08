@@ -8,7 +8,7 @@ aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operat
 related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness, ent-solution-marketplace, ent-packaged-solution, ev-sovereign-private-assistant, wiki-milestone-release-map]
 source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md", "PM/leadership roadmap review 2026-09-28", "PM/leadership roadmap review 2026-10-06"]
 confidence: derived
-last_reviewed: 2026-10-06
+last_reviewed: 2026-10-07
 parent: hub-root
 summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Assume Responsibility, Operate)."
 ---
@@ -106,11 +106,13 @@ flowchart LR
 
 > **The ordering hypothesis (state this first, defend the rest against it):** *In the absence of demand signals, we sequence to **buy the most information and preserve the most optionality at the lowest irreversible cost** — not to satisfy a forecast we don't have.* Every item's place in the order should be defensible as one of: it gets more expensive the longer we wait, it keeps future paths open, or it cheaply resolves an uncertainty that would otherwise waste later work. If an item's ordering can't be justified by one of those three, its position **is** arbitrary and should be challenged.
 
+> **Revision (2026-10-07): code is cheap; data, trust and boundaries are not.** AI co-development has driven down the total cost of code, so we no longer sequence to protect a "forever" codebase. We plan for a path to success over the **next six months** and assume the product will evolve substantially in the six months after, accepting that parts of what we ship will be rebuilt. Irreversibility (principle 1) now applies to what code **can't regenerate**: operating evidence and metering history we never captured, customer trust, isolation and sovereignty boundaries, and compliance lead times. You can rewrite a service in weeks; you can't backfill telemetry you never recorded. Optionality and learning value (principles 2 and 3) are unchanged.
+
 **The three ordering principles (this is the whole logic):**
 
 | # | Principle | The question it answers | Order by | Examples in this roadmap |
 |---|-----------|-------------------------|----------|--------------------------|
-| **1** | **Irreversibility / cost-of-delay** | *What gets more expensive to do the longer we wait?* | Do the cheap-now / expensive-later things first | Workload-placement interface (baking owned-fleet assumptions in later is a rewrite); cost model riding the Metering pipeline (attaching cost later means re-plumbing); compliance envelope kickoff (attestation lead times are long) |
+| **1** | **Irreversibility: what code can't regenerate** | *What can't we recover or backfill later?* | Capture and guard these first; plan code in six-month horizons and expect to rebuild | Cost model on the Metering pipeline (cost history not captured can't be backfilled); operating evidence for the [[Empirical Map]] and the transferable-vs-isolated telemetry split; tenant isolation and sovereignty boundaries (trust is hard to rebuild); compliance envelope kickoff (attestation lead times are long) |
 | **2** | **Optionality** | *What keeps the most future paths open?* | Do the things that avoid lock-in before we know the answer | Supply abstraction (owned/partner/customer/hyperscaler stays open); transferable-vs-isolated telemetry split designed in from day one; partner-evaluated fine-tuning (don't build a toolchain we may not want) |
 | **3** | **Evidence-generation / learning value** | *What most cheaply resolves our biggest uncertainty?* | Do the highest-information experiments first | Prototype the [[Empirical Map]] first (it tests the *thesis itself* — K2); MOE-0 → MOE-1 (tests whether customers delegate-and-pay — K1); the domain-model fine-tuning experiment (tests the central bet — K3) |
 
@@ -123,7 +125,7 @@ flowchart LR
 
 **What this buys us with a skeptical audience.** It reframes the roadmap from *"a bet on demand we can't see"* to *"a deliberately sequenced series of experiments, each chosen to cheaply de-risk the next."* The [[#Kill / Falsification Criteria (what would change the thesis)|kill criteria K1–K3]] are not just success/failure switches — they are the **ordering rationale**: we do the things that test K2 (does the moat compound?), K1 (will customers delegate and pay?), and K3 (do domain models win?) *early and cheaply*, because a "no" on any of them re-orders everything after it. Sequencing toward the kill criteria is how a pre-demand roadmap stays honest.
 
-> **The one-line version for the exec who asks "why this order?":** *We don't have demand data, so we're not pretending to. We're ordering the work to answer our three make-or-break questions as cheaply and early as possible, and to avoid decisions that are cheap today and expensive to unwind later. Demand signal, once it exists (first MOE, first OpenRouter traffic), re-prioritizes from there.*
+> **The one-line version for the exec who asks "why this order?":** *We don't have demand data, so we're not pretending to. We're ordering the work to answer our three make-or-break questions as cheaply and early as possible, and to protect what code can't regenerate: data, trust, boundaries and lead times. Code is cheap now, so we plan in six-month horizons and expect to rebuild. Demand signal, once it exists (first MOE, first OpenRouter traffic), re-prioritizes from there.*
 
 ---
 
@@ -222,7 +224,7 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | **Workload Placement Policy — the *interface*, not multi-provider scheduling** (`SupplyTarget / AcceleratorPool / ExecutionLocation`; owned H100 = impl #1) | Strategy-derived architectural requirement ([[Load-Bearing Bets]]) | assumed |
 | Compliance envelope kickoff (SOC 2 scoping) | dev-plan **P1** ("start first") | missing |
 
-*Why the placement interface is here, not later: the abstraction is cheap now and expensive later. Building the control plane against `SupplyTarget` from day one prevents baking owned-fleet assumptions into everything. We do not need multi-provider scheduling yet — only the interface.*
+*Why the placement interface is here, not later (revised 2026-10-07): the case is **optionality and the product principle**, not retrofit cost. With AI co-development, rewriting against a new interface is cheap; what matters is that the product model ("RackAI chooses by default; customers constrain when necessary") is set from the start, so the [[Empirical Map]] has decisions to make. Scope it to the six-month horizon. We do not need multi-provider scheduling yet — only the interface.*
 
 > **Workload Placement Policy — the unresolved product decision (open question, not just an interface).** The interface above is the *mechanism*; the *product question* is bigger and unsettled: **how much infrastructure choice does the customer get?** The strategic target is an experience closer to *"here is my workload and my constraints"* — RackAI then selects model runtime, accelerator, quantization, replicas, and routing — rather than *"give me 4 B300s."* That abstraction is what makes the [[Empirical Map]] commercially meaningful (RackAI makes the decisions the map informs). But customers have explicitly asked for control over which GPU they deploy on, and today's quota plans are defined in **GPU-centric** terms. So there is a real tension: if we abstract the GPU away, the quota model needs rethinking; if we don't, the placement intelligence has less room to act. **Open question — RackAI selects everything beyond the workload + constraints, or the customer keeps GPU-level control?** Ties to [[Capacity Pool]] quota definitions and the P-004 gap; needs PM ratification.
 >
@@ -570,8 +572,8 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 |---|----------|:--------:|-------|--------|
 | **P-002** | Commit to a first [[Minimum Operable Estate]]; name MOE-0 + MOE-1 customer | D1 | **Center of the proposal** | Proposed |
 | **P-005** | Empirical Map v1 + evidence-driven routing (the moat) | D2 | **Center of the proposal** (load-bearing) | Proposed |
-| **P-003** | Cost-model deliverable (internal cost/GPU-hour) on the Metering pipeline | D2 | Do-now (cheap now, expensive later) | Proposed |
-| **P-004** | Supply-abstraction interface before the control plane hardens | D2 | Do-now (cheap now, expensive later) | Proposed |
+| **P-003** | Cost-model deliverable (internal cost/GPU-hour) on the Metering pipeline | D2 | Do-now (cost history can't be backfilled) | Proposed |
+| **P-004** | Supply-abstraction interface before the control plane hardens | D2 | Do-now (optionality + product principle; six-month scope) | Proposed |
 | **P-006** | Minimum enterprise **control envelope** required for MOE-1 (outcome-framed) | D3 | Re-scoped from "control bundle" | Proposed |
 | **P-001** | Narrow fine-tuning: evaluate partner(s) for delivery, RackAI owns integration/serving + learning | D4 | Directional; vendor-independent | Proposed |
 | **P-007** | Proof-4 prerequisites as a **dependency declaration** (do not build yet) | D4 | Watch item, not a build ask | Proposed |

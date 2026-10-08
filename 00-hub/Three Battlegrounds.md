@@ -4,11 +4,11 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [private enterprise ai operator, enterprise ai operator, operator thesis, company identity, three battlegrounds, battlegrounds, market battlegrounds, where we play, identity anchor, positioning model, theory of advantage]
-related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map]
+aliases: [private enterprise ai operator, enterprise ai operator, operator thesis, company identity, three battlegrounds, battlegrounds, market battlegrounds, where we play, identity anchor, positioning model, theory of advantage, two centres of gravity, sovereign provider, operator identity, sovereign identity]
+related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map, hub-minimum-operable-estate, pol-benchmark-evidence-chain]
 source_docs: ["reference/rackai_dev_plan 2.docx", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md", "04-evidence/assumptions/Fleet Competitiveness.md", "04-evidence/Capability Gap Register.md", "CEO strategy review 2026-09-21"]
 confidence: derived
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-07
 parent: hub-root
 summary: "Company identity and theory of advantage: RackAI as the Private Enterprise AI Operator."
 ---
@@ -43,7 +43,27 @@ So a "private" estate RackAI operates may span RXT-owned GPUs, dedicated custome
 
 > Run production AI on your data without surrendering control of your data, models, inference, or operating environment.
 
-Sovereignty, private inference, governance, harnesses, GPUs, and managed operations are **how we deliver that promise** — not competing definitions of the company.
+Private inference, governance, harnesses, GPUs, and managed operations are **how we deliver that promise** — not competing definitions of the company. Sovereignty is the exception: as of 2026-10-07 it is a **co-equal centre of gravity** with operations (below). The identity is still one, the Private Enterprise AI Operator; its two halves are the two centres.
+
+### Two centres of gravity
+
+> **RackAI wins where enterprises need someone to run their AI, and need it to stay theirs.**
+
+The identity name already pairs the two halves. Each defines part of the shape of problems we are good at solving, and every product decision is judged against both: *does this make us a better operator, a more credible sovereign provider, or both?* (This extends the strategic-choice test above.)
+
+| Centre | Promise | What it requires |
+|--------|---------|------------------|
+| **Operator** | We take responsibility for running it | SLOs, incidents, model lifecycle, capacity and cost, accountable to the customer ([[Minimum Operable Estate]], MOE-1) |
+| **Sovereign provider** | It stays theirs, and they can verify it | Customer control of where data, models, inference and operations execute, inside a boundary we can prove (control envelope, isolation, audit, provenance, no uncontrolled egress) |
+
+**Positioning model** (the intersection we deliberately target, not a claim that no one else can be there; some managed providers offer private deployments, and some public platforms offer real operational guarantees):
+
+| | Customer keeps control of where it runs | Provider controls where it runs |
+|---|---|---|
+| **Provider is accountable for running it** | **RackAI: the private enterprise AI operator** | Managed AI services |
+| **Customer runs it** | Private infrastructure | Public AI services |
+
+Proving the sovereign half takes more than infrastructure qualification. Benchmarking ([[Benchmark Evidence Chain]]) evidences one part of it: capacity we control, whose performance we can prove, with no uncontrolled egress. The minimum control envelope and MOE-1 establish the rest.
 
 ## What We Own, Commoditize, and Refuse
 

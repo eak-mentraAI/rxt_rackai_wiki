@@ -4,11 +4,11 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [minimum operable estate, moe, mvp operator, operator mvp, smallest operable estate, first operated estate]
+aliases: [minimum operable estate, moe, mvp operator, operator mvp, smallest operable estate, first operated estate, moe-1 acceptance, supplier to operator]
 related: [hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register]
 source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "CEO strategy review 2026-09-21"]
 confidence: assumed
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-07
 parent: hub-roadmap
 summary: "The smallest estate where 'we operate your AI' is true: MOE-0 rehearsal then MOE-1 paid proof; anchors Proof 3."
 ---
@@ -59,6 +59,28 @@ The MOE is delivered as **two distinct milestones** that must not be conflated (
 
 Meeting this on **MOE-1** is **the first actual proof of the company identity** — the point at which "operator" stops being a claim and becomes a demonstrated fact. MOE-0 is a rehearsal that builds the capability; it does not, by itself, prove the identity.
 
+## What MOE-1 Changes, and How It Materializes (proposed)
+
+MOE-1 changes **who is accountable for the outcome, and who controls where it runs**: the move from supplier to sovereign operator (see the two centres of gravity in [[Three Battlegrounds]]).
+
+| | Supplier (today) | Operator (MOE-1) |
+|---|---|---|
+| The customer buys | GPUs, endpoints and tokens | An operated outcome inside their boundary |
+| When it breaks | The customer runs the incident | We do, against agreed SLOs |
+| We're measured on | Our platform's uptime | Their SLOs, cost and audit trail |
+| What we learn | How our own platform behaves | What works across every estate we run ([[Empirical Map]]) |
+| Who controls it | Shared with the provider | The customer, and they can verify it |
+
+**Proposed acceptance evidence for MOE-1**, the five things you could point at. If we can't show all five, MOE-1 hasn't happened:
+
+1. A signed scope of delegated responsibility (serving, reliability, model lifecycle, incident response, capacity and cost).
+2. Agreed SLOs and an incident path the customer can see.
+3. Running inside the customer's boundary, with an audit trail they can inspect.
+4. A recurring evidence report on cost, performance and incidents.
+5. An invoice for operating, not just for capacity.
+
+These are `assumed`: a proposed acceptance definition pending ratification (see Open Questions).
+
 ## What the MOE Deliberately Excludes
 
 To stay minimum, v1 excludes (deferred to Proof 4 — Operate the Estate):
@@ -88,6 +110,7 @@ The MOE consumes the measurement primitives from Proof 1 (cost, telemetry, meter
 | Ratify the exact v1 scope (models count, supply source, which controls are mandatory for a first attestation) | [[RackAI Roadmap]], [[Governance Hub]] | High |
 | Who is the first MOE customer, and is it an internal (e.g. Uniphore-tenant) or external estate? | [[Load-Bearing Bets]] | High |
 | Minimum compliance attestation required for a real MOE (SOC 2 Type I? a control subset?) | [[Governance Hub]] | High |
+| Ratify the five proposed acceptance artifacts (delegated-responsibility scope, visible SLOs and incident path, inspectable audit trail, recurring evidence report, operating invoice) as the MOE-1 gate. | [[RackAI Roadmap]], [[AI Operations Product]] | High |
 
 ## See Also
 

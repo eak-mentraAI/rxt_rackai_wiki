@@ -76,7 +76,7 @@ Per the change-impact rules in the [[Benchmark Evidence Chain]]:
 | Document | Field / Value | Potential Change |
 |----------|---------------|------------------|
 | [[AMD Instinct]] | Topology, HBM, serving stack, horizontal scaling | assumed → measured |
-| [[MI350P Serving Competitive]] | Clauses C1–C3 (only with matched H100 evidence) | assumed → measured / refuted |
+| [[MI350P Serving Competitive]] | Clause C2 directly; C1 and C3 with comparator evidence from its hierarchy | assumed → measured / refuted |
 | [[Available Hardware Sufficient for Priority Models]] | AMD half | partially measured |
 | [[Tokens per GPU-Second]], [[TPOT]], [[TTFT]], [[Energy per Token]] | MI350P values | assumed → measured |
 | [[Benchmark Library]] | MI350P rows | planned → recorded |

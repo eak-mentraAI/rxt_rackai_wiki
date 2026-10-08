@@ -115,3 +115,17 @@ A leadership onsite brief was produced from these notes (hosted as a private art
 
 No confidence changed; no numbers introduced.
 
+## Revision 3 — Comparator Reframing (2026-10-07)
+
+Product-owner direction: H100 is not the primary competitive benchmark for MI350P. Making it the headline lets older NVIDIA hardware define success, and it invites the "why not Blackwell?" challenge.
+
+- [[MI350P Serving Competitive]] restated as outcome-framed and workload-specific: RackAI delivers the workload at SLO with economics that beat what customers would otherwise buy.
+  - C2 is now judged against the RackAI service standard rather than another vendor.
+  - A **comparator hierarchy** was added: AMD references → our own baselines → current NVIDIA (B200/B300) via comparable published data, since we don't operate Blackwell → what customers would actually buy.
+  - H100 is kept as an internal reference only: harness validation, migration economics, operational continuity.
+- [[AMD MI350P Qualification Plan]]: qualification is framed as three customer-facing objectives (technically validated, enterprise production-ready, commercially differentiated). Cross-vendor comparison is now a supporting workstream. D0 is reworded as a customer-claim question.
+- [[Benchmark Evidence Chain]]: the cross-vendor rule now requires a named, relevant comparator; older-generation comparators are never headlines; external published data must be labelled as such.
+- Assumption Register, Validation record and [[Open Questions]] (D0 and competitive-band rows) updated to match.
+
+No confidence changed; no numbers introduced.
+

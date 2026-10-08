@@ -25,7 +25,7 @@ The register of assumptions baked into the strategy and roadmap that do not yet 
 |------------|----|--------------------------|:----------:|
 | [[FP8 Quality Neutral]] | asm-fp8-quality-neutral | Rack AI FP8-vs-BF16 quality benchmark on priority models | assumed |
 | [[Available Hardware Sufficient for Priority Models]] | asm-h200-sufficient | Hardware-fit + benchmark runs on H100 / AMD Instinct | assumed |
-| [[MI350P Serving Competitive]] | asm-mi350p-serving-competitive | Three clauses, each on matched MI350P + H100 evidence: C1 performance (B3→B4), C2 operability (B4), C3 economics (B5) | assumed |
+| [[MI350P Serving Competitive]] | asm-mi350p-serving-competitive | Three clauses: C1 performance (B3→B4, vs. comparator hierarchy), C2 operability (B4, vs. RackAI service standard), C3 economics (B5, vs. what customers would otherwise buy); H100 internal reference only | assumed |
 | [[Speculative Decoding Beneficial]] | asm-spec-decode-beneficial | Acceptance rate + throughput/TTFT under production load | assumed |
 | [[OpenRouter Traffic Follows Performance]] | asm-traffic-follows-performance | Observed traffic-share response to a measured gain | assumed |
 | [[Fleet Competitiveness]] | asm-fleet-competitiveness | H100 benchmark vs frontier + AMD specs + capacity plan | assumed |

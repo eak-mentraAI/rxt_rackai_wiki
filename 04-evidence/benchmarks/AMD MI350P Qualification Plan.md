@@ -30,7 +30,9 @@ Not "run every benchmark", but enough to make four decisions about MI350P:
 | Product qualification | That config holds ratified SLOs for named traffic classes under interference and failure, inside a controlled boundary |
 | Commercial qualification | Cost per 1M successful tokens at the qualified point, at realistic utilization, supports a price RackAI would accept |
 
-Competitiveness against H100 is a **separate question** with its own evidence. It is tracked in [[MI350P Serving Competitive]], not inferred from qualification.
+The qualification answers three customer-facing objectives: **technically validated** (performs consistently against reproducible vendor and industry references), **enterprise production-ready** (sustains defined SLOs under realistic load, tenant interference and failure), and **commercially differentiated** (for which workloads RackAI offers better economics at equal quality, latency and reliability). Which comes first is decision D0.
+
+Cross-vendor comparison is a **supporting workstream**, not a qualification objective. It follows the comparator hierarchy in [[MI350P Serving Competitive]]: AMD references, our own baselines, current NVIDIA platforms via comparable published data, then what customers would actually buy. H100 is an internal reference only.
 
 ## Pass 0 — Confirm Before Testing (gates the matrix)
 
@@ -122,7 +124,7 @@ Concurrency here means **concurrent requests**, not users.
 | [[Tokens per GPU-Second]], [[TPOT]], [[TTFT]], [[Energy per Token]] (MI350P) | met-* | B3 | measured |
 | [[FP8 Throughput Factor]] (ROCm) | coeff-fp8-throughput | B3 (FP8 vs BF16) | measured |
 | [[Available Hardware Sufficient for Priority Models]] (AMD half) | asm-h200-sufficient | B3 | partially |
-| [[MI350P Serving Competitive]] | asm-mi350p-serving-competitive | — | **Not** validated by this plan alone; each clause needs matched H100 evidence at B3 / B4 / B5 |
+| [[MI350P Serving Competitive]] | asm-mi350p-serving-competitive | — | Partially: C2 at B4 directly; C1 and C3 also need comparator evidence (levels 1–4 of its hierarchy) |
 
 ## Open Decisions (in order)
 
@@ -130,7 +132,7 @@ Also: inventory existing MI350P evidence (vendor, engineering, earlier tests) be
 
 | # | Decision | Owner | Blocks |
 |---|----------|-------|--------|
-| **D0** | What to prove first: technical competitiveness with NVIDIA, enterprise production readiness, or better economics for specific workloads (all three eventually; this sets the order) | Leadership | Pass ordering, initial scope |
+| **D0** | What customer claim are we trying to earn with MI350P first: technically validated, enterprise production-ready, or commercially differentiated? (All three eventually; this sets the order and the minimum evidence) | Leadership | Pass ordering, initial scope |
 | **D4** | MI350P quantity, per-GPU HBM, node topology, interconnect — **first technical decision** | Infra | Pass 0, VCP, all sizing |
 | **D1** | Reference model (Llama-70B class vs gpt-oss class), the reproduction contract (published result, conditions, tolerance), and whether reference validation gates infrastructure acceptance or serving qualification — after 0.2 compatibility | Inference Optimization + Infra | Reference comparison, reference card |
 | **D3** | Who runs the B2 vendor-reference reproduction | Infra + Inference Optimization | VCP acceptance |
