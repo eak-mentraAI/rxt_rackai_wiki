@@ -5,11 +5,11 @@ status: draft
 owner: knowledge-graph-steward
 domain: governance
 aliases: [acceptance tests, regression tests, graph tests, cc-regression-suite]
-related: [pol-fitness-checklist, chg-consistency-report]
+related: [pol-fitness-checklist, chg-kg-test-results, chg-consistency-report]
 parent: hub-wiki
 source_docs: [05-wiki/Knowledge Graph Acceptance Test Results.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 summary: "Regression test suite for Rack AI OpenRouter knowledge graph invariants."
 ---
 
@@ -154,18 +154,18 @@ Formal acceptance tests that verify the knowledge graph can reason over the Rack
 
 ## Baseline Scores
 
-The baseline is established on the first full run once the entity and operational layers are populated. Until then, the suite is defined but unscored.
+Baseline set on the first full run, 2026-10-08. Full evidence, traversal paths and efficiency counts are in [[Knowledge Graph Acceptance Test Results]].
 
-| Test | Baseline Score | Notes |
-|------|:--------------:|-------|
-| R-01 | TBD | Populate entities + workflows first |
-| R-02 | TBD | Requires telemetry/metric notes |
-| R-03 | TBD | Requires coefficient catalog |
-| R-04 | TBD | Requires benchmark run notes |
-| R-05 | TBD | Requires launch-factory workflow |
-| R-06 | TBD | — |
-| R-07 | TBD | — |
-| **Average** | **TBD** | **Set on first full run** |
+| Test | Baseline Score | Minimum | Notes |
+|------|:--------------:|:-------:|-------|
+| R-01 | 3.5 | ≥ 4 | Entity spine fully typed; no canonical demand node; entities have no typed edges to formulas or workflows; 54% of edge types are non-canonical |
+| R-02 | 3.5 | ≥ 4 | 7 causes enumerable, but the reverse walk uses untyped `related-by`; no production-telemetry anomaly event; noisy neighbour not modelled |
+| R-03 | 3.5 | ≥ 4 | Formula/scorecard/commercial impact traversable; FP8 → Model Weight Footprint → GPUs per Replica → Capacity Pool branch missing; inputs and consumers not distinguished |
+| R-04 | 4.0 | ≥ 4 | Chain ends honestly at `assumed` (Cost per GPU-Hour TBD, no benchmark run); no GLM benchmark/validation note; H100/H200 ID mismatch |
+| R-05 | 3.5 | ≥ 3.5 | Launch Factory state machine and Model Deployment lifecycle work together; only 2 of ~7 transitions emit events; no formula links for capacity or economics |
+| R-06 | 3.5 | ≥ 3.5 | 0 broken refs, 24/24 entity coverage, 10 minor orphans; 0/36 L2/L4 notes have typed edges; 35% `related` reciprocity |
+| R-07 | 4.0 | ≥ 3.5 | Exec, perf-eng and FinOps deliverables coherent and traceable; no measured numbers yet; KPI Hierarchy guardrail links incomplete |
+| **Average** | **3.71** | **≥ 4.0** | **Warning / Conditional pass**: R-01 to R-03 below their minimum; no hard stop |
 
 ---
 
@@ -174,11 +174,13 @@ The baseline is established on the first full run once the entity and operationa
 | Date | Average | Δ from Previous | Notes |
 |------|:-------:|:---------------:|-------|
 | 2026-09-03 | — | — | Suite defined; corpus not yet populated |
+| 2026-10-08 | 3.71 | — (first scored run) | Baseline. Warning: R-01, R-02, R-03 at 3.5 (minimum 4). Top fixes: typed Relationships on formulas/metrics/coefficients/events; canonical demand node; FP8 → memory → capacity edges. See [[Knowledge Graph Acceptance Test Results]] |
 
 ---
 
 ## See Also
 
-- [[CONSISTENCY_REPORT]] — output template for a consistency / test run (no standalone test-run log exists yet)
+- [[Knowledge Graph Acceptance Test Results]] — detailed test run log (baseline 2026-10-08)
+- [[CONSISTENCY_REPORT]] — output template for a consistency run
 - [[FITNESS_CHECKLIST]] — structural and consistency checks
 - [[CHANGE_PACKET]] — required before edits
