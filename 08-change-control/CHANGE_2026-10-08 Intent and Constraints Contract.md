@@ -42,6 +42,24 @@ Intent and constraints is the **operating philosophy that connects the two ident
 - **[[Three Battlegrounds]]**: the experience line is now canonical (*you tell us what you want, what matters, and what you won't compromise; we deliver the how, stay inside your boundaries, and prove what we accomplished*). A four-step **AI Operating System loop** table (tell us → we deliver the how → inside your boundaries → prove it) names it as how both promises become an experience, mapped to the centres, the roadmap operating loop and MOE-1. Aliases added: ai operating system, ai operating system loop, aios loop.
 - **[[RackAI Roadmap]]**: the operating-loop note names this as the AI Operating System loop.
 
+## Fourth pass: Concierge Engineer and delivery-sheet proposals
+
+- **[[RackAI Roadmap]]**: new **P-008 Concierge Engineer** (conversational declaration surface; first consumer of the P-006 control envelope; delegated not inherited authority; public APIs only; only "RackAI can't yet" becomes a product signal, content-free; v0 Answer → v1 Act with confirmation → v2 Governed autonomy). Added to the proposals table (D3) and the loop-coverage table.
+- **Delivery plan (adopted, same day)**: the product owner adopted the loop changes directly into the delivery CSVs, keeping their shape and inventing no owners, Jira IDs, priorities, effort or dates (a short-lived proposals file and check script were removed).
+  - `rackai-2026-roadmap.csv`: Metering M3 (quotas in constraint terms), Metering M4 (explicit infeasibility), Auditing M3 (envelope-held evidence) task text widened; IAC M4 dependency notes P-006 authority (still Won't Do); AI Performance Benchmarks depends on ratified SLOs; accelerator row renamed; GPU node access Won't Do; Workload Profiles UX → M2 Feature *Workload declaration (intent + constraints) & profiles UX*; Concierge Engineer v0/v1/v2 added (Not Started, TBD).
+  - `rackai-m2.csv`: accelerator rename (row + priority list), GPU node access Won't Do, Concierge Engineer v0/v1/v2 added with no man-weeks or priority.
+  - `action-tracker.csv`: four decisions (SLO thresholds, authority under incomplete intent, declare vs. choose, Concierge model placement and liability), no owner.
+  - The CSVs now lead the xlsx; [[RackAI Roadmap (Delivery Plan)]] says so.
+
+## Fifth pass: review findings adopted
+
+A review of the 15-change package was accepted with two adjustments (no duplicate maturity ladder; decision logic assigned to the existing orchestrator, not a new box).
+
+- **Delivery CSVs**: the Workload declaration dependency no longer uses the old "Accelerator selection" name (now RACKAI-336 telemetry, with automated selection marked future, P-005). Concierge v1 no longer applies quota changes; it drafts them for an authorized approver after a policy check (2026 Roadmap and RackAI M2 sheets).
+- **[[RackAI Roadmap]]**: P-005 framed as the first increment of the operator's decision capability, with step 2 split into *determining* (P-005) and *improving* (P-007) the how, owned by the orchestrator; v1 acceptance test (evidence-backed, explained recommendation with stated assumptions and uncertainty). P-008 gains the quota gate and entry/exit criteria per phase; dates follow agreement on criteria. The governing-principle ladder now states how step 2 walks it.
+- **[[Minimum Operable Estate]]**: minimum evidence contract for artifact 4 (performance, policy decisions, actions, outcomes).
+- **[[Three Battlegrounds]]**: the outcome boundary (RackAI owns the realization outcome, not the business result of the customer's application) and step-2 maturity line.
+
 ## Vocabulary (for engineering, kept out of the identity note)
 
 | Review / AIOS v0.3–v0.4 term | RackAI corpus home |

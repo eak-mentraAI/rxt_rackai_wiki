@@ -8,14 +8,16 @@ aliases: [delivery roadmap, rackai delivery plan, software delivery plan, csp pl
 related: [hub-roadmap, hub-product, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, src-rackai-org-design]
 source_docs: ["reference/RackAI - Roadmap.xlsx", "reference/rackai-roadmap-csv/"]
 confidence: measured
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-08
 parent: hub-roadmap
 summary: "Companion of the delivery-roadmap xlsx: CSP Platform Layer, RackAI M2 features, and Uniphore Phase 1, with Jira/dates."
 ---
 
 # RackAI Delivery Roadmap (Software Delivery Plan)
 
-> **Companion note.** Faithful markdown projection of `reference/RackAI - Roadmap.xlsx` — the **actual, staffed, Jira-tracked delivery roadmap** the engineering teams are executing. Per-sheet CSVs are stored alongside at `reference/rackai-roadmap-csv/` (the diffable source of truth). This is a *source projection*, not a canonical note; concepts are extracted into the graph separately and tracked in [[Source Inventory]] and [[Source-to-Concept Crosswalk]].
+> **Companion note.** Faithful markdown projection of `reference/RackAI - Roadmap.xlsx` — the **actual, staffed, Jira-tracked delivery roadmap** the engineering teams are executing. Per-sheet CSVs are stored alongside at `reference/rackai-roadmap-csv/` (the diffable source of truth). > **CSVs lead the xlsx (2026-10-08).** The intent-and-constraints loop changes were adopted directly into the CSVs (2026 Roadmap, RackAI M2 and Action Tracker sheets): six existing rows widened or annotated, two 2026-10-06 decisions applied (accelerator row renamed; GPU node access Won't Do), *Workload Profiles UX* re-scoped to *Workload declaration (intent + constraints) & profiles UX*, three Concierge Engineer rows added, four Action Tracker decisions added. New rows carry no owner, Jira, priority, effort or dates; they are adopted scope, not staffed delivery, so they are not `measured`. Apply the same edits to the xlsx so the two match again. See [[CHANGE_2026-10-08 Intent and Constraints Contract]].
+
+ This is a *source projection*, not a canonical note; concepts are extracted into the graph separately and tracked in [[Source Inventory]] and [[Source-to-Concept Crosswalk]].
 >
 > **Confidence:** `measured` — this is real delivery data (status, owners, Jira IDs, dates, man-week effort). Per the truth hierarchy, **shipped reality here beats planned capability** in the strategy sources: where this shows a capability Complete/In Progress, it corrects the planned/`assumed`/`missing` states elsewhere in the corpus.
 

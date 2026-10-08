@@ -81,6 +81,17 @@ MOE-1 changes **who is accountable for the outcome, and who controls where it ru
 
 These are `assumed`: a proposed acceptance definition pending ratification (see Open Questions). Artifacts 1 and 4 are the intent-and-constraints contract ([[Three Battlegrounds]]) made concrete: MOE-1 is where the contract is first proven, not just stated.
 
+**Minimum evidence contract for artifact 4 (2026-10-08).** Audit events alone show what happened, not that the outcome was met. The report must join four kinds of evidence for the same period:
+
+| Evidence | Shows | Source |
+|---|---|---|
+| **Performance** | Attainment against the agreed SLOs, and cost | Telemetry, [[Benchmark Evidence Chain]], [[SLO Attainment]] |
+| **Policy decisions** | What was admitted, rejected, escalated or reported infeasible, and why | Admission control, [[Action Controls]] |
+| **Actions** | What was changed, by whom or by which agent on whose behalf | [[Audit]], [[Agent Identity]] |
+| **Outcomes** | Whether the declared realization outcome was met, and where it was not | The declaration (artifact 1) compared with the three rows above |
+
+It proves the *realization* outcome (SLOs, cost, boundaries held), not the business result of the customer's application (see the outcome boundary in [[Three Battlegrounds]]).
+
 ## What the MOE Deliberately Excludes
 
 To stay minimum, v1 excludes (deferred to Proof 4 — Operate the Estate):

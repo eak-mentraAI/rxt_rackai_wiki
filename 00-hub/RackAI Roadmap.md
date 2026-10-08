@@ -99,11 +99,11 @@ flowchart LR
 
 > **What the loop is for (2026-10-08): the AI Operating System loop.** This is how we turn both identity promises into an experience: *you tell us what you want, what matters, and what you won't compromise; we deliver the how, stay inside your boundaries, and prove what we accomplished.* The loop realizes a customer's **declared intent inside their constraints** (the contract between the two identity centres; see [[Three Battlegrounds#The operating philosophy between the centres: intent and constraints|Three Battlegrounds]]). Read the loop as *intent → specification → plan → action → observation → correction*: governance supplies the inherited constraints, the [[Empirical Map]] supplies the discovered ones, the decide/place steps optimize inside the envelope, and assurance proves both the outcome and that the envelope held. This adds no new stage or workstream; it states what the existing stages are accountable to.
 
-**Loop coverage today (2026-10-08).** Where each turn of the contract is delivered, and what is missing. No new workstream: every gap already has a P-item.
+**Loop coverage today (2026-10-08).** Where each turn of the contract is delivered, and what is missing. No new workstream: every gap already has a P-item. The matching delivery-plan changes were adopted into the delivery CSVs on 2026-10-08 (see [[RackAI Roadmap (Delivery Plan)]]); new rows are Not Started and unstaffed.
 
 | Turn | Delivered by | Status | Closes via |
 |---|---|---|---|
-| Declare intent + constraints | No customer-facing declaration; quota plans are GPU-centric | Principle adopted 2026-10-06, surface missing | **P-004** (declaration surface) |
+| Declare intent + constraints | No customer-facing declaration; quota plans are GPU-centric | Principle adopted 2026-10-06, surface missing | **P-004** (declaration surface), **P-008** (conversational surface) |
 | Declared constraints: SLOs | Per-profile SLO thresholds | Not ratified | Open question; MOE-1 artifact 2 |
 | Inherited constraints | IAC M1–M3 shipped; IAC M4 Won't Do; [[Agent Identity]] and [[Action Controls]] planned | Partial | **P-006** |
 | Discovered constraints | Platform M1–M4 telemetry, accelerator inventory (done); Observability M1 not started; cost model and [[Empirical Map]] missing | Partial | P-003, **P-005** |
@@ -112,7 +112,7 @@ flowchart LR
 | Observe → correct | Telemetry in progress; closed loop missing | Partial | P-005 → P-007 |
 | Prove the outcome | [[Benchmark Evidence Chain]]; SLO attainment unscorable without SLOs | Blocked | SLO ratification |
 | Prove the envelope held | Audit partial; compliance evidence missing | Partial | **P-006** |
-| Handle incomplete intent | Primitives only: Metering M4 admission control (reject), Action Controls approval gate (escalate) | Unowned | **P-006** (incomplete-intent rule) |
+| Handle incomplete intent | Primitives only: Metering M4 admission control (reject), Action Controls approval gate (escalate) | Unowned | **P-006** (incomplete-intent rule); surfaced to users by **P-008** |
 
 At the workload level this is a six-month contract ("give us the workload and constraints; we operate it"). The enterprise-objective level ("cut cloud cost 20% without hurting reliability") sits in the [[Governed Harness]] and follows MOE-1.
 
@@ -211,6 +211,8 @@ Operating knowledge is *created by operating*, so every capability walks this la
 | Routing | Static routes | Instrument traffic | Rules + recommendation | Dynamic routing |
 | Capacity | Manual assignment | Utilization visibility | Forecasting | Automated capacity mgmt |
 | Governance | Manual policy approval | Encoded policy | Assisted review | Automated enforcement |
+
+> **Step 2 of the AI Operating System loop walks this same ladder (2026-10-08).** "We deliver the how" is *human-operated* at MOE-1 (operators interpret intent, choose the realization, manage delivery), *assisted* once the [[Empirical Map]] recommends and operators approve consequential decisions (P-005), and *automated* (closed-loop: select, monitor and adapt within delegated authority) with P-007. Human-operated is not an architectural failure; the risk is presenting a human-operated delivery model as an autonomous capability.
 
 ## The Four Proofs
 
@@ -586,7 +588,7 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 
 **The flywheel D2 is betting on:** *more estates → more evidence → better decisions → better utilization / cost / reliability → better economics → ability to operate more estates.* D2 funds the substrate (economics + supply optionality + operating intelligence) that makes this loop real rather than rhetorical.
 
-> **Below are the implementation proposals (P-001–P-007) that sit under these decisions.** They are the engineering detail; the executive surface is D1–D4. All are **Proposed, not adopted**; owners/dates stay with the delivery teams. Two were re-scoped per CEO review (2026-09-21): **P-006** is now an *outcome* (control envelope), not "reinstate IAC M4"; **P-001** is *vendor-independent* (Uniphore is a separable choice).
+> **Below are the implementation proposals (P-001–P-008) that sit under these decisions.** They are the engineering detail; the executive surface is D1–D4. All are **Proposed, not adopted**; owners/dates stay with the delivery teams. Two were re-scoped per CEO review (2026-09-21): **P-006** is now an *outcome* (control envelope), not "reinstate IAC M4"; **P-001** is *vendor-independent* (Uniphore is a separable choice).
 
 | # | Proposal | Decision | Class | Status |
 |---|----------|:--------:|-------|--------|
@@ -597,6 +599,7 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 | **P-006** | Minimum enterprise **control envelope** required for MOE-1 (outcome-framed) | D3 | Re-scoped from "control bundle" | Proposed |
 | **P-001** | Narrow fine-tuning: evaluate partner(s) for delivery, RackAI owns integration/serving + learning | D4 | Directional; vendor-independent | Proposed |
 | **P-007** | Proof-4 prerequisites as a **dependency declaration** (do not build yet) | D4 | Watch item, not a build ask | Proposed |
+| **P-008** | Concierge Engineer: conversational declaration surface and first consumer of the control envelope | D3 | Do-now as v0 (read-only); v1/v2 gated on P-004 / P-006 | Delivery rows adopted 2026-10-08 (unstaffed) |
 
 ## Kill / Falsification Criteria (what would change the thesis)
 
@@ -711,6 +714,10 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 **Proposed change.** Add Empirical Map v1 as a first-class delivery workstream (Measurement & Self-Improvement): capture per-workload×model×hardware reliability + cost from the telemetry/metering already being built, with the **transferable-vs-isolated split** designed in from day one; then feed it into routing (extend RACKAI-311's successor to read the map).
 
+**Framing (2026-10-08): the first increment of the operator's decision capability, not a data feature.** Step 2 of the AI Operating System loop ("we deliver the how") is two capabilities: **determining the how** (given a declared workload and its constraints, choose an admissible realization from available infrastructure, models, observed performance and economics) and **improving the how** (observe the running workload, recognize a better realization, and recommend or make the change without leaving the envelope). The Empirical Map supplies the evidence for both but is not sufficient alone: the decision logic and the control loop belong to the orchestrator in the [[Governed Harness]], with governance defining what is admissible and assurance evaluating results. No new component; P-005 covers determining, P-007 (closed loop) covers improving.
+
+**v1 acceptance test.** Given a customer workload, its SLOs, residency requirements, budget preference and the available accelerator inventory, can RackAI produce an **evidence-backed recommendation**, explain why it chose that realization, and state the assumptions and uncertainty involved? A human approves and executes the recommendation at first (the *assisted* rung); the same contract later supports governed automatic action.
+
 **Blocks adoption:** owner (no delivery team owns "measurement/self-improvement" today); depends on Metering M1 + Platform M1–M2 landing first.
 
 ### P-006 — Define and fund the minimum enterprise control envelope for MOE-1
@@ -739,6 +746,30 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 **Proposed change.** This is a **sequencing dependency, not a request to start now**: flag that the Proof-4 prerequisites (multi-region, GPU-node access) must leave Pri-6 *before* an external multi-region MOE-1 is viable, and that managed-ops/FDE ([[AI Operations Product]]) needs a delivery home before estates multiply. Adopt as a **watch item** that gates P-002's MOE-1 timing.
 
 **Blocks adoption:** premature to schedule until Proofs 1–3 land; the value now is making the dependency explicit so MOE-1 isn't promised ahead of its prerequisites.
+
+### P-008 — Concierge Engineer: the user-facing side of the AI Operating System loop
+
+*(Proposed 2026-10-08.)* A conversational agent, an AI FDE that every customer gets by default, through which customers *tell us* what they want and RackAI delivers it. It is not a new pillar: it is the declaration surface P-004 lacks, and the first customer of the P-006 control envelope. If we cannot safely run our own agent inside a customer's boundary, we cannot claim MOE-1.
+
+**Three outcomes per request, stated up front.** *Answer* (cost, performance, incidents, quotas, from the customer's own telemetry and audit). *Act* (turn the request into a declaration, show what I'll do / what needs your approval / what I can't do, execute, report evidence). *Can't* (explained, with an alternative).
+
+**Authority is delegated, not inherited whole** ([[Agent Identity]]): never more than the user, scoped to the task, expiring, audited as agent-for-user, and further restrictable by the customer's policy. Irreversible or high-impact actions require confirmation ([[Action Controls]]). The agent's tools are RackAI's **public APIs only**, so anything it cannot do is a genuine product gap.
+
+**Not every "can't" is a product gap.** Only "RackAI can't do this yet" is signalled to product. Missing user authority becomes an access request; a customer policy refusal is the boundary working as intended; conflicting constraints are reported as infeasible with trade-offs. Gap signals carry the intent class, missing capability, alternative offered and customer impact, **with no customer content** (the [[Empirical Map]] transferable-vs-isolated split), and are deduplicated, ranked and routed to the [[Capability Gap Register]] automatically. Deciding what to build stays human.
+
+**Phasing (six-month horizon).** v0 Answer, read-only plus gap signals (needs Observability M1, IAC M3). v1 Act with confirmation (needs Agent Identity, Action Controls, the P-004 declaration surface). v2 Governed autonomy (needs the P-006 incomplete-intent rule and the authority decision). Adopted into the delivery plan 2026-10-08 as three M2 Feature rows (Concierge Engineer v0, v1, v2), Not Started, with no owner, priority or dates assigned.
+
+**Quota and commercial actions are gated.** Quota changes carry billing and governance consequences beyond an ordinary workload action, so in v1 and v2 the agent **drafts** a quota change for an authorized approver after a policy check and never applies it directly.
+
+**Entry and exit criteria (dates committed only once these are agreed).**
+
+| Phase | Entry | Exit |
+|---|---|---|
+| **v0 Answer** | Observability M1 Metrics API available; audit API (IAC M3); gap-signal schema with customer content stripped | Core questions (cost, performance, incidents, quota) answered from the customer's own telemetry with sources cited; gap signals reaching the [[Capability Gap Register]] with no customer content in a reviewed sample; used by MOE-0 operators |
+| **v1 Act with confirmation** | v0 exit; [[Agent Identity]] delegated, task-scoped tokens; [[Action Controls]] confirmation gate; workload declaration surface | Every action confirmed and audited as agent-for-user; reversible actions shown to roll back; no action exceeds the user's authority under adversarial testing (prompt injection, cross-tenant); quota changes only as drafted requests |
+| **v2 Governed autonomy** | v1 exit; P-006 incomplete-intent rule in place; authority decision ratified; P-005 recommendations at the assisted rung | Autonomous actions limited to the reversible class within delegated authority; every escalation and infeasibility report logged; the MOE-1 evidence report shows the envelope held |
+
+**Blocks adoption:** Observability M1 is not started (critical path); where the agent's own model runs for sovereign customers; liability for agent-taken actions (ties to the authority open question).
 
 ## See Also
 

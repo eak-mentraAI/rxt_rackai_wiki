@@ -82,6 +82,10 @@ This is **not a third centre** (added 2026-10-08, after the roadmap review). It 
 
 At the platform level this is the roadmap's [[RackAI Roadmap#The Operating Loop — the system the four proofs build|operating loop]] (intent → specification → plan → action → observation → correction); [[Minimum Operable Estate|MOE-1]] is where it is first proven with a paying customer.
 
+**The outcome boundary.** "We deliver the how" is not "we guarantee the business outcome." RackAI owns the **realization outcome**: the workload runs to its SLOs and cost, adapts as conditions change, stays inside the envelope, and comes with evidence. The **business result** of the customer's application (what the agent achieves, given application logic, data quality and business process) stays with the customer, consistent with the harness boundary below. The operator promise must never claim accountability beyond what RackAI controls.
+
+**Step 2 matures; it does not start automated.** At MOE-1, "we deliver the how" is human-operated; the [[Empirical Map]] moves it to assisted and then closed-loop (the roadmap's human-operated → automated ladder). Presenting human-operated delivery as autonomy is the failure to avoid.
+
 | | Operator: "we run it" | Sovereign provider: "it stays theirs, verifiably" |
 |---|---|---|
 | **What it owes the declaration** | Realization: interpret the intent, plan, execute, observe, adapt | The envelope: hard constraints hold, and are never relaxed without saying so |
