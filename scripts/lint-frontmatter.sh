@@ -133,7 +133,10 @@ lint_file() {
   if [ -n "$summary_val" ]; then
     # Strip a single pair of surrounding quotes (single or double) if present
     summary_val=$(echo "$summary_val" | sed -e 's/^"\(.*\)"$/\1/' -e "s/^'\(.*\)'$/\1/")
-    local summary_len=${#summary_val}
+    # Count characters, not bytes: ${#var} is byte-based under LC_ALL=C (e.g. git
+    # hooks/CI), so an em-dash would count as 3. Drop UTF-8 continuation bytes.
+    local summary_len
+    summary_len=$(printf '%s' "$summary_val" | LC_ALL=C tr -d '\200-\277' | wc -c | tr -d ' ')
     if [ "$summary_len" -gt "$MAX_SUMMARY_LEN" ]; then
       echo "ERROR: $file — summary is $summary_len characters (max $MAX_SUMMARY_LEN)."
       echo "       Over-length summaries are blocked by knowledge-platform ingestion"
