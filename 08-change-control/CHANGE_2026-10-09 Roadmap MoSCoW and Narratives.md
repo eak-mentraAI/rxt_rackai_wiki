@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [roadmap moscow change, roadmap narratives change 2026-10-09]
-related: [wiki-roadmap-narratives, hub-roadmap, wiki-milestone-release-map, hub-minimum-operable-estate]
+related: [wiki-roadmap-narratives, hub-roadmap, wiki-milestone-release-map, hub-minimum-operable-estate, idx-fleet-inventory]
 source_docs: ["05-wiki/RackAI Roadmap.csv", "00-hub/RackAI Roadmap.md", "05-wiki/Milestone Release Map.md"]
 confidence: derived
 last_reviewed: 2026-10-09
@@ -37,6 +37,14 @@ Product owner request: add a **MoSCoW** rating to the roadmap, and group the eng
 - **Changed:** [[RackAI Roadmap]]: one pointer under "Which file is current", one See Also link, and `related`. No meaning change to the proofs or P-items.
 - **Changed:** [[Milestone Release Map]]: the marketing guidance now points to [[Roadmap Narratives]]; the five tracks remain the engineering view. See Also and `related` updated.
 - **Deprecated:** none.
+
+## Knowledge platform rendering (same day)
+
+The roadmap CSV never appeared on the knowledge platform: ingestion only discovered `.md` files and its CSV parser was never called. Fixed in knowledge-platform PR #21 (opt-in `data_files` frontmatter; each declared CSV renders as a filterable, sortable table on the note's page and is indexed for semantic search). Wiki side:
+
+- `data_files` added to [[RackAI Roadmap]] (`05-wiki/RackAI Roadmap.csv`) and [[Fleet Inventory]] (`04-evidence/benchmarks/fleet-inventory.csv`).
+- Optional `data_files` field documented in the frontmatter standard (`.kiro/steering/rackai-operating-standards.md`).
+- **Data fix:** `fleet-inventory.csv` row 1 had an unquoted interconnect value containing commas, which split one field into three (11 fields under 9 headers). Quoted it; values unchanged.
 
 ## Edges
 

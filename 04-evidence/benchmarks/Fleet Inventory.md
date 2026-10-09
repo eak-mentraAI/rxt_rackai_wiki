@@ -8,9 +8,10 @@ aliases: [fleet inventory, gpu inventory, ground truth inventory, phase 0 invent
 related: [hub-evidence, ent-gpu-fleet, ent-gpu-node, ent-gpu-cluster, idx-open-questions]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: measured
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-09
 parent: hub-evidence
 summary: "Phase-0 ground-truth GPU fleet inventory across the SPOT, RackAI staging, and RackAI dev environments."
+data_files: ["04-evidence/benchmarks/fleet-inventory.csv"]
 ---
 
 # Fleet Inventory

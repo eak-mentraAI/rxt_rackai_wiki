@@ -11,6 +11,7 @@ confidence: derived
 last_reviewed: 2026-10-09
 parent: hub-root
 summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Assume Responsibility, Operate)."
+data_files: ["05-wiki/RackAI Roadmap.csv"]
 ---
 
 # RackAI Roadmap

@@ -98,6 +98,8 @@ summary: "One-line description of note purpose."
 ---
 ```
 
+**Optional: `data_files`.** A list of corpus-relative `.csv` paths (e.g. `data_files: ["05-wiki/RackAI Roadmap.csv"]`). The knowledge platform renders each CSV as a filterable, sortable table on this note's page and indexes its rows for search. Use it on the note that owns a CSV; the CSV stays the canonical data. Without it, a CSV is never ingested.
+
 ## Confidence States
 
 - `assumed` — no direct evidence yet (e.g., a projected TTFT before benchmarking)
