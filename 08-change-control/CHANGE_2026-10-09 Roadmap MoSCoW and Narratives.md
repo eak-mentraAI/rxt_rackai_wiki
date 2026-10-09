@@ -65,6 +65,10 @@ The knowledge platform's Browse tree showed none of the RackAI wiki. Cause: the 
 
 Refreshed `Due`, `Release date (post-eng meeting)`, `Potential owner` and `Jira` in `05-wiki/RackAI Roadmap.csv` from the product owner's updated plan, matched by milestone; no other column changed. Due dates were set on all 74 matched rows (10/20/2026 to 9/15/2027); 21 release dates were filled in; 4 owners changed (AI Performance Benchmarks, Speculative decoding and Refrag: Alberto/Deshna → Deshna; DPO fine tuning: unassigned → Deshna); Jira already matched. The five rows added today have no dates or owners yet.
 
+## One date per row (same day)
+
+`Release date (post-eng meeting)` was replaced by `Date status` in `05-wiki/RackAI Roadmap.csv` (same column position). Every filled release date equalled its `Due`, so the column only signalled engineering confirmation. Now: **Committed** for the 21 rows that had a release date, **Target** for 53 with only a Due date, blank for the 5 undated rows added today. No dates lost: `Due` is unchanged. Documented under *Maintaining* in [[Roadmap Narratives]].
+
 ## Edges
 
 - **Added:** hub-roadmap → wiki-roadmap-narratives; wiki-milestone-release-map → wiki-roadmap-narratives; wiki-roadmap-narratives → hub-roadmap (parent), Minimum Operable Estate, Empirical Map, Solution Marketplace, Sovereign Private Assistant, Team Operating Model, Capability Gap Register.

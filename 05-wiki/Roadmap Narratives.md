@@ -228,6 +228,7 @@ Process owner: the roadmap review in [[Team Operating Model]].
 
 - **Canonical data:** the `MoSCoW (6-month horizon)`, `Narrative` and `MOE gate` columns in `05-wiki/RackAI Roadmap.csv`. Change a rating or a grouping there first, then re-project here.
 - **New rows:** every new CSV row needs a MoSCoW rating, exactly one narrative and one MOE gate. If a row fits none of N1–N8, raise it at roadmap review; don't add a ninth narrative quietly.
+- **Dates:** `Due` is the single date per row. `Date status` says how firm it is: **Committed** (engineering confirmed it after the estimation meeting) or **Target** (a planning date not yet confirmed; most fall on the 15th as month-level targets). Live dates stay in Craft.io.
 - **Must reasons:** every Must row starts its discussion field with `[Gate-critical]`, `[Evidence-critical]` and/or `[Commitment-critical]`.
 - **Decisions to protect:** eight narratives, no ninth. Concierge Engineer is an interface to the operating model, not its centre. Inference techniques (speculative decoding, Refrag, KV caching) stay subordinate to measured improvement, never standalone customer outcomes. Marketplace production stages are not pulled forward because FDE prototypes move fast; MK.S0 → MK.S1 comes first. The narratives are lenses, never eight delivery organizations.
 - **Craft.io:** if the live tool gets these as fields, Craft.io holds the value and the CSV mirrors it (same division as dates and owners).
