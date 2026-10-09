@@ -61,6 +61,10 @@ Question: does the roadmap let us adopt new models and new versions quickly, ben
 
 The knowledge platform's Browse tree showed none of the RackAI wiki. Cause: the root note [[Rack AI Knowledge Base]] (`hub-root`) declared `parent: hub-root`, making it its own parent; it had done so since the initial import. Browse builds its tree from parentless notes, so `hub-root` and everything under it (238 of 259 objects) was unreachable. Set `parent: null`, matching the AIOS wiki's root. A simulated rebuild shows all 259 objects reachable, with no other cycles.
 
+## Dates and owners refreshed (same day)
+
+Refreshed `Due`, `Release date (post-eng meeting)`, `Potential owner` and `Jira` in `05-wiki/RackAI Roadmap.csv` from the product owner's updated plan, matched by milestone; no other column changed. Due dates were set on all 74 matched rows (10/20/2026 to 9/15/2027); 21 release dates were filled in; 4 owners changed (AI Performance Benchmarks, Speculative decoding and Refrag: Alberto/Deshna → Deshna; DPO fine tuning: unassigned → Deshna); Jira already matched. The five rows added today have no dates or owners yet.
+
 ## Edges
 
 - **Added:** hub-roadmap → wiki-roadmap-narratives; wiki-milestone-release-map → wiki-roadmap-narratives; wiki-roadmap-narratives → hub-roadmap (parent), Minimum Operable Estate, Empirical Map, Solution Marketplace, Sovereign Private Assistant, Team Operating Model, Capability Gap Register.
