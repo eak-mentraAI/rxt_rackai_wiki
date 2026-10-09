@@ -52,13 +52,13 @@ Rated against the **six-month horizon** and the **MOE-0 → MOE-1** gate ([[Rack
 
 | Tag | Means | Rows | Examples |
 |---|---|:-:|---|
-| `[Gate-critical]` | The row's MOE gate cannot pass without it | 24 | Customer isolation, governed harness v1, Metering M3–M4, CI system |
+| `[Gate-critical]` | The row's MOE gate cannot pass without it | 26 | Customer isolation, governed harness v1, Metering M3–M4, CI system |
 | `[Evidence-critical]` | Captures evidence or history we can't backfill later | 6 | Cost model, Empirical Map v1, Metering M1, GLM 5.3 Flash (the first real-workload evidence) |
 | `[Commitment-critical]` | A named customer commitment | 2 | Uniphore SFT/LoRA, Uniphore single-cluster tenancy |
 
 A row can carry two tags (e.g. Metering M1 is `[Gate-critical; Evidence-critical]`), so the counts overlap. Only the Gate-critical rows block a gate.
 
-Done rows keep the rating they had when they were planned, so the production bar shows what has been completed as well as what remains. The current split is 29 Must, 17 Should, 11 Could and 22 Won't across 79 rows.
+Done rows keep the rating they had when they were planned, so the production bar shows what has been completed as well as what remains. The current split is 31 Must, 15 Should, 11 Could and 22 Won't across 79 rows.
 
 ---
 
@@ -70,12 +70,12 @@ Done rows keep the rating they had when they were planned, so the production bar
 | **N2** | **Your AI, Your Rules** | "Your data, models and policies stay inside the boundary you agree with us, and you get the evidence to show your auditor." (Agreed private boundary at MOE-1; residency in specific jurisdictions is MOE-3) | 3 / 8 (2 in progress) | 🟡 Identity and audit foundation shipped; extended audit, isolation, harness and attestation open |
 | **N3** | **No Surprises** | "You always see how your AI performs and what it costs, and spend stays inside the limits you set." (Visibility and enforced limits, not a guaranteed cost outcome) | 0 / 8 (3 in progress) | 🟡 Telemetry and metering underway; SLOs and customer view missing |
 | **N4** | **Smarter With Every Workload** | "Our placement and routing decisions improve as evidence from the workloads we operate accumulates." (Not automatic improvement from every workload) | 1 / 2 | 🔴 The moat; Empirical Map not started |
-| **N5** | **Your Models, Operated** | "Run the models you choose, including your own fine-tuned ones, and we operate them." | 0 / 2 (2 in progress) | 🟡 GLM and Uniphore in flight |
+| **N5** | **Your Models, Operated** | "Run the models you choose, including your own fine-tuned ones, and we operate them." | 0 / 4 (2 in progress) | 🟡 GLM and Uniphore in flight; onboarding pipeline and version upgrades not started |
 | **N6** | **Price-Performance Without Lock-In** | "Best performance per dollar across accelerators and suppliers, with no single-vendor lock-in." | 0 / 1 | 🔴 Architectural readiness only this horizon (the supply-abstraction interface); external claims wait for measured multi-supply at MOE-4 |
 | **N7** | **Solutions, Ready to Run** | "Proven AI solutions you switch on inside your own estate, not projects you commission." | no Musts | ⚪ Prototype stage (MK.S0) until certification and repeatability are demonstrated |
 | **N8** | **Built to Scale Profitably** *(internal)* | For leadership and the board: "Each estate is margin-positive, and estate #100 costs less to run than #1." | 0 / 3 | 🔴 Cost model, unit economics and CI all missing |
 
-> **What the table shows.** The narratives with the most visible demos (N1's Concierge Engineer, N7's Sovereign Private Assistant) have the least production work done. The narratives that look dull (N2, N3) hold 16 of the 29 Musts and most of the shipped work. That is the conversation to have with leaders. Nothing is claimed as production until its MOE gate passes (see the rule below). Shipped pieces of N2, N3 and N5 can be described as available today; N1 becomes claimable at MOE-1; N4, N6 and N7 are "on the roadmap" (see [[Milestone Release Map#How to Use This Note|external-claim rule]]).
+> **What the table shows.** The narratives with the most visible demos (N1's Concierge Engineer, N7's Sovereign Private Assistant) have the least production work done. The narratives that look dull (N2, N3) hold 16 of the 31 Musts and most of the shipped work. That is the conversation to have with leaders. Nothing is claimed as production until its MOE gate passes (see the rule below). Shipped pieces of N2, N3 and N5 can be described as available today; N1 becomes claimable at MOE-1; N4, N6 and N7 are "on the roadmap" (see [[Milestone Release Map#How to Use This Note|external-claim rule]]).
 
 ---
 
@@ -124,8 +124,8 @@ The moat: the [[Empirical Map]] turns evidence from operated estates into better
 Model choice and model lifecycle: the portfolio, fine-tuning operations, onboarding and retirement, the OpenRouter channel. Renamed 2026-10-09 from "Any Model, Day One", which implied universal, immediate support that the roadmap doesn't deliver (new-model onboarding is a Should). Finishing N5's Musts alone doesn't make it sellable: production also needs its gate's isolation (N2) and metering (N3).
 
 - **A demo shows:** a new model or a fine-tuned adapter serving traffic.
-- **Production bar (Must):** 🟡 GLM 5.3 Flash + OpenRouter Path A · 🟡 Uniphore SFT/LoRA.
-- **Next (Should / Could):** model onboarding pipeline v0, model version upgrade, Model Launch Lag instrumentation (all MOE-1); multi-model operation, domain-model experiment, model sunsetting, OpenRouter Inference aaS (Should); DPO, OpenRouter BYOM, direct Inference aaS (Could).
+- **Production bar (Must):** 🟡 GLM 5.3 Flash + OpenRouter Path A · 🟡 Uniphore SFT/LoRA · ⬜ Model onboarding pipeline v0 (RACKAI-354, MOE-1) · ⬜ Model version upgrade (MOE-1). The last two became Must on 2026-10-09: fast, evidenced model adoption is a competitive priority, so MOE-1 doesn't pass on hand-run model work.
+- **Next (Should / Could):** Model Launch Lag instrumentation (MOE-1); multi-model operation, domain-model experiment, model sunsetting, OpenRouter Inference aaS (Should); DPO, OpenRouter BYOM, direct Inference aaS (Could).
 - **Model velocity (2026-10-09):** the full day-zero [[Model Launch Factory]] stays beyond this horizon, but its middle is pulled forward. RACKAI-354 becomes a **human-gated onboarding pipeline v0** for known architectures (intake → functional validation → benchmark → canary). A new row covers **upgrading to a new version of a model we already run** (canary, automatic rollback). [[Model Launch Lag]] gets measured from the first onboarding, so "quickly" has a baseline before the <24h / <72h target is committed. The CI Must now explicitly covers model and fine-tuning images.
 - **Not this horizon:** fine-tuning checkpointing (moving external).
 
@@ -174,7 +174,7 @@ A consistency check holds across the CSV: every Must sits at MOE-0, MOE-1 or Not
 | Gate | The market it unlocks | Opens or deepens | Rows | Musts done | What's left (key rows) |
 |---|---|:-:|:-:|:-:|---|
 | **MOE-0 Operator rehearsal** | **Nothing externally, and never marketed.** Proves we can operate an estate: runbooks, SLOs, incident process, metering | — | 20 | 4 / 20 (6 in progress) | Supply-abstraction interface, Observability M1, per-profile SLO thresholds, cost model, Metering M3–M4, governed harness v1, MOE spec, CI system, the MOE-0 run itself |
-| **MOE-1 First operated estate** | **A first buyer from the ICP**: a *defined initial customer profile* within the ICP (large enterprises with valuable proprietary data that can't use shared or public inference for a material share of workloads) buys and delegates a *bounded* operated estate inside its agreed boundary. We beat "build it themselves" for that buyer; sales gets its first reference customer and its first operating invoice. It does **not** show the whole ICP is addressable or the offer repeatable (that's MOE-2) | **Opens** | 16 | 0 / 8 | Customer isolation + private inference, first applicable assurance attestation, customer observability, workload declaration, unit economics, Empirical Map v1 (evidence from the first estate can't be backfilled), MOE-1 evidence contract and reporting mechanism (the first completed report is the acceptance output); model onboarding pipeline v0 and version upgrades (Should) |
+| **MOE-1 First operated estate** | **A first buyer from the ICP**: a *defined initial customer profile* within the ICP (large enterprises with valuable proprietary data that can't use shared or public inference for a material share of workloads) buys and delegates a *bounded* operated estate inside its agreed boundary. We beat "build it themselves" for that buyer; sales gets its first reference customer and its first operating invoice. It does **not** show the whole ICP is addressable or the offer repeatable (that's MOE-2) | **Opens** | 16 | 0 / 10 | Customer isolation + private inference, first applicable assurance attestation, customer observability, workload declaration, unit economics, Empirical Map v1 (evidence from the first estate can't be backfilled), MOE-1 evidence contract and reporting mechanism (the first completed report is the acceptance output); model onboarding pipeline v0 and model version upgrades |
 | **MOE-2 Repeatable offer** *(proposed)* | **The ICP, repeatably**: sold as a repeatable offer with a reference and a standard contract, not a bespoke engagement. Workloads per ops FTE becomes measurable; the K2 moat test starts | **Opens** | 8 | — | Multi-model operation, model sunsetting, workload characterization, evidence-informed routing, managed-ops onboarding playbook |
 | **MOE-3 Residency + multi-region** *(proposed)* | **Multinational and residency-bound buyers** who need workloads kept in specific jurisdictions under one operator | **Opens** | 5 | — | Multi-region support, multi-cluster governance, data-residency controls, residency-aware placement and failover, per-jurisdiction compliance evidence |
 | **MOE-4 Run on your supply** *(proposed)* | **Buyers with their own GPUs or a committed hyperscaler or partner deal**: we operate on capacity they already own, and win "build it themselves" even where the hardware is bought | **Opens** | 5 | — | Second supply implementation, heterogeneous supply, evidence-informed accelerator selection, AMD AIM, govern and assure inside the customer's perimeter |
@@ -196,7 +196,7 @@ A consistency check holds across the CSV: every Must sits at MOE-0, MOE-1 or Not
 2. **MOE-3 was thin.** It had only multi-region and multi-cluster governance. **Resolved 2026-10-09: three rows added** (data-residency controls, residency-aware placement and failover, per-jurisdiction compliance evidence), all N2, unstaffed, `Won't (this horizon)`. Which jurisdictions depends on the MOE-3 target markets, not yet chosen.
 3. **MOE-1 has not started.** None of its 16 rows are done or in progress. MOE-0 is a fifth shipped, with 6 Musts in flight. The distance between the market leaders want and the work under way is clearest here.
 
-**What this gives leadership:** every engineering row now carries a market sentence. "Customer isolation + assurance attestation" isn't plumbing: **it's two of the eight Musts that let a first ICP customer buy.** An FDE demo that excites a regulated prospect produces pipeline for MOE-1. That market opens only when MOE-1's rows ship.
+**What this gives leadership:** every engineering row now carries a market sentence. "Customer isolation + assurance attestation" isn't plumbing: **it's two of the ten Musts that let a first ICP customer buy.** An FDE demo that excites a regulated prospect produces pipeline for MOE-1. That market opens only when MOE-1's rows ship.
 
 ---
 

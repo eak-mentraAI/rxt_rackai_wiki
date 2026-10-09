@@ -54,6 +54,7 @@ Question: does the roadmap let us adopt new models and new versions quickly, ben
 - **M2: Request new model support** (RACKAI-354): **rescoped (proposed, confirm against Jira)** to a human-gated onboarding pipeline v0 for known architectures (intake → functional validation → benchmark → canary). Proof 4 → Proof 2, MOE-2 → MOE-1, still Should. Jira, owner and due date unchanged.
 - **Added:** *Model version upgrade (canary rollout)* (T1.S3, Should, N5, MOE-1) and *Model Launch Lag instrumentation* (T3.S1, Should, N5, MOE-1), both unstaffed.
 - **Annotated:** AI Performance Benchmarks and Per-profile SLO thresholds (SLO ratification unblocks the onboarding benchmark gate); the day-zero factory row (its middle is pulled forward).
+- **Upgraded to Must (product owner, same day):** the onboarding pipeline v0 (RACKAI-354) and *Model version upgrade*, both `[Gate-critical]` at MOE-1. MOE-1 now has 10 Musts; the CSV has 31 Must, 15 Should.
 - **Propagated:** [[Roadmap Narratives]] (N5, gate table: MOE-1 now 16 rows), [[RackAI Roadmap]] delivery table, [[Model Launch Factory]] and [[Model Launch Lag]] (roadmap-status callouts). The CSV now has 79 rows: 29 Must, 17 Should, 11 Could, 22 Won't.
 
 ## Edges
