@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [milestone release map, release map, roadmap release view, major releases, milestone releases, release train, five-track release map, market roadmap, release narrative]
-related: [hub-roadmap, hub-product, hub-battlegrounds, hub-minimum-operable-estate, hub-inference-serving, hub-ai-governance-assurance, hub-ai-harness, hub-model-services, hub-inference-optimization, ent-empirical-map, ent-governed-harness, wiki-pillar-working-model]
+related: [hub-roadmap, hub-product, hub-battlegrounds, hub-minimum-operable-estate, hub-inference-serving, hub-ai-governance-assurance, hub-ai-harness, hub-model-services, hub-inference-optimization, ent-empirical-map, ent-governed-harness, wiki-pillar-working-model, wiki-roadmap-narratives]
 source_docs: ["00-hub/RackAI Roadmap.md", "05-wiki/Pillar Working Model.md", "00-hub/Three Battlegrounds.md"]
 confidence: derived
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-09
 parent: hub-roadmap
 summary: "Market-and-internal projection of the four-proof roadmap into major milestone releases across five functional tracks."
 ---
@@ -235,7 +235,7 @@ The releases are not a parallel ask — they implement the same [[RackAI Roadmap
 
 ## How to Use This Note
 
-- **For market / marketing:** lead with the five tracks and the two headline releases. The 🟢/🟡 items are the "available today / shipping now" story; the 🔴/⚪ items are "on the roadmap" — do not represent them as present (confidence `gap`/`assumed`).
+- **For market / marketing:** lead with the business narratives in [[Roadmap Narratives]] (2026-10-09), backed by the two headline releases; use the five tracks for the engineering and pillar view. The 🟢/🟡 items are the "available today / shipping now" story; the 🔴/⚪ items are "on the roadmap" — do not represent them as present (confidence `gap`/`assumed`).
 - **For internal planning:** use the Track × Proof crosswalk to see where a track's next release is blocked on a proof gate, and the D1–D4 table to tie a release to its funding decision.
 - **For edits:** change the [[RackAI Roadmap]] first (the canonical plan), then re-project here. This note must never carry a capability the roadmap doesn't — if they diverge, this note is stale.
 
@@ -246,6 +246,7 @@ The releases are not a parallel ask — they implement the same [[RackAI Roadmap
 - [[RackAI Roadmap]] — **the canonical plan this note projects** (four proofs, delivery milestones, P-001–P-007, D1–D4)
 - [[Minimum Operable Estate]] — the MVP behind MOE-0 → MOE-1
 - [[Pillar Working Model]] — the pillar ownership the five tracks map to
+- [[Roadmap Narratives]] — the same rows grouped by business outcome, with MoSCoW
 - [[Three Battlegrounds]] — the operator identity the releases serve
 - [[Capability Gap Register]] — live shipped-vs-planned state (the authority on 🟢/🟡/🔴)
 - [[Empirical Map]] — the Track 3 moat

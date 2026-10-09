@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [rackai roadmap, canonical roadmap, living roadmap, roadmap hub, operator roadmap, engineering roadmap canonical, four proofs, observe decide control operate, observe decide assume-responsibility operate, proof roadmap]
-related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness, ent-solution-marketplace, ent-packaged-solution, ev-sovereign-private-assistant, wiki-milestone-release-map]
+related: [hub-root, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-minimum-operable-estate, hub-ai-operations-product, hub-enterprise-ai, hub-commercial, hub-governance, hub-evidence, src-rackai-delivery-roadmap, src-engineering-roadmap, src-rackai-dev-plan, idx-openrouter-integration-plan, idx-capability-gap-register, ent-empirical-map, ent-governed-harness, ent-solution-marketplace, ent-packaged-solution, ev-sovereign-private-assistant, wiki-milestone-release-map, wiki-roadmap-narratives]
 source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/Rack AI OpenRouter Engineering Roadmap.md", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/OpenRouter Integration Plan.md", "04-evidence/Capability Gap Register.md", "00-hub/Three Battlegrounds.md", "PM/leadership roadmap review 2026-09-28", "PM/leadership roadmap review 2026-10-06"]
 confidence: derived
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-09
 parent: hub-root
 summary: "Canonical living roadmap: four proofs of the operator identity (Observe, Decide, Assume Responsibility, Operate)."
 ---
@@ -18,6 +18,8 @@ summary: "Canonical living roadmap: four proofs of the operator identity (Observ
 The **single canonical, living roadmap** for RackAI. It is built primarily on the **actual delivery roadmap** — the [[RackAI Roadmap (Delivery Plan)]] (`measured`; the staffed, Jira-tracked `reference/RackAI - Roadmap.xlsx`) — which this note **reorders and extends under the operator strategy**: it lifts the real delivery milestones out of their native CSP/M2 grouping and re-places them under the four operator proofs (the reordering), then adds the strategy-driven gaps and proposals the delivery plan does not yet contain (the extension). It further draws on two strategy narratives — the [[Rack AI OpenRouter Engineering Roadmap]] (`validated`, read-only) and the [[RackAI Enterprise AI Development Plan]] (`assumed`, raw projection). **This note is editable and is where planning actually lives;** all three sources remain intact — when a proposed change is accepted, it lands here first, and the sources are left unedited per the truth hierarchy. The delivery roadmap keeps its native numbering, Jira IDs, owners, and status so the corpus stays traceable to Jira.
 
 > **Which file is current (2026-10-08).** Canonical roadmap table: `05-wiki/RackAI Roadmap.csv` (PM-annotated; projected by [[Milestone Release Map]]). Canonical narrative: this note. Live dates and owners: Craft.io. `reference/RackAI - Roadmap.xlsx` and its CSV export are a 2026-09-21 intake snapshot, never edited and never current.
+
+> **Priority and narrative (2026-10-09, proposed).** Every CSV row now carries a **MoSCoW** rating (against the six-month horizon and the MOE-1 gate) and one of eight business **Narratives** (N1 *Tell Us the Outcome. We Run It.* to N8 *Built to Scale Profitably*). Each row is also assigned an **MOE gate**: MOE-0 and MOE-1, plus proposed MOE-2 *Repeatable offer*, MOE-3 *Residency + multi-region* and MOE-4 *Run on your supply*, each stated as the market it unlocks. [[Roadmap Narratives]] groups the rows by outcome and sets the demo-to-production rule: an FDE proof of concept is presented with its narrative's Must rows, so leaders see how far it is from production.
 
 > **Tooling.** The live roadmap — pillar items, quarterly sequencing, status, and ownership — is maintained in **Craft.io**. This wiki note carries the strategic rationale, the four-proof structure, gap analysis, and confidence states behind each roadmap item. Neither replaces the other: Craft.io is the *what and when*; this note is the *why and what we learned*. See [[Team Operating Model]] for the roadmap update process and the Craft.io↔wiki division of responsibility.
 
@@ -383,7 +385,7 @@ The CSP Platform Layer is almost entirely Proof 1 — it is the measurement/iden
 | **Uniphore: single-cluster tenancy** | namespace-per-org isolation (shipped foundation) | — | — | Joint (Infra cluster, RackAI tenancy) | In Progress | Isolation |
 | ⚠ **IAC M4** (org-level RBAC + metering/billing/quota perms) | **Won't Do** — dropped from delivery | — | — | Infra → RackAI | **gap → P-006** | Org-level access control |
 | ⚠ **Governed execution harness v1** | *not in delivery plan* | — | — | **RackAI** | **gap → P-006** | The operating layer |
-| ⚠ **First compliance attestation** (SOC 2) | *not a delivery milestone* — "compliance validation" is an Auditing sub-task, no attestation milestone | — | — | **RackAI** (Infra evidence input) | **gap → P-006** | The gate for regulated buyers |
+| ⚠ **First applicable assurance attestation** (e.g. SOC 2; type and scope set by the MOE-1 segment) | *not a delivery milestone* — "compliance validation" is an Auditing sub-task, no attestation milestone | — | — | **RackAI** (Infra evidence input) | **gap → P-006** | The gate for regulated buyers |
 | ⚠ **MOE-0 / MOE-1** (operator rehearsal → paid identity proof) | *not modeled in delivery* | — | — | **RackAI** | **gap → P-002** | First proof of the identity |
 
 **Proof 3 read:** the delivery plan builds real control-plane pieces (audit, admission control, isolation) but **stops short of the identity proof** — there is no harness, no compliance attestation milestone, no MOE, and org-level RBAC was explicitly dropped (IAC M4 "Won't Do"). This is where the strategy is furthest ahead of delivery.
@@ -452,6 +454,8 @@ OpenRouter is **external distribution and validation**, not RackAI's enterprise 
 > **Keep it subordinate.** The risk the reframe guards against is OpenRouter accidentally becoming its own product strategy. It is a learning vehicle inside the operator roadmap; its outputs feed the loop, they are not the destination.
 
 ### Solution Marketplace — Consumption Driver (the second channel) [proposed]
+
+> **In the roadmap table (2026-10-08):** stages MK.S0–MK.S5 plus two Decision Required rows (certification bar for sovereign tenants; commercial model) in `05-wiki/RackAI Roadmap.csv`, Cross-track / Proof 4, unstaffed. A Proof-4 watch item, not a P-item: P-005 and MOE-1 come first, and MK.S0 is a single prototype.
 
 The **[[Solution Marketplace]]** is the **second consumption channel**, structurally alongside OpenRouter but aimed inward at RackAI customers rather than outward at public traffic. Where OpenRouter distributes *model endpoints*, the marketplace distributes **[[Packaged Solution|Packaged Solutions]]** — agents, apps, and harnesses that serve a specific outcome (e.g. the [[Sovereign Private Assistant]]: a RackAI-aware private ChatGPT over a customer's own corpus and sovereign models, built to answer alpha-leakage concerns). Its purpose is to **drive consumption**: a solution authored once is instantiated across many estates, so demand scales without engineering scaling linearly. Full definition + boundary: [[Solution Marketplace]]; product requirements: [[Solution Marketplace PRD]].
 
@@ -781,6 +785,7 @@ Keeping them separate prevents someone, six months out, from pointing at the fri
 
 - [[Three Battlegrounds]] — the identity this roadmap serves
 - [[Minimum Operable Estate]] — the MVP that anchors Proof 3
+- [[Roadmap Narratives]] — the same rows grouped into eight business narratives, with MoSCoW and the demo-to-production rule
 - [[Load-Bearing Bets]] — the partner portfolio behind it
 - [[RackAI Roadmap (Delivery Plan)]] — **primary source**: the actual delivery roadmap this note reorders + extends
 - [[Rack AI OpenRouter Engineering Roadmap]] — strategy spine (inference operating system)

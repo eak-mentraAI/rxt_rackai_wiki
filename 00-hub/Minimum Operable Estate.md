@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [minimum operable estate, moe, mvp operator, operator mvp, smallest operable estate, first operated estate, moe-1 acceptance, supplier to operator]
-related: [hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register]
+related: [hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register, wiki-roadmap-narratives]
 source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "CEO strategy review 2026-09-21"]
 confidence: assumed
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-09
 parent: hub-roadmap
 summary: "The smallest estate where 'we operate your AI' is true: MOE-0 rehearsal then MOE-1 paid proof; anchors Proof 3."
 ---
@@ -58,6 +58,19 @@ The MOE is delivered as **two distinct milestones** that must not be conflated (
 > Rackspace can take a real enterprise workload and operate it across an approved execution boundary while maintaining customer control, governance, and auditability — **and the customer delegates that responsibility and pays for it.**
 
 Meeting this on **MOE-1** is **the first actual proof of the company identity** — the point at which "operator" stops being a claim and becomes a demonstrated fact. MOE-0 is a rehearsal that builds the capability; it does not, by itself, prove the identity.
+
+**Acceptance logic (2026-10-09).** So the gate can't be read as circular:
+
+1. **Before acceptance:** the MOE-1 capabilities are operational, and the evidence contract and reporting mechanism (artifact 4) are validated, for example by a dry run on MOE-0 data.
+2. **During acceptance:** the first completed evidence report is an *output* of the acceptance exercise, not a prerequisite for starting it.
+3. **Proof 3 passes** only when all three hold: a paying customer, delegated responsibility, and the agreed evidence requirements satisfied.
+
+**What MOE-1 does and doesn't claim.** It shows that a *defined initial customer profile* will buy and delegate responsibility for a *bounded* operated estate: the agreed execution boundary is enforced and evidenced. It does not claim the whole ICP is addressable, that the offer is repeatable, or that residency in specific jurisdictions is met. Those belong to the proposed later gates ([[Roadmap Narratives#MOE gates: the market each one unlocks (proposed)|Roadmap Narratives]]):
+
+- **MOE-1:** we can operate it responsibly for a paying customer.
+- **MOE-2:** we can sell and operate it repeatedly without bespoke engineering for every customer.
+- **MOE-3:** we can honour jurisdictional boundaries across regions.
+- **MOE-4:** we can operate across customer-selected supply.
 
 ## What MOE-1 Changes, and How It Materializes (proposed)
 
@@ -122,6 +135,7 @@ The MOE consumes the measurement primitives from Proof 1 (cost, telemetry, meter
 | Who is the first MOE customer, and is it an internal (e.g. Uniphore-tenant) or external estate? | [[Load-Bearing Bets]] | High |
 | Minimum compliance attestation required for a real MOE (SOC 2 Type I? a control subset?) | [[Governance Hub]] | High |
 | Ratify the five proposed acceptance artifacts (delegated-responsibility scope, visible SLOs and incident path, inspectable audit trail, recurring evidence report, operating invoice) as the MOE-1 gate. | [[RackAI Roadmap]], [[AI Operations Product]] | High |
+| Adopt MOE-2 (repeat in the same segment), MOE-3 (residency and multi-region) and MOE-4 (operate on customer supply) as market-expansion gates after MOE-1? Proposed 2026-10-09 in [[Roadmap Narratives#MOE gates: the market each one unlocks (proposed)|Roadmap Narratives]]; each adds back one MOE-1 exclusion. If ratified, they are defined here. | [[RackAI Roadmap]], [[Roadmap Narratives]] | Medium |
 
 ## See Also
 

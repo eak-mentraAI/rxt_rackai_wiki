@@ -8,7 +8,7 @@ aliases: [ai governance and assurance, governance and assurance pillar, ai assur
 related: [hub-rackai-platform, hub-roadmap, hub-ai-harness, hub-inference-serving, hub-org-design, hub-battlegrounds, wiki-pillar-working-model, ent-agent-identity, ent-governed-harness, ent-organization, ent-api-key, ent-registry-credential, ent-rackai-control-plane, ent-environment]
 source_docs: ["reference/jd/EXTERNAL_PDM_Assurance_and_Governance_JD.md", "reference/jd/EXTERNAL_Lead_AI_Assurance_Engineer_JD.docx", "reference/jd/EXTERNAL_Lead_AI_Governance_Engineer_JD.docx", "06-sources/RackAI Enterprise AI Development Plan.md", "05-wiki/Multi-Cluster Governance Brief (Partner).md"]
 confidence: assumed
-last_reviewed: 2026-09-24
+last_reviewed: 2026-10-09
 parent: hub-org-design
 summary: "Pillar hub: the trust and compliance layer — runtime policy, agent identity, provenance, and certifications."
 ---
@@ -53,7 +53,7 @@ The **AI Governance & Assurance** pillar owns the trust layer that makes RackAI 
 | Billing audit (Auditing sub-task) | Not Started | Delivery roadmap |
 | Runtime policy enforcement (full) | Gap P-006 | [[RackAI Roadmap]] |
 | Governed execution harness v1 | Gap P-006 | [[RackAI Roadmap]] |
-| First compliance attestation (SOC 2) | Gap P-006 | [[RackAI Roadmap]] |
+| First applicable assurance attestation (e.g. SOC 2; type set by the MOE-1 segment) | Gap P-006 | [[RackAI Roadmap]] |
 | Provenance and replay | Planned (dev-plan P8/P9) | Enterprise AI Dev Plan |
 | Agent identity / scoped tokens | Planned (dev-plan 2.5) | Enterprise AI Dev Plan |
 | Multi-cluster residency governance | Planned | [[Multi-Cluster Governance Brief (Partner)]] |

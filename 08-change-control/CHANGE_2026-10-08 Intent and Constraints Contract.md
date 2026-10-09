@@ -76,6 +76,10 @@ The loop changes had been applied to the wrong file: `reference/rackai-roadmap-c
 - **Review clarifications** (roadmap now 66 rows): *Metering M3* row added (QuotaPolicy, prerequisite to M4 enforcement; facts from the 2026-09-21 delivery export, no owner/dates carried); Empirical Map v1 requires a **learning event** (constraints, alternatives, chosen realization, predicted vs actual outcome, delta; v1 passes only when a later decision uses the records and beats the static baseline), mirrored in P-005; *MOE-1 evidence report* row added as a deliverable with an accountable owner still to be named (also in [[Minimum Operable Estate]]); Concierge CE.S2 explicitly **not** a prerequisite for MOE-1 (MOE-1 is human-operated, v0–v1 at most), mirrored in P-008.
 - **Reference guard**: Reference-Is-Intake Rule in `agent-behavior.md`; "corpus beats intake" in the truth hierarchy; `reference/README.md` and the delivery-plan source note no longer call the export authoritative; a "which file is current" callout in [[RackAI Roadmap]]; the pre-commit hook blocks modifying or deleting existing `reference/` files (override `ALLOW_REFERENCE_EDIT=1`).
 
+## Eighth pass: Solution Marketplace in the roadmap table
+
+The marketplace was in the roadmap narrative and the [[Milestone Release Map]] (MK.S0–S5) but had no rows in the roadmap table. Added eight Cross-track / Proof 4 rows after the Concierge stages (74 rows total): MK.S0 (Experiment), MK.S1–S4 (Gap), MK.S5 (Backlog), and two Decision Required rows from the [[Solution Marketplace]] open questions (sovereign-tenant certification bar, gating MK.S2; commercial model, gating MK.S4). No owners, Jira or dates. Kept as a Proof-4 watch item rather than a P-item.
+
 ## Vocabulary (for engineering, kept out of the identity note)
 
 | Review / AIOS v0.3–v0.4 term | RackAI corpus home |
