@@ -8,12 +8,14 @@ aliases: [model launch factory, day-zero factory, launch pipeline]
 related: [wf-model-deployment, wf-canary-rollback, evt-new-model-detected, evt-deployment-canary-passed, met-model-launch-lag, ent-model, ent-benchmark-run, wf-model-radar, fml-gpus-per-replica, coeff-model-weight-footprint, met-ttft, met-tokens-per-gpu-second, fml-cost-per-1m-tokens, val-launch-lag-24h, met-output-throughput, idx-phase1-execution-glm, ent-deepseek-v4-flash, ent-glm-5-3-flash]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-09
 parent: hub-operations
 summary: "Day-zero factory that moves a new model from radar detection to OpenRouter publication in a repeatable pipeline."
 ---
 
 # Model Launch Factory
+
+> **Roadmap status (2026-10-09).** The full factory is a roadmap gap, rated `Won't (this horizon)`. Its middle (intake → functional validation → benchmark → canary, human-gated, known architectures) is pulled forward as **model onboarding pipeline v0** (RACKAI-354, MOE-1), plus a **model version upgrade** row that reuses [[Canary & Rollback]]. Model Radar and automated OpenRouter publication stay deferred. See [[Roadmap Narratives]] (N5).
 
 ## Purpose
 

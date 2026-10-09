@@ -8,12 +8,14 @@ aliases: [model launch lag, launch lag, time to production]
 related: [wf-model-launch-factory, evt-new-model-detected, evt-deployment-canary-passed, ent-model, ent-openrouter-integration, wf-model-radar, val-launch-lag-24h, evd-kpi-telemetry-targets]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-09
 parent: hub-operations
 summary: "Elapsed time from publicly usable weights to a production Rack AI endpoint; target <24h median / <72h P90."
 ---
 
 # Model Launch Lag
+
+> **Roadmap status (2026-10-09).** Not yet measured. The roadmap row *Model Launch Lag instrumentation* (Should, MOE-1) measures it from the first onboarding, so a baseline exists before the <24h / <72h target is committed.
 
 ## Definition
 

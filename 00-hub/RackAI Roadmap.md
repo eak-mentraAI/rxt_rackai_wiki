@@ -415,11 +415,11 @@ The controls that let a customer delegate operation inside their boundary, treat
 
 | Milestone | Deliverable | Jira | Owner | Team | Status | Serves |
 |-----------|-------------|------|-------|------|--------|--------|
-| **M2: Request new model support** | on-demand model onboarding | RACKAI-354 | Bedre | **RackAI** | In Progress | Toward model velocity |
+| **M2: Request new model support** | on-demand model onboarding; **rescoped 2026-10-09 (proposed)** to a human-gated onboarding pipeline v0 (intake → validation → benchmark → canary), MOE-1 | RACKAI-354 | Bedre | **RackAI** | In Progress | Toward model velocity |
 | **M2: Sunsetting a model** | model lifecycle retirement | RACKAI-372 | — | **RackAI** | Not Started | Lifecycle |
 | **M2: Multi region support** | *backlogged (Pri 6, unscheduled)* | — | — | Joint (Infra clusters, RackAI routing) | Not Started | Multi-cluster estates |
 | ~~**M2: GPU node access support**~~ | **Out of scope (decided 2026-10-06)** — direct GPU-node access is GPU IaaS; belongs to the GPUaaS/IaaS product boundary, not RackAI | — | — | Infra (not RackAI) | Removed from charter | ~~Heterogeneous supply~~ |
-| ⚠ **Day-zero model factory, closed-loop optimization** | Engineering-roadmap Phases 4/6 — *not in delivery plan* | — | — | **RackAI** | **gap → P-007** | Industrialization |
+| ⚠ **Day-zero model factory, closed-loop optimization** | Engineering-roadmap Phases 4/6 — *not in delivery plan*; its middle pulled forward as RACKAI-354 v0 (2026-10-09) | — | — | **RackAI** | **gap → P-007** | Industrialization |
 | ⚠ **Managed-ops / FDE motion, multi-estate onboarding** | *not modeled* | — | — | **RackAI** | **gap → P-007** | The operator business |
 
 **Proof 4 read:** almost entirely gap. The delivery plan has model-lifecycle fragments; multi-region and GPU-node access — prerequisites for heterogeneous multi-estate operation — are explicitly **backlogged at Pri 6**. Proof 4 is a future the delivery plan does not yet fund.

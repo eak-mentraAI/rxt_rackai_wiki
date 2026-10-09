@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [roadmap moscow change, roadmap narratives change 2026-10-09]
-related: [wiki-roadmap-narratives, hub-roadmap, wiki-milestone-release-map, hub-minimum-operable-estate, idx-fleet-inventory]
+related: [wiki-roadmap-narratives, hub-roadmap, wiki-milestone-release-map, hub-minimum-operable-estate, idx-fleet-inventory, wf-model-launch-factory, met-model-launch-lag]
 source_docs: ["05-wiki/RackAI Roadmap.csv", "00-hub/RackAI Roadmap.md", "05-wiki/Milestone Release Map.md"]
 confidence: derived
 last_reviewed: 2026-10-09
@@ -45,6 +45,16 @@ The roadmap CSV never appeared on the knowledge platform: ingestion only discove
 - `data_files` added to [[RackAI Roadmap]] (`05-wiki/RackAI Roadmap.csv`) and [[Fleet Inventory]] (`04-evidence/benchmarks/fleet-inventory.csv`).
 - Optional `data_files` field documented in the frontmatter standard (`.kiro/steering/rackai-operating-standards.md`).
 - **Data fix:** `fleet-inventory.csv` row 1 had an unquoted interconnect value containing commas, which split one field into three (11 fields under 9 headers). Quoted it; values unchanged.
+
+## Model velocity (same day)
+
+Question: does the roadmap let us adopt new models and new versions quickly, benchmark them, and stay competitive? Finding: the [[Model Launch Factory]], [[Benchmark Evidence Chain]] and [[Canary & Rollback]] were designed but not funded. The factory was `Won't (this horizon)`, new-model support was a ServiceNow request, benchmarking was blocked on SLO thresholds, CI lacked model images, and there was no path for upgrading a served model to a new version. Changes (product owner decision; no new narrative or framework):
+
+- **CI system** (Must): scope now explicitly includes building and releasing model-serving and fine-tuning images.
+- **M2: Request new model support** (RACKAI-354): **rescoped (proposed, confirm against Jira)** to a human-gated onboarding pipeline v0 for known architectures (intake → functional validation → benchmark → canary). Proof 4 → Proof 2, MOE-2 → MOE-1, still Should. Jira, owner and due date unchanged.
+- **Added:** *Model version upgrade (canary rollout)* (T1.S3, Should, N5, MOE-1) and *Model Launch Lag instrumentation* (T3.S1, Should, N5, MOE-1), both unstaffed.
+- **Annotated:** AI Performance Benchmarks and Per-profile SLO thresholds (SLO ratification unblocks the onboarding benchmark gate); the day-zero factory row (its middle is pulled forward).
+- **Propagated:** [[Roadmap Narratives]] (N5, gate table: MOE-1 now 16 rows), [[RackAI Roadmap]] delivery table, [[Model Launch Factory]] and [[Model Launch Lag]] (roadmap-status callouts). The CSV now has 79 rows: 29 Must, 17 Should, 11 Could, 22 Won't.
 
 ## Edges
 
