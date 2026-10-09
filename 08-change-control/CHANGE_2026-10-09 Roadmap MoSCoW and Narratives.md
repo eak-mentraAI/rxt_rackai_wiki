@@ -61,6 +61,14 @@ Question: does the roadmap let us adopt new models and new versions quickly, ben
 
 The knowledge platform's Browse tree showed none of the RackAI wiki. Cause: the root note [[Rack AI Knowledge Base]] (`hub-root`) declared `parent: hub-root`, making it its own parent; it had done so since the initial import. Browse builds its tree from parentless notes, so `hub-root` and everything under it (238 of 259 objects) was unreachable. Set `parent: null`, matching the AIOS wiki's root. A simulated rebuild shows all 259 objects reachable, with no other cycles.
 
+## Dates and owners refreshed (same day)
+
+Refreshed `Due`, `Release date (post-eng meeting)`, `Potential owner` and `Jira` in `05-wiki/RackAI Roadmap.csv` from the product owner's updated plan, matched by milestone; no other column changed. Due dates were set on all 74 matched rows (10/20/2026 to 9/15/2027); 21 release dates were filled in; 4 owners changed (AI Performance Benchmarks, Speculative decoding and Refrag: Alberto/Deshna → Deshna; DPO fine tuning: unassigned → Deshna); Jira already matched. The five rows added today have no dates or owners yet.
+
+## One date per row (same day)
+
+`Release date (post-eng meeting)` was replaced by `Date status` in `05-wiki/RackAI Roadmap.csv` (same column position). Every filled release date equalled its `Due`, so the column only signalled engineering confirmation. Now: **Committed** for the 21 rows that had a release date, **Target** for 53 with only a Due date, blank for the 5 undated rows added today. No dates lost: `Due` is unchanged. Documented under *Maintaining* in [[Roadmap Narratives]].
+
 ## Consistency fixes (same day)
 
 Found while mapping MOE gates onto the stack for the leadership deck. No meaning change; both align older text with decisions already recorded above.
