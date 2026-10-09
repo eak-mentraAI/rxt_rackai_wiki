@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [marketing navigation ia, marketing site ia, marketing site projection, website information architecture, drill-down ia, marketing taxonomy, discovery tree, screen click-through, website stack navigation]
-related: [hub-eac-product-model, wiki-enterprise-ai-solution-stack-marketing, hub-enterprise-ai, idx-eight-layer-stack, idx-capability-gap-register, ent-billing-payment, hub-openrouter]
+related: [pol-sovereignty-levels, hub-eac-product-model, wiki-enterprise-ai-solution-stack-marketing, hub-enterprise-ai, idx-eight-layer-stack, idx-capability-gap-register, ent-billing-payment, hub-openrouter]
 source_docs: ["00-hub/Enterprise AI Cloud Product Model.md", "05-wiki/Enterprise AI Solution Stack (Marketing).md", "04-evidence/Capability Gap Register.md"]
 confidence: derived
-last_reviewed: 2026-09-29
+last_reviewed: 2026-10-09
 parent: hub-eac-product-model
 summary: "Marketing site projection: screen-by-screen click-through derived from the Enterprise AI Cloud Product Model."
 ---
@@ -258,7 +258,7 @@ A different visitor could stop at **Consume as** and branch straight to "talk to
 - **What's under it:** ▸ Serverless inference · ▸ Dedicated inference · ▸ API endpoints · ▸ AI containers · ▸ Streaming · ▸ Multimodal inference.
 - **How it works:** Model → runtime → endpoint → traffic.
 - **Canonical mapping:** Inference → Compute ([[Model Deployment]], [[Serving Runtime]]).
-- **Consume as:** Direct tenant OpenAI-compatible endpoints (dedicated deployment) · [[OpenRouter Initiative|OpenRouter channel]] · customer environment. *Shipped and sellable today.*
+- **Consume as:** Direct tenant OpenAI-compatible endpoints (dedicated deployment) · [[OpenRouter Initiative|OpenRouter channel]] · customer environment. *Shipped and sellable today.* **Correction (2026-10-09):** RackAI does not run on customer-owned hardware today; that is the MOE-4 end state ([[Sovereignty Levels]] Level 3). Endpoints today run on RXT-owned GPUs, shared or dedicated.
 - **Deeper:** ↗ **Serving architecture · supported runtimes · API docs · deployment options · SLAs**. **Back:** ▸ Screen 3.
 
 ### Screen 3.2 — Batch Inference *(capability view)*

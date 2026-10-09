@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [roadmap narratives, narrative roadmap, business roadmap, moscow, moscow rating, roadmap moscow, demo to production, demo vs production, poc to production, production readiness bar, moe gate, moe gates, market gate, market unlocks, moe-2, moe-3, moe-4]
-related: [hub-roadmap, wiki-milestone-release-map, hub-minimum-operable-estate, hub-ai-operations-product, ent-empirical-map, ent-solution-marketplace, ev-sovereign-private-assistant, wiki-team-operating-model, idx-capability-gap-register]
+related: [pol-sovereignty-levels, hub-roadmap, wiki-milestone-release-map, hub-minimum-operable-estate, hub-ai-operations-product, ent-empirical-map, ent-solution-marketplace, ev-sovereign-private-assistant, wiki-team-operating-model, idx-capability-gap-register]
 source_docs: ["05-wiki/RackAI Roadmap.csv", "00-hub/RackAI Roadmap.md", "05-wiki/Milestone Release Map.md"]
 confidence: derived
 last_reviewed: 2026-10-09
@@ -177,7 +177,7 @@ A consistency check holds across the CSV: every Must sits at MOE-0, MOE-1 or Not
 | **MOE-1 First operated estate** | **A first buyer from the ICP**: a *defined initial customer profile* within the ICP (large enterprises with valuable proprietary data that can't use shared or public inference for a material share of workloads) buys and delegates a *bounded* operated estate inside its agreed boundary. We beat "build it themselves" for that buyer; sales gets its first reference customer and its first operating invoice. It does **not** show the whole ICP is addressable or the offer repeatable (that's MOE-2) | **Opens** | 16 | 0 / 10 | Customer isolation + private inference, first applicable assurance attestation, customer observability, workload declaration, unit economics, Empirical Map v1 (evidence from the first estate can't be backfilled), MOE-1 evidence contract and reporting mechanism (the first completed report is the acceptance output); model onboarding pipeline v0 and model version upgrades |
 | **MOE-2 Repeatable offer** *(proposed)* | **The ICP, repeatably**: sold as a repeatable offer with a reference and a standard contract, not a bespoke engagement. Workloads per ops FTE becomes measurable; the K2 moat test starts | **Opens** | 8 | — | Multi-model operation, model sunsetting, workload characterization, evidence-informed routing, managed-ops onboarding playbook |
 | **MOE-3 Residency + multi-region** *(proposed)* | **Multinational and residency-bound buyers** who need workloads kept in specific jurisdictions under one operator | **Opens** | 5 | — | Multi-region support, multi-cluster governance, data-residency controls, residency-aware placement and failover, per-jurisdiction compliance evidence |
-| **MOE-4 Run on your supply** *(proposed)* | **Buyers with their own GPUs or a committed hyperscaler or partner deal**: we operate on capacity they already own, and win "build it themselves" even where the hardware is bought | **Opens** | 5 | — | Second supply implementation, heterogeneous supply, evidence-informed accelerator selection, AMD AIM, govern and assure inside the customer's perimeter |
+| **MOE-4 Run on your supply** *(proposed; end state)* | **Buyers with their own GPUs or a committed hyperscaler or partner deal**: we operate on capacity they already own (sovereignty Level 3), only once the platform is proven on RXT-owned hardware; and win "build it themselves" even where the hardware is bought | **Opens** | 5 | — | Second supply implementation, heterogeneous supply, evidence-informed accelerator selection, AMD AIM, govern and assure inside the customer's perimeter |
 | **Beyond MOE-4 (operate at scale)** | Lower cost to serve and more autonomy across many estates; higher win rate against GPU clouds and inference platforms | Deepens | 4 | — | Closed-loop optimization, dynamic fleet, full harness runtime, Concierge v2 |
 | **Not gated** | Channels and experiments that run beside the gates: OpenRouter (proving ground), the [[Solution Marketplace]] (its own MK.S0–S5 ladder; MK.S2 onward needs MOE-1's isolation), inference techniques, fine-tuning experiments, the Uniphore commitment | Deepens | 21 | 0 / 1 (Uniphore SFT/LoRA, in progress) | — |
 
@@ -188,6 +188,8 @@ A consistency check holds across the CSV: every Must sits at MOE-0, MOE-1 or Not
 - **MOE-2:** we can sell and operate it repeatedly without bespoke engineering for every customer.
 - **MOE-3:** we can honour jurisdictional boundaries across regions.
 - **MOE-4:** we can operate across customer-selected supply.
+
+**Each gate also unlocks a sovereignty level** ([[Sovereignty Levels]], `assumed`): Level 0 (shared, time-sliced) is sold today; MOE-1 → Level 1 Dedicated; MOE-3 → Level 2 Dedicated in a jurisdiction; MOE-4 → Level 3 Your own hardware, the end state.
 
 **MOE-1 acceptance logic.** Before acceptance, MOE-1's capabilities are operational and the evidence contract and reporting mechanism are validated. The first completed evidence report is an *output* of the acceptance exercise, not a prerequisite. Proof 3 passes only with a paying customer, delegated responsibility and the agreed evidence requirements satisfied. Canonical: [[Minimum Operable Estate#Exit Condition (Proof 3 = MOE-1)|MOE exit condition]].
 

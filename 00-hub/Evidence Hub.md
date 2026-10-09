@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [evidence hub, L4 hub, confidence hub]
-related: [hub-root, hub-operations, hub-governance, hub-battlegrounds, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, evd-compute-supply-sovereign-demand-2026]
+related: [hub-root, hub-operations, hub-governance, hub-battlegrounds, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, evd-compute-supply-sovereign-demand-2026, evd-gpu-co-tenancy-risk]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-10-09
@@ -40,6 +40,7 @@ Layer 4 — the support structure for the model. Benchmark results, competitive 
 - [[Inference Serving Competitors]] — Battleground (b) teardown: Fireworks, Together, Baseten, Anyscale
 - [[GPU Neocloud Competitors]] — Battleground (a) teardown: CoreWeave, Lambda
 - [[Sovereign & Governed AI Competitors]] — Battleground (c) teardown: Palantir, Cohere, Mistral, Scale AI
+- [[GPU Co-Tenancy Risk]] — residual risk of sharing GPUs between tenants, by sharing mode; evidence behind [[Sovereignty Levels]]
 - [[AI Compute Supply and Sovereign Demand 2026]] — external market evidence for [[Why Now]]: compute and power scarcity, sovereign demand, counter-evidence
 
 All performance and economic values currently sit at `assumed` — no benchmark run or production telemetry exists yet. Confidence upgrades only when a [[Benchmark Run]] or telemetry source is recorded.

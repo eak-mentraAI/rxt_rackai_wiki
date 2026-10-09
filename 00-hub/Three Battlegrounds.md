@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [private enterprise ai operator, enterprise ai operator, operator thesis, company identity, three battlegrounds, battlegrounds, market battlegrounds, where we play, identity anchor, positioning model, theory of advantage, two centres of gravity, sovereign provider, operator identity, sovereign identity, intent and constraints, operating envelope, declared intent, operating philosophy, governed autonomy, ai operating system, ai operating system loop, aios loop]
-related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map, hub-minimum-operable-estate, pol-benchmark-evidence-chain, hub-ai-governance-assurance, ent-governed-harness, ent-agent-identity, hub-roadmap, idx-open-questions, pol-action-controls, wf-request-routing, hub-why-now]
+related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map, hub-minimum-operable-estate, pol-benchmark-evidence-chain, hub-ai-governance-assurance, ent-governed-harness, ent-agent-identity, hub-roadmap, idx-open-questions, pol-action-controls, wf-request-routing, hub-why-now, pol-sovereignty-levels]
 source_docs: ["reference/rackai_dev_plan 2.docx", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md", "04-evidence/assumptions/Fleet Competitiveness.md", "04-evidence/Capability Gap Register.md", "CEO strategy review 2026-09-21", "roadmap review feedback 2026-10-08 (intent + constraints)"]
 confidence: derived
 last_reviewed: 2026-10-09
@@ -35,9 +35,9 @@ This sentence is the test every future product investment must pass: **does this
 
 **Private** here is an **architectural philosophy, not a hosting topology.**
 
-> Private AI means the enterprise retains control over **where its data, models, inference, and operational context execute.** It does not necessarily mean every component is physically dedicated.
+> Private AI means the enterprise retains control over **where its data, models, inference, and operational context execute.**
 
-So a "private" estate RackAI operates may span RXT-owned GPUs, dedicated customer infrastructure, partner GPU capacity, hyperscaler capacity, private endpoints to commercial models, and open-weight models — provided the customer keeps control of the data boundary and where execution happens. Defining private as *control* rather than *dedicated hardware* keeps the TAM wide and the architecture honest.
+**Sovereignty comes in levels** ([[Sovereignty Levels]], 2026-10-09). Every level gives tenant isolation, private endpoints and an audit trail; what changes is the residual risk the customer accepts, and so which data each level fits: **0 Shared** (time-sliced or MIG GPUs), **1 Dedicated** (GPUs that are the customer's alone, no time slicing or MIG), **2 Dedicated in a jurisdiction**, **3 Your own hardware**. Rackspace owns and operates the hardware at Levels 0–2. Running RackAI on customer-owned hardware is the end-state objective (MOE-4), reached only once the platform is proven on ours. Whether partner or hyperscaler capacity qualifies is an open question. Levels, not a single definition, keep the TAM wide: each customer buys the level its data needs.
 
 ### Customer promise
 
@@ -54,7 +54,7 @@ The identity name already pairs the two halves. Each defines part of the shape o
 | Centre | Promise | What it requires |
 |--------|---------|------------------|
 | **Operator** | We take responsibility for running it: **delivering the intended outcome**, including the decisions, adaptations, controls and evidence along the way | SLOs, incidents, model lifecycle, capacity and cost, accountable to the customer ([[Minimum Operable Estate]], MOE-1) |
-| **Sovereign provider** | It stays theirs, and they can verify it: the enterprise keeps meaningful control of its **intent, authority, data, execution boundaries and evidence**, even as models, tools and implementations change | Customer control of where data, models, inference and operations execute, inside a boundary we can prove (control envelope, isolation, audit, provenance, no uncontrolled egress) |
+| **Sovereign provider** | It stays theirs, and they can verify it: the enterprise keeps meaningful control of its **intent, authority, data, execution boundaries and evidence**, even as models, tools and implementations change | Customer control of where data, models, inference and operations execute, inside a boundary we can prove (control envelope, isolation, audit, provenance, no uncontrolled egress), at the level its data needs ([[Sovereignty Levels]]) |
 
 **Positioning model** (the intersection we deliberately target, not a claim that no one else can be there; some managed providers offer private deployments, and some public platforms offer real operational guarantees):
 
@@ -130,7 +130,7 @@ A strategy says no. This is the load-bearing part of the identity.
 | Stance | Layer | Position |
 |--------|-------|----------|
 | **We own** | AI-native infrastructure + inference **operations** + the **execution harness** + the **platform rails** | Fleet economics, inference, routing, fine-tuning, model lifecycle, orchestration, observability, security boundary, reliability, the harness runtime (see boundary below), and the **operating-platform rails** — the SDK, [[Solution Marketplace\|marketplace]], packaging/certification, and metering/instantiation on which solutions are built and distributed. "The ugly middle between GPUs and enterprise AI outcomes" — now explicitly including the *distribution* machinery, not just the serving machinery. |
-| **We abstract** | GPU **supply** | Supply is interchangeable — RXT-owned, partner, customer-owned, hyperscaler, AMD or NVIDIA. We do **not** commoditize the *economics*: the intelligence deciding **how to consume supply** (placement + cost) belongs to us and feeds the [[Empirical Map]]. We do not need to become [[GPU Neocloud Competitors\|CoreWeave]]. |
+| **We abstract** | GPU **supply** | Supply is interchangeable behind one interface: RXT-owned today (AMD or NVIDIA); customer-owned at MOE-4, the end state; partner and hyperscaler supply an open question ([[Sovereignty Levels]]). We do **not** commoditize the *economics*: the intelligence deciding **how to consume supply** (placement + cost) belongs to us and feeds the [[Empirical Map]]. We do not need to become [[GPU Neocloud Competitors\|CoreWeave]]. |
 | **We partner for** | Data/context, application, consumption, governance-acceleration | The "what customers build" and "how context is assembled" tiers — [[Load-Bearing Bets]] (Palantir, Uniphore, and proposed new bets). |
 | **We refuse to compete on** | Frontier GPU cloud; public-inference API share; proprietary foundation models; replacing Palantir/Foundry-class application platforms | Each of these is a different company than the operator. |
 
@@ -278,6 +278,7 @@ You do not need the numbers today, but the strategy should eventually own a scor
 ## See Also
 
 - [[Why Now]]: why the moment favours this identity (market evidence, capacity we hold)
+- [[Sovereignty Levels]]: the four levels of sovereignty and which data each fits
 - [[Load-Bearing Bets]]
 - [[Rack AI Knowledge Base]]
 - [[Product Hub]]

@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [minimum operable estate, moe, mvp operator, operator mvp, smallest operable estate, first operated estate, moe-1 acceptance, supplier to operator]
-related: [hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register, wiki-roadmap-narratives]
+related: [pol-sovereignty-levels, hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register, wiki-roadmap-narratives]
 source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "CEO strategy review 2026-09-21"]
 confidence: assumed
 last_reviewed: 2026-10-09
@@ -70,7 +70,7 @@ Meeting this on **MOE-1** is **the first actual proof of the company identity** 
 - **MOE-1:** we can operate it responsibly for a paying customer.
 - **MOE-2:** we can sell and operate it repeatedly without bespoke engineering for every customer.
 - **MOE-3:** we can honour jurisdictional boundaries across regions.
-- **MOE-4:** we can operate across customer-selected supply.
+- **MOE-4:** we can operate across customer-selected supply: the end-state objective, once the platform is proven on RXT-owned hardware (sovereignty Level 3, [[Sovereignty Levels]]).
 
 ## What MOE-1 Changes, and How It Materializes (proposed)
 
