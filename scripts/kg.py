@@ -35,6 +35,12 @@ SKIP_DIRS = {".git", ".obsidian", ".kiro", ".claude", "templates", "node_modules
 WIKILINK = re.compile(r"\[\[([^\]|#\\]+)(?:\\?#[^\]|]*)?(?:\\?\|[^\]]*)?\]\]")  # tolerates table-escaped \|
 
 
+
+def _parent(raw):
+    """A root note declares `parent: null` (or ~ / empty): no parent."""
+    v = raw.strip().strip("'\"")
+    return "" if v.lower() in ("null", "~", "none") else v
+
 def repo_root():
     try:
         return subprocess.check_output(["git", "rev-parse", "--show-toplevel"], text=True,
@@ -100,7 +106,7 @@ def parse_note(path, rel):
         "owner": fm.get("owner", "").strip(),
         "status": fm.get("status", "").strip(),
         "confidence": fm.get("confidence", "").strip(),
-        "parent": fm.get("parent", "").strip().strip("'\""),
+        "parent": _parent(fm.get("parent", "")),
         "related": fm.get("related", []),
         "aliases": fm.get("aliases", []),
         "summary": fm.get("summary", "").strip().strip("'\""),

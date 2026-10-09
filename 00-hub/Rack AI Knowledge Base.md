@@ -8,8 +8,8 @@ aliases: [root hub, home, knowledge base home, rack ai kb, rackai kb]
 related: [hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-entities, hub-operations, hub-commercial, hub-evidence, hub-wiki, hub-governance, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-roadmap, hub-minimum-operable-estate]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-04
-parent: hub-root
+last_reviewed: 2026-10-09
+parent: null
 summary: "Root navigation hub for the RackAI platform knowledge base."
 ---
 

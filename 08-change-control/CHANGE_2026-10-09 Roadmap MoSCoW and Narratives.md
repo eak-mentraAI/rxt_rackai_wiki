@@ -57,6 +57,10 @@ Question: does the roadmap let us adopt new models and new versions quickly, ben
 - **Upgraded to Must (product owner, same day):** the onboarding pipeline v0 (RACKAI-354) and *Model version upgrade*, both `[Gate-critical]` at MOE-1. MOE-1 now has 10 Musts; the CSV has 31 Must, 15 Should.
 - **Propagated:** [[Roadmap Narratives]] (N5, gate table: MOE-1 now 16 rows), [[RackAI Roadmap]] delivery table, [[Model Launch Factory]] and [[Model Launch Lag]] (roadmap-status callouts). The CSV now has 79 rows: 29 Must, 17 Should, 11 Could, 22 Won't.
 
+## Browse tree fix (same day)
+
+The knowledge platform's Browse tree showed none of the RackAI wiki. Cause: the root note [[Rack AI Knowledge Base]] (`hub-root`) declared `parent: hub-root`, making it its own parent; it had done so since the initial import. Browse builds its tree from parentless notes, so `hub-root` and everything under it (238 of 259 objects) was unreachable. Set `parent: null`, matching the AIOS wiki's root. A simulated rebuild shows all 259 objects reachable, with no other cycles.
+
 ## Edges
 
 - **Added:** hub-roadmap → wiki-roadmap-narratives; wiki-milestone-release-map → wiki-roadmap-narratives; wiki-roadmap-narratives → hub-roadmap (parent), Minimum Operable Estate, Empirical Map, Solution Marketplace, Sovereign Private Assistant, Team Operating Model, Capability Gap Register.
