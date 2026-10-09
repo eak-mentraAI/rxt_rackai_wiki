@@ -171,10 +171,10 @@ Two channels sit *above* the five tracks and pull demand through them. They are 
 
 | Stage | Theme | What it delivers | State |
 |-------|-------|------------------|:-----:|
-| **MK.S0 — Reference implementation / learning prototype** | "Build one reusable solution before designing the standard" | FDE builds [[Sovereign Private Assistant]] with the smallest packaging convention; learn common-vs-bespoke (discovers the D-0 package contract) | 🔴 proposed |
-| **MK.S1 — Extract the Solution Standard** | "Turn S0's lessons into the SDK + manifest contract" | SDK, capability/permission manifest, binding-policy model | 🔴 proposed |
+| **MK.S0 — Reference implementation / learning prototype** | "Build one reusable solution before designing the standard" | FDE builds [[Sovereign Private Assistant]] with the smallest packaging convention on a realistic FDE workflow (not a demo); learn common-vs-bespoke, baseline FDE effort (discovers the D-0 package contract) | 🔴 proposed |
+| **MK.S1 — Extract the Solution Standard** | "Turn S0's lessons into the SDK + manifest contract" | Framework-agnostic SDK, dev/test loop, generated capability/permission manifest, binding-policy model, experiment → deployment → package promotion | 🔴 proposed |
 | **MK.S2 — Two-layer trust gate** | "A third-party solution can run safely in a tenant" | Package certification + per-estate instantiation validation; isolation bar | 🔴 proposed |
-| **MK.S3 — Lifecycle + second reference solution** | "Prove re-instantiation; manage versions" | Versioning, upgrade/rollback, revocation, EOL; second solution/estate proves re-instantiation + FDE delivery leverage | 🔴 proposed |
+| **MK.S3 — Lifecycle + second reference solution** | "Prove re-instantiation; manage versions" | Versioning, upgrade/rollback, revocation, EOL, operating contract + FDE→Ops handoff; second solution/estate proves re-instantiation + FDE delivery leverage | 🔴 proposed |
 | **MK.S4 — Marketplace surface + catalog** | "Customers discover, instantiate, and are metered" | The catalog, instantiation, consumption metering/attribution | 🔴 proposed |
 | **MK.S5 — Third-party / partner / customer authoring** | "Supply beyond FDE" | Open the standard once the trust bar + lifecycle are proven | ⚪ later |
 
