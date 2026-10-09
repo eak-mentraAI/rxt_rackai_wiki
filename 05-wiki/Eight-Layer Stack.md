@@ -8,7 +8,7 @@ aliases: [eight-layer stack, 8-layer stack, ai stack, three control planes, arch
 related: [hub-enterprise-ai, hub-rackai-platform, hub-entities, hub-operations, hub-commercial, src-rackai-dev-plan, idx-capability-gap-register, hub-battlegrounds, wiki-enterprise-ai-solution-stack-marketing]
 source_docs: ["reference/rackai_dev_plan 2.docx", "00-hub/RackAI Platform.md", "04-evidence/Capability Gap Register.md"]
 confidence: derived
-last_reviewed: 2026-09-28
+last_reviewed: 2026-10-09
 parent: hub-wiki
 summary: "View note: projects the dev plan's 8-layer stack and 3 control planes onto the canonical 5-layer knowledge model."
 ---
@@ -27,9 +27,9 @@ The knowledge base's **five layers** (L1 entities → L2 operations → L3 comme
 |---|---|---|
 | **Consumption** | Initiatives / channels | [[OpenRouter Initiative]] (distribution channel), [[Solution Marketplace]] (FDE-authored [[Packaged Solution|Packaged Solutions]]), direct tenant consumption, Uniphore apps ([[Enterprise AI Portfolio]]) |
 | **Orchestration** | L2 | [[Request Routing]] (+ [[Loop Planning & Credit Assignment]]) |
-| **Harness** | L1 + L2 | [[Governed Harness]]; runtime overlaps [[Serving Runtime]] |
+| **Harness** | L1 + L2 | [[Governed Harness]], [[Empirical Map]] (built in the harness program, dev-plan 1.5); runtime overlaps [[Serving Runtime]] |
 | **Inference** | L1 + L2 | [[Model Deployment]], [[Serving Runtime]]; [[Request Routing]], [[Quantization Program]] |
-| **Model** | L1 + L2 | [[Model]], [[Model Class]], [[LoRA Adapter]], [[Fine-Tuning Job]]; [[Empirical Map]], [[Verification]] |
+| **Model** | L1 + L2 | [[Model]], [[Model Class]], [[LoRA Adapter]], [[Fine-Tuning Job]]; [[Verification]] |
 | **Data** | L1 (thin, integrate-not-build) | [[Dataset]]; perimeter edges in [[Perimeter Information-Flow Control]] |
 | **Compute** | L1 | [[Accelerator Class]], [[GPU Node]], [[GPU Cluster]] |
 | **Infrastructure** | L1 | [[GPU Fleet]], [[Region]], [[Topology]] |

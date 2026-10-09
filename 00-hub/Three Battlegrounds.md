@@ -5,10 +5,10 @@ status: draft
 owner: product
 domain: strategy
 aliases: [private enterprise ai operator, enterprise ai operator, operator thesis, company identity, three battlegrounds, battlegrounds, market battlegrounds, where we play, identity anchor, positioning model, theory of advantage, two centres of gravity, sovereign provider, operator identity, sovereign identity, intent and constraints, operating envelope, declared intent, operating philosophy, governed autonomy, ai operating system, ai operating system loop, aios loop]
-related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map, hub-minimum-operable-estate, pol-benchmark-evidence-chain, hub-ai-governance-assurance, ent-governed-harness, ent-agent-identity, hub-roadmap, idx-open-questions, pol-action-controls, wf-request-routing]
+related: [hub-root, hub-product, hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-commercial, hub-governance, hub-evidence, hub-load-bearing-bets, evd-erebine-competitive-analysis, evd-inference-serving-competitors, evd-gpu-neocloud-competitors, evd-sovereign-governed-competitors, ent-empirical-map, hub-minimum-operable-estate, pol-benchmark-evidence-chain, hub-ai-governance-assurance, ent-governed-harness, ent-agent-identity, hub-roadmap, idx-open-questions, pol-action-controls, wf-request-routing, hub-why-now]
 source_docs: ["reference/rackai_dev_plan 2.docx", "reference/jd/EXTERNAL_PDM_Orchestration_and_Harness_JD.md", "reference/jd/EXTERNAL_PDM_Product_Operations_JD.md", "04-evidence/assumptions/Fleet Competitiveness.md", "04-evidence/Capability Gap Register.md", "CEO strategy review 2026-09-21", "roadmap review feedback 2026-10-08 (intent + constraints)"]
 confidence: derived
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-09
 parent: hub-root
 summary: "Company identity and theory of advantage: RackAI as the Private Enterprise AI Operator."
 ---
@@ -277,6 +277,7 @@ You do not need the numbers today, but the strategy should eventually own a scor
 
 ## See Also
 
+- [[Why Now]]: why the moment favours this identity (market evidence, capacity we hold)
 - [[Load-Bearing Bets]]
 - [[Rack AI Knowledge Base]]
 - [[Product Hub]]

@@ -296,7 +296,6 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | Auditability | dev-plan P8/P9 | MOE-0 | planned |
 | Customer isolation + private inference | [[Multi-Cluster Governance Brief (Partner)]] | MOE-1 | planned |
 | Compliance controls (first attestation) | dev-plan P1 | MOE-1 | missing |
-| Supply abstraction v1 (second impl: AMD or partner) | [[Load-Bearing Bets]] | MOE-1 | assumed |
 | First **paid** private enterprise workload (delegation + willingness to pay) | Strategy-derived; [[AI Operations Product]] | MOE-1 | assumed |
 
 ### Proof 4 — Operate: *We can do it repeatably and profitably across heterogeneous estates*
@@ -308,6 +307,7 @@ Each proof carries a **commercial gate** alongside its technical exit — becaus
 | Item | Traces to | Confidence |
 |------|-----------|:----------:|
 | Multi-cluster governance / global front door | [[Multi-Cluster Governance Brief (Partner)]] | assumed |
+| Supply abstraction v1 (second impl: AMD or partner; MOE-4 gate, moved from Proof 3 on 2026-10-09; MOE-1 runs one owned source behind the interface) | [[Load-Bearing Bets]] | assumed |
 | Heterogeneous supply (owned/partner/customer/hyperscaler) | [[Load-Bearing Bets]] capacity bet | assumed |
 | Day-zero model factory | Eng. 4 | planned |
 | Dynamic fleet & capacity mgmt | Eng. 5 | planned |

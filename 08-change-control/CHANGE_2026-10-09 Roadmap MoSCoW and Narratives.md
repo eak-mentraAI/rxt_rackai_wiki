@@ -61,6 +61,13 @@ Question: does the roadmap let us adopt new models and new versions quickly, ben
 
 The knowledge platform's Browse tree showed none of the RackAI wiki. Cause: the root note [[Rack AI Knowledge Base]] (`hub-root`) declared `parent: hub-root`, making it its own parent; it had done so since the initial import. Browse builds its tree from parentless notes, so `hub-root` and everything under it (238 of 259 objects) was unreachable. Set `parent: null`, matching the AIOS wiki's root. A simulated rebuild shows all 259 objects reachable, with no other cycles.
 
+## Consistency fixes (same day)
+
+Found while mapping MOE gates onto the stack for the leadership deck. No meaning change; both align older text with decisions already recorded above.
+
+- **Empirical Map layer.** [[Eight-Layer Stack]] listed the [[Empirical Map]] under the Model layer in its canonical-homes table but under the Harness layer in its status table. The dev plan builds it in the harness program (Program 1, item 1.5), so it now sits under Harness in both tables. `last_reviewed` updated.
+- **Second supply implementation gate.** The CSV row *Supply abstraction v1 - second impl* said "(MOE-1)" in its deliverable text, and the [[RackAI Roadmap]] Proof 3 table gave it milestone MOE-1, while its `MOE gate` is MOE-4 and the [[Minimum Operable Estate]] excludes multiple live supply sources from MOE-1. Both now read MOE-4 (proposed gate), with MOE-1 running one owned source behind the interface. **Product owner decision (same day):** the row moves from Proof 3 to Proof 4 (Operate at Scale) in the CSV (`Proof` and `Section`) and from the Proof 3 to the Proof 4 table in [[RackAI Roadmap]], beside *Heterogeneous supply*.
+
 ## Edges
 
 - **Added:** hub-roadmap → wiki-roadmap-narratives; wiki-milestone-release-map → wiki-roadmap-narratives; wiki-roadmap-narratives → hub-roadmap (parent), Minimum Operable Estate, Empirical Map, Solution Marketplace, Sovereign Private Assistant, Team Operating Model, Capability Gap Register.
