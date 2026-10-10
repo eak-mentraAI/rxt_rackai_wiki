@@ -30,9 +30,9 @@ Request: merge the two `reference/openrouter/` artifacts (the concepts/integrati
 
 ## Edges Affected
 
-- `hub-openrouter` → `idx-openrouter-integration-plan` (Execution Plan + Related; inbound).
-- `hub-product` → `idx-openrouter-integration-plan` (First Bet section; inbound).
-- `idx-openrouter-integration-plan` → existing canonical homes only ([[OpenRouter Private Model Integration]], [[OpenRouter Provider Integration]], [[Model Catalog Endpoint]], [[Billing & Payment]], [[API Key]], [[First Bet — GLM 5.3 Flash]], [[Phase 1 Execution Plan — GLM 5.3 Flash Proof Point]], [[AMD Instinct]], [[Capability Gap Register]], [[Open Questions]]). No new canonical concepts introduced.
+- [[hub-openrouter|OpenRouter Initiative]] → [[OpenRouter Integration Plan]] (Execution Plan + Related; inbound).
+- [[hub-product|Product Hub]] → [[OpenRouter Integration Plan]] (First Bet section; inbound).
+- [[OpenRouter Integration Plan]] → existing canonical homes only ([[OpenRouter Private Model Integration]], [[OpenRouter Provider Integration]], [[Model Catalog Endpoint]], [[Billing & Payment]], [[API Key]], [[First Bet — GLM 5.3 Flash]], [[Phase 1 Execution Plan — GLM 5.3 Flash Proof Point]], [[AMD Instinct]], [[Capability Gap Register]], [[Open Questions]]). No new canonical concepts introduced.
 
 ## Source Reconciliation
 
@@ -76,7 +76,7 @@ Request: merge the two `reference/openrouter/` artifacts (the concepts/integrati
 - [[OpenRouter Integration Plan]] — same stale line replaced with the harmonized framing.
 - [[Source-to-Concept Crosswalk]] — added a row mapping Strategic Vision + Engineering Roadmap → the two-paths concept ([[OpenRouter Integration Plan]], [[OpenRouter Private Model Integration]]).
 
-**Edges affected:** `src-strategic-vision` and `src-engineering-roadmap` now relate to `idx-openrouter-integration-plan`, `ent-openrouter-private-model`, `ent-openrouter-integration`.
+**Edges affected:** [[src-strategic-vision|Rack AI OpenRouter Strategic Vision]] and [[src-engineering-roadmap|Rack AI OpenRouter Engineering Roadmap]] now relate to [[OpenRouter Integration Plan]], [[ent-openrouter-private-model|OpenRouter Private Model Integration]], [[ent-openrouter-integration|OpenRouter Provider Integration]].
 
 **Confidence:** source narratives remain `validated` as documents; the Path-A framing added to them is `derived` and cross-links to the `derived` plan. No new performance numbers; targets remain `assumed`.
 

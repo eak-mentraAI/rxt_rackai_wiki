@@ -4,16 +4,16 @@ type: index
 status: validated
 owner: knowledge-graph-steward
 domain: governance
-aliases: [scripts readme, lint documentation, frontmatter lint guide]
+aliases: [scripts readme, lint documentation, frontmatter lint guide, link check guide]
 related: [hub-root, pol-fitness-checklist]
 parent: hub-root
 source_docs: []
 confidence: validated
-last_reviewed: 2026-09-03
-summary: "Documents the frontmatter compliance lint and how enforcement works in this wiki."
+last_reviewed: 2026-10-10
+summary: "Documents the frontmatter lint, the link check, and how enforcement works in this wiki."
 ---
 
-# Frontmatter Compliance Lint — Guide
+# Frontmatter Lint and Link Check — Guide
 
 ## Why This Exists
 
@@ -115,6 +115,42 @@ if [ -n "$STAGED" ]; then
   }
 fi
 ```
+
+---
+
+## Link Check
+
+The Knowledge Console renders every `[[wiki link]]` and relative `.md` link in a note body as a link to the object it references. A link that doesn't resolve renders as dotted-underlined dead text, so this corpus is kept at **zero unresolved links**.
+
+### Location
+```
+scripts/lint-links.sh
+.kiro/hooks/lint-links-on-save.json
+```
+
+The script wraps the platform's checker (`packages/ingestion/src/check-links.ts` in the knowledge-platform repo). It expects this corpus at `knowledge-platform/corpora/rackai`; otherwise set `KNOWLEDGE_PLATFORM_ROOT` to your platform checkout. It always scans the whole corpus (resolution needs every note). The Kiro hook runs it after every `.md` save (advisory, does not block the save).
+
+### Usage
+```bash
+./scripts/lint-links.sh                      # must report 0 unresolved
+MAX_UNRESOLVED=3 ./scripts/lint-links.sh     # temporary tolerance while cleaning up
+```
+
+Exit codes: `0` all links resolve, `1` unresolved links (listed by file), `2` platform checker not found (check skipped).
+
+### Link Contract
+
+Targets resolve case-insensitively, in this order: (1) object `id`, (2) frontmatter `aliases`, (3) file name or path without `.md`, (4) the note's H1 title, (5) slug/hyphenated variants.
+
+- **Prefer ID-pinned links** for anything that may be renamed: `[[ent-model-deployment|Model Deployment]]`.
+- `[[Target#Heading]]` and `[[Target|Display]]` are supported; inside a table cell escape the pipe: `[[Target\|Display]]`.
+- Links inside inline code or code fences are ignored — use backticks to talk *about* a note that doesn't exist yet or about link syntax.
+- A note whose frontmatter fails platform validation (e.g. `summary` over 120 characters) becomes a shadow object: it resolves only by file name/path, not by `id` or alias.
+- To fix an unresolved link: point it at an existing id, add the link text to the target's `aliases`, or make it plain text if the target doesn't exist.
+
+Full contract: `docs/CORPUS_COMPLIANCE_GUIDE.md` → "Wiki Links (Cross-References)" in the knowledge-platform repo.
+
+To enforce at commit time, add `./scripts/lint-links.sh || exit 1` to the pre-commit hook above.
 
 ---
 

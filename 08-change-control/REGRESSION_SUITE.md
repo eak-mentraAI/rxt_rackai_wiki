@@ -9,7 +9,7 @@ related: [pol-fitness-checklist, chg-kg-test-results]
 parent: hub-wiki
 source_docs: [05-wiki/Knowledge Graph Acceptance Test Results.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-10
 summary: "Regression test suite for Rack AI OpenRouter knowledge graph invariants."
 ---
 
@@ -179,6 +179,6 @@ The baseline is established on the first full run once the entity and operationa
 
 ## See Also
 
-- [[Knowledge Graph Acceptance Test Results]] — detailed test run log
+- Knowledge Graph Acceptance Test Results — detailed test run log (not yet created; until it exists, record runs in Score History above)
 - [[FITNESS_CHECKLIST]] — structural and consistency checks
 - [[CHANGE_PACKET]] — required before edits
