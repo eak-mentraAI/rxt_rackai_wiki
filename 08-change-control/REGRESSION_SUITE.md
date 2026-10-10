@@ -9,7 +9,7 @@ related: [pol-fitness-checklist, chg-kg-test-results, chg-consistency-report, po
 parent: hub-wiki
 source_docs: [05-wiki/Knowledge Graph Acceptance Test Results.md]
 confidence: validated
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-10
 summary: "Regression test suite for Rack AI OpenRouter knowledge graph invariants."
 ---
 

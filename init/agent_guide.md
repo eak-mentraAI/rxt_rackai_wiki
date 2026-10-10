@@ -9,7 +9,7 @@ related: [hub-root, src-init]
 parent: hub-root
 source_docs: []
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-10
 summary: "Agent operating guide for Rack AI OpenRouter knowledge base maintenance."
 ---
 
@@ -102,6 +102,12 @@ Use canonical names consistently. If a term has multiple names, choose one canon
 ## Link Discipline Rule
 
 Every important note should link to its parent, children, peers, dependencies, evidence, and related concepts. No orphan concepts. If a note is isolated, decide whether it is missing links, belongs elsewhere, should be a hub, or should be deprecated.
+
+Every in-body link must resolve. The Knowledge Console renders `[[wiki links]]` and relative `.md` links as links to the objects they reference; an unresolved one renders as dead dotted-underlined text.
+- Prefer ID-pinned links for cross-references: `[[ent-model-deployment|Model Deployment]]`. Don't leave bare or backticked object IDs or file paths in prose when you mean a reference — link them.
+- Targets resolve by id, then aliases, then file name/path, then H1 title (case-insensitive). In table cells escape the pipe: `[[id\|Display]]`.
+- Never link to a note that doesn't exist yet. Write it as plain text (or backticks) until it does.
+- Run `./scripts/lint-links.sh` before finishing; it must report 0 unresolved. The `lint-links-on-save` Kiro hook runs it on every `.md` save. See `scripts/README.md`.
 
 ---
 

@@ -29,8 +29,8 @@ Analysis request: given the shipped state of the platform, what capabilities are
 
 ## Edges Affected
 
-- `hub-evidence` → `idx-capability-gap-register` (Registers listing; inbound).
-- `idx-capability-gap-register` → existing canonical notes only (Billing & Payment, Metering, Cost per GPU-Hour, KPI metrics, routing/admission/reallocation, tenancy features, source narratives). No new canonical concepts introduced; the register links to homes, it does not redefine them.
+- [[hub-evidence|Evidence Hub]] → [[Capability Gap Register]] (Registers listing; inbound).
+- [[Capability Gap Register]] → existing canonical notes only (Billing & Payment, Metering, Cost per GPU-Hour, KPI metrics, routing/admission/reallocation, tenancy features, source narratives). No new canonical concepts introduced; the register links to homes, it does not redefine them.
 
 ## Confidence
 

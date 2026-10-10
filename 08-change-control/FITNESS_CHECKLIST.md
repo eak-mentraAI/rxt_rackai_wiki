@@ -37,7 +37,7 @@ Run on every change.
 |---|-------|---------------|
 | S-01 | No duplicate canonical concepts | Every concept has exactly one canonical home in the correct layer folder |
 | S-02 | No orphan nodes | Every important entity has inbound links, outbound links, owner, source, and confidence |
-| S-03 | No broken backlinks | All `[[wikilinks]]` in wiki layer (00-hub through 06-sources) resolve to existing .md files |
+| S-03 | No broken backlinks | All in-body `[[wikilinks]]` and relative `.md` links resolve to a Knowledge Object (`./scripts/lint-links.sh` reports 0 unresolved) |
 | S-04 | No layer violations | Entities in 01-entities/, operations in 02-operations/, commercial in 03-commercial/, evidence in 04-evidence/ |
 | S-05 | Owner assigned | Every canonical note has a non-empty `owner` field in frontmatter |
 | S-06 | Source traceability | Every canonical note has at least one entry in `source_docs` frontmatter |
@@ -147,14 +147,10 @@ Frontmatter compliance:
 ./scripts/lint-frontmatter.sh
 ```
 
-Quick structural check for broken links in wiki layer:
+Link resolution (same rules as the Knowledge Console — id, aliases, file name, H1 title; must report 0 unresolved):
 
 ```bash
-# Find wikilinks that don't resolve to existing .md files
-grep -roh '\[\[[^]|]*' 00-hub/ 01-entities/ 02-operations/ 03-commercial/ 04-evidence/ 05-wiki/ 06-sources/ | \
-  sed 's/\[\[//' | sort -u > /tmp/targets.txt
-find . -name "*.md" -not -path "./.kiro/*" -not -path "./templates/*" -exec basename {} .md \; | sort -u > /tmp/files.txt
-comm -23 /tmp/targets.txt /tmp/files.txt
+./scripts/lint-links.sh
 ```
 
 ---
