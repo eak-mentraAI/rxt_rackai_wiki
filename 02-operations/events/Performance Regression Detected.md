@@ -8,7 +8,7 @@ aliases: [performance regression detected, regression alert, promotion blocked]
 related: [wf-closed-loop-optimization, pol-performance-regression-gate, met-ttft, met-tokens-per-gpu-second, met-output-throughput, ent-model-deployment, ent-benchmark-run]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Signals that a config change worsened a performance metric beyond threshold and must block promotion."
 ---
@@ -45,6 +45,20 @@ Signals that a candidate runtime or configuration change materially worsened [[T
 | [[Performance Regression Gate]] | Blocks promotion to production |
 | [[Closed-Loop Optimization]] | Returns candidate to lab for rework |
 | Performance-eng dashboards | Records regression against the candidate |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GENERATES | [[Closed-Loop Optimization]] | ← | Regression gate in the promotion path |
+| GENERATES | [[TTFT]] | ← | Signal that can regress |
+| GENERATES | [[Tokens per GPU-Second]] | ← | Signal that can regress |
+| CONSUMES | [[Performance Regression Gate]] | ← | Blocks promotion |
+| CONSUMES | [[Closed-Loop Optimization]] | ← | Returns candidate to lab |
+| DEPENDS_ON | [[Benchmark Run]] | → | `benchmark_ref` comparison |
+| CONSTRAINS | [[Model Deployment]] | → | Blocks promotion of the candidate config. Lab/promotion scope only: no production-anomaly event exists yet |
 
 ## See Also
 

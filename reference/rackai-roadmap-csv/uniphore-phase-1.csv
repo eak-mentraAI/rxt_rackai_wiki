@@ -1,0 +1,28 @@
+Feature,Task,Milestone,Priority,Start Date,End Date,Status,Owner,Comments
+Inference APIs,Standardize API to Rackspace product name qualifier,MVP,P0,2026-03-17 00:00:00,2026-03-19 00:00:00,Completed,Neelava,Current name - aurora.platform9.com / New name - rmpai.rackspace.com.  / Alternate name - /      - rackai.rackspace.com /      - rai.rackspace.com
+,Publish API doc,MVP,P0,2026-03-19 00:00:00,2026-03-23 00:00:00,In progress,Neelava
+,Model Deployment API for Uniphore,MVP,P0,TBC,TBC,Not started,TBC,Assuming that the current APIs we have are sufficient for Uniphore's use case. Need clarification and subsequent task planning if that is not the case. /  / Pending publication of API docs
+,OpenAI API compatibility for Uniphore,MVP,P0,TBC,TBC,Not started,TBC,Assuming that only the chat completions API is the needed API here. Need clarification and subsequent task planning if that is not the case /  / Pending publication of API docs
+,Users should be able to get a token to use with the API. Should be automation friendly.,MVP,P0,2026-03-23 00:00:00,2026-03-27 00:00:00,In progress,Neelava,"Immediate implementation will be with Auth0. If not, we need to take up the Authentication work items below first."
+,UI - Token management,MVP,P0,2026-04-01 00:00:00,2026-04-08 00:00:00,Not started,Kim
+Inference optimization,Utilize Uniphore's optimized NIM models,MVP,P0,TBC,TBC,Not started,Alberto / Abhimanyu,"Per Amine, in the initial phase we need to use the optimized NIM models from Uniphore and don't have to take up any extra task. Change in this assumption, will need replanning. /  / Gemma 27 / Mistral 24 / GPT-OSS 20 / llama 3.1 8b / llama 3.2 11b visual"
+NIM model support,Deployment configuration to leverage NIM models or vLLM,MVP,P0,2026-03-16 00:00:00,2026-03-23 00:00:00,In progress,Ajay
+,Bootstrap product with Uniphore’s NIM models,MVP,P0,2026-03-24 00:00:00,2026-03-30 00:00:00,Not started,Ajay,Need to understand where these models are available to use and how to integrate those model locations into the Uniphore deployment
+,Model Deployment implementation for NIM models,MVP,P0,2026-03-16 00:00:00,2026-03-23 00:00:00,In progress,Ajay
+,LORA adapters working with NIM models,MVP,P0,TBC,TBC,Not started,TBC,To be scoped
+Fine Tuning,SFT - Dataset management for fine tuning (only file upload),MVP,P0,2026-03-17 00:00:00,2026-04-07 00:00:00,In progress,Rohit
+,SFT - Customize fine tuning steps and trigger fine tuning PEFT job (LORA) to generate adapters,MVP,P0,2026-03-17 00:00:00,2026-03-31 00:00:00,In progress,Rajendra,"Running late, code not checked in yet. But PoC exists."
+,SFT - Training job status reporting,MVP,P0,2026-04-01 00:00:00,2026-04-06 00:00:00,Not started,Rajendra
+,SFT - Store/Save LORA adapters for users to use with a model.,MVP,P0,2026-04-07 00:00:00,2026-04-16 00:00:00,Not started,Rajendra
+,SFT - Deploy/Undeploy LORA adapters on top of deployed base model,MVP,P0,2026-04-01 00:00:00,2026-04-15 00:00:00,Not started,Neelava
+,SFT - Multi LORA deployments,M?,P0,TBC,TBC,Not started,Alberto / Abhimanyu,Proposal: Move this to post May deliverable
+,SFT - Import/Export of LORA adapters,M?,P0,TBC,TBC,Not started,Alberto / Abhimanyu,Proposal: Move this to post May deliverable
+,SFT - Deploy on shared inference infrastructure,M?,P0,TBC,TBC,Not started,Alberto / Abhimanyu,Proposal: Move this to post May deliverable / Need clarification on what shared inference infrastructure means here.
+,UI - Fine tuning workflows,M?,P0,TBC,TBC,Not started,Kim
+Model Registry,User should be able to save models to a model registry,MVP,P0,2026-04-01 00:00:00,2026-04-07 00:00:00,Not started,Ajay,Does it have to be a self hosted option registry only? Can the first cut be with HF?
+,Model Registry supported out of the box - as part of the RMPAI platform,MVP,P0,2026-04-08 00:00:00,2026-04-15 00:00:00,Not started,Ajay
+,UI - Model Registry workflows,MVP,P0,TBC,TBC,Not started,Kim
+Authentication,Remove dependency on Auth0,M1,P1,TBC,TBC,Not started,TBC,To be scoped - Post May
+,Use Zitadel as the authn replacement,M1,P1,TBC,TBC,Not started,TBC,To be scoped - Post May
+,"Integrate with Rackspace IDP directly, through keycloak if Zitadel doesn’t work out.",M1,P1,TBC,TBC,Not started,TBC,To be scoped - Post May
+,vn /

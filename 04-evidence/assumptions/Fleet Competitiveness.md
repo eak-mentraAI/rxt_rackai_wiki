@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: capacity
 aliases: [fleet competitiveness, interconnect constraint, pcie scaling wall, topology ceiling]
-related: [hub-evidence, asm-h200-sufficient, fml-gpus-per-replica, idx-fleet-inventory, ent-gpu-amd-instinct, ent-topology, idx-model-portfolio, ent-openrouter-integration]
+related: [hub-evidence, asm-h200-sufficient, fml-gpus-per-replica, idx-fleet-inventory, ent-gpu-amd-instinct, ent-topology, idx-model-portfolio, ent-openrouter-integration, val-deepseek-h200-fp8, idx-first-bet-glm, idx-phase1-execution-glm, idx-openrouter-integration-plan, evd-gpu-neocloud-competitors, idx-decision-glm-first, asm-gemma-replica-sizing, ent-deepseek-v4-flash, idx-gpu-capacity-demand-rationale]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Binding constraint is interconnect topology (PCIe vs SXM/UBB8), not GPU count — caps model size near ~27B."
 ---
@@ -66,6 +66,20 @@ The NVL-PCIe pair topology, the fabric requirements of large-model parallelism, 
 | [[Topology]] | SUPPORTS |
 | [[AMD Instinct]] | CONSTRAINS |
 | [[GPUs per Replica]] | SUPPORTS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[Available Hardware Sufficient for Priority Models]] | → |  |
+| CONSTRAINS | [[Model Portfolio Capacity]] | → | Caps servable model size near ~27B |
+| SUPPORTS | [[Topology]] | → | Topology is the binding ceiling |
+| CONSTRAINS | [[AMD Instinct]] | → | MI350P is PCIe: same scaling wall |
+| SUPPORTS | [[GPUs per Replica]] | → |  |
+| CONSUMES | [[GPUs per Replica]] | → | Replicas that fit on the fleet |
+| VALIDATES | [[Validate DeepSeek H100 FP8]] | ← | Exit criterion (a) |
 
 ## Status
 

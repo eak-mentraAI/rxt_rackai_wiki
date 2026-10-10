@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [cost per 1m tokens, cost per million tokens, cost/token]
-related: [fml-gpu-hours-per-1m-tokens, fml-tokens-per-gpu-second, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, coeff-cost-per-gpu-hour, ent-model-deployment]
+related: [fml-gpu-hours-per-1m-tokens, fml-tokens-per-gpu-second, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, coeff-cost-per-gpu-hour, ent-model-deployment, hub-inference-optimization, fml-gpus-per-replica, wf-request-routing, met-cost-per-outcome, asm-fp8-quality-neutral, met-tokens-per-gpu-second, wf-model-launch-factory, idx-scorecard-glm, idx-scorecard-deepseek, idx-unit-economics]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Computes internal infrastructure cost to produce one million tokens."
 ---
@@ -45,6 +45,22 @@ cost_per_1m = gpu_hours_per_1m × cost_per_gpu_hour
 | [[Gross Margin per Model]] | CONSUMES |
 | [[Request Routing]] | CONSUMES |
 | FinOps scorecard | CONSUMES |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[GPU-Hours per 1M Tokens]] | → | `gpu_hours_per_1m` input |
+| CONSUMES | [[Cost per GPU-Hour]] | → | `cost_per_gpu_hour` coefficient (TBD, assumed) |
+| CONSUMES | [[GPUs per Replica]] | → | Replica fixed-cost term only; the marginal formula does not include it |
+| MEASURES | [[Model Deployment]] | → | Cost computed per deployment |
+| CONSUMES | [[Gross Margin per Model]] | ← | Cost side of margin |
+| CONSUMES | [[Request Routing]] | ← | Economic routing score |
+| CONSUMES | [[Cost per Outcome]] | ← | Aggregated over the steps of an outcome |
+| SUPPORTS | [[FP8 Quality Neutral]] | ← | Assumption that FP8 lowers cost without quality loss |
+| PRODUCES | [[Model Launch Factory]] | ← | Benchmark stage produces the first cost/1M baseline |
 
 ## Worked Example
 

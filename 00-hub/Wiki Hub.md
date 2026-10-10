@@ -41,6 +41,7 @@ Every priority model gets a continuously updated scorecard tracking the operatin
 - [[Entity Index]] · [[Metric Index]] · [[KPI Hierarchy]]
 - [[Glossary]]
 - [[Serving Platform MOC]]
+- [[Enterprise AI Cloud Marketing Site Projection]] — marketing-site click-through (screens), derived from the [[Enterprise AI Cloud Product Model]]
 - [[2026-09-03 Corpus Buildout]] — buildout changelog
 
 ## Change Control

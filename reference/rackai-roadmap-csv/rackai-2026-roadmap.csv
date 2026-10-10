@@ -1,0 +1,54 @@
+RackAI — Software Delivery Plan
+"CSP Platform Layer on real schedule (Jun 2026 – Feb 2027, per 'CSP Project Plan – FINAL')  +  RackAI M2 Feature Delivery (17 features · 46 man-wks)   —   week-start dates shown; feature bars anchored to first July week"
+Deliverables  ▾,,,,,,,,,,,,Jun '26,,,,,Jul '26,,,,Aug '26,,,,,Sep '26,,,,Oct '26,,,,Nov '26,,,,,Dec '26,,,,Jan '27,,,,Feb '27
+Workstream,Team / Owner,Task / Deliverable,M#,Jira,Assigned,Status,Pri,Effort,Start,End,Key Dependencies,6/1,6/8,6/15,6/22,6/29,7/6,7/13,7/20,7/27,8/3,8/10,8/17,8/24,8/31,9/7,9/14,9/21,9/28,10/5,10/12,10/19,10/26,11/2,11/9,11/16,11/23,11/30,12/7,12/14,12/21,12/28,1/4,1/11,1/18,1/25,2/1,2/8,2/15,2/22
+CSP PLATFORM LAYER   —   real schedule per 'CSP Project Plan – FINAL' (Identity · Monitoring · Metering · Auditing · Observability)
+IAC,Team IAC,"JWT + API-key validation, identity context headers, APIKey CRD, Gateway auth",M1,RACKAI-204,Erik Ljungstrom,Complete,,2,7/6,2026-07-17 00:00:00,— (day-one foundation),,,,,,M1
+IAC,Team IAC,"PlatformRole + RoleBinding CRDs, Authorization Service, K8s informer-based RoleBinding lookup, RBAC enforcement",M2,RACKAI-333,Erik Ljungstrom,Complete,,1,2026-07-20 00:00:00,2026-07-24 00:00:00,IAC M1,,,,,,,,M2
+IAC,Team IAC,"Audit Log query API, sensitive access logging, login events, APIKey lifecycle events",M3,RACKAI-351,Erik Ljungstrom,Complete,,1,2026-07-27 00:00:00,2026-07-31 00:00:00,IAC M2,,,,,,,,,M3
+IAC,Team IAC,"Metering/billing/quota/observability permission integration, org-level RBAC",M4,,,Won't Do,,3,2026-08-03 00:00:00,2026-08-21 00:00:00,IAC M3,,,,,,,,,,M4
+Platform,Team Platform,"Prometheus Operator, DCGM, node-exporter, AlertManager, Grafana, GPU/cluster dashboards",M1,RACKAI-353,Abhimanyu Sharma,In Progress,,4,7/13,8/3,—,,,,,,,M1
+Platform,Team Platform,"Aurora service metrics (Gateway/Auth/Quota), tenant-attributed dashboards, metering pipeline lag metric",M2,RACKAI-350,Abhimanyu Sharma,In Progress,,3,2026-08-03 00:00:00,2026-08-21 00:00:00,Platform M1,,,,,,,,,,M2
+Platform,Team Platform,"Loki log aggregation, structured log fields (tenant/project/service), AlertManager e2e validation",M3,RACKAI-431,Abhimanyu Sharma,In Progress,,6,2026-08-24 00:00:00,9/28,Platform M2,,,,,,,,,,,,,M3
+Platform,Team Platform,"VictoriaMetrics remote-write, 13-month retention, FineTuningJob Controller metrics",M4,RACKAI-432,Abhimanyu Sharma,In Progress,,3,10/5,10/19,Platform M3,,,,,,,,,,,,,,,,,,,M4
+Metering,Team Metering,"Project CRD + usage_records schema + MeteringEvent queue; full pipeline w/ identity context, inference metering, FineTuningJob CRD",M1,RACKAI-352,Rohit Rajak,In Progress,,8,7/27,9/14,IAC M1 (identity),,,,,,,,,M1
+Metering,Team Metering,"UsageSummary + UsageRecord APIs, historical usage, usage:view enforcement, FineTuningJob metering",M2,,,Not Started,,2,9/14,9/21,"Metering M1, IAC M2",,,,,,,,,,,,,,,,M2
+Metering,Team Metering,"QuotaPolicy CRD, soft quota alerts",M3,,,Not Started,,4,9/28,10/19,Metering M2,,,,,,,,,,,,,,,,,,M3
+Metering,Team Metering,"Quota Enforcement Service, Redis counters, pre-execution admission control (429/402)",M4,,,Not Started,,1,10/26,10/26,Metering M3,,,,,,,,,,,,,,,,,,,,,,M4
+Auditing,Team Audit/Obs,"Audit Service core (Redis Streams, PostgreSQL audit-001), audit-003 CRD fields, request_id; K8s admission webhook, proposed-actor flow, FineTuningJob audit events",M1,,,Not Started,,7,8/17,9/28,"IAC M1 (soft), Gateway request_id",,,,,,,,,,,,M1
+Auditing,Team Audit/Obs,"audit-002 migration, audit-004 deletion fields, Pattern A controllers, quota/dataset/config audit logs, deletion events, finalizers",M2,,,Not Started,,2,10/5,10/12,Audit M1; Pattern A (IAC+Metering),,,,,,,,,,,,,,,,,,,M2
+Auditing,Team Audit/Obs,"Billing audit, compliance validation",M3,,,Not Started,,3,10/19,11/2,Audit M2,,,,,,,,,,,,,,,,,,,,,M3
+Observability,Team Audit/Obs,"Metrics API (inference latency/rate/errors, quota utilization), Workload Status API",M1,,,Not Started,,3,9/14,9/28,IAC M2 + Platform M1 ⭐ crit-path,,,,,,,,,,,,,,,,M1
+Observability,Team Audit/Obs,"Logs API (Loki proxy), Alert Rule CRUD, 60s evaluation loop, webhook delivery",M2,,,Not Started,,5,10/5,11/2,"Obs M1, Platform M3",,,,,,,,,,,,,,,,,,,M2
+Maintenance,Product,Ongoing product maintenance & support across the release window,—,,,Not Started,,35,6/29,2/22,Continuous (from 6/29),,,,,35
+"RACKAI M2 FEATURES   —   product feature delivery (from 'RackAI M2' roadmap, anchored to July)"
+M2 Feature,S4–S5,Inference routing,,RACKAI-311,Neelava Chatterjee,In Progress,1,4,2026-07-13 00:00:00,2026-08-09 00:00:00,IAC M1 (Gateway auth),,,,,,,4
+M2 Feature,S4,AMD+NVIDIA node support,,RACKAI-263,Rajendra Gosavi,Not Started,1
+M2 Feature,S4,API Layer Validation,,RACKAI-261,Ajay Bedre,Complete,1,1,2026-08-03 00:00:00,2026-08-09 00:00:00,IAC M1 (auth),,,,,,,,,,1
+M2 Feature,S4,CODB: Upgrade KServe and friends,,RACKAI-258,Neelava Chatterjee,Complete,1,1,2026-08-03 00:00:00,2026-08-09 00:00:00,,,,,,,,,,,1
+M2 Feature,S4,CODB: Model parameter / recipe enhancements,,RACKAI-269,Unassigned,Not Started,1
+M2 Feature,S4,CODB: Fix FT to be context parallel,,RACKAI-340,Rajendra Gosavi,Complete,1,3,2026-06-30 00:00:00,2026-07-15 00:00:00,,,,,,3
+M2 Feature,S5,Accelerator selection phase 3,,RACKAI-336,Kim Nguy,Complete,1,2,2026-10-26 00:00:00,2026-11-08 00:00:00,Metering M4,,,,,,,,,,,,,,,,,,,,,,2
+M2 Feature,S5–S8,AMD AIM engine integration,,RACKAI-347,Neelava Chatterjee,In Progress,2
+M2 Feature,S6,Speculative Decoding,,RACKAI-67,Alberto Ferrer,In Progress,3
+M2 Feature,S6–S7,DPO fine tuning,,RACKAI-252,Deshna Shah,In Progress,3,4,2026-08-03 00:00:00,2026-08-30 00:00:00,,,,,,,,,,,4
+M2 Feature,S7,SLM support,,RACKAI-360,Unassigned,Not Started,4
+M2 Feature,S8,Refrag,,RACKAI-374,Unassigned,In Progress,4
+M2 Feature,S8–S9,Dataset Management Improvement,,RACKAI-385,Unassigned,In Progress,4
+M2 Feature,S9–S10,Synthetic Data Generation,,RACKAI-380,Unassigned,In Progress,5
+M2 Feature,S9–S10,AI Performance Benchmarks (Internal Benchmarking Process),,,,Not Started,5
+M2 Feature,TBD,GPU node access support,,,,Not Started,6,,,,Unscheduled – backlog
+M2 Feature,TBD,Multi region support,,,,Not Started,6,,,,Unscheduled – backlog
+M2 Maintenance,TBD,openCenter Upgrade (Dev),,RACKAI-357,Dan Hand,Not Started,,1,2026-08-10 00:00:00,2026-08-14 00:00:00
+M2 Maintenance,TBD,openCenter Upgrade (Staging),,RACKAI-358,Unassigned,Not Started,,1,2026-08-24 00:00:00,2026-08-30 00:00:00,,,,,,,,,,,,,,1
+M2 Maintenance,TBD,Deploy Prod RackAI Prod),,RACKAI-359,Unassigned,Not Started,,1,2026-08-31 00:00:00,2026-09-06 00:00:00,,,,,,,,,,,,,,,1
+M2 Maintenance,TBD,"End-to-end Deployment Automation (Infra, openCenter [K8s], RackAI, and BAIC)",,RACKAI-224,Dan Hand,In Progress
+M2 Feature,TBD,Request new model support,,RACKAI-354,Ajay Bedre,In Progress,,2,2026-09-07 00:00:00,2026-09-20 00:00:00,,,,,,,,,,,,,,,,2
+M2 Feature,TBD,Fine Tuning - Checkpointing + resume,,RACKAI-379,Alberto Ferrer,Not Started
+M2 Feature,TBD,Model Perfomance Benchmarking in RackAI,,RACKAI-382,Unassigned,In Progress
+M2 Maintenance,TBD,Model Performance Troubleshooting,,,,Not Started
+M2 Maintenance,TBD,Workload Profiles UX,,,,Not Started
+M2 Feature,TBD,Sunsetting a model in RackAI,,RACKAI-372,,Not Started
+LEGEND
+,IAC,,Platform,,,,,Metering,,Auditing,,Observability,,Maintenance,,M2 Feature
+⭐ = critical-path point   ·   medium vertical rule = month boundary   ·   dates = week-start (Mon)   ·   Pri colour 1=red → 6=grey   ·   'mw' = man-weeks

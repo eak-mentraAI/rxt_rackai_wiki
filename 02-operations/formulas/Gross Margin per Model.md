@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [gross margin per model, contribution margin, margin per model]
-related: [fml-cost-per-1m-tokens, fml-revenue-per-gpu-hour, coeff-openrouter-price, coeff-cost-per-gpu-hour, ent-model, ent-model-deployment]
+related: [fml-cost-per-1m-tokens, fml-revenue-per-gpu-hour, coeff-openrouter-price, coeff-cost-per-gpu-hour, ent-model, ent-model-deployment, wf-gpu-reallocation, idx-unit-economics]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Computes gross margin per model from revenue and cost per 1M tokens."
 ---
@@ -47,6 +47,19 @@ Where `revenue_per_1m = price_per_1m_tokens` (the OpenRouter price for the model
 |----------|------|
 | [[GPU Reallocation]] | CONSUMES |
 | FinOps scorecard | CONSUMES |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[OpenRouter Price]] | → | `revenue_per_1m` = price per 1M tokens |
+| CONSUMES | [[Cost per 1M Tokens]] | → | `cost_per_1m` input |
+| DEPENDS_ON | [[Cost per GPU-Hour]] | → | Indirect, through Cost per 1M Tokens |
+| DEPENDS_ON | [[Revenue per GPU-Hour]] | → | Same margin seen per GPU-hour; the per-1M definition uses OpenRouter Price directly |
+| MEASURES | [[Model]] | → | Margin is computed per Model |
+| CONSUMES | [[GPU Reallocation]] | ← | Marginal-contribution ranking |
 
 ## Worked Example
 

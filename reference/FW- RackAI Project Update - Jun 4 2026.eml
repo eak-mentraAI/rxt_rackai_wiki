@@ -1,0 +1,198 @@
+From: Jovan Rajapakse <jovan.rajapakse@rackspace.co.uk>
+To: Amine Badaoui <Amine.Badaoui@rackspace.co.uk>
+Subject: FW: RackAI Project Update - Jun 4 2026
+Thread-Topic: RackAI Project Update - Jun 4 2026
+Thread-Index: AQHc9Lip70MY3dqUlUaDuF2Qs7Jc1rZ9pYXX
+Date: Fri, 24 Jul 2026 23:54:53 +0000
+Message-ID:
+	<CH9PR20MB99491327A6FF55AFB33CB0750BB1CF2@CH9PR20MB994913.namprd20.prod.outlook.com>
+References:
+	<BYAPR20MB357684BC5F08FDE3D37E565CF5112@BYAPR20MB3576.namprd20.prod.outlook.com>
+In-Reply-To:
+	<BYAPR20MB357684BC5F08FDE3D37E565CF5112@BYAPR20MB3576.namprd20.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-SupervisoryReview-OcrResultLocation:
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-reactions: allow
+Content-Type: multipart/alternative;
+	boundary="_000_CH9PR20MB99491327A6FF55AFB33CB0750BB1CF2CH9PR20MB994913_"
+MIME-Version: 1.0
+
+--_000_CH9PR20MB99491327A6FF55AFB33CB0750BB1CF2CH9PR20MB994913_
+Content-Type: text/plain; charset="us-ascii"
+
+FYI - highlighted green is what we shared before, yellow is more recent
+
+From: Paavan Shanbhag <paavan.shanbhag@rackspace.com>
+Date: Friday, 5 June 2026 at 00:17
+To: Jovan Rajapakse <jovan.rajapakse@rackspace.co.uk>; Amine Badaoui <Amine.Badaoui@rackspace.co.uk>
+Cc: Erik Ljungstrom <Erik.Ljungstrom@rackspace.co.uk>; Guy Cotton <Guy.Cotton@rackspace.com>
+Subject: RackAI Project Update - Jun 4 2026
+
+Work Completed
+
+  *
+Planned feature work for Uniphore MVP release was completed.
+  *
+Staging environment was validated and shared with Uniphore.
+  *
+To recap, this release to Uniphore added the following product features
+     *
+Model inference with NIM, in addition to open source vLLM.
+     *
+Optimization of these NIM models on vLLM based on our benchmarking, with the ability for the user to customize these further.
+     *
+Faster model start up with local cache of model weights.
+     *
+Autoscaling support of model deployments with scale to zero. LM cache and Routing are not included.
+     *
+Dataset management in the product for Fine Tuning jobs.
+     *
+Supervised Fine Tuning support
+     *
+LoRA adapter management. Ability to load/unload multiple LoRA adapters on a base model.
+     *
+UI and CLI support all of the above.
+     *
+AMD Integration (MVP - Inferencing as-a-service using AMD cards)
+     *
+GPU Accelerator Selection (MVP - Ability to select GPU to run workloads)
+
+Work In Progress
+
+  *
+Certain bug fixes and improvements based on feedback from Uniphore.
+  *
+AMD cluster setup is underway.
+  *
+Support for selecting accelerator type during model deployment is being planned/discussed.
+
+Work Planned
+
+  *
+Start implementation for the next milestone
+     *
+AMD FT and Inferencing as a service
+     *
+Autoscaling with LM cache and routing
+     *
+IAC
+     *
+Accelerator type support
+  *
+Knowledge sessions for RackAI deployment
+
+Project Status
+Green: Given the milestone delivery was completed, there are no major known risks at the start of the next milestone.
+
+
+
+--_000_CH9PR20MB99491327A6FF55AFB33CB0750BB1CF2CH9PR20MB994913_
+Content-Type: text/html; charset="us-ascii"
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+</head>
+<body>
+<div style="direction: ltr; font-family: aptos, sans-serif; font-size: 11pt; color: black;">
+FYI - highlighted green is what we shared before, yellow is more recent</div>
+<div style="direction: ltr; font-family: aptos, sans-serif; font-size: 11pt; color: black;">
+<br>
+</div>
+<div id="mail-editor-reference-message-container" style="color: inherit; background-color: inherit;">
+<div class="ms-outlook-mobile-reference-message skipProofing" style="direction: ltr;">
+</div>
+<div style="padding: 3pt 0in 0in; border-width: 1pt medium medium; border-style: solid none none; border-color: rgb(181, 196, 223) currentcolor currentcolor;">
+<div class="ms-outlook-mobile-reference-message skipProofing" style="text-align: left; font-family: Aptos; font-size: 12pt; color: black;">
+<b>From: </b>Paavan Shanbhag &lt;paavan.shanbhag@rackspace.com&gt;<br>
+<b>Date: </b>Friday, 5 June 2026 at 00:17<br>
+<b>To: </b>Jovan Rajapakse &lt;jovan.rajapakse@rackspace.co.uk&gt;; Amine Badaoui &lt;Amine.Badaoui@rackspace.co.uk&gt;<br>
+<b>Cc: </b>Erik Ljungstrom &lt;Erik.Ljungstrom@rackspace.co.uk&gt;; Guy Cotton &lt;Guy.Cotton@rackspace.com&gt;<br>
+<b>Subject: </b>RackAI Project Update - Jun 4 2026<br>
+<br>
+</div>
+</div>
+<div class="elementToProof" style="margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<b>Work Completed</b></div>
+<ul>
+<li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">Planned feature work for Uniphore MVP release was completed.</div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="ms-outlook-mobile-reference-message skipProofing" role="presentation">
+Staging environment was validated and shared with Uniphore.</div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">To recap, this release to Uniphore added the following product features</div>
+</li><ul data-editing-info="{&quot;applyListStyleFromLevel&quot;:true}" style="list-style-type: circle;">
+<li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">Model inference with NIM, in addition to open source vLLM.</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">Optimization of these NIM models on vLLM based on our benchmarking, with the ability for the user to customize these further.</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">Faster model start up with local cache of model weights.</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">Autoscaling support of model deployments with scale to zero. LM cache and Routing are not included.</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">Dataset management in the product for Fine Tuning jobs.</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">Supervised Fine Tuning support</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">LoRA adapter management. Ability to load/unload multiple LoRA adapters on a base model.</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation"><span style="background-color: rgb(128, 255, 128);">UI and CLI support all of the above.&nbsp;</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div role="presentation" style="direction: ltr;"><span style="background-color: rgb(255, 255, 128);">AMD Integration (MVP - Inferencing as-a-service using AMD cards)</span></div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div role="presentation" style="direction: ltr;"><span style="background-color: rgb(255, 255, 128);">GPU Accelerator Selection (MVP - Ability to select GPU to run workloads)</span></div>
+</li></ul>
+</ul>
+<div class="ms-outlook-mobile-reference-message skipProofing" style="direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<br>
+</div>
+<div class="elementToProof" style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<b>Work In Progress</b></div>
+<ul>
+<li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">Certain bug fixes and improvements based on feedback from Uniphore.</div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">AMD cluster setup is underway.&nbsp;</div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">Support for selecting accelerator type during model deployment is being planned/discussed.</div>
+</li></ul>
+<div class="elementToProof" style="margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<b>Work Planned</b></div>
+<ul>
+<li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">Start implementation for the next milestone</div>
+</li><ul data-editing-info="{&quot;applyListStyleFromLevel&quot;:true}" style="list-style-type: circle;">
+<li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">AMD FT and Inferencing as a service</div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">Autoscaling with LM cache and routing&nbsp;</div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">IAC</div>
+</li><li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">Accelerator type support</div>
+</li></ul>
+<li style="font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<div class="elementToProof" role="presentation">Knowledge sessions for RackAI deployment</div>
+</li></ul>
+<div class="elementToProof" style="margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<b>Project Status</b></div>
+<div class="elementToProof" style="margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<b>Green:</b>&nbsp;Given the milestone delivery was completed, there are no major known risks at the start of the next milestone.</div>
+<div class="elementToProof" style="direction: ltr; margin-top: 1em; margin-bottom: 1em; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: black;">
+<br>
+</div>
+<div class="ms-outlook-mobile-reference-message skipProofing" style="direction: ltr; font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+<br>
+</div>
+</div>
+</body>
+</html>
+
+--_000_CH9PR20MB99491327A6FF55AFB33CB0750BB1CF2CH9PR20MB994913_--

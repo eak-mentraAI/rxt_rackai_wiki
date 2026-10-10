@@ -34,6 +34,8 @@ When sources conflict, use this order of authority:
 
 Shipped beats planned: where a platform spec describes a planned capability and a shipped release note/product doc contradicts it, shipped reality wins for "what exists today" and the gap becomes an open question. Planned capability carries `assumed` confidence, never asserted as present.
 
+Corpus beats intake: once a `reference/` file has been entered into the corpus, the corpus note is canonical and the reference file is a stale snapshot, whatever it calls itself. `reference/` sits below every level of this hierarchy for questions about what is current (see the Reference-Is-Intake Rule in `agent-behavior.md`).
+
 Lower layers may reference higher. Higher layers must not depend on lower.
 
 ## Non-Negotiable Standards
@@ -70,7 +72,28 @@ Hub pages, entity pages, workflow pages, indexes, MOCs, evidence pages, changelo
 
 ## Canonical Note Types
 
-Every note must declare a type: `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`.
+Every note must declare a type: `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`, `prd`, `spec`, `projection`, `companion`.
+
+`spec` — an authored engineering technical specification in `05-wiki/` (ID prefix `spec-`) that implements a PRD; see `.kiro/steering/tech-spec-standards.md`. An externally written spec ingested from `reference/` stays a `source`.
+
+`companion` — a lossless markdown digital twin of a non-markdown source (PDF, DOCX, XLSX, PPTX, image) kept in `reference/`, named `<source> - Companion.md` beside the original. `reference/` material itself carries no frontmatter by design; only its companion files do, and they are linted.
+
+
+## Code Repositories (read-only)
+
+Tech specs ground their designs in the RackAI code (see `tech-spec-standards.md`, PRD → Tech Spec Conversion Procedure). The repositories are **read-only** from this wiki: never write to, push to, or open PRs/issues against them from wiki work.
+
+| Repo | Role |
+|---|---|
+| `RSS-Engineering/rackai` | Backend (control plane, controllers, APIs, charts) |
+| `RSS-Engineering/rackai-ui` | Frontend (web console) |
+| `RSS-Engineering/rackai-docs` | Product docs (docs.rackai.rax.io) |
+
+Read from clones kept outside this repo (convention: `~/Projects/rackai-code/<repo>`, push URL disabled with `git remote set-url --push origin no-push`) or read-only API calls. Cite code as `RSS-Engineering/<repo>@<sha>:<path>`; never copy code into notes.
+
+## Roadmap ↔ PRD / Tech Spec Links
+
+`05-wiki/RackAI Roadmap.csv` carries two link columns, **PRD** and **Tech spec**. Each holds the knowledge-console link(s) of the notes covering that row: `https://knowledge.rackspace-cloud.com/browse/rackai/<note-id>`, several separated by `; `. Wiki-authored `prd`/`spec` notes and ingested engineering documents (`source` notes) may both be linked. An empty cell means no covering document exists yet; [[PRD Coverage Plan]] says which is planned. `scripts/lint-prd-spec.py` checks both directions (Fitness P-09, T-10).
 
 ## Frontmatter Standard
 
@@ -79,7 +102,7 @@ Every note begins with YAML frontmatter:
 ```yaml
 ---
 id: unique-stable-id
-type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary
+type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary | prd | spec | projection | companion
 status: draft | reviewed | validated | deprecated
 owner: team-or-role
 domain: strategy | product | platform | performance | model-enablement | infrastructure | reliability | commercial | capacity | governance
@@ -92,6 +115,8 @@ parent: parent-note-id
 summary: "One-line description of note purpose."
 ---
 ```
+
+**Optional: `data_files`.** A list of corpus-relative `.csv` paths (e.g. `data_files: ["05-wiki/RackAI Roadmap.csv"]`). The knowledge platform renders each CSV as a filterable, sortable table on this note's page and indexes its rows for search. Use it on the note that owns a CSV; the CSV stays the canonical data. Without it, a CSV is never ingested.
 
 ## Confidence States
 

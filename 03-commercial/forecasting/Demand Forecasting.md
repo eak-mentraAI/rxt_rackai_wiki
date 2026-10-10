@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [demand forecasting, demand forecast, capacity forecasting]
-related: [hub-commercial, idx-capacity-pools, idx-fleet-yield, ent-capacity-pool, ent-model]
+related: [hub-commercial, idx-capacity-pools, idx-fleet-yield, ent-capacity-pool, ent-model, idx-gpu-capacity-demand-rationale, ent-market-demand, evt-demand-forecast-published, asm-openrouter-initial-share, asm-traffic-peak-multiplier, idx-model-portfolio]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-commercial
 summary: "Forecasts inference demand at Model × cluster × time window to drive autoscaling and reallocation."
 ---
@@ -76,6 +76,19 @@ flowchart LR
 | [[Autoscaling]] | FEEDS | Scaling reacts to forecast |
 | [[GPU Reallocation]] | FEEDS | Reallocation reacts to forecast |
 
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| FORECASTS | [[Market Demand]] | → | OpenRouter volume, token growth, hourly pattern, enterprise commitments |
+| FORECASTS | [[Model]] | → | Per Model × cluster × window |
+| DEPENDS_ON | [[Capacity Pool]] | → | Forecast targets pools |
+| GENERATES | [[Demand Forecast Published]] | → |  |
+| CONSTRAINS | [[OpenRouter Initial Market Share]] | ← | Assumed RackAI share |
+| CONSTRAINS | [[Traffic Peak Multiplier]] | ← | Assumed 3× peak |
+
 ## Ownership
 
 FinOps owns the forecasting workflow end to end, in partnership with the platform/control-plane team that supplies telemetry.
@@ -84,3 +97,4 @@ FinOps owns the forecasting workflow end to end, in partnership with the platfor
 
 - [[Commercial & Capacity Hub]]
 - [[Capacity Pool Model]]
+- [[GPU Capacity Demand Rationale]]

@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [kv cache hit rate, prefix cache hit rate, cache hit rate]
-related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-spec-decode-acceptance, ent-benchmark-run, ent-serving-runtime]
+related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-spec-decode-acceptance, ent-benchmark-run, ent-serving-runtime, hub-inference-optimization, fml-gpus-per-replica, ent-traffic-class, val-erebine-inference-claims]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Fraction of prefix/KV cache lookups that hit, translating into prefill GPU work avoided."
 ---
@@ -35,6 +35,19 @@ The fraction of prefix / KV cache lookups that hit rather than requiring recompu
 | Formula | ID |
 |---------|----|
 | [[Tokens per GPU-Second Formula]] | fml-tokens-per-gpu-second |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Tokens per GPU-Second Formula]] | ← | Cache modifier on effective throughput |
+| DEPENDS_ON | [[GPUs per Replica]] | ← | KV-cache reserve sizing |
+| DEPENDS_ON | [[Traffic Class]] | → | Prompt repetition and cacheability differ by class |
+| DEPENDS_ON | [[Serving Runtime]] | → | Prefix/KV cache is a runtime feature |
+| VALIDATES | [[Validate Erebine Inference Claims]] | ← | External comparison (~97% warm reuse on Erebine) |
+| MEASURES | [[Benchmark Run]] | ← | Exit criterion: hit rate and GPU work avoided |
 
 ## Change History
 

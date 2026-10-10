@@ -5,10 +5,10 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [model deployment specification, deployment spec, deployment contract, standard deployment contract]
-related: [ent-model, ent-model-deployment, ent-serving-runtime, ent-capacity-pool, ent-benchmark-run, hub-entities]
+related: [ent-workload-declaration, ent-model, ent-model-deployment, ent-serving-runtime, ent-capacity-pool, ent-benchmark-run, hub-entities, hub-inference-serving, wf-model-deployment]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-entities
 summary: "Canonical entity: the declared contract every Model Deployment must satisfy."
 ---
@@ -18,6 +18,8 @@ summary: "Canonical entity: the declared contract every Model Deployment must sa
 ## Definition
 
 A **Model Deployment Specification** is the declared, versioned contract that every [[Model Deployment]] must satisfy before it can serve traffic. It states, up front, what a deployment of a given [[Model]] is supposed to be — its identity and version, weight source, runtime, quantization, supported context, GPU requirement, parallelism, API capabilities, routing and scaling policy, health checks, and reference benchmark profile. The spec is the intent; the deployment is the realization. Each Model Deployment declares exactly one specification.
+
+> **Position in the customer contract (2026-10-08).** Relative to the *customer*, the spec is RackAI's realization choice, not the customer's declaration. Under the adopted placement principle ("RackAI chooses by default; customers constrain when necessary"), it should be derived from the customer's declared intent and constraints, with any customer GPU pin carried as a hard placement constraint. The declaration surface is carried under P-004 in the [[RackAI Roadmap]]; the canonical declaration is [[Workload Declaration]].
 
 ## Layer
 
@@ -57,6 +59,7 @@ The specification is the declared contract that sits alongside a Model Deploymen
 
 | Relationship | Target | Direction | Notes |
 |--------------|--------|-----------|-------|
+| DERIVES | [[Workload Declaration]] | ← | Derived from the customer's declaration (proposed, P-004); records the declaration version it satisfies |
 | DECLARED_BY | [[Model Deployment]] | ← | Each deployment declares exactly one spec (invariant) |
 | SPECIFIES | [[Model]] | → | Identity and version the spec targets |
 | REQUIRES | [[Serving Runtime]] | → | Declares the runtime engine and version |

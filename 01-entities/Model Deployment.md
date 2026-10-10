@@ -5,10 +5,10 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [model deployment, deployment, serving deployment]
-related: [ent-model, ent-model-deployment-spec, ent-serving-runtime, ent-capacity-pool, hub-entities]
+related: [ent-model, ent-model-deployment-spec, ent-serving-runtime, ent-capacity-pool, hub-entities, hub-inference-serving, met-tokens-per-gpu-second, met-ttft, fml-cost-per-1m-tokens, wf-model-deployment, wf-canary-rollback, wf-autoscaling, wf-request-routing, met-output-throughput, met-availability, wf-admission-control, wf-fine-tuning, pol-admission-control, pol-performance-regression-gate, pol-supply-chain-inventory, evt-performance-regression-detected, evt-deployment-canary-passed, fml-tokens-per-gpu-second, fml-revenue-per-gpu-hour, ent-gpu-node, ent-environment, ent-topology, ent-deepseek-v4-flash, ent-solution-marketplace, ent-governed-harness, ent-traffic-class, ent-openrouter-integration, ent-lora-adapter, ent-packaged-solution, ent-rackai-control-plane, ent-accelerator-class, ent-glm-5-3-flash, ent-model-class, ent-benchmark-run, ent-nemotron-3-ultra, ent-organization, ent-openrouter-private-model]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-entities
 summary: "Canonical entity: a concrete running instance of a Model on a runtime, capacity pool, and hardware."
 ---
@@ -58,18 +58,29 @@ L1 — Entity Ontology. Position in the abstraction chain:
 | Relationship | Target | Direction | Notes |
 |--------------|--------|-----------|-------|
 | SERVES | [[Model]] | → | Exactly one Model (invariant) |
-| DECLARES | [[Model Deployment Specification]] | → | Exactly one spec (invariant) |
-| RUNS_ON | [[Serving Runtime]] | → | Exactly one runtime config (invariant) |
-| DRAWS_FROM | [[Capacity Pool]] | → | Exactly one pool (invariant) |
-| PLACED_ON | [[GPU Node]] | → | One or more nodes within a cluster |
-| CONSTRAINED_BY | [[Topology]] | → | Placement respects topology requirements |
-| VALIDATED_BY | [[Benchmark Run]] | → | Performance evidence |
-| ROUTED_TO_BY | [[OpenRouter Provider Integration]] | ← | Receives traffic via the provider layer |
+| DECLARES | [[Model Deployment Specification]] | → | Exactly one spec (invariant) (canonical: DEPENDS_ON →) |
+| RUNS_ON | [[Serving Runtime]] | → | Exactly one runtime config (invariant) (canonical: USES →) |
+| DRAWS_FROM | [[Capacity Pool]] | → | Exactly one pool (invariant) (canonical: CONSUMES →) |
+| PLACED_ON | [[GPU Node]] | → | One or more nodes within a cluster (canonical: USES →) |
+| CONSTRAINED_BY | [[Topology]] | → | Placement respects topology requirements (canonical: CONSTRAINS ←) |
+| VALIDATED_BY | [[Benchmark Run]] | → | Performance evidence (canonical: VALIDATES ←) |
+| ROUTED_TO_BY | [[OpenRouter Provider Integration]] | ← | Receives traffic via the provider layer (canonical: ROUTES_TO ←) |
 | REGISTERED_BY | [[OpenRouter Private Model Integration]] | ← | May be exposed to OpenRouter as a private model (Path A) |
 | BELONGS_TO | [[Organization]] | → | Every deployment is owned by exactly one tenant org (invariant) |
 | USES | [[Accelerator Class]] | → | Selects GPU hardware via an accelerator class |
-| INSTANTIATES | [[Model Class]] | → | Realizes a Model Class (runtime + engine config) |
-| APPLIES | [[LoRA Adapter]] | → | May hot-load a matching LoRA adapter |
+| INSTANTIATES | [[Model Class]] | → | Realizes a Model Class (runtime + engine config) (canonical: IMPLEMENTS →) |
+| APPLIES | [[LoRA Adapter]] | → | May hot-load a matching LoRA adapter (canonical: USES →) |
+| MEASURES | [[Tokens per GPU-Second]] | ← | Headline efficiency KPI |
+| MEASURES | [[TTFT]] | ← | Latency KPI |
+| MEASURES | [[Output Throughput]] | ← |  |
+| MEASURES | [[Availability]] | ← | Guardrail |
+| MEASURES | [[Cost per 1M Tokens]] | ← | Cost per deployment |
+| MEASURES | [[Revenue per GPU-Hour]] | ← | Yield per deployment |
+| PRODUCES | [[Standard Model Deployment]] | ← | Provisions the deployment |
+| GOVERNS | [[Canary & Rollback]] | ← | Canary → Production promotion and rollback |
+| ALLOCATES | [[Autoscaling]] | ← | Replica scaling |
+| ROUTES_TO | [[Request Routing]] | ← | Request placement |
+| CONSTRAINS | [[Admission Control]] | ← | Overload shaping |
 
 ## RackAI Platform Reality
 

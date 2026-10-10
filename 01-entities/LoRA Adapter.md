@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: platform
 aliases: [lora adapter, lora, adapter, fine-tuned adapter]
-related: [ent-fine-tuning-job, ent-model, ent-model-deployment, ent-organization, wf-fine-tuning, hub-entities]
+related: [ent-fine-tuning-job, ent-model, ent-model-deployment, ent-organization, wf-fine-tuning, hub-entities, hub-model-services]
 source_docs: [rackai_console_docs, rackai_ui_architecture]
 confidence: measured
 last_reviewed: 2026-09-04

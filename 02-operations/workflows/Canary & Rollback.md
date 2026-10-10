@@ -5,10 +5,10 @@ status: draft
 owner: reliability
 domain: reliability
 aliases: [canary and rollback, canary deployment, rollback workflow]
-related: [wf-model-deployment, wf-model-launch-factory, evt-deployment-canary-passed, met-ttft, met-availability, ent-model-deployment, ent-benchmark-run]
+related: [wf-model-deployment, wf-model-launch-factory, evt-deployment-canary-passed, met-ttft, met-availability, ent-model-deployment, ent-benchmark-run, wf-eval-as-ci, wf-closed-loop-optimization, wf-self-improvement-loop, pol-governable-self-modification]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Progressive delivery from internal to production with automated rollback on health signals."
 ---
@@ -63,6 +63,21 @@ Rollback signals: **errors, latency, correctness, GPU failures, availability**.
 | [[Benchmark Run]] | DEPENDS_ON | Baseline for correctness/performance comparison |
 | [[TTFT]] | GATED_BY | Latency rollback signal |
 | [[Availability]] | GATED_BY | Availability rollback signal |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| DEPENDS_ON | [[Standard Model Deployment]] | → |  |
+| DEPENDS_ON | [[Benchmark Run]] | → | Comparison baseline |
+| CONSTRAINS | [[TTFT]] | ← | Latency rollback signal |
+| CONSTRAINS | [[Availability]] | ← | Availability rollback signal |
+| GENERATES | [[Deployment Canary Passed]] | → |  |
+| GOVERNS | [[Model Deployment]] | → | Internal → Canary → Production promotion and rollback |
+| DEPENDS_ON | [[Model Launch Factory]] | ← | Canary stage of the factory |
+| USES | [[Governable Self-Modification]] | ← | Safe rollout of self-modifications |
 
 ## Ownership
 

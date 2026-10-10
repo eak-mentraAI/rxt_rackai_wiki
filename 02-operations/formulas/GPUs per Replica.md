@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: capacity
 aliases: [gpus per replica, replica gpu count, model footprint, replica sizing]
-related: [hub-operations, coeff-model-weight-footprint, ent-gpu-h100, ent-gpu-amd-instinct, fml-cost-per-1m-tokens, idx-gpu-compatibility-matrix]
+related: [hub-operations, coeff-model-weight-footprint, ent-gpu-h100, ent-gpu-amd-instinct, fml-cost-per-1m-tokens, idx-gpu-compatibility-matrix, coeff-fp8-throughput, wf-quantization-program, ent-capacity-pool, idx-model-portfolio, ent-topology, asm-fleet-competitiveness, wf-model-deployment, wf-model-launch-factory, asm-gemma-replica-sizing, idx-gpu-capacity-demand-rationale, coeff-kv-cache-hit-rate, ent-deepseek-v4-flash, ent-glm-5-3-flash]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: derived
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Minimum GPUs needed to hold one replica of a model, from weight + KV-cache footprint and per-GPU memory."
 ---
@@ -62,6 +62,28 @@ For dense-loaded MoE, `weight_bytes` uses **total** parameters (all experts must
 ## The Interconnect Ceiling (read this first)
 
 `gpus_per_replica` computes how many GPUs a replica *needs*. But on the current fleet the harder limit is how many GPUs can act as **one tightly-coupled unit**. The H100s are **NVL PCIe** — NVLink pairs only (2 coupled, 4/node, no clustering) — so the *usable* group for a single replica is realistically **2–4 GPUs at FP8**, not "however many fit." A model whose `gpus_per_replica` exceeds the coupled-group size cannot be served competitively at all, regardless of total fleet count. This is the binding constraint in [[Fleet Competitiveness]]; the memory math below is secondary to it.
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Model Weight Footprint]] | → | `weight_bytes` = params × bytes/param |
+| CONSUMES | [[FP8 Throughput Factor]] | → | Memory side of precision: FP8 = 1 B/param vs BF16 = 2 |
+| DEPENDS_ON | [[Quantization Program]] | → | Precision chosen per model by the program |
+| DEPENDS_ON | [[GPU Type Compatibility Matrix]] | → | Per-GPU memory by GPU type |
+| DEPENDS_ON | [[Traffic Class]] | → | KV-cache reserve from context length and concurrency profile |
+| DEPENDS_ON | [[KV Cache Hit Rate]] | → | KV-cache reserve sizing (workload-dependent) |
+| CONSTRAINS | [[Topology]] | ← | Coupled-group ceiling (NVL-PCIe pairs) caps usable GPUs per replica |
+| CONSTRAINS | [[Capacity Pool]] | → | Replica size sets pool sizing (GPUs per replica × replicas) |
+| CONSTRAINS | [[Model Portfolio Capacity]] | → | How many models fit concurrently on the fleet |
+| CONSUMES | [[Cost per 1M Tokens]] | ← | Replica fixed cost = gpus_per_replica × cost/GPU-hour |
+| CONSUMES | [[Fleet Competitiveness]] | ← | Replicas that fit on the fleet |
+| CONSUMES | [[Standard Model Deployment]] | ← | Placement / minimum GPU count |
+| CONSUMES | [[Model Launch Factory]] | ← | Hardware-fit step sets minimum GPU count |
+| CONSUMES | [[GPU Capacity Demand Rationale]] | ← | Replica sizing for the prod GPU proposal |
+| SUPPORTS | [[Gemma Replica Sizing]] | ← | Assumption applies this formula (2× H100 per replica) |
 
 ## Worked Example (illustrative — assumed inputs)
 

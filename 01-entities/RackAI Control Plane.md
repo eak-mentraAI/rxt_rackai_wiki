@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [rackai control plane, control plane, aggregated api]
-related: [ent-organization, ent-model, ent-model-deployment, ent-accelerator-class, wf-identity-access, hub-entities]
+related: [ent-organization, ent-model, ent-model-deployment, ent-accelerator-class, wf-identity-access, hub-entities, wf-monitoring, wf-audit]
 source_docs: [rackai_api_reference, rackai_release_1_0_0, rackai_ui_architecture]
 confidence: measured
 last_reviewed: 2026-09-04

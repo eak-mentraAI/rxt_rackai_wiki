@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [quantization program, quantization evaluation, precision program]
-related: [coeff-fp8-throughput, asm-fp8-quality-neutral, wf-closed-loop-optimization, hub-operations]
+related: [coeff-fp8-throughput, asm-fp8-quality-neutral, wf-closed-loop-optimization, hub-operations, pol-performance-regression-gate, fml-gpus-per-replica, coeff-model-weight-footprint, idx-gpu-compatibility-matrix]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Evaluates model-specific quantization as a controlled engineering decision, not a deployment switch."
 ---
@@ -56,6 +56,20 @@ stateDiagram-v2
 | [[FP8 Throughput Factor]] | PRODUCES | Program measures and updates this coefficient |
 | [[Performance Regression Gate]] | DEPENDS_ON | Approved configs must clear the gate |
 | [[Closed-Loop Optimization]] | FEEDS | Quantization is one experimentation axis in the loop |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| PRODUCES | [[FP8 Throughput Factor]] | → | Measures and updates the coefficient |
+| DEPENDS_ON | [[Performance Regression Gate]] | → | Approved configs must clear the gate |
+| SUPPORTS | [[Closed-Loop Optimization]] | → | One experimentation axis (original: FEEDS) |
+| VALIDATES | [[FP8 Quality Neutral]] | → | Quality benchmark per precision |
+| DEPENDS_ON | [[GPUs per Replica]] | ← | Precision sets bytes/param |
+| DEPENDS_ON | [[Model Weight Footprint]] | ← | Precision sets footprint |
+| CONSTRAINS | [[GPU Type Compatibility Matrix]] | ← | Precision support per GPU type |
 
 ## Ownership
 

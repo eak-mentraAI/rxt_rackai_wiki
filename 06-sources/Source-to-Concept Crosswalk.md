@@ -6,9 +6,9 @@ owner: knowledge-graph-steward
 domain: governance
 aliases: [crosswalk, source-to-concept crosswalk, source mapping]
 related: [hub-root, idx-source-inventory]
-source_docs: []
+source_docs: ["06-sources/rackai-platform/Identity and Access Control Spec.md", "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md", "06-sources/rackai-platform/Monitoring and Auditability Spec.md"]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-10
 parent: hub-root
 summary: "Maps source documents to the canonical concepts they support."
 ---
@@ -21,6 +21,7 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 
 | Source | Concept | Canonical Note | Layer | Confidence |
 |--------|---------|----------------|-------|:----------:|
+| Strategic Vision + Engineering Roadmap + OpenRouter Leaderboard Snapshot + GPU Capacity workbook | Market demand (head of the serving chain): OpenRouter pool volume and direct-tenant demand per Model × Traffic Class | [[Market Demand]] | L1 | derived |
 | Strategic Vision | Model bets (DeepSeek, GLM, Nemotron) | [[DeepSeek V4 Flash]], [[GLM 5.3 Flash]], [[Nemotron 3 Ultra]] | L1 | assumed |
 | Strategic Vision | Operating KPIs / scorecard | [[KPI Hierarchy]], [[Model Scorecard]] | L5 | validated |
 | Strategic Vision | Cost/efficiency economic loop | [[Unit Economics Model]] | L3 | derived |
@@ -48,11 +49,40 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | RackAI Console and CLI Docs | Tenancy + Inference/Fine-Tuning/Resources product areas | [[Organization]], [[Model]], [[Model Deployment]], [[Dataset]], [[Fine-Tuning Job]], [[LoRA Adapter]], [[Registry Credential]], [[Fine-Tuning]] | L1/L2 | measured |
 | RackAI Deployment and Environments | dev/staging/prod, single-cluster/single-region | [[Environment]], [[GPU Cluster]], [[Region]] | L1 | measured |
 | RackAI UI Architecture Extraction | Domain CRDs, entity status enums, implied backend systems | [[Organization]], [[Model]], [[Model Deployment]], [[Serving Runtime]], [[Accelerator Class]], [[Dataset]], [[Fine-Tuning Job]], [[LoRA Adapter]], [[Registry Credential]], [[RackAI Control Plane]] | L1 | derived |
-| Identity and Access Control Spec | Auth, org→namespace, RBAC, API keys | [[Identity & Access Control]], [[Organization]], [[API Key]] | L1/L2 | derived |
-| Multi-Tenancy and Metering Spec | Metering (planned), billing non-goal | [[Metering]], [[Billing & Payment]], [[Organization]] | L1/L2/L3 | derived |
-| Monitoring and Auditability Spec | Platform monitoring (shipped), in-tenant observability + audit (planned) | [[Monitoring & Observability]], [[Audit]] | L2 | derived |
+| Identity and Access Control Spec | Auth (Keycloak; Auth0 legacy), CustomerOrg→org→namespace, two-layer RBAC (built), API keys; multi-org gated off; RCN billing link proposed | [[Identity & Access Control]], [[Organization]], [[API Key]], [[Billing & Payment]] | L1/L2/L3 | derived |
+| Multi-Tenancy and Metering Spec | Metering (partly built: outbox/drainer, FT sidecar; no live FT quota), billing non-goal (RCN join proposed) | [[Metering]], [[Billing & Payment]], [[Organization]], [[KPI Telemetry Target List]] | L1/L2/L3/L4 | derived |
+| Monitoring and Auditability Spec | Platform monitoring (shipped; no recording rules ship), in-tenant observability (built, empty series), audit (partly built: store, outbox, read API) | [[Monitoring & Observability]], [[Audit]], [[KPI Telemetry Target List]] | L2/L4 | derived |
+| `reference/PRD/` (received 2026-10-10) | Newer tech-spec versions with AS BUILT / PROPOSED annotations (through 2026-10-08); PRDs identical to the rackai-platform copies — maps to the three rackai-platform source notes | [[Identity and Access Control Spec]], [[Multi-Tenancy and Metering Spec]], [[Monitoring and Auditability Spec]] | source | derived |
 | Accelerator Selection Spec | AcceleratorClass, GPU scheduling/affinity | [[Accelerator Class]], [[Standard Model Deployment]], [[Fleet Inventory]] | L1/L2 | derived |
 | OpenRouter provider reference | Provider vs private-model paths, P0/P1 readiness gaps | [[OpenRouter Initiative]], [[OpenRouter Provider Integration]], [[Billing & Payment]], [[Model Catalog Endpoint]] | hub/L1 | derived |
+| Erebine bundle + erebine.ai + live API (2026-09-15) | Competitor: zero-lock-in OpenAI-compatible router + MCP workspace-intelligence layer | [[Erebine Competitive Analysis]] | L4 | measured |
+| Market research + CEO strategy review (2026-09-21) | Company identity + theory of advantage: Private Enterprise AI Operator (three-battleground frame as internal lens) | [[Three Battlegrounds]] | hub | derived |
+| CEO strategy review (2026-09-21) | Partner portfolio / load-bearing bets mapped to the operator stack; Palantir boundary | [[Load-Bearing Bets]] | hub | assumed |
+| Engineering Roadmap + Dev Plan, synthesized + CEO review (2026-09-21) | Canonical living roadmap: four proofs (Observe → Decide → Assume Responsibility → Operate), MOE anchor, human→automated ladder, operator north-star metrics | [[RackAI Roadmap]] | hub | derived |
+| CEO strategy review (2026-09-21) | Minimum Operable Estate — MVP operator target anchoring Proof 3 | [[Minimum Operable Estate]] | hub | assumed |
+| RackAI Project Update (Jun 4 2026 .eml) | Uniphore MVP delivery baseline: completed features, WIP, next milestone, Green status | [[Uniphore Recovery Plan — RackAI Input]] | L5 | measured |
+| RackAI-Roadmap master + Uniphore progress slide + M2 roadmap CSVs | Current four-quarter roadmap; Uniphore-mapped capability status; Jun-vs-slide status conflict | [[Uniphore Recovery Plan — RackAI Input]], [[RackAI Roadmap]] | L5 | derived |
+| IaaS + FTaaS Battlecards (internal, Apr 2025 / Jun 2026) | Fireworks-modeled capability checklist — sales collateral, never shared with Uniphore; not a requirements/acceptance framework | [[Uniphore Recovery Plan — RackAI Input]] | L5 | assumed |
+| questions-to-uniphore + uniphore-phase-1 CSVs | Uniphore MVP scope assumptions (secondhand via PM) and open clarifications | [[Uniphore Recovery Plan — RackAI Input]] | L5 | assumed |
+| CEO strategy review + Product Operations JD (2026-09-21) | AI Operations Product — operating model / SLOs / incident / FDE motion as a first-class workstream | [[AI Operations Product]] | hub | assumed |
+| RackAI - Roadmap.xlsx (2026-09-21) | Actual staffed/Jira-tracked delivery roadmap: CSP Platform Layer, M2 features, Uniphore Phase 1 | [[RackAI Roadmap (Delivery Plan)]] | source | measured |
+| RackAI - Roadmap.xlsx, read through the operator lens (2026-09-21) | Delivery milestones mapped to the four proofs; strategy gaps → proposals P-003–P-007 | [[RackAI Roadmap]] | hub | derived |
+| RackAI - Roadmap.xlsx — shipped reality (2026-09-21) | Confidence corrections: API Key shipped (IAC M1); metering in progress; RBAC partial (org-level dropped); DPO in progress | [[Capability Gap Register]], [[API Key]], [[Metering]] | L4/L1/L2 | measured |
+| Web research (2026-09-21): Fireworks, Together, Baseten, Anyscale | Battleground (b) AI-native inference competitors | [[Inference Serving Competitors]] | L4 | derived |
+| Web research (2026-09-21): CoreWeave, Lambda | Battleground (a) GPU-neocloud capacity competitors | [[GPU Neocloud Competitors]] | L4 | derived |
+| Web research (2026-09-21): Palantir, Cohere, Mistral, Scale AI | Battleground (c) sovereign/governed-AI competitors | [[Sovereign & Governed AI Competitors]] | L4 | derived |
+| Dev Plan (2026-09-17) | Portfolio vs product framing; eight-layer stack as a view | [[Enterprise AI Portfolio]], [[Eight-Layer Stack]] | hub/L5 | assumed |
+| Dev Plan | Governed harness + agentic entities | [[Governed Harness]], [[Empirical Map]], [[Agent Identity]], [[Across.AI]] | L1 | assumed |
+| Dev Plan | Assurance & self-improvement workflows | [[Verification]], [[Loop Planning & Credit Assignment]], [[Self-Improvement Loop]], [[Eval as CI]], [[Perimeter Information-Flow Control]] | L2 | assumed |
+| Dev Plan | Operations/governance-plane policies | [[Action Controls]], [[Supply Chain Inventory]], [[Governable Self-Modification]] | L2 | assumed |
+| PM/leadership marketplace discussion (2026-10-06) | Consumption driver: FDE-authored agents/apps/harnesses distributed via a RackAI-governed marketplace; the RackAI-rails-vs-FDE-authoring boundary; sovereign-assistant worked example | [[Solution Marketplace]], [[Packaged Solution]], [[Sovereign Private Assistant]] | L1/L4 | assumed |
+| Dev Plan | Cost loop / tokenomics economics | [[Cost per Outcome]], [[AI FinOps]] | L2/L3 | assumed |
+| RackAI Organizational Design deck (2026-09-17) | Org/operating-model content (functions, pods, reporting lines, reqs) — **reference-only**, not modeled as canonical concepts (out of graph scope per product decision) | *(none — see [[RackAI Organizational Design]])* | — | assumed |
+| Three Battlegrounds + Enterprise AI Portfolio + Eight-Layer Stack, projected for external web (2026-09-28) | Public Enterprise AI page: sharpened ICP within the TAM + marketing stack diagram (projection of the operator stack, no new concept) | [[Enterprise AI Solution Stack (Marketing)]] | L5 | derived |
+| SemiAnalysis InferenceX AgentX + NVIDIA AIPerf (web, 2026-09-28) | External serving-benchmark standard RackAI anchors agentic benchmarking to (methodology, dataset, engine-delta referee for AIM/NIM/vLLM) | [[AgentX Benchmark Standard]] | L4 | asserted |
+| Enterprise AI Portfolio + Eight-Layer Stack + commercial layer + leadership ratification (2026-09-29) | **Canonical product model for Enterprise AI Cloud**: portfolio→product boundary (RackAI at the core), the **three ratified consumption offers** (GPU as a Service / RackAI / Outcome as a Service) with FDE as a cross-cutting add-on, and the DISCOVER/UNDERSTAND/CONSUME/ENGAGE model. Marketing/Sales/packaging derive from it. Offer *structure* ratified; commercial *mechanics* (pricing/billing) not built | [[Enterprise AI Cloud Product Model]] | hub | validated |
+| Enterprise AI Cloud Product Model, rendered for the public web (2026-09-29) | Marketing-site **projection** of the product model: screen-by-screen click-through (Screen 0 → domain → capability, with UNDERSTAND/CONSUME/ENGAGE branches). Derived view, not a source of truth; product model is authoritative | [[Enterprise AI Cloud Marketing Site Projection]] | L5 | derived |
+| Operator brief: MI350P benchmarking program (2026-10-07) + external anchors (MLPerf Inference, vLLM serving benchmark, AMD ROCm vLLM benchmark container, RCCL tests, InferenceX AgentX) | Benchmark tiers B1–B5, ownership seams, handoff artifacts, claim rights, Benchmark Card format, standard profiles; MI350P qualification program; new serving metrics (TPOT/ITL, goodput, SLO attainment, energy per token) | [[Benchmark Evidence Chain]], [[AMD MI350P Qualification Plan]], [[TPOT]], [[Goodput]], [[SLO Attainment]], [[Energy per Token]], [[MI350P Serving Competitive]] | L2/L4 | assumed |
 
 Extend this table as concepts are extracted into canonical notes.
 

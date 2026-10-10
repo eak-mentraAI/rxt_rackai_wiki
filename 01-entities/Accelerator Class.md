@@ -5,7 +5,7 @@ status: draft
 owner: infra-eng
 domain: infrastructure
 aliases: [accelerator class, accelerator, gpu class]
-related: [ent-model-deployment, ent-gpu-node, ent-serving-runtime, ent-gpu-fleet, hub-entities]
+related: [ent-model-deployment, ent-gpu-node, ent-serving-runtime, ent-gpu-fleet, hub-entities, hub-inference-serving, hub-inference-optimization]
 source_docs: [accelerator_selection_spec, rackai_release_1_0_0]
 confidence: measured
 last_reviewed: 2026-09-04
@@ -59,3 +59,4 @@ Not a stateful entity. (Allocatable/used capacity are continuously reconciled in
 - [[Entity Ontology Hub]]
 - [[Model Deployment]]
 - [[GPU Node]]
+- [[Workload Declaration & Placement Tech Spec]] — proposes using accelerator classes as the pools of the owned-fleet supply target (draft)

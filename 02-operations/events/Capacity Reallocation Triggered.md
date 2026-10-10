@@ -5,10 +5,10 @@ status: draft
 owner: infrastructure
 domain: capacity
 aliases: [capacity reallocation triggered, reallocation signal, rebalance trigger]
-related: [wf-gpu-reallocation, wf-autoscaling, wf-admission-control, pol-procurement-trigger, met-gpu-utilization, fml-revenue-per-gpu-hour, ent-capacity-pool, ent-gpu-node]
+related: [wf-gpu-reallocation, wf-autoscaling, wf-admission-control, pol-procurement-trigger, met-gpu-utilization, fml-revenue-per-gpu-hour, ent-capacity-pool, ent-gpu-node, wf-request-routing]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Signals that demand or economics crossed a threshold warranting GPU capacity reallocation."
 ---
@@ -45,6 +45,22 @@ Signals that demand or economics have crossed a reallocation threshold, warranti
 | [[GPU Reallocation]] | Recommends or executes a GPU move between pools |
 | [[Procurement Trigger]] | Escalates to procurement if shortfall is sustained |
 | Capacity dashboards | Records the reallocation signal |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GENERATES | [[GPU Reallocation]] | ← | Capacity monitor threshold |
+| GENERATES | [[Autoscaling]] | ← | Scaling need exceeds pool headroom |
+| GENERATES | [[Admission Control]] | ← | Sustained shedding |
+| GENERATES | [[Request Routing]] | ← | Routing pressure indicates systemic imbalance |
+| GENERATES | [[Productive GPU Utilization]] | ← | `trigger_signal` = utilization |
+| GENERATES | [[Revenue per GPU-Hour]] | ← | `trigger_signal` = revenue-per-gpu-hour |
+| CONSUMES | [[GPU Reallocation]] | ← | Recommends or executes a GPU move |
+| CONSUMES | [[Procurement Trigger]] | ← | Escalates sustained shortfall |
+| DEPENDS_ON | [[Capacity Pool]] | → | `source_pool` / `target_pool` |
 
 ## See Also
 

@@ -6,9 +6,9 @@ owner: knowledge-graph-steward
 domain: platform
 aliases: [glossary, terms, definitions, inference glossary]
 related: [hub-wiki, idx-metrics, idx-entities]
-source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
+source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md, "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md"]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-10
 parent: hub-wiki
 summary: "Canonical one-paragraph definitions of inference-serving terms, each pointing to its canonical note where one exists."
 ---
@@ -49,7 +49,7 @@ LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning method that trai
 
 ## Metering vs Billing
 
-**Metering** captures usage (tokens/requests) per tenant. **Billing** prices that usage and moves money (invoices/top-ups/payout). RackAI has planned metering but **no billing** — pricing/billing logic is an explicit non-goal of the metering spec. The distinction matters because becoming an OpenRouter public provider requires billing.
+**Metering** captures usage (tokens/requests) per tenant. **Billing** prices that usage and moves money (invoices/top-ups/payout). RackAI has partly built metering (outbox/drainer and fine-tuning sidecar, per [[Multi-Tenancy and Metering Spec]]) but **no billing** — pricing/billing logic is an explicit non-goal of the metering spec. The distinction matters because becoming an OpenRouter public provider requires billing.
 
 - **Canonical Notes:** [[Metering]], [[Billing & Payment]]
 

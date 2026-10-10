@@ -4,16 +4,18 @@ type: hub
 status: draft
 owner: product
 domain: strategy
-aliases: [product hub, strategy hub]
-related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial]
+aliases: [product hub, strategy hub, openrouter product hub]
+related: [hub-root, hub-rackai-platform, hub-openrouter, hub-commercial, hub-battlegrounds, hub-roadmap, hub-org-design, hub-inference-serving, hub-model-services, hub-inference-optimization, hub-ai-governance-assurance, hub-ai-harness, hub-ai-operations-product]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-04
+last_reviewed: 2026-09-24
 parent: hub-root
 summary: "Strategy, model bets, and engineering roadmap for the OpenRouter initiative on the RackAI platform."
 ---
 
 # Product Hub
+
+> **Scope note.** This hub covers the **OpenRouter inference program** — RackAI's first go-to-market initiative. It is not the full product organization hub. For the six-pillar product organization structure, see [[RackAI Organizational Design]]. For individual pillar hubs, see: [[Inference and Serving Services]] · [[Model Services]] · [[Inference Optimization]] · [[AI Governance and Assurance]] · [[AI Harness]] · [[AI Operations Product]].
 
 Strategy and roadmap for the **OpenRouter inference program** — the first initiative on the [[RackAI Platform]]: the model bets, the operating metrics that drive them, and the phased engineering roadmap. This hub covers the initiative's strategy; the platform it runs on is described in [[RackAI Platform]], and the initiative's integration paths and readiness gaps live in [[OpenRouter Initiative]].
 
@@ -44,7 +46,13 @@ Given the fleet's NVL-PCIe topology ceiling (~27B class — see [[Fleet Competit
 
 Productive GPU utilization, tokens/GPU-second, TTFT, and model launch lag — with availability, cost/1M tokens, and revenue/GPU-hour as guardrails. Top-five OpenRouter rank is treated as an outcome, not a directly optimized target.
 
+## Market Positioning
+
+The canonical, living plan is the [[RackAI Roadmap]] — horizons and workstreams synthesizing both source spines under the operator identity; it is the editable home where roadmap changes are proposed and adopted. For a communication-oriented re-cut of that same plan into major milestone releases across five functional tracks (core platform, governance & assurance, learning loop, model & inference bet, efficiency & economics), see the [[Milestone Release Map]]. The [[Three Battlegrounds]] note carries the company identity and theory of advantage — **RackAI as the Private Enterprise AI Operator** — with the market map organized by the customer's real alternative (build it themselves / buy capacity / buy an inference platform / buy an enterprise-AI platform) and the compounding operating-telemetry flywheel as the moat. The three-battleground frame (capacity / inference / regulated outcomes) is retained inside it as an internal lens. Competitor teardowns: [[Inference Serving Competitors]], [[GPU Neocloud Competitors]], [[Sovereign & Governed AI Competitors]]. The partner portfolio behind the identity lives in [[Load-Bearing Bets]].
+
 ## Related Hubs
 
+- [[Enterprise AI Cloud Product Model]] — canonical product model: portfolio→product boundary + the three ratified consumption offers
 - [[Rack AI Knowledge Base]]
 - [[Commercial & Capacity Hub]]
+- [[Three Battlegrounds]]

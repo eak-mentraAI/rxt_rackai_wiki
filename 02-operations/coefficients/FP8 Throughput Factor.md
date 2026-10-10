@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [fp8 throughput factor, fp8 vs bf16, fp8 benefit]
-related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime]
+related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-spec-decode-acceptance, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime, hub-inference-optimization, fml-gpus-per-replica, coeff-model-weight-footprint, wf-quantization-program, asm-fp8-quality-neutral, val-deepseek-h200-fp8, idx-gpu-compatibility-matrix]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Relative throughput and memory benefit of serving in FP8 versus BF16."
 ---
@@ -17,7 +17,7 @@ summary: "Relative throughput and memory benefit of serving in FP8 versus BF16."
 
 ## Definition
 
-The relative throughput and GPU-memory benefit of serving a model in FP8 versus BF16. Applied as a multiplicative modifier on effective throughput in the [[Tokens per GPU-Second Formula]] and used to steer the quantization program. FP8 reduces weight/activation memory and can raise achievable throughput, subject to per-model quality validation.
+The relative throughput and GPU-memory benefit of serving a model in FP8 versus BF16. Applied as a multiplicative modifier on effective throughput in the [[Tokens per GPU-Second Formula]] and used to steer the quantization program. FP8 reduces weight/activation memory and can raise achievable throughput, subject to per-model quality validation. The memory side matters for capacity: FP8 halves bytes/param versus BF16, which shrinks the [[Model Weight Footprint]], which lowers [[GPUs per Replica]], which in turn sets [[Capacity Pool]] sizing and how many models fit ([[Model Portfolio Capacity]]). The [[Quantization Program]] owns the precision decision.
 
 ## Value
 
@@ -35,7 +35,25 @@ The relative throughput and GPU-memory benefit of serving a model in FP8 versus 
 | Formula | ID |
 |---------|----|
 | [[Tokens per GPU-Second Formula]] | fml-tokens-per-gpu-second |
-| Quantization program (Milestone 3.6) | — |
+| [[GPUs per Replica]] (memory: bytes/param) | fml-gpus-per-replica |
+| [[Quantization Program]] (Milestone 3.6) | wf-quantization-program |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Tokens per GPU-Second Formula]] | ← | Throughput modifier |
+| CONSUMES | [[GPUs per Replica]] | ← | Memory modifier: bytes/param at FP8 |
+| DEPENDS_ON | [[Model Weight Footprint]] | ← | Footprint = params × bytes/param(precision) |
+| PRODUCES | [[Quantization Program]] | ← | Program measures and updates this coefficient |
+| DEPENDS_ON | [[Serving Runtime]] | → | Engine must support FP8 kernels |
+| CONSTRAINS | [[GPU Type Compatibility Matrix]] | ← | FP8 only where supported (not on A30) |
+| SUPPORTS | [[FP8 Quality Neutral]] | ← | Quality-neutral assumption behind using FP8 |
+| VALIDATES | [[Validate DeepSeek H100 FP8]] | ← | Open validation: assumed → measured |
+| MEASURES | [[DeepSeek H100 FP8 Benchmark]] | ← | Planned run (not executed) |
+| MEASURES | [[Benchmark Run]] | ← | Exit criterion: FP8-vs-BF16 run on target hardware |
 
 ## Change History
 

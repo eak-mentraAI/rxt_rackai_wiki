@@ -5,7 +5,7 @@ status: draft
 owner: knowledge-graph-steward
 domain: governance
 aliases: [acceptance tests, regression tests, graph tests, cc-regression-suite]
-related: [pol-fitness-checklist, chg-kg-test-results]
+related: [pol-fitness-checklist, chg-kg-test-results, chg-consistency-report, pol-change-packet, chg-2026-10-08-typed-edges]
 parent: hub-wiki
 source_docs: [05-wiki/Knowledge Graph Acceptance Test Results.md]
 confidence: validated
@@ -154,18 +154,18 @@ Formal acceptance tests that verify the knowledge graph can reason over the Rack
 
 ## Baseline Scores
 
-The baseline is established on the first full run once the entity and operational layers are populated. Until then, the suite is defined but unscored.
+**Current baseline: 2026-10-08 post-fix run** (adopted by product-owner decision, 2026-10-08). It replaces the first scored run of the same day (3.71, Warning), which is kept in Score History. Full evidence, traversal paths and efficiency counts are in [[Knowledge Graph Acceptance Test Results]].
 
-| Test | Baseline Score | Notes |
-|------|:--------------:|-------|
-| R-01 | TBD | Populate entities + workflows first |
-| R-02 | TBD | Requires telemetry/metric notes |
-| R-03 | TBD | Requires coefficient catalog |
-| R-04 | TBD | Requires benchmark run notes |
-| R-05 | TBD | Requires launch-factory workflow |
-| R-06 | TBD | — |
-| R-07 | TBD | — |
-| **Average** | **TBD** | **Set on first full run** |
+| Test | Baseline Score | Minimum | Notes |
+|------|:--------------:|:-------:|-------|
+| R-01 | 4.5 | ≥ 4 | Demand → GPU topology traversable via typed edges from [[Market Demand]] down the spine |
+| R-02 | 4.0 | ≥ 4 | At minimum: no production anomaly event; noisy neighbour not modelled |
+| R-03 | 4.5 | ≥ 4 | FP8 → Model Weight Footprint → GPUs per Replica → Capacity Pool branch present |
+| R-04 | 4.5 | ≥ 4 | Chain ends honestly at `assumed`; no measured benchmark yet |
+| R-05 | 4.0 | ≥ 3.5 | Launch-transition events still sparse |
+| R-06 | 4.0 | ≥ 3.5 | 0 broken refs; typed edges 671 (83% canonical); `related` reciprocity 64% |
+| R-07 | 4.0 | ≥ 3.5 | Deliverables coherent and traceable; no measured numbers yet |
+| **Average** | **4.21** | **≥ 4.0** | **Pass** — every test at or above its minimum; suite took 58 `kg.py` calls (was 99) |
 
 ---
 
@@ -174,11 +174,24 @@ The baseline is established on the first full run once the entity and operationa
 | Date | Average | Δ from Previous | Notes |
 |------|:-------:|:---------------:|-------|
 | 2026-09-03 | — | — | Suite defined; corpus not yet populated |
+| 2026-10-08 | 3.71 | — (first scored run) | First baseline (superseded the same day). Warning: R-01, R-02, R-03 at 3.5 (minimum 4). Top fixes: typed Relationships on formulas/metrics/coefficients/events; canonical demand node; FP8 → memory → capacity edges. See [[Knowledge Graph Acceptance Test Results]] |
+| 2026-10-08 (post-fix) | 4.21 | +0.50 | Re-run after [[CHANGE_2026-10-08 Typed Edges and Traversal Fixes]] (typed Relationships on formulas/metrics/coefficients/events/policies/assumptions/validations/evidence and spine workflows; [[Market Demand]] node; FP8 → memory → capacity edges; `related` reciprocity 34% → 64%). Pass: R-01 4.5, R-02 4.0, R-03 4.5, R-04 4.5, R-05 4.0, R-06 4.0, R-07 4.0. **Adopted as baseline** (owner decision 2026-10-08) |
 
 ---
 
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| DEPENDS_ON | [[FITNESS_CHECKLIST]] | ← | Section 3 runs these tests |
+| PRODUCES | [[Knowledge Graph Acceptance Test Results]] | → | Run log per execution |
+| MEASURES | [[Serving Platform MOC]] | → | R-01/R-02 traverse the serving chain |
+
 ## See Also
 
-- Knowledge Graph Acceptance Test Results — detailed test run log (not yet created; until it exists, record runs in Score History above)
+- [[Knowledge Graph Acceptance Test Results]] — detailed test run log (baseline 2026-10-08)
+- [[CONSISTENCY_REPORT]] — output template for a consistency run
 - [[FITNESS_CHECKLIST]] — structural and consistency checks
 - [[CHANGE_PACKET]] — required before edits

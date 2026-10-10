@@ -5,7 +5,7 @@ status: validated
 owner: platform-eng
 domain: strategy
 aliases: [engineering roadmap, openrouter roadmap, roadmap]
-related: [hub-product, hub-root, src-strategic-vision, idx-openrouter-integration-plan, ent-openrouter-private-model, ent-openrouter-integration]
+related: [hub-product, hub-root, hub-roadmap, src-strategic-vision, idx-openrouter-integration-plan, ent-openrouter-private-model, ent-openrouter-integration]
 source_docs: []
 confidence: validated
 last_reviewed: 2026-09-04

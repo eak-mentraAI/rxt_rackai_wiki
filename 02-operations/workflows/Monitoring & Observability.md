@@ -5,7 +5,7 @@ status: draft
 owner: reliability-eng
 domain: reliability
 aliases: [monitoring & observability, monitoring and observability, observability, monitoring]
-related: [ent-gpu-node, ent-rackai-control-plane, wf-metering, hub-operations]
+related: [ent-gpu-node, ent-rackai-control-plane, wf-metering, hub-operations, wf-audit]
 source_docs: [monitoring_audit_spec, rackai_release_1_0_0]
 confidence: derived
 last_reviewed: 2026-09-04

@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [model class, model template, serving template]
-related: [ent-serving-runtime, ent-model, ent-model-deployment, hub-entities]
+related: [ent-serving-runtime, ent-model, ent-model-deployment, hub-entities, hub-model-services]
 source_docs: [rackai_ui_architecture, rackai_release_1_0_0]
 confidence: measured
 last_reviewed: 2026-09-04

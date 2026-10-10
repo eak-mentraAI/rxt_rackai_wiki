@@ -19,6 +19,13 @@ The repository is a living model of the **RackAI platform** operating system and
 ### Read-First Rule
 Before editing, read: the current hub note for the domain, the source index, the changelog, the open questions register, and any related canonical notes.
 
+### Reference-Is-Intake Rule
+`reference/` is an **intake folder**, not a source of truth. The user drops raw material there; it is superseded, and goes stale, as soon as its content is entered into the corpus. Therefore:
+- **Never edit or delete** an existing file in `reference/`. Add a new file for new input; record corrections and updates in the corpus.
+- **Never answer "what is current" from `reference/`.** Find the canonical note with `scripts/kg.py find|show` and read that. A reference file is only evidence of what an input said on the day it was added.
+- **Before editing any table or plan, confirm it is the canonical one.** If two files look like the same artifact (e.g. a roadmap export in `reference/` and a roadmap table in `05-wiki/`), the corpus copy wins; if you cannot tell which is canonical, ask before editing.
+- Enforced by the pre-commit hook (`scripts/install-git-hooks.sh`): commits that modify or delete existing `reference/` files are blocked unless `ALLOW_REFERENCE_EDIT=1` is set for a deliberate exception.
+
 ### Canonical-Home Rule
 Every concept has exactly one canonical home. All other notes link to it. Use aliases for synonyms, not parallel definitions. (Example: one canonical `[[TTFT]]` metric, one canonical `[[DeepSeek V4 Flash]]` model.)
 

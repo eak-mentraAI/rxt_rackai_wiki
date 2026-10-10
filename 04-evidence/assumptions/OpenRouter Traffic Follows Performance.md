@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [traffic follows performance, openrouter traffic response]
-related: [hub-evidence, asm-spec-decode-beneficial, asm-h200-sufficient]
+related: [hub-evidence, asm-spec-decode-beneficial, asm-h200-sufficient, ent-market-demand, ent-openrouter-integration, met-gpu-utilization, coeff-openrouter-price, asm-openrouter-initial-share]
 source_docs: [openrouter_engineering_roadmap.md, openrouter_strategic_vision.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-evidence
 summary: "Belief that better TTFT, throughput, uptime, and price raise Rack AI OpenRouter traffic share — awaiting response."
 ---
@@ -34,6 +34,17 @@ Observed OpenRouter traffic-share response following a measured performance impr
 | [[OpenRouter Provider Integration]] | SUPPORTS |
 | [[Productive GPU Utilization]] | SUPPORTS |
 | [[OpenRouter Price]] | CONSTRAINS |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| SUPPORTS | [[OpenRouter Provider Integration]] | → |  |
+| SUPPORTS | [[Productive GPU Utilization]] | → |  |
+| CONSTRAINS | [[OpenRouter Price]] | → | Price is one routing signal |
+| SUPPORTS | [[Market Demand]] | → | Routed share follows measured performance |
 
 ## Status
 

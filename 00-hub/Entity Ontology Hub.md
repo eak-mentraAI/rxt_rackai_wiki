@@ -8,7 +8,7 @@ aliases: [entity hub, L1 hub, entities hub]
 related: [hub-root, hub-operations]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-root
 summary: "Layer 1 navigation hub for canonical inference-platform entities."
 ---
@@ -21,6 +21,7 @@ Layer 1 — the semantic backbone. Canonical business and domain objects of the 
 
 | Entity | ID | Status |
 |--------|----|--------|
+| [[Market Demand]] | ent-market-demand | created |
 | [[Model]] | ent-model | created |
 | [[Model Class]] | ent-model-class | created |
 | [[Model Deployment]] | ent-model-deployment | created |
@@ -54,6 +55,17 @@ Layer 1 — the semantic backbone. Canonical business and domain objects of the 
 | [[Fine-Tuning Job]] | ent-fine-tuning-job | created |
 | [[LoRA Adapter]] | ent-lora-adapter | created |
 
+## Governed Harness & Agentic Entities (Enterprise AI dev plan)
+
+Net-new entities from the [[RackAI Enterprise AI Development Plan]], `assumed` confidence pending ratification. See the [[Eight-Layer Stack]] view for how they map onto the architecture.
+
+| Entity | ID | Status |
+|--------|----|--------|
+| [[Governed Harness]] | ent-governed-harness | created |
+| [[Empirical Map]] | ent-empirical-map | created |
+| [[Agent Identity]] | ent-agent-identity | created |
+| [[Across.AI]] | ent-across-ai | created |
+
 ## OpenRouter Initiative Entities
 
 | Entity | ID | Status |
@@ -61,6 +73,15 @@ Layer 1 — the semantic backbone. Canonical business and domain objects of the 
 | [[OpenRouter Provider Integration]] | ent-openrouter-integration | created |
 | [[OpenRouter Private Model Integration]] | ent-openrouter-private-model | created |
 | [[Model Catalog Endpoint]] | ent-model-catalog-endpoint | created |
+
+## Consumption / Distribution Entities (proposed)
+
+Consumption-layer channels and the unit they distribute. `assumed` confidence — proposed in the 2026-10-06 marketplace discussion, modeled on the [[RackAI Roadmap]] as a cross-cutting surface. See [[Eight-Layer Stack]] (Consumption layer).
+
+| Entity | ID | Status |
+|--------|----|--------|
+| [[Solution Marketplace]] | ent-solution-marketplace | created |
+| [[Packaged Solution]] | ent-packaged-solution | created |
 
 ## Priority Model Instances
 

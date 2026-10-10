@@ -5,11 +5,11 @@ status: draft
 owner: knowledge-graph-steward
 domain: platform
 aliases: [root hub, home, knowledge base home, rack ai kb, rackai kb]
-related: [hub-rackai-platform, hub-openrouter, hub-entities, hub-operations, hub-commercial, hub-evidence, hub-wiki, hub-governance, hub-product]
+related: [hub-enterprise-ai, hub-rackai-platform, hub-openrouter, hub-entities, hub-operations, hub-commercial, hub-evidence, hub-wiki, hub-governance, hub-product, hub-battlegrounds, hub-load-bearing-bets, hub-roadmap, hub-minimum-operable-estate]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-04
-parent: hub-root
+last_reviewed: 2026-10-09
+parent: null
 summary: "Root navigation hub for the RackAI platform knowledge base."
 ---
 
@@ -59,7 +59,8 @@ Consumers see Model endpoints. They never reference GPU hardware directly. Initi
 
 | Hub | Scope | Covers |
 |-----|-------|--------|
-| [[RackAI Platform]] | Platform | What RackAI is: tenancy, inference, fine-tuning, control plane, environments, capabilities |
+| [[Enterprise AI Portfolio]] | Portfolio | Broadly-scoped offering (portfolio view) under which RackAI is the product; partners, data integration, consumption surfaces |
+| [[RackAI Platform]] | Platform / product | What RackAI is: tenancy, inference, fine-tuning, control plane, environments, capabilities |
 | [[OpenRouter Initiative]] | Initiative | Provider path, private-model path, provider-readiness gaps |
 | [[Entity Ontology Hub]] | L1 | Models, deployments, runtimes, fine-tuning entities, GPU fleet, capacity pools, tenancy |
 | [[Operations Hub]] | L2 | Serving + fine-tuning lifecycle, workflows, events, metrics, formulas, coefficients, policies |
@@ -68,6 +69,10 @@ Consumers see Model endpoints. They never reference GPU hardware directly. Initi
 | [[Wiki Hub]] | L5 | Indexes, MOCs, scorecards, changelogs, glossary |
 | [[Governance Hub]] | — | Operating standards, change control, fitness gates |
 | [[Product Hub]] | — | Strategy, model bets, roadmap |
+| [[Three Battlegrounds]] | — | Company identity + theory of advantage: the Private Enterprise AI Operator; competitor map by customer alternative |
+| [[Load-Bearing Bets]] | — | Partner portfolio: current bets (Palantir, Uniphore, Across.AI) + proposed new bets mapped to the operator stack |
+| [[RackAI Roadmap]] | — | The canonical, living roadmap: four proofs (Observe → Decide → Assume Responsibility → Operate) realizing the operator identity |
+| [[Minimum Operable Estate]] | — | The MVP operator target: the smallest estate for which "we operate your AI" is true; anchors Proof 3 |
 
 ## Operating Discipline
 

@@ -10,7 +10,7 @@ source_docs: [openrouter_concepts_integration_provider, openrouter_strategic_vis
 confidence: derived
 last_reviewed: 2026-09-04
 parent: hub-openrouter
-summary: "Single merged OpenRouter deliverable: concepts, the two integration paths, verified provider requirements, and the phased A → quick-wins → public-GLM → AMD-scale sequencing."
+summary: "Merged OpenRouter plan: the two integration paths, provider requirements, and the phased A to public-GLM to AMD-scale."
 ---
 
 # OpenRouter Integration Plan

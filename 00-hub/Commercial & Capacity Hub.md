@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [commercial hub, capacity hub, L3 hub, economics hub]
-related: [hub-root, hub-operations, hub-evidence]
+related: [hub-root, hub-operations, hub-evidence, hub-battlegrounds, evd-gpu-neocloud-competitors]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-09-03
@@ -16,6 +16,8 @@ summary: "Layer 3 navigation hub for unit economics, capacity allocation, and fo
 # Commercial & Capacity Hub
 
 Layer 3 — how demand maps to capacity and economics. Unit economics, metering and [[Billing & Payment]], pricing (OpenRouter and direct), capacity pools and dynamic allocation, demand forecasting, and fleet yield optimization. OpenRouter is one pricing channel among the platform's commercial surfaces.
+
+> **How customers buy is defined by the [[Enterprise AI Cloud Product Model]]** — the three ratified consumption offers (GPU as a Service / RackAI / Outcome as a Service). That model owns the *offer structure and responsibility boundaries*; this hub owns the *commercial mechanics* (unit economics, metering, pricing, billing) that price and bill those offers. Note the mechanics are largely not built yet ([[Billing & Payment]]).
 
 ## Unit Economics
 
@@ -29,6 +31,16 @@ The [[Unit Economics Model]] ties the loop together. Underlying formulas and coe
 | [[Gross Margin per Model]] | fml-gross-margin-per-model |
 | [[Cost per GPU-Hour]] | coeff-cost-per-gpu-hour |
 | [[OpenRouter Price]] | coeff-openrouter-price |
+| [[Cost per Outcome]] | met-cost-per-outcome |
+
+## AI FinOps & Cost Loop
+
+The [[AI FinOps]] platform (Enterprise AI dev plan, thread 5.1) extends token-level economics with outcome-level cost, attributed by workload, tenant, and outcome. The cost loop — meter → govern → route → reason — runs across [[Metering]], [[Request Routing]], and [[Cost per Outcome]], with metering as the shared spine. `assumed` confidence.
+
+| Concept | ID |
+|---------|----|
+| [[AI FinOps]] | idx-ai-finops |
+| [[Cost per Outcome]] | met-cost-per-outcome |
 
 ## Capacity & Allocation
 
@@ -38,6 +50,7 @@ The [[Unit Economics Model]] ties the loop together. Underlying formulas and coe
 | [[Capacity Pool Model]] | idx-capacity-pools |
 | [[Model Portfolio Capacity]] | idx-model-portfolio |
 | [[Demand Forecasting]] | wf-demand-forecasting |
+| [[GPU Capacity Demand Rationale]] | idx-gpu-capacity-demand-rationale |
 | [[Fleet Yield Optimization]] | idx-fleet-yield |
 | [[GPU Reallocation]] | wf-gpu-reallocation |
 | [[Capacity Reservation Policy]] | pol-capacity-reservation |

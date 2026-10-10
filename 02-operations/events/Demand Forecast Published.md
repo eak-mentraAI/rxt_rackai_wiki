@@ -5,10 +5,10 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [demand forecast published, forecast published]
-related: [wf-demand-forecasting, wf-autoscaling, wf-gpu-reallocation, hub-operations]
+related: [wf-demand-forecasting, wf-autoscaling, wf-gpu-reallocation, hub-operations, ent-market-demand, ent-model, pol-procurement-trigger]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Domain event: a demand forecast has been produced for a Model × cluster × time window."
 ---
@@ -41,6 +41,19 @@ Signals that [[Demand Forecasting]] has produced a new forecast for a Model × c
 |----------|--------------|
 | [[Autoscaling]] | Adjusts serving replicas ahead of predicted load |
 | [[GPU Reallocation]] | Rebalances capacity pools toward predicted demand |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| GENERATES | [[Demand Forecasting]] | ← | Forecast produced for a window |
+| FORECASTS | [[Market Demand]] | → | Carries the forecast of demand |
+| FORECASTS | [[Model]] | → | Per Model × cluster × window |
+| CONSUMES | [[Autoscaling]] | ← | Adjusts replicas ahead of load |
+| CONSUMES | [[GPU Reallocation]] | ← | Rebalances pools toward predicted demand |
+| CONSUMES | [[Procurement Trigger]] | ← | Forecast demand growth input |
 
 ## See Also
 

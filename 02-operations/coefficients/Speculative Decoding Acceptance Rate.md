@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [speculative decoding acceptance rate, draft token acceptance, spec decode gain]
-related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime]
+related: [fml-tokens-per-gpu-second, met-tokens-per-gpu-second, coeff-fp8-throughput, coeff-kv-cache-hit-rate, ent-benchmark-run, ent-serving-runtime, hub-inference-optimization, asm-spec-decode-beneficial]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-operations
 summary: "Draft-token acceptance rate and the throughput gain it yields, which compresses under saturation."
 ---
@@ -35,6 +35,17 @@ The rate at which draft tokens proposed by a smaller draft model (or self-specul
 | Formula | ID |
 |---------|----|
 | [[Tokens per GPU-Second Formula]] | fml-tokens-per-gpu-second |
+
+## Relationships
+
+Typed edges (canonical types only). `→` = this note is the subject; `←` = the target is the subject (e.g. `CONSUMES ←` means the target consumes this note). Body tables above are kept as written.
+
+| Relationship | Target | Direction | Notes |
+|--------------|--------|-----------|-------|
+| CONSUMES | [[Tokens per GPU-Second Formula]] | ← | Spec-decode modifier; gain compresses under saturation |
+| DEPENDS_ON | [[Serving Runtime]] | → | Draft/verify configured per runtime |
+| SUPPORTS | [[Speculative Decoding Beneficial]] | ← | Assumed benefit at operating concurrency |
+| MEASURES | [[Benchmark Run]] | ← | Exit criterion: acceptance, gain, memory, TTFT impact |
 
 ## Change History
 

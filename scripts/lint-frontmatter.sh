@@ -7,11 +7,17 @@
 #      last_reviewed, aliases, related, source_docs, parent, summary
 #   3. Enum fields have valid values:
 #      - type: entity|workflow|event|metric|formula|coefficient|policy|
-#              assumption|validation|evidence|source|hub|index|change|glossary
+#              assumption|validation|evidence|source|hub|index|change|glossary|prd|spec|projection|companion
 #      - status: draft|reviewed|validated|deprecated
 #      - confidence: assumed|derived|measured|validated
 #      - domain: strategy|product|platform|performance|model-enablement|
 #                infrastructure|reliability|commercial|capacity|governance
+#   4. summary is <= 120 characters (matches knowledge-platform ingestion schema;
+#      over-length summaries are blocked and become unstructured shadow nodes)
+#
+# reference/ holds raw context material for AI agents and intentionally has no
+# frontmatter, so it is skipped — except "* - Companion.md" files, which are
+# structured notes and are linted.
 #
 # Usage:
 #   ./scripts/lint-frontmatter.sh              # Lint all .md files
@@ -23,15 +29,33 @@
 
 set -euo pipefail
 
-VALID_TYPES="entity|workflow|event|metric|formula|coefficient|policy|assumption|validation|evidence|source|hub|index|change|glossary"
+VALID_TYPES="entity|workflow|event|metric|formula|coefficient|policy|assumption|validation|evidence|source|hub|index|change|glossary|prd|spec|projection|companion"
 VALID_STATUS="draft|reviewed|validated|deprecated"
 VALID_CONFIDENCE="assumed|derived|measured|validated"
 VALID_DOMAIN="strategy|product|platform|performance|model-enablement|infrastructure|reliability|commercial|capacity|governance"
 REQUIRED_FIELDS="id type status owner domain confidence last_reviewed aliases related source_docs parent summary"
+# Max summary length — mirrors knowledge-platform ingestion schema
+# (packages/core/src/schemas/frontmatter.ts: summary z.string().max(120)).
+MAX_SUMMARY_LEN=120
 
 ERRORS=0
 FILES_CHECKED=0
 FILES_FAILED=0
+
+# reference/ is skipped except companion files (see header); _ontology-discovery/
+# is gitignored private working material and never reaches the corpus.
+is_skipped() {
+  case "$1" in
+    *" - Companion.md") return 1 ;;
+    reference/*|*/reference/*) return 0 ;;
+    _ontology-discovery/*|*/_ontology-discovery/*) return 0 ;;  # gitignored private drafts
+    .claude/*|*/.claude/*) return 0 ;;  # local agent tooling incl. .claude/worktrees (other sessions' checkouts)
+    CLAUDE.md|AGENTS.md) return 0 ;;  # local agent quick-start files (git-excluded), not corpus notes
+    # Same exclusions as the full-repo find below, so explicit/staged files match.
+    templates/*|*/templates/*|.kiro/*|*/.kiro/*|.obsidian/*|*/.obsidian/*) return 0 ;;
+  esac
+  return 1
+}
 
 lint_file() {
   local file="$1"
@@ -102,6 +126,26 @@ lint_file() {
     fi
   fi
 
+  # Validate summary length (must be <= 120 chars, matching the knowledge-platform
+  # ingestion schema). Over-length summaries are a BLOCKING error there: the file
+  # is downgraded to an unstructured "shadow" node instead of a proper object.
+  local summary_val
+  summary_val=$(echo "$fm" | grep "^summary:" | head -1 | sed 's/^summary: *//')
+  if [ -n "$summary_val" ]; then
+    # Strip a single pair of surrounding quotes (single or double) if present
+    summary_val=$(echo "$summary_val" | sed -e 's/^"\(.*\)"$/\1/' -e "s/^'\(.*\)'$/\1/")
+    # Count characters, not bytes: ${#var} is byte-based under LC_ALL=C (e.g. git
+    # hooks/CI), so an em-dash would count as 3. Drop UTF-8 continuation bytes.
+    local summary_len
+    summary_len=$(printf '%s' "$summary_val" | LC_ALL=C tr -d '\200-\277' | wc -c | tr -d ' ')
+    if [ "$summary_len" -gt "$MAX_SUMMARY_LEN" ]; then
+      echo "ERROR: $file — summary is $summary_len characters (max $MAX_SUMMARY_LEN)."
+      echo "       Over-length summaries are blocked by knowledge-platform ingestion"
+      echo "       and become unstructured shadow nodes. Shorten to <= $MAX_SUMMARY_LEN chars."
+      file_errors=$((file_errors + 1))
+    fi
+  fi
+
   if [ $file_errors -gt 0 ]; then
     FILES_FAILED=$((FILES_FAILED + 1))
     ERRORS=$((ERRORS + file_errors))
@@ -112,7 +156,7 @@ lint_file() {
 if [ $# -gt 0 ]; then
   # Lint specific files passed as arguments
   for f in "$@"; do
-    if [ -f "$f" ] && [[ "$f" == *.md ]]; then
+    if [ -f "$f" ] && [[ "$f" == *.md ]] && ! is_skipped "$f"; then
       FILES_CHECKED=$((FILES_CHECKED + 1))
       lint_file "$f"
     fi
@@ -121,12 +165,14 @@ else
   # Lint all .md files in the repo (excluding .git, .obsidian, .kiro, templates)
   REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
   while IFS= read -r -d '' f; do
+    is_skipped "${f#"$REPO_ROOT"/}" && continue
     FILES_CHECKED=$((FILES_CHECKED + 1))
     lint_file "$f"
   done < <(find "$REPO_ROOT" -name "*.md" \
     -not -path "*/.git/*" \
     -not -path "*/.obsidian/*" \
     -not -path "*/.kiro/*" \
+    -not -path "*/.claude/*" \
     -not -path "*/templates/*" \
     -print0)
 fi

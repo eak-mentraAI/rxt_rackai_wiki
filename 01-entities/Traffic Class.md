@@ -5,10 +5,10 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [traffic class, workload class, request class, workload profile]
-related: [ent-model, ent-model-deployment, ent-benchmark-run, ent-openrouter-integration, hub-entities]
+related: [ent-model, ent-model-deployment, ent-benchmark-run, ent-openrouter-integration, hub-entities, hub-inference-serving, hub-ai-harness, ent-market-demand, met-ttft, wf-request-routing, pol-admission-control, coeff-kv-cache-hit-rate, wf-admission-control, bench-agentx-standard, pol-benchmark-evidence-chain]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
-last_reviewed: 2026-09-03
+last_reviewed: 2026-10-08
 parent: hub-entities
 summary: "Canonical entity: a characterized class of request workload used to drive routing and benchmarking."
 ---
@@ -51,6 +51,17 @@ A Traffic Class characterizes the market demand that flows into a Model — it i
 | High-output | Long generations | Throughput-bound |
 | Concurrent / burst | Spiky, high concurrency | Stresses batching/scaling |
 
+### Standard benchmark profiles
+
+The [[Benchmark Evidence Chain]] defines four standard profiles built from the classes above. Each qualification marks each profile required, conditional, or not applicable (input/output distributions, arrival processes, and SLO thresholds not yet ratified):
+
+| Profile | Built from | Primary read |
+|---------|------------|--------------|
+| Interactive | Short chat | [[TTFT]] + [[TPOT]] p95/p99, [[Goodput]] |
+| Throughput | High-output | [[Tokens per GPU-Second]], [[Energy per Token]] |
+| Long Context / RAG | Long-context | TTFT vs. context length, HBM use |
+| Agentic | Coding + tool calls (multi-turn) | [[AgentX Benchmark Standard]] |
+
 ## Lifecycle States
 
 | State | Description | Entry Condition | Exit Condition |
@@ -65,9 +76,14 @@ A Traffic Class characterizes the market demand that flows into a Model — it i
 | Relationship | Target | Direction | Notes |
 |--------------|--------|-----------|-------|
 | CHARACTERIZES | [[Model]] | → | Real workload shape observed per Model |
-| USED_BY | [[Benchmark Run]] | ← | Drives representative benchmark workloads |
+| USED_BY | [[Benchmark Run]] | ← | Drives representative benchmark workloads (canonical: USES ←) |
+| USED_BY | [[Benchmark Evidence Chain]] | ← | Standard benchmark profiles |
 | ROUTED_BY | [[OpenRouter Provider Integration]] | ← | Observed shapes inform routing |
 | CONSTRAINS | [[Model Deployment]] | → | Deployment config tuned to the class |
+| USES | [[Market Demand]] | ← | Demand is segmented by Traffic Class (canonical form of CHARACTERIZES) |
+| MEASURES | [[TTFT]] | ← | Latency tracked per class |
+| DEPENDS_ON | [[Request Routing]] | ← | Classification input |
+| CONSTRAINS | [[Admission Control Policy]] | ← | Shaping differentiated by class |
 
 ## Evidence
 

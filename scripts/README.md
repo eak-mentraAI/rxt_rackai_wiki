@@ -28,7 +28,7 @@ Every markdown file in the wiki (outside `templates/`, `.kiro/`, `.obsidian/`) m
 ```yaml
 ---
 id: unique-stable-id
-type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary
+type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary | prd | projection | companion
 status: draft | reviewed | validated | deprecated
 owner: team-or-role
 domain: strategy | product | platform | performance | model-enablement | infrastructure | reliability | commercial | capacity | governance
@@ -46,7 +46,7 @@ summary: "One-line description of note purpose."
 
 | Field | Valid Values |
 |-------|-------------|
-| `type` | `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary` |
+| `type` | `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`, `prd`, `projection`, `companion` |
 | `status` | `draft`, `reviewed`, `validated`, `deprecated` |
 | `confidence` | `assumed`, `derived`, `measured`, `validated` |
 | `domain` | `strategy`, `product`, `platform`, `performance`, `model-enablement`, `infrastructure`, `reliability`, `commercial`, `capacity`, `governance` |
@@ -83,7 +83,7 @@ scripts/lint-frontmatter.sh
 | 0 | All files pass validation |
 | 1 | One or more files have violations |
 
-`templates/`, `.kiro/`, `.obsidian/`, and `.git/` are excluded — templates intentionally contain placeholder enum values (`type: entity | ...`) that are not valid final values.
+`templates/`, `.kiro/`, `.obsidian/`, and `.git/` are excluded — templates intentionally contain placeholder enum values (`type: entity | ...`) that are not valid final values. `reference/` is also excluded (raw context material for AI agents, no frontmatter by design), except `* - Companion.md` files, which are structured notes and are linted. This applies both to full-repo runs and to files passed explicitly (so the pre-commit hook skips them too).
 
 ---
 
@@ -99,22 +99,30 @@ It triggers on every `.md` save, runs the lint against the saved file only, and 
 
 ---
 
-## Optional: Pre-commit Enforcement
+## Pre-commit Enforcement
 
-For enforcement at commit-time rather than save-time:
+Commit-time enforcement is provided by a git `pre-commit` hook that lints the **staged** `.md` files and **blocks** the commit on any violation (missing field, invalid enum, or over-length summary).
+
+Because `.git/hooks/` is not version-controlled, the hook is installed from a tracked script. After cloning, run once:
 
 ```bash
-# .git/hooks/pre-commit (or use husky/lefthook)
-#!/usr/bin/env bash
-STAGED=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$' || true)
-if [ -n "$STAGED" ]; then
-  ./scripts/lint-frontmatter.sh $STAGED || {
-    echo ""
-    echo "Commit blocked: frontmatter violations detected. Fix them and re-stage."
-    exit 1
-  }
-fi
+./scripts/install-git-hooks.sh
 ```
+
+This writes `.git/hooks/pre-commit`, which runs:
+
+```bash
+# staged .md paths, read NUL-delimited so filenames with spaces are linted
+git diff --cached --name-only --diff-filter=ACM -z  →  ./scripts/lint-frontmatter.sh "${STAGED[@]}"
+```
+
+- Only staged/changed markdown is checked (fast; won't fail on pre-existing violations elsewhere).
+- A non-zero lint exit aborts the commit.
+- Emergency bypass (use sparingly): `git commit --no-verify`.
+
+To change what the hook does, edit `scripts/install-git-hooks.sh` and re-run it — not `.git/hooks/pre-commit` directly — so the hook stays reproducible across clones.
+
+> **Note:** the hook enforces the same rules as the knowledge-platform ingestion schema (including `summary` ≤ 120 chars). Over-length summaries are silently dropped as unstructured shadow nodes on ingestion, so blocking them at commit-time keeps notes renderable in the console.
 
 ---
 
@@ -167,3 +175,30 @@ REQUIRED_FIELDS="id type status owner domain confidence last_reviewed aliases re
 ```
 
 Keep these in sync with `.kiro/steering/rackai-operating-standards.md`. The steering file defines the rules; the lint enforces them; the hook makes enforcement frictionless.
+
+---
+
+## Graph Query Tool — `scripts/kg.py`
+
+Fast, read-only knowledge-graph lookups over the working tree (Python stdlib, no install). It resolves both link systems — frontmatter IDs (`id` / `parent` / `related`) and body `[[wikilinks]]` (by filename, vault path, id, H1 title, or alias) — plus typed edges from `## Relationships` tables.
+
+```bash
+python3 scripts/kg.py find <text>     # id/title/alias, then summary matches
+python3 scripts/kg.py show <ref>      # frontmatter + section headings (no body) — then read only the needed section
+python3 scripts/kg.py out <ref>       # parent, related IDs, typed Relationship edges, other links
+python3 scripts/kg.py in <ref>        # children, typed inbound edges, related-by, backlinks (propagation impact)
+python3 scripts/kg.py children|type <type> [domain]|hubs|broken|stats   # add --json for machine output
+```
+
+Use it before bulk-reading files: `find` → `show` → read one section → expand with `out` / `in`. `broken` lists unresolved references (fitness check S-03). The same file is shared verbatim across the sister wikis; the canonical copy lives in RackAI Wiki.
+
+
+## lint-prd-spec.py
+
+Checks `type: prd` / `type: spec` notes against the canonical roadmap table (Fitness P-09, T-09, T-10):
+- every roadmap item a PRD or spec names exists in `05-wiki/RackAI Roadmap.csv`
+- each of those rows links the note back in its `PRD` / `Tech spec` column
+- every link in those columns resolves to a real note of an allowed type
+- every tech spec has a read-only Codebase Grounding section citing `RSS-Engineering/<repo>@<sha>`, with all six subsections
+
+Run with `python3 scripts/lint-prd-spec.py`. The pre-commit hook runs it too.
