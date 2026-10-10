@@ -59,3 +59,4 @@ Not a stateful entity. (Allocatable/used capacity are continuously reconciled in
 - [[Entity Ontology Hub]]
 - [[Model Deployment]]
 - [[GPU Node]]
+- [[Workload Declaration & Placement Tech Spec]] — proposes using accelerator classes as the pools of the owned-fleet supply target (draft)

@@ -5,7 +5,7 @@ status: reviewed
 owner: rackai-product
 domain: product
 aliases: [workload declaration prd, placement prd, prd a, workload placement policy prd, declaration and placement prd, supply abstraction prd]
-related: [ent-workload-declaration, ent-model-deployment-spec, ent-model-deployment, ent-capacity-pool, ent-organization, ent-traffic-class, ent-empirical-map, ent-governed-harness, pol-sovereignty-levels, hub-battlegrounds, hub-roadmap, wiki-prd-coverage-plan, wiki-milestone-release-map, src-accelerator-selection-spec, src-identity-access-spec, src-metering-spec, src-monitoring-audit-spec, met-slo-attainment]
+related: [spec-workload-declaration-placement, ent-workload-declaration, ent-model-deployment-spec, ent-model-deployment, ent-capacity-pool, ent-organization, ent-traffic-class, ent-empirical-map, ent-governed-harness, pol-sovereignty-levels, hub-battlegrounds, hub-roadmap, wiki-prd-coverage-plan, wiki-milestone-release-map, src-accelerator-selection-spec, src-identity-access-spec, src-metering-spec, src-monitoring-audit-spec, met-slo-attainment]
 source_docs: ["01-entities/Workload Declaration.md", "00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "05-wiki/Milestone Release Map.md", "05-wiki/PRD Coverage Plan.md", "RSS-Engineering/rackai@79ca4de (read-only)", "RSS-Engineering/rackai-ui@89bddb4 (read-only)", "RSS-Engineering/rackai-docs@ccb52a3 (read-only)"]
 confidence: assumed
 last_reviewed: 2026-10-10
@@ -24,7 +24,7 @@ summary: "PRD A: customers declare what a workload needs and must never violate;
 | Product approval | **Approved by the product owner, 2026-10-10, v1.0**: all product decisions PD-1 to PD-10 and acceptance criteria AC-1 to AC-14. Open decisions D-1 to D-8 remain open with their owners. Passing checks is not approval |
 | Date | 2026-10-10 |
 | Roadmap items | Supply-abstraction interface; Workload declaration (intent + constraints); Supply abstraction v1 - second impl (AMD/partner); Heterogeneous supply |
-| Tech spec(s) | not yet written (Stage 2; may extend the [[Accelerator Selection Spec]]) |
+| Tech spec(s) | [[Workload Declaration & Placement Tech Spec]] (v0.3, product-approved 2026-10-10 with the DV-3 interim; DV-3 open pending C; engineering approval pending): covers Phase-1 FRs, defers Phase-2 FRs; extends the [[Accelerator Selection Spec]] additively |
 
 > **Artifact type: Product Requirements Document.** The canonical concept is [[Workload Declaration]]; this PRD projects from it and from the intent-and-constraints contract in [[Three Battlegrounds]], and must not redefine them. If they disagree, the canonical notes win and this PRD is stale.
 >
@@ -339,5 +339,6 @@ All decisions approved by the product owner on 2026-10-10.
 - [[Three Battlegrounds]] — the intent-and-constraints contract
 - [[PRD Coverage Plan]] — where A sits among the ten PRDs and why it is first
 - [[Model Deployment Specification]] — the realisation record derived from a declaration
+- [[Workload Declaration & Placement Tech Spec]] — the Stage-2 engineering design for this PRD
 - [[Accelerator Selection Spec]] — today's accelerator classes and inventory, which the Stage-2 spec is likely to extend
 - [[RackAI Roadmap]] — P-004 and the Workload Placement Policy

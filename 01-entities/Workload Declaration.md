@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: product
 aliases: [workload declaration, declaration, declaration surface, intent and constraints declaration, customer declaration, declared workload, workload intent]
-related: [ent-model-deployment-spec, ent-model-deployment, ent-organization, ent-model, ent-capacity-pool, ent-traffic-class, ent-empirical-map, ent-governed-harness, pol-sovereignty-levels, hub-battlegrounds, hub-roadmap, prd-workload-declaration-placement, met-slo-attainment]
+related: [ent-model-deployment-spec, ent-model-deployment, ent-organization, ent-model, ent-capacity-pool, ent-traffic-class, ent-empirical-map, ent-governed-harness, pol-sovereignty-levels, hub-battlegrounds, hub-roadmap, prd-workload-declaration-placement, spec-workload-declaration-placement, met-slo-attainment]
 source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "01-entities/Model Deployment Specification.md", "05-wiki/Milestone Release Map.md"]
 confidence: assumed
 last_reviewed: 2026-10-10
@@ -86,6 +86,7 @@ Constraint *sources* follow [[Three Battlegrounds]]: **declared** (this note), *
 ## See Also
 
 - [[Workload Declaration & Placement PRD]] — the product contract for declaring and placing
+- [[Workload Declaration & Placement Tech Spec]] — the proposed engineering design (draft)
 - [[Three Battlegrounds]] — the intent-and-constraints contract this is the serving form of
 - [[Model Deployment Specification]] — RackAI's realization record, derived from this
 - [[Entity Ontology Hub]]
