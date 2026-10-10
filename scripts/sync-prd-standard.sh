@@ -8,10 +8,16 @@
 #   .kiro/steering/tech-spec-standards.md
 #   templates/prd.md
 #   templates/tech-spec.md
+#   .claude/skills/prd-spec-workflow/SKILL.md   (the PRD → spec → roadmap workflow skill)
 #   08-change-control/FITNESS_CHECKLIST.md   (P-01..P-08 PRD checks, T-01..T-08 spec checks)
 #
 # Adopting repos must also list `prd` and `spec` as note types in their
 # operating standards and frontmatter lint (not done by this script).
+#
+# The skill lives under .claude/, which these repos exclude locally via
+# .git/info/exclude. On --apply the script rewrites a bare `.claude/` rule to
+# `.claude/*` + `!.claude/skills/` so the skill can be tracked while hooks and
+# local settings stay excluded.
 #
 # The sibling wikis share the 00-hub..08-change-control + .kiro + templates
 # structure, so the pack is drop-in identical. Re-run after any change to the
@@ -72,6 +78,17 @@ for repo in "${SIBLINGS[@]}"; do
   copy_file ".kiro/steering/tech-spec-standards.md" "$dest"
   copy_file "templates/prd.md" "$dest"
   copy_file "templates/tech-spec.md" "$dest"
+  copy_file ".claude/skills/prd-spec-workflow/SKILL.md" "$dest"
+  # Make .claude/skills/ trackable (local exclude only; tracked files are unaffected).
+  excl="$dest/.git/info/exclude"
+  if [[ -f "$excl" ]] && grep -qx '.claude/' "$excl"; then
+    if [[ $APPLY == 1 ]]; then
+      python3 -c 'import sys; p=sys.argv[1]; s=open(p).read(); open(p,"w").write(s.replace("\n.claude/\n", "\n.claude/*\n!.claude/skills/\n", 1))' "$excl"
+      echo "  updated: .git/info/exclude (.claude/skills/ now trackable)"
+    else
+      echo "  would update: .git/info/exclude (.claude/ -> .claude/* + !.claude/skills/)"
+    fi
+  fi
   # Checklist: do NOT overwrite — report whether P-checks already present.
   if grep -q "P-01" "$dest/08-change-control/FITNESS_CHECKLIST.md" 2>/dev/null; then
     echo "  ok: FITNESS_CHECKLIST.md already has PRD P-checks"
