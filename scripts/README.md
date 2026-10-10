@@ -136,7 +136,7 @@ The script wraps the platform's checker (`packages/ingestion/src/check-links.ts`
 MAX_UNRESOLVED=3 ./scripts/lint-links.sh     # temporary tolerance while cleaning up
 ```
 
-Exit codes: `0` all links resolve, `1` unresolved links (listed by file), `2` platform checker not found (check skipped).
+Exit codes: `0` all links resolve, or the platform checker was not found (check skipped; prints `SKIP:` to stderr), `1` unresolved links (listed by file).
 
 ### Link Contract
 

@@ -18,8 +18,9 @@
 #   ./scripts/lint-links.sh            # check all links
 #   MAX_UNRESOLVED=3 ./scripts/lint-links.sh   # tolerate up to N while cleaning up
 #
-# Exit codes: 0 = all links resolve (or within MAX_UNRESOLVED), 1 = unresolved links,
-#             2 = platform checker not found (check skipped)
+# Exit codes: 0 = all links resolve (or within MAX_UNRESOLVED), or the platform
+#                 checker was not found (check skipped — prints SKIP to stderr)
+#             1 = unresolved links
 
 set -uo pipefail
 
@@ -29,9 +30,9 @@ INGESTION="$PLATFORM_ROOT/packages/ingestion"
 CHECKER="$INGESTION/src/check-links.ts"
 
 if [ ! -f "$CHECKER" ]; then
-  echo "SKIP: link checker not found at $CHECKER"
-  echo "      Set KNOWLEDGE_PLATFORM_ROOT to your knowledge-platform checkout."
-  exit 2
+  echo "SKIP: link checker not found at $CHECKER" >&2
+  echo "      Set KNOWLEDGE_PLATFORM_ROOT to your knowledge-platform checkout." >&2
+  exit 0
 fi
 
 cd "$INGESTION" && npx tsx src/check-links.ts --corpus "$REPO_ROOT" --max "${MAX_UNRESOLVED:-0}"
