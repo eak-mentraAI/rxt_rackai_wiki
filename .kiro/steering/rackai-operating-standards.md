@@ -72,10 +72,28 @@ Hub pages, entity pages, workflow pages, indexes, MOCs, evidence pages, changelo
 
 ## Canonical Note Types
 
-Every note must declare a type: `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`, `prd`, `projection`, `companion`.
+Every note must declare a type: `entity`, `workflow`, `event`, `metric`, `formula`, `coefficient`, `policy`, `assumption`, `validation`, `evidence`, `source`, `hub`, `index`, `change`, `glossary`, `prd`, `spec`, `projection`, `companion`.
+
+`spec` — an authored engineering technical specification in `05-wiki/` (ID prefix `spec-`) that implements a PRD; see `.kiro/steering/tech-spec-standards.md`. An externally written spec ingested from `reference/` stays a `source`.
 
 `companion` — a lossless markdown digital twin of a non-markdown source (PDF, DOCX, XLSX, PPTX, image) kept in `reference/`, named `<source> - Companion.md` beside the original. `reference/` material itself carries no frontmatter by design; only its companion files do, and they are linted.
 
+
+## Code Repositories (read-only)
+
+Tech specs ground their designs in the RackAI code (see `tech-spec-standards.md`, PRD → Tech Spec Conversion Procedure). The repositories are **read-only** from this wiki: never write to, push to, or open PRs/issues against them from wiki work.
+
+| Repo | Role |
+|---|---|
+| `RSS-Engineering/rackai` | Backend (control plane, controllers, APIs, charts) |
+| `RSS-Engineering/rackai-ui` | Frontend (web console) |
+| `RSS-Engineering/rackai-docs` | Product docs (docs.rackai.rax.io) |
+
+Read from clones kept outside this repo (convention: `~/Projects/rackai-code/<repo>`, push URL disabled with `git remote set-url --push origin no-push`) or read-only API calls. Cite code as `RSS-Engineering/<repo>@<sha>:<path>`; never copy code into notes.
+
+## Roadmap ↔ PRD / Tech Spec Links
+
+`05-wiki/RackAI Roadmap.csv` carries two link columns, **PRD** and **Tech spec**. Each holds the knowledge-console link(s) of the notes covering that row: `https://knowledge.rackspace-cloud.com/browse/rackai/<note-id>`, several separated by `; `. Wiki-authored `prd`/`spec` notes and ingested engineering documents (`source` notes) may both be linked. An empty cell means no covering document exists yet; [[PRD Coverage Plan]] says which is planned. `scripts/lint-prd-spec.py` checks both directions (Fitness P-09, T-10).
 
 ## Frontmatter Standard
 
@@ -84,7 +102,7 @@ Every note begins with YAML frontmatter:
 ```yaml
 ---
 id: unique-stable-id
-type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary | prd | projection | companion
+type: entity | workflow | event | metric | formula | coefficient | policy | assumption | validation | evidence | source | hub | index | change | glossary | prd | spec | projection | companion
 status: draft | reviewed | validated | deprecated
 owner: team-or-role
 domain: strategy | product | platform | performance | model-enablement | infrastructure | reliability | commercial | capacity | governance

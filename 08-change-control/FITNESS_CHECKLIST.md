@@ -9,7 +9,7 @@ related: [pol-regression-suite, pol-change-packet, chg-consistency-report]
 parent: hub-wiki
 source_docs: [init/init.md, init/agent_guide.md]
 confidence: validated
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-10
 summary: "Gate criteria checklist for corpus changes in the Rack AI OpenRouter wiki."
 ---
 
@@ -86,6 +86,29 @@ Run on any PRD (`05-wiki/<Thing> PRD.md`, `type: prd`). Governed by `.kiro/steer
 | P-06 | Open decisions owned | Each open decision is numbered with an owner and what it blocks; unresolved specifics are decisions, not invented requirements |
 | P-07 | Confidence honesty | A proposed/unbuilt PRD is `confidence: assumed` with a status banner; it does not read as a committed build or assert unbuilt capability; metric targets are postures, not measured values (ties S-13) |
 | P-08 | Shape compliance | Authored from `templates/prd.md`; frontmatter complete; `summary` ≤ 120 chars (S-16); located in `05-wiki/` with a `prd-` ID |
+| P-09 | Roadmap link-back | The document control table names its roadmap items (milestone names exactly as in `05-wiki/RackAI Roadmap.csv`, `;`-separated), and each of those rows' **PRD** column contains this PRD's knowledge-console link (`https://knowledge.rackspace-cloud.com/browse/rackai/<id>`). Enforced by `scripts/lint-prd-spec.py` |
+| P-10 | Loop role & interfaces | §11 names the loop step owned and the promise served, and lists each cross-PRD interface it provides or consumes, with exactly one defining location; shared concepts have a canonical note written no later than the PRD itself |
+| P-11 | Reviewable decisions, not auto-approval | Proposed product decisions (§20) and acceptance criteria (§15) are listed individually so each can be accepted or changed; `status` is `reviewed` only with a recorded *Product approval* (who, date, version). Passing checks is never approval. Material as-built divergence is marked *divergent: pending product review* with a product-owner open decision |
+
+---
+
+## Section 2c — Tech Spec Checks
+
+Run on any tech spec (`05-wiki/<Thing> Tech Spec.md`, `type: spec`). Governed by `.kiro/steering/tech-spec-standards.md` (portable, companion to the PRD standard). A spec is not review-ready until all applicable checks pass.
+
+| # | Check | Pass Criteria |
+|---|-------|---------------|
+| T-01 | PRD + canonical link | The ID of every PRD it implements (PRD ↔ spec is many-to-many) and the canonical concept ID are in `related`; the spec links concepts instead of redefining them |
+| T-02 | Requirements traced | Every functional requirement of each implemented PRD appears in the §1.3 table as covered / partial / deferred / divergent / in a named sibling spec; no silent drops |
+| T-03 | Divergences declared | Every departure from the PRD is listed in §1.4 with its justification ("none" is valid) |
+| T-04 | Integration contract complete | Every row of the platform integration contract (identity, tenancy, metering/quotas, audit, monitoring, tenant-visible fields, billing) is answered |
+| T-05 | Failure behaviour explicit | Fail-open vs fail-closed, delivery guarantees, and loss detection are stated for each event/request class |
+| T-06 | Milestones actionable | Each milestone has an epic, a breakdown mapped to requirement IDs, an engineering checklist and a release checklist |
+| T-07 | Confidence + as-built honesty | Unbuilt design is `assumed`; drift is recorded with dated AS BUILT / PROPOSED, NOT BUILT markers; NFR targets are labelled target vs measured with a source (ties S-13) |
+| T-08 | Shape compliance | Authored from `templates/tech-spec.md`; frontmatter complete; `summary` ≤ 120 chars (S-16); located in `05-wiki/` with a `spec-` ID; open questions numbered with owners |
+| T-09 | Codebase grounding (read-only) | §3 cites at least one product code repo at a commit SHA (`owner/repo@sha`) and answers all six subsections: repos & revisions, existing patterns, extension points, standards to enforce, dependencies & fork prevention, improvement & modularity opportunities. No code repo was written to, pushed to, or PR'd from this work. Enforced by `scripts/lint-prd-spec.py` |
+| T-10 | Roadmap link-back | The document control table names its roadmap items, and each of those rows' **Tech spec** column contains this spec's knowledge-console link. Enforced by `scripts/lint-prd-spec.py` |
+| T-11 | Divergence escalated | Every AS BUILT marker that is material to an implemented PRD (changes a requirement, acceptance criterion, hard-constraint guarantee, boundary or customer-visible behaviour) has a matching *divergent: pending product review* item in that PRD; built claims cite evidence (`measured` needs test/benchmark/telemetry) |
 
 ---
 

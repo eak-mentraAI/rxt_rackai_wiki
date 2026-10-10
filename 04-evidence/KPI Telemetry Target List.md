@@ -6,9 +6,9 @@ owner: product
 domain: performance
 aliases: [kpi telemetry targets, telemetry target list, measurement contract, telemetry gap review, metric provenance review]
 related: [hub-evidence, idx-metrics, idx-kpi-hierarchy, met-ttft, met-output-throughput, met-tokens-per-gpu-second, met-gpu-utilization, met-availability, met-model-launch-lag, met-cost-per-outcome, ent-empirical-map, hub-operations, hub-commercial]
-source_docs: ["repo review 2026-10-05 (TTFT/output-throughput telemetry gap)", "openrouter_engineering_roadmap.md", "openrouter_strategic_vision.md"]
+source_docs: ["repo review 2026-10-05 (TTFT/output-throughput telemetry gap)", "openrouter_engineering_roadmap.md", "openrouter_strategic_vision.md", "06-sources/rackai-platform/Monitoring and Auditability Spec.md", "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md"]
 confidence: assumed
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-10
 parent: hub-evidence
 summary: "Product's measurement contract for the RackAI KPI model: the signals we need, why each matters, and how to review them."
 ---
@@ -67,26 +67,30 @@ The point of walking the list with engineering isn't just "what's missing." It's
 
 | Signal | Job | Source / producer | Retained? | Attributable at KPI grain? |
 |---|:---:|---|---|---|
-| Time to first token (P50/P95/P99) | 1,2,3,4 | vLLM exposes native metric (confirmed) | Not scraped today (to validate) | Not at tenant/model grain today (to validate) |
-| Output tokens/sec | 1,2,3,4 | vLLM exposes native metric (confirmed) | Not scraped today (to validate) | Not at tenant/model grain today (to validate) |
+| Time to first token (P50/P95/P99) | 1,2,3,4 | vLLM exposes native metric (confirmed) | Not scraped today (to validate) — *spec 2026-09-16: `vllm:*` series are scraped via ServiceMonitor; see note below* | Not at tenant/model grain today (to validate) — *spec: tenant derivable from `namespace` label; per-tenant rules proposed, not built* |
+| Output tokens/sec | 1,2,3,4 | vLLM exposes native metric (confirmed) | Not scraped today (to validate) — *spec: scraped; see note below* | Not at tenant/model grain today (to validate) — *spec: as TTFT* |
 | Queueing delay | 1 | vLLM queue metrics (to validate) | Not scraped today (to validate) | Service grain likely fine; tenant grain to validate |
-| End-to-end request latency | 1,2 | vLLM native metric (confirmed) | Partially wired — recording rule + panels (confirmed) | Service grain today; tenant grain to validate |
+| End-to-end request latency | 1,2 | vLLM native metric (confirmed) | Partially wired — recording rule + panels (confirmed) — **⚠ conflicts with spec: no `PrometheusRule` ships in any chart; see note below** | Service grain today; tenant grain to validate |
 | Requests waiting / running | 1 | vLLM native metric (confirmed) | Consumed by autoscaling (confirmed) | Service grain — sufficient for its use (confirmed) |
 | KV cache usage % | 1 | vLLM native metric (confirmed) | Consumed by autoscaling (confirmed) | Service grain — sufficient (confirmed) |
 | Request success / error rate | 1,2 | vLLM `request_success_total` (confirmed) | Consumed today (confirmed) | Service grain today; tenant grain to validate |
 
 **For discussion:** my read is that TTFT and output tokens/sec are the clearest gaps — the metrics exist but don't appear to be scraped or retained. I'd like to validate with the serving owners whether enabling collection is sufficient or whether anything else is required. The grain question is separate: these are useful for fleet/service SLOs (Job 1) as-is; the tenant/model dimension only matters for the Job 2/3 uses.
 
+> **Spec as-built evidence (added 2026-10-10, from [[Monitoring and Auditability Spec]], annotations 2026-09-15/16).** TTFT and output-token histograms are on the **scraped** vLLM `/metrics`: tenant workloads run in namespaces named after the tenant, and the ServiceMonitor scrape stamps `namespace` (and InferenceService name) on every `vllm:*` series, so tenant grain is derivable via `label_replace(namespace → tenant_id)`. The missing piece is the **recording rules**: per-tenant/per-model TTFT P50/P99, inter-token latency and output tokens/s rules are **proposed, not built**, and **no `rackai:*` recording rules ship — no `PrometheusRule` exists in any chart** (the gateway-sourced rules depended on `rackai_gateway_*` metrics no code emits). As a result the tenant `/metrics/inference` endpoint returns empty series. AMD/AIM parity of `vllm:` metrics is unverified. **Conflict, not resolved here:** this review marks end-to-end latency as "recording rule + panels (confirmed)"; the spec says no recording rule ships in any chart. Both are preserved until an owner confirms which recording rule (if any) is deployed and from where. Tracked in [[Open Questions]].
+
 ## 2. Durable usage-grade serving records
 
 | Signal | Job | Source / producer | Retained? | Attributable? |
 |---|:---:|---|---|---|
-| input / output / cached tokens | 2,3 | usage_records (confirmed) | 13-month window (confirmed) | Tenant-attributed (confirmed) |
-| queue_secs / latency_secs / compute_secs | 2,3 | Columns exist but read as 0 — no producer writes them (confirmed) | Persisted but unpopulated (confirmed) | — (no producer) |
+| input / output / cached tokens | 2,3 | usage_records (confirmed) | 13-month window (confirmed) — **⚠ conflicts with spec: per-install `retentionDays`, default 365; see note below** | Tenant-attributed (confirmed) |
+| queue_secs / latency_secs / compute_secs | 2,3 | Columns exist but read as 0 — no producer writes them (confirmed) — *since 2026-10-08 the FT sidecar writes compute seconds (and `tokens_processed`/`tokens_trainable`) for fine-tuning rows; inference rows unchanged* | Persisted but unpopulated (confirmed) — *FT rows now populated* | — (no producer for inference) |
 | TTFT as a durable/customer-reporting dimension | 2,3 | No producer today (to validate) | Would need a persisted record (to validate) | Tenant grain (to validate) |
 | Output-token throughput as durable dimension | 2,3 | No producer today (to validate) | Needs a trustworthy duration to pair with tokens (to validate) | Tenant grain (to validate) |
 
 **For discussion:** for billing or durable customer reporting, my assumption is we need a persisted usage-grade record rather than relying on 90-day operational telemetry. I'm treating TTFT and tokens/sec as durable/customer-reporting dimensions, not billing dimensions — important for SLA/product/commercial reporting, but I'm not assuming we price on them unless there's intent to. Worth confirming where that line sits. One caveat the existing `*_secs` columns surface: a column that defaults to 0 can't distinguish "not collected" from a real zero — worth representing absence explicitly if we add fields here.
+
+> **Spec as-built evidence (added 2026-10-10, from [[Multi-Tenancy and Metering Spec]]).** `usage_records` retention is a **per-installation `retentionDays`** (1–2557 d, **default 365**; resolved 2026-07-28), hot PostgreSQL with no cold tier built. **Conflict, not resolved here:** this review records a "13-month window (confirmed)"; the spec default is 365 days (~12 months). Either an install overrides the default or one record is wrong — preserved until confirmed. Separately, the fine-tuning metering sidecar (RACKAI-515, built 2026-10-08) now writes cumulative compute seconds (elapsed × GPU count) and `tokens_processed`/`tokens_trainable` for FT rows (token fields NULL for AMD jobs); inference-row `*_secs` columns are not addressed by the spec deltas.
 
 ## 3. GPU / fleet telemetry
 

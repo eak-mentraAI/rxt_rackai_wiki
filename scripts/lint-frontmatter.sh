@@ -7,7 +7,7 @@
 #      last_reviewed, aliases, related, source_docs, parent, summary
 #   3. Enum fields have valid values:
 #      - type: entity|workflow|event|metric|formula|coefficient|policy|
-#              assumption|validation|evidence|source|hub|index|change|glossary|prd|projection|companion
+#              assumption|validation|evidence|source|hub|index|change|glossary|prd|spec|projection|companion
 #      - status: draft|reviewed|validated|deprecated
 #      - confidence: assumed|derived|measured|validated
 #      - domain: strategy|product|platform|performance|model-enablement|
@@ -29,7 +29,7 @@
 
 set -euo pipefail
 
-VALID_TYPES="entity|workflow|event|metric|formula|coefficient|policy|assumption|validation|evidence|source|hub|index|change|glossary|prd|projection|companion"
+VALID_TYPES="entity|workflow|event|metric|formula|coefficient|policy|assumption|validation|evidence|source|hub|index|change|glossary|prd|spec|projection|companion"
 VALID_STATUS="draft|reviewed|validated|deprecated"
 VALID_CONFIDENCE="assumed|derived|measured|validated"
 VALID_DOMAIN="strategy|product|platform|performance|model-enablement|infrastructure|reliability|commercial|capacity|governance"

@@ -6,9 +6,9 @@ owner: product
 domain: strategy
 aliases: [milestone release map, release map, roadmap release view, major releases, milestone releases, release train, five-track release map, market roadmap, release narrative]
 related: [hub-roadmap, hub-product, hub-battlegrounds, hub-minimum-operable-estate, hub-inference-serving, hub-ai-governance-assurance, hub-ai-harness, hub-model-services, hub-inference-optimization, ent-empirical-map, ent-governed-harness, wiki-pillar-working-model, wiki-roadmap-narratives]
-source_docs: ["00-hub/RackAI Roadmap.md", "05-wiki/Pillar Working Model.md", "00-hub/Three Battlegrounds.md"]
+source_docs: ["00-hub/RackAI Roadmap.md", "05-wiki/Pillar Working Model.md", "00-hub/Three Battlegrounds.md", "06-sources/rackai-platform/Monitoring and Auditability Spec.md", "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md"]
 confidence: derived
-last_reviewed: 2026-10-09
+last_reviewed: 2026-10-10
 parent: hub-roadmap
 summary: "Market-and-internal projection of the four-proof roadmap into major milestone releases across five functional tracks."
 ---
@@ -68,7 +68,7 @@ Three decisions from the roadmap review that shape what the tracks do and don't 
 
 | Decision | Resolution | Where it lands |
 |----------|-----------|----------------|
-| **Supply / placement UX** | *RackAI chooses by default; customers constrain when necessary.* Customer gives intent + constraints (model, SLA, residency, approved vendor, economics); RackAI selects the exact GPU/node/placement/routing. Explicit hardware (NVIDIA/AMD/B300) is a **placement constraint**, not the base consumption model. | T1.S2; enables the T3 Empirical Map to own the placement decision |
+| **Supply / placement UX** | *RackAI chooses by default; customers constrain when necessary.* Customer gives intent + constraints (model, SLA, residency, approved vendor, economics); RackAI selects the exact GPU/node/placement/routing. Explicit hardware (NVIDIA/AMD/B300) is a **placement constraint**, not the base consumption model. | T1.S2; the T3 Empirical Map *recommends* placements and T1.S2 executes them within the declaration's hard constraints (A/G rule, ratified 2026-10-10: [[PRD Coverage Plan]]) |
 | **GPU-node access** | *Out of scope for RackAI.* Direct GPU-node (SSH/raw-node) consumption is GPU IaaS and belongs to the GPUaaS/IaaS product boundary. RackAI's model is "give us the workload + constraints; we operate the environment." | Removed from T1.S4; reinstate only if a concrete RackAI use case requires it |
 | **Observability is two products** | *Customer observability* (percentiles, TTFT, TPS, spend, quota — the RackAI product experience) is a distinct surface from *operator intelligence* (GPU/VRAM, queue depth, cache, power, placement signals — feeds the Empirical Map). Same pipeline, different purpose. | Both live in T3.S1 as separate deliverables |
 
@@ -97,7 +97,7 @@ Three decisions from the roadmap review that shape what the tracks do and don't 
 
 | Capability Stage | Theme | What it delivers | Absorbs (roadmap items) | Proof | State |
 |---------|-------|------------------|-------------------------|:-----:|:-----:|
-| **T2.S1 — Auditability** | "Every sensitive action is a query against the platform" | Audit Log query API; sensitive-access + login + APIKey-lifecycle events | IAC M3 (RACKAI-351); Auditing M1–M3 (pending) | 1→3 | 🟢/🟡 |
+| **T2.S1 — Auditability** | "Every sensitive action is a query against the platform" | Audit Log query API; sensitive-access + login + APIKey-lifecycle events | IAC M3 (RACKAI-351); Auditing M1–M3 **partly built** — PostgreSQL store, outbox, read API built; actor attribution (Audit Webhook, M4) and workload/billing categories not ([[Monitoring and Auditability Spec]]) | 1→3 | 🟢/🟡 |
 | **T2.S2 — Tenant Isolation & Guardrails** | "Workloads are isolated and quota-bounded" | Namespace-per-org isolation; quota enforcement + pre-execution admission control (429/402) | Uniphore single-cluster tenancy; Metering M4 (quota) | 3 | 🟡 |
 | **T2.S3 — Enterprise Control Envelope** | "A customer can safely let RackAI operate a workload inside their boundary" | Org-level RBAC/quota/billing permissions (outcome, not necessarily reinstated IAC M4); governed execution harness v1; workload identity; model provenance; action authorization; human-approval gates | P-006 / D3; [[Governed Harness]] v1; [[Agent Identity]]; [[Action Controls]] | 3 | 🔴 |
 | **T2.S4 — Compliance Evidence** | "We hold the attestation the target segment requires" | Minimum independently-verifiable compliance evidence set by the MOE-1 customer segment (not a pre-decided SOC 2 Type I); product controls that make certification possible | Compliance envelope kickoff (dev-plan P1); P-006 | 1→3 | 🔴 |
@@ -149,7 +149,7 @@ Three decisions from the roadmap review that shape what the tracks do and don't 
 
 | Capability Stage | Theme | What it delivers | Absorbs (roadmap items) | Proof | State |
 |---------|-------|------------------|-------------------------|:-----:|:-----:|
-| **T5.S1 — Metering** | "We capture usage, per tenant, per workload" | Project CRD + usage_records + MeteringEvent pipeline; inference + fine-tuning metering | Metering M1 (RACKAI-352) | 1 | 🟡 |
+| **T5.S1 — Metering** | "We capture usage, per tenant, per workload" | Project CRD + usage_records + MeteringEvent pipeline; inference + fine-tuning metering | Metering M1 (RACKAI-352); outbox/drainer + FT sidecar metering built, no live FT quota ([[Multi-Tenancy and Metering Spec]]) | 1 | 🟡 |
 | **T5.S2 — Cost Model** | "We know our true cost/GPU-hour and cost/1M-tokens" | Monetary cost model on the metering pipeline: GPU-hour cost, power/colo/network allocation, depreciation/lease, storage → cost/token, utilization-adjusted cost | P-003 / D2; [[Cost per GPU-Hour]]; [[Unit Economics Model]] | 1 | 🔴 |
 | **T5.S3 — Unit Economics & Margin** | "We can quantify margin per model, workload, and estate" | Revenue/GPU-hour, gross margin/model, contribution margin/estate; pricing hypothesis for operated workloads | [[Gross Margin per Model]]; [[Revenue per GPU-Hour]]; Proof-1 commercial gate | 1→3 | 🔴 |
 | **T5.S4 — Operator Leverage** | "The business is software economics, not a labor line" | Workloads-operated-per-ops-FTE; % of decisions automated/assisted; contribution-margin-per-estate improving across estates | North-star metric families; Proof-4 commercial gate | 4 | ⚪ |

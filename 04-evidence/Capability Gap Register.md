@@ -6,9 +6,9 @@ owner: product
 domain: strategy
 aliases: [capability gap register, capability gaps, gap register, capability-vs-goal matrix, missing capabilities]
 related: [hub-evidence, hub-rackai-platform, hub-product, hub-roadmap, idx-open-questions, idx-validation-register, idx-kpi-hierarchy, src-strategic-vision, src-engineering-roadmap, src-rackai-delivery-roadmap]
-source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md, rackai_platform_prd, rackai_release_1_0_0, metering_spec, identity_access_spec, monitoring_audit_spec, "reference/RackAI - Roadmap.xlsx"]
+source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md, rackai_platform_prd, rackai_release_1_0_0, metering_spec, identity_access_spec, monitoring_audit_spec, "reference/RackAI - Roadmap.xlsx", "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md", "06-sources/rackai-platform/Monitoring and Auditability Spec.md"]
 confidence: derived
-last_reviewed: 2026-10-07
+last_reviewed: 2026-10-10
 parent: hub-evidence
 summary: "Capability-vs-goal matrix: the platform capabilities missing to reach the strategic project-level goals."
 ---
@@ -48,7 +48,7 @@ Goal: close the loop *tokens/GPU-second → cost/token → price → traffic →
 | Required capability | State | Confidence | Open question |
 |---------------------|-------|:----------:|---------------|
 | [[Billing & Payment]] (charge computation, payment) | missing | assumed | Billing/payment P0 blocker (open question to RXT in the [[RackAI Roadmap (Delivery Plan)\|delivery roadmap]]) |
-| [[Metering]] — usage capture, `UsageRecord`, quotas | partial (in progress) | derived | Metering M1 pipeline **in progress** (RACKAI-352); M2–M4 (UsageRecord APIs, quotas, enforcement) not started — [[RackAI Roadmap (Delivery Plan)]] |
+| [[Metering]] — usage capture, `UsageRecord`, quotas | partial (in progress) | derived | Metering M1 pipeline **in progress** (RACKAI-352); per spec as-built annotations the PostgreSQL metering outbox/drainer, `FineTuningJob.spec.project` and **FT sidecar metering (RACKAI-515) are built**, but there is **no live mid-job FT quota** (no Redis counters) — [[Multi-Tenancy and Metering Spec]]; M2–M4 (UsageRecord APIs, quotas, enforcement) not reported shipped — [[RackAI Roadmap (Delivery Plan)]] |
 | [[Cost per GPU-Hour]] internal cost model | missing | assumed | Usage is metered, but cost/GPU-hour modeling is **absent from the delivery roadmap** — strategy gap (roadmap P-003) |
 | [[Revenue per GPU-Hour]] / [[Gross Margin per Model]] inputs | planned | derived | Depends on cost model + metering above |
 | [[Demand Forecasting]] as an operating system | planned | assumed | — |
@@ -98,7 +98,7 @@ Goal: a full multi-tenant inference + fine-tuning product, not just a serving ba
 | Production [[Environment]] | planned | assumed | — |
 | [[API Key]] (programmatic access) | shipped | measured | **Complete** — IAC M1 (APIKey CRD + Gateway auth, RACKAI-204); unblocks OpenRouter Path A — [[RackAI Roadmap (Delivery Plan)]] |
 | Full RBAC roles / Projects | partial | derived | Platform RBAC **complete** (IAC M2, RACKAI-333); **org-level RBAC dropped** (IAC M4 "Won't Do") — strategy gap (roadmap P-006) |
-| Tenant-facing observability + [[Audit]] | partial (in progress) | derived | Audit Log query API **complete** (IAC M3, RACKAI-351); Platform/Observability telemetry in progress; Auditing M1–M3 not started |
+| Tenant-facing observability + [[Audit]] | partial (in progress) | derived | Audit Log query API **complete** (IAC M3, RACKAI-351); Platform/Observability telemetry in progress (tenant `/metrics/inference` returns empty series — no recording rules ship); Auditing M1–M3 **partly built** per spec annotations (PostgreSQL store, outbox/drainer, read API, quota/dataset/config tables), but Audit Webhook actor attribution (M4) and workload/billing tables not built — [[Monitoring and Auditability Spec]] |
 | Fine-tuning breadth: RL & DPO methods | partial (in progress) | derived | DPO fine-tuning **in progress** (RACKAI-252); SFT shipped; RL still not planned — [[RackAI Roadmap (Delivery Plan)]] |
 | Runtime breadth (SGLang, TensorRT-LLM, NVIDIA Dynamo) | planned | assumed | Optimal engine per model unknown |
 | Accelerator breadth (Intel Gaudi, CPU) | planned | assumed | — |

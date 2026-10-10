@@ -3,10 +3,15 @@
 # sync-prd-standard.sh — propagate the portable PRD standard pack from this
 # (canonical) wiki repo into the sibling wiki repos.
 #
-# Canonical source: RackAI Wiki. The pack is three files:
+# Canonical source: RackAI Wiki. The pack (PRD + companion tech-spec standard) is:
 #   .kiro/steering/prd-standards.md
+#   .kiro/steering/tech-spec-standards.md
 #   templates/prd.md
-#   08-change-control/FITNESS_CHECKLIST.md   (contains the P-01..P-08 PRD checks)
+#   templates/tech-spec.md
+#   08-change-control/FITNESS_CHECKLIST.md   (P-01..P-08 PRD checks, T-01..T-08 spec checks)
+#
+# Adopting repos must also list `prd` and `spec` as note types in their
+# operating standards and frontmatter lint (not done by this script).
 #
 # The sibling wikis share the 00-hub..08-change-control + .kiro + templates
 # structure, so the pack is drop-in identical. Re-run after any change to the
@@ -64,12 +69,22 @@ for repo in "${SIBLINGS[@]}"; do
   fi
   # Overwrite-safe files (identical everywhere):
   copy_file ".kiro/steering/prd-standards.md" "$dest"
+  copy_file ".kiro/steering/tech-spec-standards.md" "$dest"
   copy_file "templates/prd.md" "$dest"
+  copy_file "templates/tech-spec.md" "$dest"
   # Checklist: do NOT overwrite — report whether P-checks already present.
   if grep -q "P-01" "$dest/08-change-control/FITNESS_CHECKLIST.md" 2>/dev/null; then
     echo "  ok: FITNESS_CHECKLIST.md already has PRD P-checks"
   else
     echo "  ACTION: merge the 'Section 2b — PRD Checks' block into $repo/08-change-control/FITNESS_CHECKLIST.md by hand (not auto-overwritten to preserve repo-specific checks)"
+  fi
+  if grep -q "T-01" "$dest/08-change-control/FITNESS_CHECKLIST.md" 2>/dev/null; then
+    echo "  ok: FITNESS_CHECKLIST.md already has tech-spec T-checks"
+  else
+    echo "  ACTION: merge the 'Section 2c — Tech Spec Checks' block into $repo/08-change-control/FITNESS_CHECKLIST.md by hand"
+  fi
+  if ! grep -q "prd|spec" "$dest/scripts/lint-frontmatter.sh" 2>/dev/null; then
+    echo "  ACTION: add 'spec' to the note-type list in $repo operating standards (and lint, if it has one)"
   fi
   echo
 done

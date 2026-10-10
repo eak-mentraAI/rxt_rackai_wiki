@@ -6,9 +6,9 @@ owner: commercial
 domain: commercial
 aliases: [billing, payment, billing and payment, payout, invoicing]
 related: [wf-metering, hub-commercial, hub-openrouter, ent-openrouter-integration, idx-open-questions, idx-openrouter-integration-plan, ent-model-catalog-endpoint]
-source_docs: [metering_spec, openrouter_concepts_integration_provider]
+source_docs: [metering_spec, openrouter_concepts_integration_provider, "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md", "06-sources/rackai-platform/Identity and Access Control Spec.md"]
 confidence: assumed
-last_reviewed: 2026-09-04
+last_reviewed: 2026-10-10
 parent: hub-commercial
 summary: "The (currently absent) billing and payment capability — a headline gap for the OpenRouter public-provider path."
 ---
@@ -19,7 +19,7 @@ summary: "The (currently absent) billing and payment capability — a headline g
 
 **Billing & Payment** is the capability to convert metered usage into money movement — pricing usage, generating invoices or account top-ups, and receiving/reconciling payout. It is distinct from [[Metering]] (which only captures usage). **This capability does not exist in RackAI today**, and defining pricing/billing logic is an explicit non-goal of the metering specification.
 
-> **Metering ≠ Billing.** Metering answers "how much was used." Billing answers "what does it cost and how do we get paid." RackAI has planned metering; it has no billing.
+> **Metering ≠ Billing.** Metering answers "how much was used." Billing answers "what does it cost and how do we get paid." RackAI has partly built metering (PostgreSQL outbox/drainer, fine-tuning sidecar metering — [[Multi-Tenancy and Metering Spec]]); it has no billing.
 
 ## Layer
 
@@ -28,7 +28,9 @@ L3 — Commercial and Capacity Model. Downstream of [[Metering]]; consumed by in
 ## Status
 
 - **Not shipped. Not on the platform roadmap.** Billing/pricing logic is a declared non-goal of the [[Multi-Tenancy and Metering Spec]].
-- Confidence `assumed` (gap): there is no artifact describing a billing system, only its absence.
+- **Billing-account link proposed, not built (2026-09-18).** Invoicing would join `usage_records.org_id` → `CustomerOrg.spec.cmsAccountId` (Rackspace Customer Number, RCN) at query time; the RCN is deliberately not stored in `usage_records`, and `/customerorgs/{org}/usagesummary` would fail closed (409) without it. Today nothing maps a CustomerOrg to anything invoiceable — org rollups are computable but not billable ([[Multi-Tenancy and Metering Spec]], [[Identity and Access Control Spec]]). Cross-instance invoices would also need an `instance_id` column.
+- **Pricing, rating and payment remain absent.**
+- Confidence `assumed` (gap): there is no artifact describing a billing system, only its absence and a proposed account join.
 
 ## Why It Matters
 
@@ -46,7 +48,7 @@ The **Private Models** path (Path A) does not require RackAI-side billing (usage
 
 ## Evidence
 
-- Source: `Multi-Tenancy and Metering Spec` (billing = explicit non-goal); `OpenRouter provider reference` (automated billing is P0 for providers).
+- Source: `Multi-Tenancy and Metering Spec` (billing = explicit non-goal; as-built deltas incl. the proposed RCN join); `OpenRouter provider reference` (automated billing is P0 for providers).
 - Confidence rationale: `assumed` — modeled as a known gap, not a built capability. Exit criterion: a funded billing/payout design accepted by OpenRouter onboarding would move dependent concepts off `assumed`.
 
 ## See Also

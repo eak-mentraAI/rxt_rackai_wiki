@@ -6,9 +6,9 @@ owner: knowledge-graph-steward
 domain: governance
 aliases: [crosswalk, source-to-concept crosswalk, source mapping]
 related: [hub-root, idx-source-inventory]
-source_docs: []
+source_docs: ["06-sources/rackai-platform/Identity and Access Control Spec.md", "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md", "06-sources/rackai-platform/Monitoring and Auditability Spec.md"]
 confidence: validated
-last_reviewed: 2026-10-08
+last_reviewed: 2026-10-10
 parent: hub-root
 summary: "Maps source documents to the canonical concepts they support."
 ---
@@ -49,9 +49,10 @@ Maps each source document to the canonical concepts extracted from it. Updated w
 | RackAI Console and CLI Docs | Tenancy + Inference/Fine-Tuning/Resources product areas | [[Organization]], [[Model]], [[Model Deployment]], [[Dataset]], [[Fine-Tuning Job]], [[LoRA Adapter]], [[Registry Credential]], [[Fine-Tuning]] | L1/L2 | measured |
 | RackAI Deployment and Environments | dev/staging/prod, single-cluster/single-region | [[Environment]], [[GPU Cluster]], [[Region]] | L1 | measured |
 | RackAI UI Architecture Extraction | Domain CRDs, entity status enums, implied backend systems | [[Organization]], [[Model]], [[Model Deployment]], [[Serving Runtime]], [[Accelerator Class]], [[Dataset]], [[Fine-Tuning Job]], [[LoRA Adapter]], [[Registry Credential]], [[RackAI Control Plane]] | L1 | derived |
-| Identity and Access Control Spec | Auth, org→namespace, RBAC, API keys | [[Identity & Access Control]], [[Organization]], [[API Key]] | L1/L2 | derived |
-| Multi-Tenancy and Metering Spec | Metering (planned), billing non-goal | [[Metering]], [[Billing & Payment]], [[Organization]] | L1/L2/L3 | derived |
-| Monitoring and Auditability Spec | Platform monitoring (shipped), in-tenant observability + audit (planned) | [[Monitoring & Observability]], [[Audit]] | L2 | derived |
+| Identity and Access Control Spec | Auth (Keycloak; Auth0 legacy), CustomerOrg→org→namespace, two-layer RBAC (built), API keys; multi-org gated off; RCN billing link proposed | [[Identity & Access Control]], [[Organization]], [[API Key]], [[Billing & Payment]] | L1/L2/L3 | derived |
+| Multi-Tenancy and Metering Spec | Metering (partly built: outbox/drainer, FT sidecar; no live FT quota), billing non-goal (RCN join proposed) | [[Metering]], [[Billing & Payment]], [[Organization]], [[KPI Telemetry Target List]] | L1/L2/L3/L4 | derived |
+| Monitoring and Auditability Spec | Platform monitoring (shipped; no recording rules ship), in-tenant observability (built, empty series), audit (partly built: store, outbox, read API) | [[Monitoring & Observability]], [[Audit]], [[KPI Telemetry Target List]] | L2/L4 | derived |
+| `reference/PRD/` (received 2026-10-10) | Newer tech-spec versions with AS BUILT / PROPOSED annotations (through 2026-10-08); PRDs identical to the rackai-platform copies — maps to the three rackai-platform source notes | [[Identity and Access Control Spec]], [[Multi-Tenancy and Metering Spec]], [[Monitoring and Auditability Spec]] | source | derived |
 | Accelerator Selection Spec | AcceleratorClass, GPU scheduling/affinity | [[Accelerator Class]], [[Standard Model Deployment]], [[Fleet Inventory]] | L1/L2 | derived |
 | OpenRouter provider reference | Provider vs private-model paths, P0/P1 readiness gaps | [[OpenRouter Initiative]], [[OpenRouter Provider Integration]], [[Billing & Payment]], [[Model Catalog Endpoint]] | hub/L1 | derived |
 | Erebine bundle + erebine.ai + live API (2026-09-15) | Competitor: zero-lock-in OpenAI-compatible router + MCP workspace-intelligence layer | [[Erebine Competitive Analysis]] | L4 | measured |

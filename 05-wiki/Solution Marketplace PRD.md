@@ -15,6 +15,15 @@ summary: "PRD for the Solution Marketplace: RackAI-owned rails where FDE-authore
 
 # Solution Marketplace — PRD
 
+| Field | Value |
+|:--|:--|
+| Version | v3 |
+| Status | Draft |
+| Owner | rackai-product |
+| Date | 2026-10-09 |
+| Roadmap items | Marketplace: reference implementation / learning prototype; Marketplace: extract the Solution Standard; Marketplace: two-layer trust gate; Marketplace: certification bar for sovereign tenants; Marketplace: lifecycle + second reference solution; Marketplace: surface + catalog; Marketplace: commercial model; Marketplace: third-party / partner / customer authoring |
+| Tech spec(s) | not yet written |
+
 > **Artifact type: Product Requirements Document.** This is an authored product spec, not a knowledge-graph definition. The canonical concept lives in [[Solution Marketplace]] (and [[Packaged Solution]]); this PRD *projects* from them and must not re-define them. If they disagree, the canonical notes win and this PRD is stale.
 >
 > **Status: DRAFT PRD for a PROPOSED initiative.** Nothing in it is built. The marketplace, SDK, certification gate, isolation model, and metering/attribution are all `assumed` ([[Capability Gap Register]]). Requirements here express **intent, not commitments**; unresolved items are carried as **Open Decisions**, not invented specs. This document exists to make the initiative reviewable and to force the decisions that would let it be scoped and funded.

@@ -155,3 +155,14 @@ python3 scripts/kg.py children|type <type> [domain]|hubs|broken|stats   # add --
 ```
 
 Use it before bulk-reading files: `find` → `show` → read one section → expand with `out` / `in`. `broken` lists unresolved references (fitness check S-03). The same file is shared verbatim across the sister wikis; the canonical copy lives in RackAI Wiki.
+
+
+## lint-prd-spec.py
+
+Checks `type: prd` / `type: spec` notes against the canonical roadmap table (Fitness P-09, T-09, T-10):
+- every roadmap item a PRD or spec names exists in `05-wiki/RackAI Roadmap.csv`
+- each of those rows links the note back in its `PRD` / `Tech spec` column
+- every link in those columns resolves to a real note of an allowed type
+- every tech spec has a read-only Codebase Grounding section citing `RSS-Engineering/<repo>@<sha>`, with all six subsections
+
+Run with `python3 scripts/lint-prd-spec.py`. The pre-commit hook runs it too.

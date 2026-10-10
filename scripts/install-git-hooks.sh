@@ -8,7 +8,8 @@
 #     ./scripts/install-git-hooks.sh
 #
 # The installed pre-commit hook blocks modifying/deleting existing reference/
-# files (intake only), then runs scripts/lint-frontmatter.sh against the
+# files (intake only), runs scripts/lint-prd-spec.py (PRD/spec roadmap links and
+# codebase grounding), then runs scripts/lint-frontmatter.sh against the
 # staged .md files and blocks the commit if any fail frontmatter validation
 # (missing fields, invalid enums, or over-length summary). This mirrors the
 # knowledge-platform ingestion rules so bad frontmatter never reaches main.
@@ -57,6 +58,18 @@ STAGED=()
 while IFS= read -r -d '' f; do
   [[ "$f" == *.md ]] && STAGED+=("$f")
 done < <(git diff --cached --name-only --diff-filter=ACM -z)
+
+# PRD/spec structure + roadmap link-back (Fitness P-09, T-09, T-10). Whole-repo
+# and fast; runs whenever markdown or the canonical roadmap table is staged,
+# because a link can break from either side.
+if [ ${#STAGED[@]} -gt 0 ] || git diff --cached --name-only | grep -qx "05-wiki/RackAI Roadmap.csv"; then
+  if ! (cd "$REPO_ROOT" && python3 scripts/lint-prd-spec.py); then
+    echo ""
+    echo "Commit blocked: PRD/tech-spec lint failed (roadmap links or codebase grounding)."
+    echo "See .kiro/steering/prd-standards.md and tech-spec-standards.md."
+    exit 1
+  fi
+fi
 
 if [ ${#STAGED[@]} -eq 0 ]; then
   exit 0
