@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [request routing, hardware-aware routing, economic routing]
-related: [wf-admission-control, wf-gpu-reallocation, fml-revenue-per-gpu-hour, fml-cost-per-1m-tokens, ent-model, ent-model-deployment, ent-capacity-pool, ent-traffic-class, ent-topology, ent-openrouter-integration, ent-empirical-map, ent-governed-harness, wf-loop-planning, ent-market-demand, met-cost-per-outcome, evt-deployment-canary-passed, evt-capacity-reallocation-triggered, idx-ai-finops]
+related: [wf-admission-control, wf-gpu-reallocation, fml-revenue-per-gpu-hour, fml-cost-per-1m-tokens, ent-model, ent-model-deployment, ent-capacity-pool, ent-traffic-class, ent-topology, ent-openrouter-integration, ent-empirical-map, ent-governed-harness, wf-loop-planning, ent-market-demand, met-cost-per-outcome, evt-deployment-canary-passed, evt-capacity-reallocation-triggered, idx-ai-finops, prd-empirical-map-routing, spec-empirical-map-routing]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-10-08
@@ -44,6 +44,8 @@ stateDiagram-v2
 4. Dispatch — platform-eng; send the request to the best-outcome [[Model Deployment]]; if no healthy candidate exists, defer to [[Admission Control]].
 
 The endpoint abstraction is preserved: customers address one model, routing selects the config.
+
+**Constraint (A/G rule, 2026-10-10).** Candidates are limited to deployments realised under the request's [[Workload Declaration]] and inside its approved placement envelope; routing never relaxes a hard constraint ([[Workload Declaration & Placement PRD]], [[Empirical Map & Evidence-Informed Routing PRD]]).
 
 ## Dev-Plan Extension (Enterprise AI)
 
@@ -93,3 +95,5 @@ Platform / Control Plane owns routing; FinOps informs economic scoring.
 ## See Also
 
 - [[Operations Hub]]
+- [[Empirical Map & Evidence-Informed Routing PRD]] — evidence-informed routing (draft)
+

@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [fine-tuning, fine tuning workflow, sft pipeline]
-related: [ent-dataset, ent-fine-tuning-job, ent-lora-adapter, ent-model-deployment, ent-model, hub-operations]
+related: [ent-dataset, ent-fine-tuning-job, ent-lora-adapter, ent-model-deployment, ent-model, hub-operations, prd-fine-tuning-operations, spec-fine-tuning-operations]
 source_docs: [rackai_console_docs, rackai_ui_architecture]
 confidence: measured
 last_reviewed: 2026-09-04
@@ -38,7 +38,7 @@ flowchart TD
     I --> J[Adapter hot-loaded, In Use = true]
 ```
 
-Reinforcement (`reinforcement`) and DPO (`dpo`) methods are surfaced as "Coming Soon" and are not part of the shipped path.
+Reinforcement (`reinforcement`) and DPO (`dpo`) methods are surfaced as "Coming Soon" in the console. **Update 2026-10-10 (rackai@79ca4de, read-only code check 2026-10-10):** DPO is merged on the NVIDIA backend and CLI (`6c4aedb`); RLHF remains unimplemented ([[Fine-Tuning Operations PRD]]).
 
 ## Inputs & Outputs
 
@@ -70,3 +70,5 @@ Reinforcement (`reinforcement`) and DPO (`dpo`) methods are surfaced as "Coming 
 - [[Dataset]]
 - [[Fine-Tuning Job]]
 - [[LoRA Adapter]]
+- [[Fine-Tuning Operations PRD]] — fine-tuning boundary and metering (draft)
+

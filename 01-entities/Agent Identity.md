@@ -5,7 +5,7 @@ status: draft
 owner: governance
 domain: governance
 aliases: [agent identity, delegated authority, agent identity and delegated authority, scoped tokens, service identity]
-related: [ent-organization, ent-api-key, ent-governed-harness, wf-identity-access, pol-action-controls, wf-perimeter-info-flow, hub-entities, src-rackai-dev-plan, hub-ai-governance-assurance, hub-ai-harness, ent-solution-marketplace, ent-packaged-solution]
+related: [ent-organization, ent-api-key, ent-governed-harness, wf-identity-access, pol-action-controls, wf-perimeter-info-flow, hub-entities, src-rackai-dev-plan, hub-ai-governance-assurance, hub-ai-harness, ent-solution-marketplace, ent-packaged-solution, prd-governed-execution-authority, spec-governed-execution-authority, prd-concierge-engineer, ent-authority-context]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
@@ -52,6 +52,7 @@ L1 — Entity Ontology. A tenancy/identity entity, peer to [[Organization]] and 
 
 - Source: dev plan Program 2 thread 2.5 (operations plane; the one genuine research thread in operations).
 - Confidence rationale: `assumed` — baseline is a near-term build on existing IAM; the delegation/intent-scope research is open.
+- Code check 2026-10-10: APIKey service identities carry their own role (`rackai@79ca4de:api/v1alpha1/apikey_types.go`); no delegated or on-behalf-of identity exists yet. Proposed design: [[Governed Execution & Delegated Authority Tech Spec]] (Phase 2).
 
 ## See Also
 
@@ -59,3 +60,6 @@ L1 — Entity Ontology. A tenancy/identity entity, peer to [[Organization]] and 
 - [[Identity & Access Control]]
 - [[Action Controls]]
 - [[Perimeter Information-Flow Control]]
+- [[Governed Execution & Delegated Authority PRD]] — delegated authority (grants, authorisations) for people and operators; agents in Phase 2 (draft)
+- [[Concierge Engineer PRD]] — first consumer (v1 actions) (draft)
+- [[Authority Context]] — the shared structure carrying acting principal, represented customer and delegation chain (draft)

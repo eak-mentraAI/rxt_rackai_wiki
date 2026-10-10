@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [model launch factory, day-zero factory, launch pipeline]
-related: [wf-model-deployment, wf-canary-rollback, evt-new-model-detected, evt-deployment-canary-passed, met-model-launch-lag, ent-model, ent-benchmark-run, wf-model-radar, fml-gpus-per-replica, coeff-model-weight-footprint, met-ttft, met-tokens-per-gpu-second, fml-cost-per-1m-tokens, val-launch-lag-24h, met-output-throughput, idx-phase1-execution-glm, ent-deepseek-v4-flash, ent-glm-5-3-flash]
+related: [wf-model-deployment, wf-canary-rollback, evt-new-model-detected, evt-deployment-canary-passed, met-model-launch-lag, ent-model, ent-benchmark-run, wf-model-radar, fml-gpus-per-replica, coeff-model-weight-footprint, met-ttft, met-tokens-per-gpu-second, fml-cost-per-1m-tokens, val-launch-lag-24h, met-output-throughput, idx-phase1-execution-glm, ent-deepseek-v4-flash, ent-glm-5-3-flash, prd-model-lifecycle]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-10-09
@@ -104,3 +104,5 @@ Model Enablement owns the factory end to end; Performance Engineering owns the h
 ## See Also
 
 - [[Operations Hub]]
+- [[Model Lifecycle PRD]] — lifecycle requirements (draft)
+

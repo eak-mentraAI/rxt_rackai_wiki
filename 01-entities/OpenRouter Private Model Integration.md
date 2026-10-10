@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: product
 aliases: [openrouter private model, private model integration, private models, path a]
-related: [ent-openrouter-integration, ent-model-deployment, ent-api-key, hub-openrouter, hub-entities, idx-openrouter-integration-plan]
+related: [ent-openrouter-integration, ent-model-deployment, ent-api-key, hub-openrouter, hub-entities, idx-openrouter-integration-plan, prd-inference-access-distribution]
 source_docs: [openrouter_concepts_integration_provider, identity_access_spec]
 confidence: derived
 last_reviewed: 2026-09-04
@@ -72,3 +72,5 @@ Like the provider integration, it sits at the demand boundary and presents a Mod
 - [[Entity Ontology Hub]]
 - [[OpenRouter Initiative]]
 - [[OpenRouter Provider Integration]]
+- [[Inference Access & Distribution PRD]] — access surfaces (draft)
+

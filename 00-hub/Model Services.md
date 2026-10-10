@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: product
 aliases: [model services, model lifecycle, model enablement, model pillar, model catalog, model onboarding, day-zero factory]
-related: [hub-rackai-platform, hub-roadmap, hub-inference-serving, hub-inference-optimization, hub-ai-harness, hub-org-design, wiki-pillar-working-model, ent-model, ent-model-class, ent-model-deployment, ent-model-deployment-spec, ent-model-catalog-endpoint, ent-registry-credential, ent-fine-tuning-job, ent-lora-adapter, ent-dataset, hub-product, hub-openrouter]
+related: [hub-rackai-platform, hub-roadmap, hub-inference-serving, hub-inference-optimization, hub-ai-harness, hub-org-design, wiki-pillar-working-model, ent-model, ent-model-class, ent-model-deployment, ent-model-deployment-spec, ent-model-catalog-endpoint, ent-registry-credential, ent-fine-tuning-job, ent-lora-adapter, ent-dataset, hub-product, hub-openrouter, prd-model-lifecycle]
 source_docs: ["reference/RackAI - Roadmap.xlsx", "06-sources/RackAI Roadmap (Delivery Plan).md", "06-sources/RackAI Enterprise AI Development Plan.md"]
 confidence: derived
 last_reviewed: 2026-09-24
@@ -45,13 +45,12 @@ This is not the same as *how efficiently we serve* a model (that is [[Inference 
 - Registry Credentials (HuggingFace token, license, image pull)
 - Fine-tuning: Dataset → Fine-Tuning Job (SFT / QLoRA) → LoRA Adapter
 - Adapter deployment and apply-in-AI-Studio
-- On-demand model onboarding (RACKAI-354, in progress)
 
 ## What Is In Progress or Planned
 
 | Capability | Status | Source |
 |---|---|---|
-| On-demand model onboarding (request new model support) | In Progress (RACKAI-354) | Delivery roadmap |
+| On-demand model onboarding (request new model support) | Not started per the roadmap CSV; no RACKAI-354 commits found (rackai@79ca4de, read-only code check 2026-10-10); owner differs between sources ([[Model Lifecycle PRD]] D-2) | Delivery roadmap |
 | DPO fine-tuning (preference-tuning beyond SFT) | In Progress (RACKAI-252) | Delivery roadmap |
 | Model sunsetting / lifecycle retirement | Not Started (RACKAI-372) | Delivery roadmap |
 | RL fine-tuning methods | Planned ("Coming Soon" in 1.0.0 docs) | RackAI Platform docs |
@@ -140,3 +139,5 @@ See [[RackAI Roadmap]] for full milestone list.
 - [[Product Hub]] — model bets and OpenRouter inference program strategy
 - [[RackAI Roadmap]] — milestones and gap register
 - [[RackAI Organizational Design]] — pillar structure and team boundaries
+- [[Model Lifecycle PRD]] — lifecycle requirements (draft)
+

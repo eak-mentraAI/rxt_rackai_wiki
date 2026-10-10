@@ -5,7 +5,7 @@ status: draft
 owner: commercial
 domain: commercial
 aliases: [billing, payment, billing and payment, payout, invoicing]
-related: [wf-metering, hub-commercial, hub-openrouter, ent-openrouter-integration, idx-open-questions, idx-openrouter-integration-plan, ent-model-catalog-endpoint]
+related: [wf-metering, hub-commercial, hub-openrouter, ent-openrouter-integration, idx-open-questions, idx-openrouter-integration-plan, ent-model-catalog-endpoint, prd-inference-access-distribution]
 source_docs: [metering_spec, openrouter_concepts_integration_provider, "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md", "06-sources/rackai-platform/Identity and Access Control Spec.md"]
 confidence: assumed
 last_reviewed: 2026-10-10
@@ -57,3 +57,5 @@ The **Private Models** path (Path A) does not require RackAI-side billing (usage
 - [[Metering]]
 - [[OpenRouter Initiative]]
 - [[Open Questions]]
+- [[Inference Access & Distribution PRD]] — public listing is gated on billing (draft)
+

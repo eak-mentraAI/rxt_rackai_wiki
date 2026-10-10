@@ -24,7 +24,7 @@ summary: "PRD A: customers declare what a workload needs and must never violate;
 | Product approval | **Approved by the product owner, 2026-10-10, v1.0**: all product decisions PD-1 to PD-10 and acceptance criteria AC-1 to AC-14. Open decisions D-1 to D-8 remain open with their owners. Passing checks is not approval |
 | Date | 2026-10-10 |
 | Roadmap items | Supply-abstraction interface; Workload declaration (intent + constraints); Supply abstraction v1 - second impl (AMD/partner); Heterogeneous supply |
-| Tech spec(s) | [[Workload Declaration & Placement Tech Spec]] (v0.3, product-approved 2026-10-10 with the DV-3 interim; DV-3 open pending C; engineering approval pending): covers Phase-1 FRs, defers Phase-2 FRs; extends the [[Accelerator Selection Spec]] additively |
+| Tech spec(s) | [[Workload Declaration & Placement Tech Spec]] (v0.4, 2026-10-10: v0.3 product-approved with the DV-3 interim; v0.4 applies the product owner's review rulings A4-1 to A4-13; engineering approval pending): covers Phase-1 FRs, defers Phase-2 FRs; extends the [[Accelerator Selection Spec]] additively |
 
 > **Artifact type: Product Requirements Document.** The canonical concept is [[Workload Declaration]]; this PRD projects from it and from the intent-and-constraints contract in [[Three Battlegrounds]], and must not redefine them. If they disagree, the canonical notes win and this PRD is stale.
 >
@@ -314,7 +314,7 @@ The bet is that MOE-1 customers will accept **managed placement**: RackAI choosi
 | D-5 | Capability-class declarations: may RackAI choose the model? Within what quality bar? | Product owner | FR-18 |
 | D-6 | Supply-abstraction vocabulary and how it maps onto today's `AcceleratorClass` | Platform engineering (tech spec) | FR-13 |
 | D-7 | *No capacity*: wait list only, or reservations with time bounds? | Product owner | FR-12 |
-| D-8 | Do fine-tuning jobs use the same declaration and placement? | Product owner, with J | Scope |
+| D-8 | Do fine-tuning jobs use the same declaration and placement? *Proposed answer (2026-10-10, not approved): [[Fine-Tuning Operations PRD]] PD-10. Phase 1: no declaration for fine-tuning jobs, and `"auto"` is rejected at admission. Phase 2: jobs are checked against inherited hard constraints through A's feasibility interface. Annotated per product-owner review ruling A4-11.* | Product owner, with J | Scope |
 
 ## 20. Proposed Product Decisions
 

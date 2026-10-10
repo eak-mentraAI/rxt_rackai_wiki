@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: platform
 aliases: [lora adapter, lora, adapter, fine-tuned adapter]
-related: [ent-fine-tuning-job, ent-model, ent-model-deployment, ent-organization, wf-fine-tuning, hub-entities, hub-model-services]
+related: [ent-fine-tuning-job, ent-model, ent-model-deployment, ent-organization, wf-fine-tuning, hub-entities, hub-model-services, prd-fine-tuning-operations, spec-fine-tuning-operations]
 source_docs: [rackai_console_docs, rackai_ui_architecture]
 confidence: measured
 last_reviewed: 2026-09-04
@@ -64,3 +64,5 @@ L1 — Entity Ontology. The adapter is the output of the fine-tuning pipeline an
 - [[Fine-Tuning Job]]
 - [[Model Deployment]]
 - [[Fine-Tuning]]
+- [[Fine-Tuning Operations PRD]] — adapter intake contract (draft)
+

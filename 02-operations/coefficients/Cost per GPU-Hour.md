@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: capacity
 aliases: [cost per gpu-hour, gpu-hour cost, internal gpu cost]
-related: [fml-cost-per-1m-tokens, fml-gross-margin-per-model, met-gpu-utilization, ent-gpu-node, ent-capacity-pool, ent-gpu-fleet, idx-unit-economics, fml-gpu-hours-per-1m-tokens]
+related: [fml-cost-per-1m-tokens, fml-gross-margin-per-model, met-gpu-utilization, ent-gpu-node, ent-capacity-pool, ent-gpu-fleet, idx-unit-economics, fml-gpu-hours-per-1m-tokens, prd-operator-economics, spec-operator-economics]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-10-08
@@ -57,3 +57,5 @@ Typed edges (canonical types only). `→` = this note is the subject; `←` = th
 ## See Also
 
 - [[Operations Hub]]
+- [[Operator Economics & KPI Instrumentation PRD]] — how cost per GPU-hour is captured and priced (draft)
+

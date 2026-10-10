@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [openrouter integration plan, openrouter go-to-market plan, path a then b plan, openrouter sequencing plan, becoming a provider plan]
-related: [hub-openrouter, hub-product, ent-openrouter-private-model, ent-openrouter-integration, ent-model-catalog-endpoint, ent-billing-payment, ent-api-key, idx-first-bet-glm, idx-phase1-execution-glm, idx-capability-gap-register, asm-fleet-competitiveness, ent-gpu-amd-instinct, idx-open-questions]
+related: [hub-openrouter, hub-product, ent-openrouter-private-model, ent-openrouter-integration, ent-model-catalog-endpoint, ent-billing-payment, ent-api-key, idx-first-bet-glm, idx-phase1-execution-glm, idx-capability-gap-register, asm-fleet-competitiveness, ent-gpu-amd-instinct, idx-open-questions, prd-inference-access-distribution]
 source_docs: [openrouter_concepts_integration_provider, openrouter_strategic_vision.md, openrouter_engineering_roadmap.md, rackai_release_1_0_0, metering_spec, identity_access_spec]
 confidence: derived
 last_reviewed: 2026-09-04
@@ -121,7 +121,7 @@ Each phase advances only when its gate is met. Gates convert the plan's risks in
 
 | Gate | Before | Criterion to pass | If it fails |
 |------|--------|-------------------|-------------|
-| **G1 — Path A dependencies hold** | Phase 1 | [[API Key]] support available; OpenRouter private-model validation + Enterprise-plan mechanics confirmed straightforward | Escalate/resequence; run the API-key-independent Phase 2 items in parallel meanwhile |
+| **G1 — Path A dependencies hold** | Phase 1 | [[API Key]] support available (met 2026-10-10: keys shipped under IAC M1; see [[Inference Access & Distribution PRD]]); OpenRouter private-model validation + Enterprise-plan mechanics confirmed straightforward | Escalate/resequence; run the API-key-independent Phase 2 items in parallel meanwhile |
 | **G2 — Integration surface proven** | Phase 3 | Streaming, token-usage, and error-code conformance all pass on a real deployment (recorded validation items — no P0 at `assumed`) | Hold public launch; fix conformance first |
 | **G3 — Price competitiveness** | Phase 3 public launch | Projected GLM cost/token on SPOT H100 FP8 lands within the competitive band of current GLM providers on OpenRouter (price routes first) | Hold public launch; revisit hardware/quantization or defer to AMD economics |
 | **G4 — Billing funded + owned** | Phase 3 build | Automated payment (auto top-up or invoicing) is funded with a named owner — it is currently a platform non-goal | Public path (Path B) stays blocked; remain on Path A |
@@ -175,3 +175,5 @@ Externally verifiable OpenRouter mechanics cited above trace to OpenRouter's own
 - [[Phase 1 Execution Plan — GLM 5.3 Flash Proof Point]]
 - [[Capability Gap Register]]
 - [[Product Hub]]
+- [[Inference Access & Distribution PRD]] — access surfaces for the Level 0 offer (draft)
+

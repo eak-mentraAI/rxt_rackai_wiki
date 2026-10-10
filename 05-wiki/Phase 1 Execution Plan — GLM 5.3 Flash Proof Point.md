@@ -71,6 +71,7 @@ flowchart LR
 ## What Success Looks Like (this phase)
 
 - GLM 5.3 Flash live on OpenRouter through the standard pipeline, meeting API conformance.
+- *Note 2026-10-10:* roadmap row 15 names Path A (private); public listing is row 77, gated on billing. Which one MOE-0 needs is open ([[Inference Access & Distribution PRD]] D-4).
 - Measured tokens/GPU-second, TTFT, and cost/1M vs. competing GLM providers — the first entries that move the scorecard off `assumed`.
 - A pipeline where launching the next fitting model is a config/spec change, not a new project.
 

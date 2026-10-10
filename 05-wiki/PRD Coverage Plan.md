@@ -10,12 +10,12 @@ source_docs: ["05-wiki/RackAI Roadmap.csv", "05-wiki/Milestone Release Map.md", 
 confidence: derived
 last_reviewed: 2026-10-10
 parent: hub-roadmap
-summary: "Which roadmap items have a PRD, which need one, and how ten approved PRDs group by loop step and wave."
+summary: "Which roadmap items have a PRD and spec, which need one, and how the ten PRDs group by loop step and wave."
 ---
 
 # PRD Coverage Plan
 
-> **What this is.** A planning view of the canonical roadmap table (`05-wiki/RackAI Roadmap.csv`, 79 rows as of 2026-10-10). For each row it shows whether a PRD exists, which proposed PRD should cover it, or why it needs no PRD. **No PRD has been written from this plan yet.** Groupings, names and waves were approved by the product owner on 2026-10-10 after a critical review. Row numbers are CSV line numbers (header = line 1); the stable key is the **Milestone** name, which each PRD must cite exactly (see [[#How PRDs attach to roadmap items]]).
+> **What this is.** A planning view of the canonical roadmap table (`05-wiki/RackAI Roadmap.csv`, 79 rows as of 2026-10-10). For each row it shows whether a PRD exists, which proposed PRD should cover it, or why it needs no PRD. **Status (2026-10-10):** PRD A is approved, and its tech spec is product-approved and in engineering review. PRDs B–J and their tech specs are at v0.2 with the product owner's review disposition applied (conditional acceptance; not formal approval). They await formal product approval and engineering review. Groupings, names and waves were approved by the product owner on 2026-10-10 after a critical review. Row numbers are CSV line numbers (header = line 1); the stable key is the **Milestone** name, which each PRD must cite exactly (see [[#How PRDs attach to roadmap items]]).
 >
 > **Standards.** New PRDs use `templates/prd.md` v2 (`.kiro/steering/prd-standards.md`). Their engineering designs use `templates/tech-spec.md` (`type: spec`, `.kiro/steering/tech-spec-standards.md`). Both templates were shaped on the engineering team's own PRDs and tech specs (received 2026-10-10 in `reference/PRD/`).
 
@@ -78,7 +78,7 @@ Grouping rule: one PRD per set of roadmap items that share **users, canonical en
 | 43 | Supply abstraction v1 - second impl (AMD/partner) | T1.S4 | Gap | Should | MOE-4 | Not started | Later phase |
 | 70 | Heterogeneous supply | T1.S4 | Gap | Won't | MOE-4 | Not started | Later phase (named only) |
 
-**Status (2026-10-10): approved** — [[Workload Declaration & Placement PRD]] v1.0 (product decisions and acceptance criteria approved; open decisions D-1 to D-8 remain). **Canonical note written with it:** [[Workload Declaration]] (six PRDs consume it). Supply target / accelerator pool / execution location are defined inside A until G becomes their second consumer. Builds on [[Model Deployment Specification]], [[Sovereignty Levels]], [[Accelerator Selection Spec]] (manual selection and inventory; its Phase 4 model-aware placement feeds G's recommendation, not A's mechanism).
+**Status (2026-10-10): PRD approved; tech spec product-approved, in engineering review** — [[Workload Declaration & Placement PRD]] v1.0 (product decisions and acceptance criteria approved; open decisions D-1 to D-8 remain). Tech spec: [[Workload Declaration & Placement Tech Spec]] v0.3, product-approved 2026-10-10 with the DV-3 interim; engineering approval pending (pushed at `e1ae63f` for review). Roadmap rows 13, 14, 43 and 70 link both the PRD and the spec. **Canonical note written with it:** [[Workload Declaration]] (six PRDs consume it). Supply target / accelerator pool / execution location are defined inside A until G becomes their second consumer. Builds on [[Model Deployment Specification]], [[Sovereignty Levels]], [[Accelerator Selection Spec]] (manual selection and inventory; its Phase 4 model-aware placement feeds G's recommendation, not A's mechanism).
 
 #### B. Operator Economics & KPI Instrumentation PRD — `prd-operator-economics`
 
@@ -92,7 +92,9 @@ Grouping rule: one PRD per set of roadmap items that share **users, canonical en
 | 18 | Model Launch Lag instrumentation | T3.S1 | Gap | Should | MOE-1 | Not started | Phase 2 (operational; F uses it as a success metric) |
 | 74 | Operational leverage (workloads/FTE) | T5.S4 | Gap | Won't | MOE-2 | Not started | Later phase (operational) |
 
-Canonical homes exist: [[Cost per GPU-Hour]], [[Unit Economics Model]], [[Model Launch Lag]]. Depends on the Metering spec (usage records; fine-tuning sidecar metering now built).
+Canonical homes exist: [[Cost per GPU-Hour]], [[Unit Economics Model]], [[Model Launch Lag]]. Depends on the Metering spec (usage records; fine-tuning sidecar metering written under RACKAI-515 but not merged to main at `rackai@79ca4de`).
+
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Operator Economics & KPI Instrumentation PRD]] and [[Operator Economics & KPI Instrumentation Tech Spec]] v0.2. PO review: PD-1–PD-10 approved in principle; PD-11 revised (reusable kill-threshold framework, §18.1); FR-16 renamed *allocation utilisation*.
 
 #### C. Governed Execution & Delegated Authority PRD — `prd-governed-execution-authority`
 
@@ -106,7 +108,9 @@ Canonical homes exist: [[Cost per GPU-Hour]], [[Unit Economics Model]], [[Model 
 | 72 | Governed harness - full runtime | T2.S5 | Gap | Won't | Beyond MOE-4 | Not started | Later phase |
 | 73 | Govern & assure inside the perimeter | T2.S5 | Gap | Won't | MOE-4 | Not started | Later phase |
 
-Canonical homes exist: [[Governed Harness]], [[Agent Identity]], [[Action Controls]]. Row 38 carries a recorded conflict: the roadmap says IAC M4 was dropped, but org-scoped RoleBindings are built and switched off (`rbac.multiOrg.enabled`; see Open Questions). Resolve it as the PRD's first open decision.
+Canonical homes exist: [[Governed Harness]], [[Agent Identity]], [[Action Controls]]. Row 38 carries a recorded conflict: the roadmap says IAC M4 was dropped, but org-scoped RoleBindings are built and work whenever RBAC enforcement is on; `rbac.multiOrg.enabled` gates only multiple CustomerOrgs (code check 2026-10-10, `rackai@79ca4de`; see [[Governed Execution & Delegated Authority PRD]] D-1). Resolve it as the PRD's first open decision.
+
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Governed Execution & Delegated Authority PRD]] and [[Governed Execution & Delegated Authority Tech Spec]] v0.2. PO review: most PDs approved in principle; PD-6 (single-authoriser exception) and PD-8 (narrow RackAI platform-safety containment) revised; PD-1 held for Erik. New: [[Authority Context]], authority principal per X-1 (`CustomerOrg.spec.authorityPrincipal`, `authority.PrincipalFor`), `model.retire` never emergency-eligible (X-3).
 
 #### J. Fine-Tuning Operations PRD — `prd-fine-tuning-operations`
 
@@ -120,11 +124,15 @@ Canonical homes exist: [[Governed Harness]], [[Agent Identity]], [[Action Contro
 
 Row 27 is in build (RACKAI-385) with only umbrella coverage in the [[RackAI Platform PRD]] (§13) and no tech spec on file. Ground it in the actual code (read-only) before writing.
 
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Fine-Tuning Operations PRD]] and [[Fine-Tuning Operations Tech Spec]] v0.2 (boundary only; fine-tuning metering RACKAI-515 written but not merged). PO review: PD-1–PD-11 approved in principle; PD-5 scoped to the managed fine-tuning service (S-7); DV-1 approved with migration; DV-3 revised (attribution gaps fail visibly).
+
 #### D-0. Evidence contract (sketch, part of wave 1)
 
 Not a separate PRD: the first section of D, drafted alongside wave 1 so A, B, C and J contribute evidence in one shape instead of each inventing their own. It defines what an evidence record is, who contributes which kind (performance vs SLO, cost, policy decisions, boundary held), and how records join. The full D PRD follows in wave 2.
 
 ### Wave 2: MOE-1 Musts
+
+**Status (2026-10-10): drafted as section 1.2 of the D PRD** — [[Customer Observability & Evidence Report PRD]] §1.2 and [[Customer Observability & Evidence Report Tech Spec]] §4: a versioned platform contract (envelope, kinds registry bound to [[Verification Status Vocabulary]], coverage reconciled against independent sources, `scope.authorityPrincipal`). All sibling specs conform.
 
 #### D. Customer Observability & Evidence Report PRD — `prd-customer-observability-evidence`
 
@@ -137,6 +145,8 @@ Not a separate PRD: the first section of D, drafted alongside wave 1 so A, B, C 
 
 **Gated by:** row 11 (per-profile SLO thresholds; the report is measured against them) and row 47 (MOE acceptance definition). **Canonical notes written with it:** Customer Observability, Evidence Report. Delivery substrate: the In-Tenant Observability spec (row 8), whose tenant latency series are currently empty because the recording rules aren't shipped.
 
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Customer Observability & Evidence Report PRD]] and [[Customer Observability & Evidence Report Tech Spec]] v0.2. Canonical notes: [[Customer Observability]], [[Evidence Report]]. PO review: PDs approved in principle, PD-8/PD-9 revised (authority-principal scoping, two-level completeness); DV-1/DV-2 approved; DV-3 revised (joint attainment `not_measured`, lower bound labelled an estimate).
+
 #### E. Sovereign Isolation & Assurance PRD — `prd-sovereign-isolation-assurance`
 
 **Loop role:** Stay inside your boundaries (where execution happens). Isolation, execution boundaries, what may cross them, and the product controls and evidence that let the first attestation be achieved. Defines boundary rules that C enforces. Decision **D3**.
@@ -147,6 +157,8 @@ Not a separate PRD: the first section of D, drafted alongside wave 1 so A, B, C 
 | 41 | First applicable assurance attestation | T2.S4 | Gap | Must | MOE-1 | Not started | Phase 1 (product controls only) |
 
 Projects from [[Sovereignty Levels]] (Level 1, Dedicated). The attestation programme itself (auditor, scope) is a compliance workstream; the PRD covers only the product controls and evidence. Gated by row 47.
+
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Sovereign Isolation & Assurance PRD]] and [[Sovereign Isolation & Assurance Tech Spec]] v0.2. PO review: PD-1 conditionally approved (dedicated nodes ≠ dedicated cluster); PD-2 revised per X-1; PD-4 revised (severity-based containment S1–S4, security review E D-12); DV-2 approved; DV-3 revised (`held` = control operating).
 
 #### F. Model Lifecycle PRD — `prd-model-lifecycle`
 
@@ -160,6 +172,8 @@ Projects from [[Sovereignty Levels]] (Level 1, Dedicated). The attestation progr
 | 32 | Multi-model operation | T4.S2 | Committed | Should | MOE-2 | In progress | Phase 2 |
 
 Canonical homes exist: [[Model Services]], [[Model Radar]], [[Model Launch Factory]], [[Canary & Rollback]]. Row 59 is committed (RACKAI-354, owner Erik): check the code and engineering's design before writing. Open decision: whether new-model requests go through SNOW. Success metric: [[Model Launch Lag]] (instrumented by B).
+
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Model Lifecycle PRD]] and [[Model Lifecycle Tech Spec]] v0.2. PO review: PDs approved in principle with a PD-4 transition plan; PD-6 revised (contract-affecting upgrades need consent); PD-8 approved, with security withdrawal via `model.security-withdraw`; `scid` from G (X-2); DV-1/DV-3 conditional.
 
 #### G. Empirical Map & Evidence-Informed Routing PRD — `prd-empirical-map-routing`
 
@@ -175,6 +189,8 @@ Canonical homes exist: [[Model Services]], [[Model Radar]], [[Model Launch Facto
 
 Canonical homes exist: [[Empirical Map]], [[Traffic Class]], [[Request Routing]]. Gated by row 11 (SLO thresholds); depends on B (cost data).
 
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Empirical Map & Evidence-Informed Routing PRD]] and [[Empirical Map & Evidence-Informed Routing Tech Spec]] v0.2 (designs rows 28–30). PO review: PD-1–PD-11 approved in principle. G owns `scid` ([[Serving Configuration Identity]], X-2); ranking evidence kept apart from verification evidence; Phase-1 flow is operator-mediated.
+
 ### Wave 3: Should / not gated
 
 #### H. Concierge Engineer PRD — `prd-concierge-engineer`
@@ -189,6 +205,8 @@ Canonical homes exist: [[Empirical Map]], [[Traffic Class]], [[Request Routing]]
 
 v0 needs D; v1 needs A and C. Its concept is used only here, so the canonical note can come later (currently described only in [[RackAI Roadmap]]).
 
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Concierge Engineer PRD]] and [[Concierge Engineer Tech Spec]] v0.2. PO review: PD-1–PD-12 approved in principle, with a sovereignty gate (PD-8) and C Phase 2 as an explicit release blocker for v1; usage, estimated charges and actual charges kept separate; DV-3 revised (non-executable quota draft).
+
 #### I. Inference Access & Distribution PRD — `prd-inference-access-distribution`
 
 **Loop role:** Deliver the how (how customers reach shared inference). Renamed from "Inference as a Service Channels". It covers the **access surfaces** for the shared, time-sliced endpoint offer, which is **Level 0** in [[Sovereignty Levels]]: the direct RackAI API/portal, OpenRouter distribution, and BYOM through supported interfaces. Every surface **consumes** the same platform contracts (identity, metering, quotas, model availability, service behaviour) from the IAC and metering specs; I does not re-specify the underlying inference service. That keeps OpenRouter and direct inference from becoming two loosely related products.
@@ -201,6 +219,8 @@ v0 needs D; v1 needs A and C. Its concept is used only here, so the canonical no
 | 78 | Inference as a Service (direct) | T4.S1 | Decision Required | Could | Not gated | Not started | Open decision → Phase 2 |
 
 Row 78 is still a pending decision. The PRD frames it and does not presume the answer. Row 15 is planned in [[Phase 1 Execution Plan — GLM 5.3 Flash Proof Point]] and [[OpenRouter Integration Plan]]; this PRD cites them rather than repeating them.
+
+**Status (2026-10-10): PRD and tech spec drafted (v0.2), PO review disposition applied (conditional acceptance; not approved)** — [[Inference Access & Distribution PRD]] and [[Inference Access & Distribution Tech Spec]] v0.2. PO review: PD-1–PD-7 and PD-9 approved in principle; PD-8 revised (maximum unreconciled exposure, automatic paid-admission suspension); PD-10 revised to B's framework; **DV-2 rejected**: no shared endpoint until E's `BoundaryCacheIsolated=True` (E M3).
 
 ### Later horizon (do not write yet)
 

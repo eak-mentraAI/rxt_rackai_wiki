@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: product
 aliases: [workload declaration, declaration, declaration surface, intent and constraints declaration, customer declaration, declared workload, workload intent]
-related: [ent-model-deployment-spec, ent-model-deployment, ent-organization, ent-model, ent-capacity-pool, ent-traffic-class, ent-empirical-map, ent-governed-harness, pol-sovereignty-levels, hub-battlegrounds, hub-roadmap, prd-workload-declaration-placement, spec-workload-declaration-placement, met-slo-attainment]
+related: [ent-model-deployment-spec, ent-model-deployment, ent-organization, ent-model, ent-capacity-pool, ent-traffic-class, ent-empirical-map, ent-governed-harness, pol-sovereignty-levels, hub-battlegrounds, hub-roadmap, prd-workload-declaration-placement, spec-workload-declaration-placement, met-slo-attainment, ent-evidence-report]
 source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "01-entities/Model Deployment Specification.md", "05-wiki/Milestone Release Map.md"]
 confidence: assumed
 last_reviewed: 2026-10-10

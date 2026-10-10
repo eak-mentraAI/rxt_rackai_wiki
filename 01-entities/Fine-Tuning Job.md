@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: platform
 aliases: [fine-tuning job, finetuning job, training job, sft job]
-related: [ent-dataset, ent-lora-adapter, ent-organization, ent-model, wf-fine-tuning, hub-entities, hub-model-services]
+related: [ent-dataset, ent-lora-adapter, ent-organization, ent-model, wf-fine-tuning, hub-entities, hub-model-services, prd-fine-tuning-operations, spec-fine-tuning-operations]
 source_docs: [rackai_console_docs, rackai_ui_architecture]
 confidence: measured
 last_reviewed: 2026-09-04
@@ -59,6 +59,7 @@ L1 — Entity Ontology. The job is the transform step of the fine-tuning pipelin
 
 - Source: `rackai_console_docs`, `rackai_ui_architecture`.
 - Confidence rationale: SFT/QLoRA path, eval split default, AMD recipe auto-config, and job statuses are `measured` (shipped). `reinforcement` and `dpo` are `assumed` — surfaced as "Coming Soon" only.
+- **Update 2026-10-10 (rackai@79ca4de, read-only code check 2026-10-10):** the backend enum is `SFT|RLHF|DPO`. DPO is merged on NVIDIA (`6c4aedb`) and available in the CLI; RLHF has no trainer path; the console still marks DPO "Coming Soon". See [[Fine-Tuning Operations PRD]].
 - **Conflict / open question:** the method enum advertises `reinforcement` and `dpo`, but only `supervised` is shipped. Treat RL/DPO as planned (`assumed`) until a release confirms them; the gap is an open question. Shipped beats planned.
 
 ## See Also
@@ -67,3 +68,5 @@ L1 — Entity Ontology. The job is the transform step of the fine-tuning pipelin
 - [[Dataset]]
 - [[LoRA Adapter]]
 - [[Fine-Tuning]]
+- [[Fine-Tuning Operations PRD]] — fine-tuning boundary and metering (draft)
+

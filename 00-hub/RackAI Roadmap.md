@@ -110,7 +110,7 @@ flowchart LR
 |---|---|---|---|
 | Declare intent + constraints | No customer-facing declaration; quota plans are GPU-centric | Principle adopted 2026-10-06, surface missing | **P-004** (declaration surface), **P-008** (conversational surface) |
 | Declared constraints: SLOs | Per-profile SLO thresholds | Not ratified | Open question; MOE-1 artifact 2 |
-| Inherited constraints | IAC M1–M3 shipped; IAC M4 Won't Do; [[Agent Identity]] and [[Action Controls]] planned | Partial | **P-006** |
+| Inherited constraints | IAC M1–M3 shipped; IAC M4 Won't Do (2026-10-10: org-level role bindings are in fact built and work when enforcement is on; disposition is [[Governed Execution & Delegated Authority PRD]] D-1); [[Agent Identity]] and [[Action Controls]] planned | Partial | **P-006** |
 | Discovered constraints | Platform M1–M4 telemetry, accelerator inventory (done); Observability M1 not started; cost model and [[Empirical Map]] missing | Partial | P-003, **P-005** |
 | Plan / decide | llm-d routing substrate in progress; evidence-informed selection missing | Partial | **P-005** |
 | Act | Deployments and serving | Exists | — |
@@ -606,7 +606,7 @@ The strategy-driven changes to the delivery plan are **not seven equivalent back
 | **P-006** | Minimum enterprise **control envelope** required for MOE-1 (outcome-framed) | D3 | Re-scoped from "control bundle" | Proposed |
 | **P-001** | Narrow fine-tuning: evaluate partner(s) for delivery, RackAI owns integration/serving + learning | D4 | Directional; vendor-independent | Proposed |
 | **P-007** | Proof-4 prerequisites as a **dependency declaration** (do not build yet) | D4 | Watch item, not a build ask | Proposed |
-| **P-008** | Concierge Engineer: conversational declaration surface and first consumer of the control envelope | D3 | Do-now as v0 (read-only); v1/v2 gated on P-004 / P-006 | Roadmap rows adopted 2026-10-08 (CE.S0–S2, unstaffed) |
+| **P-008** | Concierge Engineer: conversational declaration surface and first consumer of the control envelope | D3 | Do-now as v0 (read-only); v1/v2 gated on P-004 / P-006 | Roadmap rows adopted 2026-10-08 (CE.S0–S2, unstaffed). PRD: [[Concierge Engineer PRD]] (draft). Note: the audit read API is admin-only today (`rolebindings:manage`) |
 
 ## Kill / Falsification Criteria (what would change the thesis)
 

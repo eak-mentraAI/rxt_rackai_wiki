@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: governance
 aliases: [sovereignty levels, levels of sovereignty, sovereignty ladder, sovereign tiers, data sensitivity fit, which consumption model, dedicated vs shared gpu, time-sliced vs dedicated, sovereign enough]
-related: [hub-battlegrounds, hub-why-now, hub-minimum-operable-estate, wiki-roadmap-narratives, hub-eac-product-model, evd-gpu-co-tenancy-risk, ev-sovereign-private-assistant, hub-ai-governance-assurance, ent-organization]
+related: [hub-battlegrounds, hub-why-now, hub-minimum-operable-estate, wiki-roadmap-narratives, hub-eac-product-model, evd-gpu-co-tenancy-risk, ev-sovereign-private-assistant, hub-ai-governance-assurance, ent-organization, prd-sovereign-isolation-assurance, spec-sovereign-isolation-assurance, prd-inference-access-distribution]
 source_docs: ["product owner direction (2026-10-09)", "00-hub/Three Battlegrounds.md", "05-wiki/Roadmap Narratives.md"]
 confidence: assumed
 last_reviewed: 2026-10-09
@@ -85,7 +85,7 @@ Each MOE gate unlocks the next level, so "which market opens" also reads as "whi
 | Security and legal validation of the levels, data classes and fit calls | this note | High |
 | Confirm the serving-layer controls Level 0 needs are in place: per-tenant KV / prefix cache, VM boundary where customers run code, patched NVIDIA Container Toolkit | [[GPU Co-Tenancy Risk]] | High |
 | Scope the shared KV cache in *M2: Inference routing* (RACKAI-311, in progress) and *Shared KV cache (improvement)* as per-tenant; cross-tenant sharing leaks prompts | [[RackAI Roadmap]] | High |
-| Does Level 1 require a dedicated cluster or node, or are dedicated GPUs in a shared cluster (namespace-per-organisation isolation) enough? | [[Organization]], [[Minimum Operable Estate]] | High |
+| Does Level 1 require a dedicated cluster or node, or are dedicated GPUs in a shared cluster (namespace-per-organisation isolation) enough? *Proposed answer: a dedicated node set in the shared cluster ([[Sovereign Isolation & Assurance PRD]] PD-1), pending approval.* | [[Organization]], [[Minimum Operable Estate]] | High |
 | Is RXT-owned, dedicated capacity in a partner facility (e.g. Houston) eligible for Levels 1–2? | [[Why Now]] | Medium |
 | Does Level 0 carry a jurisdiction claim for our current single region? | this note | Medium |
 
@@ -94,3 +94,6 @@ Each MOE gate unlocks the next level, so "which market opens" also reads as "whi
 - [[Three Battlegrounds]]: the sovereign provider centre these levels express
 - [[GPU Co-Tenancy Risk]]: the evidence behind Level 0's residual risk
 - [[Minimum Operable Estate]] · [[Roadmap Narratives]] · [[Why Now]]
+- [[Sovereign Isolation & Assurance PRD]] — Levels 0 and 1 as product rules (draft)
+- [[Inference Access & Distribution PRD]] — access surfaces for the Level 0 offer (draft)
+

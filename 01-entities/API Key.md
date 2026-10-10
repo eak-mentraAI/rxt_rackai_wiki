@@ -5,7 +5,7 @@ status: draft
 owner: platform-eng
 domain: platform
 aliases: [api key, api credential, programmatic credential]
-related: [ent-organization, wf-identity-access, ent-openrouter-private-model, hub-entities, idx-openrouter-integration-plan, ent-agent-identity]
+related: [ent-organization, wf-identity-access, ent-openrouter-private-model, hub-entities, idx-openrouter-integration-plan, ent-agent-identity, prd-inference-access-distribution]
 source_docs: [identity_access_spec, "reference/RackAI - Roadmap.xlsx"]
 confidence: measured
 last_reviewed: 2026-09-21
@@ -30,7 +30,7 @@ L1 — Entity Ontology. The API Key authenticates an Organization's programmatic
 | Attribute | Description | Type | Confidence |
 |-----------|-------------|------|:----------:|
 | Key ID | Stable identifier | string | measured |
-| Scope | Org-scoped access to APIs/inference | enum | measured |
+| Scope | Tenant (Organization namespace) scoped, optionally confined to one project (`spec.projectRef`); HMAC `rkai_` keys with expiry and revocation; a hosted mint exists (RACKAI-333); no console page (`rackai@79ca4de:api/v1alpha1/apikey_types.go`, `internal/authservice/apikey_mint.go`; `rackai-ui@89bddb4`) | enum | measured |
 | Secret material | The token used to authenticate | ref | measured |
 | Status | Shipped (IAC M1, RACKAI-204) | enum | measured |
 
@@ -56,3 +56,5 @@ APIKey CRD with lifecycle events (issuance/revocation logged via the audit-log A
 - [[Entity Ontology Hub]]
 - [[Identity & Access Control]]
 - [[Organization]]
+- [[Inference Access & Distribution PRD]] — API keys as the access credential (draft)
+

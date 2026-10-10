@@ -5,7 +5,7 @@ status: draft
 owner: reliability
 domain: reliability
 aliases: [canary and rollback, canary deployment, rollback workflow]
-related: [wf-model-deployment, wf-model-launch-factory, evt-deployment-canary-passed, met-ttft, met-availability, ent-model-deployment, ent-benchmark-run, wf-eval-as-ci, wf-closed-loop-optimization, wf-self-improvement-loop, pol-governable-self-modification]
+related: [wf-model-deployment, wf-model-launch-factory, evt-deployment-canary-passed, met-ttft, met-availability, ent-model-deployment, ent-benchmark-run, wf-eval-as-ci, wf-closed-loop-optimization, wf-self-improvement-loop, pol-governable-self-modification, prd-model-lifecycle]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-10-08
@@ -86,3 +86,5 @@ SRE / Reliability owns canarying, rollback, and capacity protection.
 ## See Also
 
 - [[Operations Hub]]
+- [[Model Lifecycle PRD]] — canary upgrade requirements (draft)
+

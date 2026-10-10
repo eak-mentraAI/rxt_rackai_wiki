@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [minimum operable estate, moe, mvp operator, operator mvp, smallest operable estate, first operated estate, moe-1 acceptance, supplier to operator]
-related: [pol-sovereignty-levels, hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register, wiki-roadmap-narratives]
+related: [pol-sovereignty-levels, hub-roadmap, hub-battlegrounds, hub-load-bearing-bets, hub-governance, ent-empirical-map, ent-governed-harness, idx-capability-gap-register, wiki-roadmap-narratives, prd-customer-observability-evidence, ent-evidence-report]
 source_docs: ["00-hub/Three Battlegrounds.md", "00-hub/RackAI Roadmap.md", "CEO strategy review 2026-09-21"]
 confidence: assumed
 last_reviewed: 2026-10-09
@@ -143,3 +143,5 @@ The MOE consumes the measurement primitives from Proof 1 (cost, telemetry, meter
 - [[Three Battlegrounds]] — the operator identity the MOE first proves
 - [[Governed Harness]] · [[Empirical Map]]
 - [[Capability Gap Register]] — component readiness
+- [[Evidence Report]] / [[Customer Observability & Evidence Report PRD]] — delivers artifact 4 (draft)
+

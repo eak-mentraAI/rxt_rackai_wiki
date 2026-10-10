@@ -5,7 +5,7 @@ status: draft
 owner: finops
 domain: commercial
 aliases: [unit economics model, unit economics, economic loop, cost-price-utilization loop]
-related: [hub-commercial, fml-cost-per-1m-tokens, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, fml-gpu-hours-per-1m-tokens, fml-tokens-per-gpu-second, coeff-cost-per-gpu-hour, coeff-openrouter-price]
+related: [hub-commercial, fml-cost-per-1m-tokens, fml-revenue-per-gpu-hour, fml-gross-margin-per-model, fml-gpu-hours-per-1m-tokens, fml-tokens-per-gpu-second, coeff-cost-per-gpu-hour, coeff-openrouter-price, prd-operator-economics, spec-operator-economics]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md]
 confidence: derived
 last_reviewed: 2026-09-03
@@ -57,3 +57,5 @@ Commercial reasoning here references [[Model]]s and [[Capacity Pool]]s, never in
 ## See Also
 
 - [[Commercial & Capacity Hub]]
+- [[Operator Economics & KPI Instrumentation PRD]] — unit economics and margin instrumentation (draft)
+

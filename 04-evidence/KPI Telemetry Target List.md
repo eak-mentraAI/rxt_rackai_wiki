@@ -84,7 +84,7 @@ The point of walking the list with engineering isn't just "what's missing." It's
 | Signal | Job | Source / producer | Retained? | Attributable? |
 |---|:---:|---|---|---|
 | input / output / cached tokens | 2,3 | usage_records (confirmed) | 13-month window (confirmed) — **⚠ conflicts with spec: per-install `retentionDays`, default 365; see note below** | Tenant-attributed (confirmed) |
-| queue_secs / latency_secs / compute_secs | 2,3 | Columns exist but read as 0 — no producer writes them (confirmed) — *since 2026-10-08 the FT sidecar writes compute seconds (and `tokens_processed`/`tokens_trainable`) for fine-tuning rows; inference rows unchanged* | Persisted but unpopulated (confirmed) — *FT rows now populated* | — (no producer for inference) |
+| queue_secs / latency_secs / compute_secs | 2,3 | Columns exist but read as 0 — no producer writes them (confirmed) — *(code check 2026-10-10: the sidecar is on an unmerged RACKAI-515 branch, not main at `rackai@79ca4de`)* *since 2026-10-08 the FT sidecar writes compute seconds (and `tokens_processed`/`tokens_trainable`) for fine-tuning rows; inference rows unchanged* | Persisted but unpopulated (confirmed) — *FT rows now populated* | — (no producer for inference) |
 | TTFT as a durable/customer-reporting dimension | 2,3 | No producer today (to validate) | Would need a persisted record (to validate) | Tenant grain (to validate) |
 | Output-token throughput as durable dimension | 2,3 | No producer today (to validate) | Needs a trustworthy duration to pair with tokens (to validate) | Tenant grain (to validate) |
 

@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: performance
 aliases: [empirical map, the map, per-workload measurement, reliability map, cost map]
-related: [ent-governed-harness, ent-model, ent-benchmark-run, bench-agentx-standard, wf-request-routing, wf-verification, wf-eval-as-ci, met-cost-per-outcome, hub-entities, src-rackai-dev-plan, hub-ai-harness, wf-loop-planning, wf-self-improvement-loop, evd-kpi-telemetry-targets, ent-across-ai, ent-solution-marketplace, ent-packaged-solution, idx-ai-finops]
+related: [ent-governed-harness, ent-model, ent-benchmark-run, bench-agentx-standard, wf-request-routing, wf-verification, wf-eval-as-ci, met-cost-per-outcome, hub-entities, src-rackai-dev-plan, hub-ai-harness, wf-loop-planning, wf-self-improvement-loop, evd-kpi-telemetry-targets, ent-across-ai, ent-solution-marketplace, ent-packaged-solution, idx-ai-finops, prd-empirical-map-routing, spec-empirical-map-routing, ent-serving-configuration-identity]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
@@ -17,7 +17,7 @@ summary: "Canonical entity: the living record of where each model is reliable an
 
 ## Definition
 
-The **Empirical Map** is the living record of **where each model is reliable and what it costs**, measured per workload from Rackspace's own operating data rather than from public benchmarks. A public benchmark measures the model in the abstract; the map measures *this workload, with these tools and this context* against several models. Each cell of the map is a (workload × [[Governed Harness|harness]] × [[Model]]) result: what the model did, whether it passed the checks, and what it cost.
+The **Empirical Map** is the living record of **where each model is reliable and what it costs**, measured per workload from Rackspace's own operating data rather than from public benchmarks. A public benchmark measures the model in the abstract; the map measures *this workload, with these tools and this context* against several models. Each cell of the map is a (workload × [[Governed Harness|harness]] × [[Model]] × serving configuration and accelerator) result (roadmap: "per workload × model × hardware"): what the model did, whether it passed the checks, and what it cost.
 
 > **Assumed confidence.** Program 1 thread 1.5 (build) with a research tail on trust/prediction. Net-new in the plan's coverage table (no product covers it today). This is one of the **moat** concepts — it only accrues value from operating inside the perimeter.
 
@@ -60,3 +60,5 @@ L1 — Entity Ontology. The map is a derived record that overlays the serving ch
 - [[Verification]]
 - [[Request Routing]]
 - [[Cost per Outcome]]
+- [[Empirical Map & Evidence-Informed Routing PRD]] — product contract (draft)
+- [[Serving Configuration Identity]] — the `scid` that keys each map cell's configuration (draft)

@@ -5,7 +5,7 @@ status: draft
 owner: reliability
 domain: reliability
 aliases: [slo attainment, slo compliance, slo hit rate, percent within slo]
-related: [met-goodput, met-ttft, met-tpot, met-availability, wf-admission-control, ent-traffic-class, ent-capacity-pool, pol-benchmark-evidence-chain, hub-inference-serving]
+related: [met-goodput, met-ttft, met-tpot, met-availability, wf-admission-control, ent-traffic-class, ent-capacity-pool, pol-benchmark-evidence-chain, hub-inference-serving, prd-customer-observability-evidence, ent-customer-observability]
 source_docs: ["operator brief: MI350P benchmarking program (2026-10-07)"]
 confidence: assumed
 last_reviewed: 2026-10-07
@@ -54,3 +54,5 @@ percent of requests, per profile, per window.
 ## See Also
 
 - [[Operations Hub]] · [[Goodput]] · [[Availability]] · [[Admission Control]] · [[Benchmark Evidence Chain]]
+- [[Customer Observability]] — where attainment is shown; [[Customer Observability & Evidence Report Tech Spec]] DV-3 proposes per-threshold attainment with a joint lower bound, pending product review
+

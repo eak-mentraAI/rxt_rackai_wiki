@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: strategy
 aliases: [capability gap register, capability gaps, gap register, capability-vs-goal matrix, missing capabilities]
-related: [hub-evidence, hub-rackai-platform, hub-product, hub-roadmap, idx-open-questions, idx-validation-register, idx-kpi-hierarchy, src-strategic-vision, src-engineering-roadmap, src-rackai-delivery-roadmap]
+related: [hub-evidence, hub-rackai-platform, hub-product, hub-roadmap, idx-open-questions, idx-validation-register, idx-kpi-hierarchy, src-strategic-vision, src-engineering-roadmap, src-rackai-delivery-roadmap, prd-concierge-engineer]
 source_docs: [openrouter_strategic_vision.md, openrouter_engineering_roadmap.md, rackai_platform_prd, rackai_release_1_0_0, metering_spec, identity_access_spec, monitoring_audit_spec, "reference/RackAI - Roadmap.xlsx", "06-sources/rackai-platform/Multi-Tenancy and Metering Spec.md", "06-sources/rackai-platform/Monitoring and Auditability Spec.md"]
 confidence: derived
 last_reviewed: 2026-10-10
@@ -120,3 +120,4 @@ RackAI can **serve** models today (org/namespace tenancy, control-plane CRDs, KS
 - [[Validation Register]]
 - [[KPI Hierarchy]]
 - [[RackAI Platform]]
+- [[Concierge Engineer PRD]] — gap-signal source (FR-6) (draft)

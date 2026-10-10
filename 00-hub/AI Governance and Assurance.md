@@ -53,7 +53,7 @@ The **AI Governance & Assurance** pillar owns the trust layer that makes RackAI 
 | Billing audit (Auditing sub-task) | Not Started | Delivery roadmap |
 | Runtime policy enforcement (full) | Gap P-006 | [[RackAI Roadmap]] |
 | Governed execution harness v1 | Gap P-006 | [[RackAI Roadmap]] |
-| First applicable assurance attestation (e.g. SOC 2; type set by the MOE-1 segment) | Gap P-006 | [[RackAI Roadmap]] |
+| First applicable assurance attestation (e.g. SOC 2; type set by the MOE-1 segment; which attestation is [[Sovereign Isolation & Assurance PRD]] D-2) | Gap P-006 | [[RackAI Roadmap]] |
 | Provenance and replay | Planned (dev-plan P8/P9) | Enterprise AI Dev Plan |
 | Agent identity / scoped tokens | Planned (dev-plan 2.5) | Enterprise AI Dev Plan |
 | Multi-cluster residency governance | Planned | [[Multi-Cluster Governance Brief (Partner)]] |

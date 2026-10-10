@@ -5,7 +5,7 @@ status: draft
 owner: rackai-product
 domain: platform
 aliases: [governed harness, harness, harness layer, agent harness, agent scaffolding]
-related: [ent-model-deployment, ent-serving-runtime, ent-empirical-map, ent-agent-identity, wf-request-routing, wf-verification, hub-entities, src-rackai-dev-plan, hub-ai-harness, met-cost-per-outcome, pol-action-controls, pol-supply-chain-inventory, ev-sovereign-private-assistant, ent-solution-marketplace, ent-packaged-solution]
+related: [ent-model-deployment, ent-serving-runtime, ent-empirical-map, ent-agent-identity, wf-request-routing, wf-verification, hub-entities, src-rackai-dev-plan, hub-ai-harness, met-cost-per-outcome, pol-action-controls, pol-supply-chain-inventory, ev-sovereign-private-assistant, ent-solution-marketplace, ent-packaged-solution, prd-governed-execution-authority, spec-governed-execution-authority, prd-concierge-engineer]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-09-17
@@ -72,3 +72,6 @@ The harness consumes Model endpoints; it never references GPUs directly. It is t
 - [[Eight-Layer Stack]]
 - [[Empirical Map]]
 - [[Verification]]
+- [[Governed Execution & Delegated Authority PRD]] — harness v1 is the governed action path; full runtime later (draft)
+- [[Concierge Engineer PRD]] — first consumer (v1 actions) (draft)
+

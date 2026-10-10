@@ -5,7 +5,7 @@ status: draft
 owner: product
 domain: governance
 aliases: [gpu co-tenancy risk, gpu co-tenancy, shared gpu risk, time-slicing isolation, mig isolation, gpu side channel, cross-tenant leakage, kv cache leakage, leftoverlocals, container escape]
-related: [pol-sovereignty-levels, hub-battlegrounds, hub-evidence, ent-gpu-amd-instinct, ent-gpu-h100, ent-gpu-a30, ent-organization, hub-ai-governance-assurance]
+related: [pol-sovereignty-levels, hub-battlegrounds, hub-evidence, ent-gpu-amd-instinct, ent-gpu-h100, ent-gpu-a30, ent-organization, hub-ai-governance-assurance, prd-sovereign-isolation-assurance]
 source_docs: ["web research 2026-10-09 (sources listed per item)"]
 confidence: derived
 last_reviewed: 2026-10-09
@@ -72,7 +72,7 @@ None of this is GPU-specific; it concerns cloud tenancy generally.
 ## Implications for RackAI
 
 1. **Level 0 is legitimately sovereign only with serving-layer controls in place.** The common leak paths are software: container escapes, misconfiguration, cross-tenant caches. Dedicated GPUs don't fix those; per-tenant caches, a VM boundary where customers run code, and patching do.
-2. **A shared KV cache must never span tenants.** The roadmap includes a *Shared KV cache (improvement)* row behind llm-d inference routing. Its scope should be confirmed as per-tenant at every level.
+2. **A shared KV cache must never span tenants.** The roadmap includes a *Shared KV cache (improvement)* row behind llm-d inference routing. Its scope should be confirmed as per-tenant at every level. *(Code check 2026-10-10: the shared LMCache example, `rackai@79ca4de:hack/cli/examples/lmcache-shared-kv-modelclass.yaml`, is not separated per tenant; rule B-2 in [[Sovereign Isolation & Assurance PRD]] covers it.)*
 3. **Time-slicing and MPS shouldn't carry mutually distrustful tenants** with sensitive data; the vendor states no memory isolation. MIG is stronger but leaks activity patterns.
 4. **Level 1 removes the silicon class** (leftover memory, side channels, Rowhammer between tenants). It plausibly matters for proprietary alpha, regulated data, model weights as IP and prompts carrying secrets. Whole GPUs in a shared multi-GPU box can still leak (Spy in the GPU-box), which bears on whether Level 1 needs a dedicated node.
 5. **On MI-series hardware, Level 1 is the stronger story:** AMD publishes no isolation claim for its partitions and no GPU confidential computing.
@@ -82,3 +82,5 @@ None of this is GPU-specific; it concerns cloud tenancy generally.
 
 - [[Sovereignty Levels]] · [[Three Battlegrounds]] · [[AMD Instinct]]
 - [[Evidence Hub]]
+- [[Sovereign Isolation & Assurance PRD]] — boundary rules that address these risks (draft)
+

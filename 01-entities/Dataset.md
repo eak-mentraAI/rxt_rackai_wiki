@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: platform
 aliases: [dataset, training dataset, training data]
-related: [ent-fine-tuning-job, ent-organization, wf-fine-tuning, hub-entities, hub-model-services, wf-perimeter-info-flow, ev-sovereign-private-assistant, ent-packaged-solution]
+related: [ent-fine-tuning-job, ent-organization, wf-fine-tuning, hub-entities, hub-model-services, wf-perimeter-info-flow, ev-sovereign-private-assistant, ent-packaged-solution, prd-fine-tuning-operations, spec-fine-tuning-operations]
 source_docs: [rackai_console_docs, rackai_ui_architecture]
 confidence: measured
 last_reviewed: 2026-09-04
@@ -61,3 +61,5 @@ L1 — Entity Ontology. A Dataset is an input to the fine-tuning pipeline:
 - [[Entity Ontology Hub]]
 - [[Fine-Tuning Job]]
 - [[Fine-Tuning]]
+- [[Fine-Tuning Operations PRD]] — fine-tuning boundary (draft)
+

@@ -90,6 +90,39 @@ The product owner wrote, on 2026-10-10: **"MOE-0 manual check is fine; approve s
 
 Engineering approval has not been given and is not recorded. The spec's `status` stays `draft` until engineering approves.
 
+## Correction: Sections Restored (same day, after `e1ae63f`)
+
+The v0.3 edit removed spec §4.6 (feasibility engine), §4.6.1 (performance evidence) and §4.7 (decision interface) because a text replacement covered too wide a range. That broken text was committed and pushed in `e1ae63f`. The PRD G drafting agent found the gap during the batch drafting. The three sections are restored verbatim from v0.2, with the v0.3 wording change *stop-capable* → *containment-qualified*. A diff against an independently recovered copy matches. No design change; product approval is unaffected. The fix ships in the next push.
+
+## v0.4 — Product-Owner Review Rulings (same day)
+
+The product owner reviewed the batch B–J requests to PRD A's spec ("Product-owner review disposition, 2026-10-10"). Their rulings:
+- **Approved:** A4-1, A4-3 to A4-9, A4-11 to A4-13.
+- **Revised:** A4-2, per X-1. Customer authority follows the actual customer security principal; a CustomerOrg owns policy only when explicitly validated as single-customer. Invariant: no customer can gain authority over another customer's workload through a shared parent.
+- **Kept as a requirement, design deferred:** A4-10.
+
+Applied in spec v0.4 (§0.1 lists each change and its section):
+- C's final `ForPolicyChange` signature.
+- The authority principal per X-1.
+- The `placement-operator` role.
+- Permissions renamed to `declaration:write` / `declaration:read`.
+- Level 1 labels owned by E's boundary controller.
+- Foreign-pod handling through E's severity-based containment.
+- The D-0 envelope.
+- G's verification rules, with the four option states.
+- Attribution labels as Must have.
+- New Q-18 (candidate revision).
+- The PrometheusRule correction.
+
+PRD A's D-8 is annotated with J's proposed answer. Section headings were checked against the committed version: only §0.1 and the restored §4.6–§4.7 differ. Formal re-approval of v0.4, and engineering approval, are separate recorded actions.
+
+## A4-14 and Confirmations (same day)
+
+The product owner wrote: **"approve A4-14, confirm the rest, then commit."**
+- A4-14 is applied: Level 1 staging reasons `ModelSourceNotStaged` and `ArtefactIntegrityFailed` (§4.6 step 7, Appendix A).
+- Non-material divergences DV-5 and DV-6 are confirmed.
+- Formal re-approval of v0.4, and engineering approval, remain separate actions.
+
 ## Not Changed
 
 - PRD requirements, acceptance criteria and decisions are untouched.

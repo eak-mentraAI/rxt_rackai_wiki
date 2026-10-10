@@ -31,7 +31,7 @@ L1 — Entity Ontology. The Model Class sits between the Model and its runtime c
 |-----------|-------------|------|:----------:|
 | Class ID | Stable identifier for the template | string | measured |
 | Base model ref | The Model this class configures | ref | measured |
-| Runtime | Serving runtime family: `vllm`, `nim`, `optimized-nim-vllm`, `aim` | enum | measured |
+| Runtime | Serving runtime family: `vllm`, `optimized-nim-vllm`, `aim` (`nim` removed; `rackai@79ca4de:api/v1alpha1/modelclass_types.go`) | enum | measured |
 | Engine config | Engine tuning block (e.g., `vllmConfig`) | struct | measured |
 
 ## Lifecycle States
@@ -49,7 +49,7 @@ Not a stateful entity. (A Model Class is a declarative template; runtime state l
 ## Evidence
 
 - Source: `rackai_ui_architecture`, `rackai_release_1_0_0`.
-- Confidence rationale: `measured` — the runtime enum (`vllm`, `nim`, `optimized-nim-vllm`, `aim`) and the Model Class → Deployment relationship are shipped in 1.0.0 and reflected in the UI architecture.
+- Confidence rationale: `measured` — the runtime enum (`vllm`, `optimized-nim-vllm`, `aim`; `nim` removed as of `rackai@79ca4de`) and the Model Class → Deployment relationship are shipped in 1.0.0 and reflected in the UI architecture.
 
 ## See Also
 

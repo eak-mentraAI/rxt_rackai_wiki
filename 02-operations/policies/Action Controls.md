@@ -5,7 +5,7 @@ status: draft
 owner: governance
 domain: governance
 aliases: [action controls, blast radius, action controls and blast radius, approval gates, containment]
-related: [ent-agent-identity, wf-perimeter-info-flow, pol-supply-chain-inventory, hub-governance, src-rackai-dev-plan, ent-governed-harness]
+related: [ent-agent-identity, wf-perimeter-info-flow, pol-supply-chain-inventory, hub-governance, src-rackai-dev-plan, ent-governed-harness, prd-governed-execution-authority, spec-governed-execution-authority, prd-concierge-engineer]
 source_docs: ["reference/rackai_dev_plan 2.docx"]
 confidence: assumed
 last_reviewed: 2026-10-08
@@ -54,3 +54,6 @@ Enforced in the operations plane at the point an agent attempts a side-effecting
 - [[Governance Hub]]
 - [[Agent Identity]]
 - [[Supply Chain Inventory]]
+- [[Governed Execution & Delegated Authority PRD]] — action classes, bound authorisations, emergency path (draft)
+- [[Concierge Engineer PRD]] — first consumer (v1 actions) (draft)
+

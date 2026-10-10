@@ -5,7 +5,7 @@ status: draft
 owner: performance-eng
 domain: performance
 aliases: [traffic class, workload class, request class, workload profile]
-related: [ent-model, ent-model-deployment, ent-benchmark-run, ent-openrouter-integration, hub-entities, hub-inference-serving, hub-ai-harness, ent-market-demand, met-ttft, wf-request-routing, pol-admission-control, coeff-kv-cache-hit-rate, wf-admission-control, bench-agentx-standard, pol-benchmark-evidence-chain]
+related: [ent-model, ent-model-deployment, ent-benchmark-run, ent-openrouter-integration, hub-entities, hub-inference-serving, hub-ai-harness, ent-market-demand, met-ttft, wf-request-routing, pol-admission-control, coeff-kv-cache-hit-rate, wf-admission-control, bench-agentx-standard, pol-benchmark-evidence-chain, prd-empirical-map-routing, spec-empirical-map-routing]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: validated
 last_reviewed: 2026-10-08
@@ -32,12 +32,12 @@ A Traffic Class characterizes the market demand that flows into a Model — it i
 | Attribute | Description | Type | Confidence |
 |-----------|-------------|------|:----------:|
 | Class name | Named workload shape | enum | validated |
-| Prompt length profile | Typical input token distribution | struct | measured |
-| Output length profile | Typical output token distribution | struct | measured |
+| Prompt length profile | Typical input token distribution | struct | assumed |
+| Output length profile | Typical output token distribution | struct | assumed |
 | Prefix-sharing | Degree of shared prefixes (chat/RAG/agents) | enum | derived |
 | Latency sensitivity | TTFT/interactive sensitivity | enum | derived |
-| Concurrency/burst | Concurrency and burstiness characteristics | struct | measured |
-| Capability usage | Tool calls, structured output, streaming usage | set | measured |
+| Concurrency/burst | Concurrency and burstiness characteristics | struct | assumed |
+| Capability usage | Tool calls, structured output, streaming usage | set | assumed |
 
 ## Class Examples
 
@@ -88,10 +88,12 @@ The [[Benchmark Evidence Chain]] defines four standard profiles built from the c
 ## Evidence
 
 - Source: roadmap Milestone 2.3 / 3.3 (workload characterization and traffic-aware routing).
-- Confidence rationale: the concept of characterized traffic classes is `validated` by the roadmap; the measured profiles per class are `measured`/`derived` from production telemetry.
+- Confidence rationale: the concept of characterized traffic classes is `validated` by the roadmap; the per-class profiles are `assumed` until workload characterization exists (roadmap *Workload characterization*, not started; no characterization is produced today, 2026-10-10). [[Empirical Map & Evidence-Informed Routing PRD]] proposes how they are measured.
 
 ## See Also
 
 - [[Entity Ontology Hub]]
 - [[Model]]
 - [[Benchmark Run]]
+- [[Empirical Map & Evidence-Informed Routing PRD]] — workload characterization (draft)
+

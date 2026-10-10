@@ -5,7 +5,7 @@ status: draft
 owner: model-enablement
 domain: model-enablement
 aliases: [model launch lag, launch lag, time to production]
-related: [wf-model-launch-factory, evt-new-model-detected, evt-deployment-canary-passed, ent-model, ent-openrouter-integration, wf-model-radar, val-launch-lag-24h, evd-kpi-telemetry-targets]
+related: [wf-model-launch-factory, evt-new-model-detected, evt-deployment-canary-passed, ent-model, ent-openrouter-integration, wf-model-radar, val-launch-lag-24h, evd-kpi-telemetry-targets, prd-operator-economics, spec-operator-economics, prd-model-lifecycle]
 source_docs: [openrouter_engineering_roadmap.md]
 confidence: assumed
 last_reviewed: 2026-10-09
@@ -66,3 +66,6 @@ Typed edges (canonical types only). `→` = this note is the subject; `←` = th
 ## See Also
 
 - [[Operations Hub]]
+- [[Operator Economics & KPI Instrumentation PRD]] — instruments Model Launch Lag (draft)
+- [[Model Lifecycle PRD]] — uses it as its success metric (draft)
+
