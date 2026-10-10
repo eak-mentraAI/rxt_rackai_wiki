@@ -17,13 +17,14 @@ summary: "Tech spec for PRD A: declaration CRDs, supply abstraction, feasibility
 
 | Field | Value |
 |:--|:--|
-| Version | v0.4 |
-| Status | In review: v0.3 product-approved 2026-10-10; v0.4 applies the product owner's review rulings A4-1 to A4-13 (§0.1); engineering approval pending |
+| Version | v0.5 |
+| Status | In review: v0.3 product-approved 2026-10-10; v0.4 applies the product owner's review rulings A4-1 to A4-14 (§0.1); v0.5 fixes nine code-review findings (§0.2); DV-7 and R5-9 approved by the product owner 2026-10-10; engineering approval pending |
 | Author | Wiki agent for rackai-product (draft for platform engineering) |
 | Reviewers | Platform engineering (control plane); Product owner; UI; Docs; Governance (C/E owners) |
 | Engineering approval | not yet approved |
 | Product approval | **Approved by the product owner, 2026-10-10, v0.3, "approve spec with DV-3 interim"**: the spec is approved with DV-3's interim behaviour (disruptive policy changes rejected until C's authority model exists, §4.5 step 9). DV-2 and DV-4 approved with clarification; DV-3 stays open pending C (Q-16). The MOE-0 manual runtime check (§13.0) was approved the same day ("MOE-0 manual check is fine"). Passing checks is not approval |
 | Product review (v0.4) | **Product-owner review disposition, 2026-10-10** (batch B–J review): A4-1, A4-3 to A4-9 and A4-11 to A4-13 approved; A4-14 approved the same day ("approve A4-14"); DV-5 and DV-6 confirmed ("confirm the rest"); A4-2 revised per X-1; A4-10 kept as a requirement, design deferred. Applied in v0.4 (§0.1). The disposition is recorded as given; formal re-approval of v0.4 and engineering approval are separate recorded actions |
+| Product review (v0.5) | **DV-7 and R5-9 approved by the product owner, 2026-10-10** ("approve DV-7 and R5-9"): the customer-visible `Contained` phase, and MOE-0 requiring an approval TTL (C's value or an explicit rehearsal-only value). R5-1 to R5-6 and R5-8 correct internal inconsistencies found in code review (non-material). Formal re-approval of the whole v0.5 text and engineering approval are separate recorded actions |
 | Date created | 2026-10-10 |
 | Based on PRD(s) | [[Workload Declaration & Placement PRD]] (v1.0, approved 2026-10-10) |
 | Roadmap items | Supply-abstraction interface; Workload declaration (intent + constraints); Supply abstraction v1 - second impl (AMD/partner); Heterogeneous supply |
@@ -70,6 +71,22 @@ Requested by the batch B–J PRDs and ruled on by the product owner. Each change
 | A4-14 | **approve** (product owner, 2026-10-10; raised by E after the review) | New reasons `ModelSourceNotStaged` and `ArtefactIntegrityFailed`, for Level 1 placements whose model artefacts are not pre-staged with verified integrity (E DV-2, approved). At submission they are *not offered* reasons; at commit or runtime they are `AtRisk` reasons | §4.6, Appendix A |
 
 **CORRECTION (2026-10-10, after `e1ae63f`):** the v0.3 editing pass accidentally deleted §4.6, §4.6.1 and §4.7 from the committed text. They are restored verbatim from v0.2, with the one v0.3 wording change in them (*stop-capable* → *containment-qualified*, §4.6 step 2). This is not a design change: the restored sections are the design that was reviewed and product-approved.
+
+### 0.2 v0.5 changes (code review, 2026-10-10)
+
+A `/code-review` of the published text (`e1ae63f`) found ten defects; the first (§4.6, §4.6.1 and §4.7 missing) was already fixed in v0.4 (A4-13). The other nine are fixed below. Original v0.4 design text that a fix replaces is noted in the row, per the as-built discipline.
+
+| # | Finding | Fix | Classification | Where |
+|---|---|---|---|---|
+| R5-1 | The violation ID hashed the node's `resourceVersion`, which changes on every node status heartbeat, so one fault produced a new ID (and a new containment, audit rows and notifications) on every resync | The ID is computed from the **observed values of the failing attributes** instead, so the same fault keeps one ID and a genuinely different fault gets a new one | non-material (internal correctness) | §4.9 |
+| R5-2 | The single `inFlightDecision` claim let a placement commit waiting on the audit store block a containment for the same declaration | Safety decisions (containment, enforcement of an authorised policy change) never wait on the placement claim. They take a separate per-violation slot and pre-empt a placement decision that has not reached stage 4 | non-material (restores the stated rule "safety actions are not gated on audit") | §4.9, §4.11, §9 |
+| R5-3 | The policy digest hashed each policy's `metadata.generation`, so a pending (or rejected-and-reverted) disruptive edit invalidated every pending approval although effective policy had not changed | The digest uses each policy's **`status.effectiveGeneration`** and effective spec only | non-material (internal consistency with §4.5 step 1) | §4.5 |
+| R5-4 | §4.11 defined the evaluation decision ID as the revision only, while Appendix A included the policy digest; under §4.11, a re-evaluation after a policy change would be dropped by the idempotent insert | §4.11 now matches Appendix A: (revision, policy digest) | non-material (consistency) | §4.11 |
+| R5-5 | In-flight commitments were never released (a deployment stuck unschedulable held phantom headroom forever) and partly bound deployments were counted twice | A commitment covers only **not-yet-bound replicas** and ends when each replica is bound or reported `Unschedulable` by the scheduler, or the decision is abandoned, contained or retired | non-material (internal correctness) | §4.4 |
+| R5-6 | The fit check placed only `minReplicas`; with `minReplicas = 0` it placed nothing and reported feasible | The fit places **at least one replica** (`max(minReplicas, 1)`), and `fittableReplicas` against `maxReplicas` is reported as a stated trade-off | non-material (aligns with FR-7: "can be met with available capacity"); for confirmation | §4.4, §4.6 |
+| R5-7 | A contained (stopped) workload showed phase `Realised`, while §4.9.1 treats it as having no active realization | New phase **`Contained`** (DV-7) | **material** (customer-visible state not in PRD FR-20's list); **approved 2026-10-10** | §1.4, §4.9.1, Appendix A |
+| R5-8 | Retention finalizers kept placement objects in etcd for up to the compliance window (2557 days), blocking namespace and CustomerOrg deletion and duplicating audit history | At retirement, or when the namespace is terminating, the controller **archives** each object to the `placement` audit category, then releases its finalizer. Retention then follows the audit store's policy | non-material (the audit store is already the system of record for history, §4.2) | §4.2, §10, §4.11 |
+| R5-9 | The chart refused to render without values that §13.0 only requires at MOE-1, so the MOE-0 rehearsal could not enable placement | Each policy-owned value is required **only when its feature is on**: guard timings when `placement.guard.enabled` (off at MOE-0), evidence `maxAge` only when a verifying evidence source is configured. The approval TTL is always required, so **MOE-0 needs C's TTL value or an explicit, rehearsal-only value** recorded in the rehearsal log | **material** (changes the MOE-0 gate's decisions); **approved 2026-10-10** | §3.5, §13.0 |
 
 **RETAINED FOR THE RECORD (v0.2 → v0.3, 2026-10-10):** v0.2's DV-3 design let a policy author's own `acknowledgeAffectedWorkloads` list make a disruptive change effective. The product owner ruled that naming the affected workloads is necessary but not sufficient. It is replaced by impact presentation plus an authorisation under C's delegated-authority model (§4.5).
 
@@ -127,7 +144,7 @@ All 22 functional requirements of `prd-workload-declaration-placement`:
 | prd A · FR-17 accuracy-affecting choices only if allowed | §4.1 (`accuracy`), §4.7 | M3 | covered |
 | prd A · FR-18 capability-class declarations | — | Phase 2 | deferred (D-5; needs G) |
 | prd A · FR-19 in-constraint re-placement | §4.7 (envelope classifier reused) | Phase 2 | deferred (D-3) |
-| prd A · FR-20 states, reasons, verified/unverified in API and console | §4.2 status, §4.6.1, §13 M5 | M1–M3 (API), M5 (console) | covered |
+| prd A · FR-20 states, reasons, verified/unverified in API and console | §4.2 status, §4.6.1, §13 M5, Appendix A | M1–M3 (API), M5 (console) | covered; adds the `Contained` phase (DV-7, approved 2026-10-10) |
 | prd A · FR-21 audit + evidence per decision | §4.11, §7 | M3 (audit in the commit path), M4 (evidence, gap sweep) | partial: interim evidence shape until D-0 (Q-5) |
 | prd A · FR-22 quota in declaration terms | §4.6 (input slot) | Phase 2 | deferred (D-4) |
 
@@ -153,7 +170,7 @@ All 22 functional requirements of `prd-workload-declaration-placement`:
 
 ### 1.4 Deliberate Divergences from the PRD
 
-Each item is classified against the materiality rule in the tech-spec standard. Changing a requirement, an acceptance criterion, a hard-constraint guarantee, a boundary or customer-visible behaviour counts as material. **Material items need product approval before this spec can be approved.** DV-2 and DV-4 were approved with clarifications on 2026-10-10 and are incorporated as given. **DV-3 stays open** pending C's authority-model decision (Q-16). The PRD's requirements are unchanged; see §14 for what each item blocks.
+Each item is classified against the materiality rule in the tech-spec standard. Changing a requirement, an acceptance criterion, a hard-constraint guarantee, a boundary or customer-visible behaviour counts as material. **Material items need product approval before this spec can be approved.** DV-2 and DV-4 were approved with clarifications on 2026-10-10 and are incorporated as given. **DV-3 stays open** pending C's authority-model decision (Q-16). **DV-7 (v0.5) approved by the product owner 2026-10-10.** The PRD's requirements are unchanged; see §14 for what each item blocks.
 
 | # | Divergence | Touches | Classification | Status |
 |---|---|---|---|---|
@@ -163,6 +180,7 @@ Each item is classified against the materiality rule in the tech-spec standard. 
 | DV-4 | **Adopted deployments are system-inferred** (§4.8). Legacy adoption is not a new initial realization and needs no retroactive operator approval under AC-7. Adopted declarations are identified as system-inferred, and **no approval and no customer authorisation is fabricated** for them. A customer revision is what makes one customer-authored. Any later material placement change follows the normal approval rules | FR-6, AC-7, AC-10 interpretation; customer-visible label | material (interprets an approved acceptance criterion) | **approved with clarification, product owner 2026-10-10** |
 | DV-5 | **"Verified" can lapse.** A realised placement's performance status changes from *verified* to *unverified* if its evidence goes stale or no longer matches the running configuration (§4.6.1) | FR-20, PD-2 | non-material (applies principle 3 and PD-2; no requirement changes) | **confirmed by the product owner, 2026-10-10** (non-material) |
 | DV-6 | **Suspected violations are operator-visible only.** The customer is notified when a violation is *confirmed* (§4.9) | FR-10 notification | non-material (FR-10 is about violations, and a suspicion is not yet one) | **confirmed by the product owner, 2026-10-10** (non-material) |
+| DV-7 | **A contained workload has its own phase, `Contained`** (v0.5, R5-7). FR-20's phase list has no state for a workload that RackAI has stopped because a hard constraint was violated; v0.4 reported it as `Realised`, which tells the customer a stopped workload is running. `Contained` means: not serving, kept (never deleted), and resumable only through a new approved proposal (§4.9.1) | FR-20 (phase list), AC-11 | material (adds a customer-visible state) | **approved, product owner 2026-10-10** |
 
 There are also three clarifications that are not divergences. The declaration version is an integer revision (§4.2). In Phase 1, "routine operation" means scaling within replica bounds plus pod or node replacement in the same pool (§4.7). Deployments without a pin are not adopted until Q-8 is answered.
 
@@ -356,7 +374,7 @@ Surveyed read-only through local mirrors kept outside the wiki (`scripts/code-mi
   - UI types: diffed against `openapi-external.yaml` at M5 (codegen is a follow-up, Q-10).
   - Docs API reference: vendored in the same release.
   - CLI: imports `api/v1alpha1` from the same commit.
-- **Environments:** one flag, `placement.enabled`. The chart refuses to render with it on unless `webhook.enabled=true` and `rbac.enforcement.mode=enforce`. It also refuses if any policy-owned value is unset: `placement.approval.ttl` (C, Q-14), `placement.guard.confirmationInterval` and `placement.guard.containmentDeadline` (Q-15), and `placement.evidence.maxAge` (Q-13). Dev, staging and production cannot silently differ in integrity guarantees, and no number is invented in the chart.
+- **Environments:** one flag, `placement.enabled`. The chart refuses to render with it on unless `webhook.enabled=true` and `rbac.enforcement.mode=enforce`. It also refuses if a policy-owned value **for an enabled feature** is unset (v0.5, R5-9): `placement.approval.ttl` (C, Q-14) always; `placement.guard.confirmationInterval` and `placement.guard.containmentDeadline` (Q-15) when `placement.guard.enabled=true`; `placement.evidence.maxAge` (Q-13) when a verifying evidence source is configured. A value set for a rehearsal estate must carry `rehearsalOnly: true`, and the chart refuses `rehearsalOnly` values when `placement.estate=production`. Dev, staging and production cannot silently differ in integrity guarantees, and no number is invented in the chart. *(v0.4 text required all four values unconditionally, which blocked the MOE-0 rehearsal.)*
 
 ### 3.6 Improvement & modularity opportunities
 
@@ -405,7 +423,7 @@ All new namespaced resources live in the tenant (Organization) namespace, carry 
 
 ### 4.2 `WorkloadDeclarationRevision` (namespaced, immutable)
 
-The controller writes one per spec change made while `Submitted`, as `<decl>-r<N>`. It holds the spec snapshot, the merged inherited set, the **policy digest**, and the creation time. It carries an owner reference to the declaration and a retention finalizer (§10). Phase mapping is unchanged: `Amended` while a newer revision is pending, and `Retired` once withdrawn and the derived deployment is gone.
+The controller writes one per spec change made while `Submitted`, as `<decl>-r<N>`. It holds the spec snapshot, the merged inherited set, the **policy digest**, and the creation time. It carries an owner reference to the declaration and an archival finalizer (§10): it is released once the revision's content is archived to the audit store, not after the compliance window (v0.5, R5-8). Phase mapping is unchanged: `Amended` while a newer revision is pending, and `Retired` once withdrawn and the derived deployment is gone.
 
 **Why a separate CRD.** Revisions are *not independently managed*: customers never create, edit or delete them, the webhook and RBAC allow only the controller's service account to write them, and owner references collect them with the declaration. They exist as objects for three reasons:
 1. **Immutable content.** A proposal, an approval and an audit record must reference content that cannot change. `metadata.generation` identifies a version but cannot reproduce it after an amendment.
@@ -431,10 +449,10 @@ Signatures only:
 
 **Fit check (owned fleet).** Deterministic first fit, **not an optimiser**:
 1. Eligible nodes are those that are Ready and schedulable (not cordoned), match the pool's `nodeSelectorTerms`, and have every taint tolerated by the shape.
-2. Each node's free resources = allocatable − requests of non-terminal pods bound to it (from the shared per-node pod index) − **in-flight commitments**. In-flight commitments are the shapes of derived deployments that are committed but whose pods are not yet bound, read from decision records (§4.11). This stops two commits from both counting the same headroom.
+2. Each node's free resources = allocatable − requests of non-terminal pods bound to it (from the shared per-node pod index) − **in-flight commitments**. In-flight commitments are read from decision records (§4.11). This stops two commits from both counting the same headroom. **(v0.5, R5-5)** A commitment covers only a committed decision's **not-yet-bound replicas** (shape × (committed replicas − replicas of that deployment already bound), so a bound pod is counted once, from the pod index). It ends, per replica, when the replica is bound or the scheduler reports it `Unschedulable` (the deployment is then `AtRisk`, §4.4 below), and entirely when the decision is `Abandoned`, the workload is contained, or it is retired. No timer and no new value are introduced. *(v0.4 counted the whole shape until every pod bound, with no release.)*
 3. **Topology (Phase 1):** every GPU of a replica must sit on one node. A shape that needs more GPUs per replica than any eligible node *allocates* fails `topology`. Multi-node replicas are not offered in Phase 1. Interconnect requirements beyond a single node are Q-17.
 4. **Runtime:** the candidate runtime path must support the pool's vendor (the existing capability gate in the reconcile flow, reused), and it must hold a current containment qualification (DV-2, §4.9.1).
-5. Place `minReplicas` replicas one at a time onto eligible nodes in a fixed order (sorted by node name), decrementing free resources, and honouring the shape's anti-affinity.
+5. Place **`max(minReplicas, 1)`** replicas one at a time onto eligible nodes in a fixed order (sorted by node name), decrementing free resources, and honouring the shape's anti-affinity. **(v0.5, R5-6)** At least one replica must fit, so a scale-from-zero workload is never feasible on a pool that cannot start it. `fittableReplicas` (how many replicas fit now, up to `maxReplicas`) is reported as a stated trade-off when it is below `maxReplicas`; headroom above it is not promised, because a fit is not a reservation. *(v0.4 placed `minReplicas` only, so `minReplicas = 0` always fitted.)*
 
 `fitsAllocatable` runs the same steps on allocatable alone (ignoring other pods). If `fitsAllocatable` is false, the result is ***not offered*** (the pool can never host this shape). If `fitsAllocatable` is true and `fitsNow` is false, the result is ***no capacity***. AC-4's negative case is a pool whose aggregate free GPUs suffice while no single node does: it must return *no capacity* or *not offered*, never feasible.
 
@@ -444,7 +462,7 @@ Signatures only:
 
 ### 4.5 Inherited constraints (`pkg/placement/inherited`)
 
-Interface: `For(ctx, org, project) (InheritedSet, PolicyDigest, error)`. The **Phase-1 implementation** is a namespaced `PlacementPolicy` CRD in the Organization namespace (approved vendors, sovereignty minimum, allowed locations), writable with `placement-policy:manage`. Who holds that permission is C's decision. **Scope (v0.4, X-1):** inherited policy is owned by the customer's *authority principal* from [[Authority Context]]. That is the CustomerOrg only when the CustomerOrg's validated `spec.authorityPrincipal` marker is present and valid ([[Governed Execution & Delegated Authority Tech Spec]] §4.13; a requested IAC field), otherwise the Organization. `inherited.Source` merges CustomerOrg-level policy only while that marker is valid, and records the [[Authority Context]] it used with each revision and decision. Invariant: *no customer can create, approve, weaken or inherit authority over another customer's workload through a shared parent.* The isolation principal (E) is always the Organization; A never treats the two principals as interchangeable. The policy digest is the hash of the canonical merged set plus each source policy's UID and generation.
+Interface: `For(ctx, org, project) (InheritedSet, PolicyDigest, error)`. The **Phase-1 implementation** is a namespaced `PlacementPolicy` CRD in the Organization namespace (approved vendors, sovereignty minimum, allowed locations), writable with `placement-policy:manage`. Who holds that permission is C's decision. **Scope (v0.4, X-1):** inherited policy is owned by the customer's *authority principal* from [[Authority Context]]. That is the CustomerOrg only when the CustomerOrg's validated `spec.authorityPrincipal` marker is present and valid ([[Governed Execution & Delegated Authority Tech Spec]] §4.13; a requested IAC field), otherwise the Organization. `inherited.Source` merges CustomerOrg-level policy only while that marker is valid, and records the [[Authority Context]] it used with each revision and decision. Invariant: *no customer can create, approve, weaken or inherit authority over another customer's workload through a shared parent.* The isolation principal (E) is always the Organization; A never treats the two principals as interchangeable. The policy digest is the hash of the canonical merged set plus each source policy's UID and **`status.effectiveGeneration`** (v0.5, R5-3). It is computed only from effective policy, so a pending or rejected edit (which bumps `metadata.generation`) never changes the digest or makes approvals stale. *(v0.4 used `generation`.)*
 
 **Weakening rule (FR-3, AC-9):** a declared constraint may narrow an inherited one, never widen it. The webhook rejects early, the controller re-checks, and the rejection names the policy and the field.
 
@@ -469,9 +487,9 @@ Interface: `For(ctx, org, project) (InheritedSet, PolicyDigest, error)`. The **P
 **Algorithm (deterministic):**
 1. **Conflict detection** (declared vs inherited, declared vs declared) → *conflict*.
 2. **Constraint filter:** pools that satisfy vendor/type, location, sovereignty level (within the pool's `sovereigntyLevels`) and model fit. Model fit means a `ModelClass` for the `Model` whose runtime supports the vendor and is containment-qualified, and whose precision/quantization is allowed by `accuracy`. None left → *not offered*, naming the eliminating constraint set.
-3. **Schedulability (§4.4):** for each candidate (pool, ModelClass), derive the shape and call `Fit` at `minReplicas`. All candidates fail `fitsAllocatable` → *not offered* (reason: workload shape cannot be hosted, with the limiting resources). All candidates that remain fail `fitsNow` → *no capacity*.
+3. **Schedulability (§4.4):** for each candidate (pool, ModelClass), derive the shape and call `Fit` at `max(minReplicas, 1)` (§4.4 step 5). All candidates fail `fitsAllocatable` → *not offered* (reason: workload shape cannot be hosted, with the limiting resources). All candidates that remain fail `fitsNow` → *no capacity*.
 4. **Service-level evidence (§4.6.1):** for each schedulable candidate and each hard service-level target, the result is `meets | fails | unknown`. All candidates `fails` → *not offered* (reason: service level). `unknown` → option marked *unverified*, never infeasible on that basis.
-5. **Soft scoring for display only** and stated trade-offs (FR-11). This order is not a recommendation (G owns ranking).
+5. **Soft scoring for display only** and stated trade-offs (FR-11), including `fittableReplicas` below `maxReplicas` (R5-6). This order is not a recommendation (G owns ranking).
 6. **Suggestions (FR-9):** try single-constraint relaxations in a fixed order (vendor, type, sovereignty level, location, service-level target), then pairs. Report the smallest set that yields a schedulable candidate, with any weakened guarantee. Suggestions are never applied.
 7. **Level 1 artefact staging (v0.4, A4-14):** for a Level 1 candidate, the model artefact must be pre-staged with a verified integrity record from E's staging manifest ([[Sovereign Isolation & Assurance Tech Spec]] §4.5). Otherwise the candidate is *not offered*, with reason `ModelSourceNotStaged` (no staged artefact) or `ArtefactIntegrityFailed` (digest mismatch). The same check at commit or load sets `AtRisk` with the same reasons.
 
@@ -570,10 +588,10 @@ Deployments with `""` or `"auto"` stay unmanaged (Q-8).
 | **Confirmed, foreign workload (v0.4, A4-6)** | E's boundary controller reports a foreign pod on a dedicated (Level 1) node ([[Sovereign Isolation & Assurance PRD]] PD-4) | New placements onto the pool **stop at once**. Containment follows **E's severity-based containment policy**: quarantine the pool; remove the foreign pod where safe; stop or relocate the protected workload only when isolation can't otherwise be restored; fail closed where continued operation would break a hard sovereignty guarantee. It is not an unconditional stop |
 | **Cleared** | A suspected state whose second read passes | `ConstraintsHeld=True`; audit `violation_cleared` |
 
-A confirmed violation gets an ID: UUIDv5 over (deployment UID, pod UID, failed check, the node's label `resourceVersion`). The same fault therefore always produces the same ID.
+A confirmed violation gets an ID: UUIDv5 over (deployment UID, pod UID, node name, failed check, a canonical digest of **the observed values of the attributes that failed**). The same fault therefore always produces the same ID, and a genuinely different fault (the values change again) produces a new one. **(v0.5, R5-1)** *v0.4 used the node's `resourceVersion`, which changes on every node status heartbeat, so one fault got a new ID on every resync.* For a policy-induced violation the inputs are (deployment UID, `policy-change`, policy UID, effective generation).
 
 **Containment = stop (deterministic, idempotent, no deletion):**
-1. **Record the decision first** (`contain`, keyed by the violation ID) in the proposal's decision record (§4.11). Containment is a **safety action**, so it is *not* gated on the audit store: its audit write is retried after the stop.
+1. **Record the decision first** (`contain`, keyed by the violation ID) in the proposal's decision record (§4.11). Containment is a **safety action**, so it is *not* gated on the audit store: its audit write is retried after the stop. It also **does not wait on the placement claim** (`inFlightDecision`): it uses its own per-violation slot and pre-empts any placement decision that has not reached stage 4 (§4.11, R5-2).
 2. Set the desired state on the derived `ModelDeployment` under the placement field manager: `scaling.minReplicas = scaling.maxReplicas = 0`, `autoscalingEnabled = false`, and annotation `rackai.rackspace.com/contained-by=<violationId>`. The whole deployment stops (all replicas), never a subset, so there is no partial state. Re-applying is a no-op, and the guard re-applies if something else changes it.
 3. **Verify:** no predictor pods remain within `placement.guard.containmentDeadline` (Q-15). Then `ConstraintsHeld=False` with reason `Contained`.
 4. **If stopping fails** (pods remain past the deadline): reason `ContainmentFailed`, a paging alert, and an operator runbook. **The controller never deletes the deployment or its runtime objects on its own.** Deleting is an explicit, audited operator action and part of the runbook. It is not a fallback.
@@ -593,7 +611,7 @@ Qualification establishes **demonstrated, reliable** containment for one runtime
 
 **Scope.** A path that is unqualified or failed qualification is **not offered for declaration-managed placement** (reason *runtime not qualified for managed placement*). It stays available everywhere else in RackAI, including `ModelDeployment`s created directly.
 
-**Release from containment.** A contained deployment stays stopped. Resuming takes a **new `PlacementProposal`** for the same or a different envelope. Stopped counts as having no active realization, so resuming is an initial realization and needs a fresh approval. The consumed approval cannot be replayed (§4.7). Containment never relaxes another hard constraint, since stopping cannot violate one.
+**Release from containment.** A contained deployment stays stopped, and the declaration's phase is **`Contained`** (DV-7, approved 2026-10-10; v0.4 showed `Realised`). Resuming takes a **new `PlacementProposal`** for the same or a different envelope. Stopped counts as having no active realization, so resuming is an initial realization and needs a fresh approval. The consumed approval cannot be replayed (§4.7). Containment never relaxes another hard constraint, since stopping cannot violate one.
 
 ### 4.10 Specification record (FR-16, AC-8)
 
@@ -609,9 +627,10 @@ The [[Model Deployment Specification]] for a realised placement is a pair:
 
 **The model.**
 - **Kubernetes is the system of record for decisions.** PostgreSQL is the system of record for audit history.
-- Every decision gets a deterministic **decision ID**: UUIDv5 over (subject UID, decision kind, a discriminator). The discriminator is the revision for evaluations, the approval UID for commits and the violation ID for containment.
+- Every decision gets a deterministic **decision ID**: UUIDv5 over (subject UID, decision kind, a discriminator). The discriminator is the (revision, policy digest) pair for evaluations, the approval UID for commits and the violation ID for containment (Appendix A). **(v0.5, R5-4)** *v0.4 said "the revision" here, which disagreed with Appendix A and would have dropped the audit row of a re-evaluation after a policy change.*
 - The ID is the idempotency key in **both** stores: the `decision-id` annotation on Kubernetes side effects, and the outbox primary key in PostgreSQL (`ON CONFLICT DO NOTHING`).
-- **Only one decision per declaration is in flight at a time.** `WorkloadDeclaration.status.inFlightDecision` is claimed with optimistic concurrency (`resourceVersion`), so concurrent reconciles cannot both act.
+- **Only one *placement* decision per declaration is in flight at a time.** `WorkloadDeclaration.status.inFlightDecision` is claimed with optimistic concurrency (`resourceVersion`), so concurrent reconciles cannot both act.
+- **Safety decisions never wait on that claim (v0.5, R5-2).** A containment, or the enforcement of an authorised disruptive policy change, is recorded in `status.safetyDecisions[]` (one entry per violation ID, also claimed with optimistic concurrency) and runs at once. If a placement decision is in flight and has not reached stage 4, it is marked `Abandoned` (reason `PreemptedByContainment`) and never applies; its consumed approval is not reusable, and resuming needs a new proposal (§4.9.1). If it has already applied (stage 4), the stop overrides it through the placement field manager. *v0.4 made containment take the same single claim, so a commit waiting on a down audit store could block a stop.*
 
 **Stages of a placement decision (commit):**
 
@@ -626,12 +645,12 @@ The [[Model Deployment Specification]] for a realised placement is a pair:
 **Rules:**
 - **Placement actions are gated on audit.** If stage 2 cannot write (audit store down), nothing is applied; the decision waits in `Intended` and the controller requeues with backoff (fail closed, AC-13).
 - **Safety actions are not gated on audit.** Containment and the stop it performs run stages 1 → 4 even with the audit store down. Their audit rows are written by stage 5 once the store is back. Until then the decision is flagged `auditPending` and an alert fires.
-- **Audit-only decisions** (feasibility evaluated, suspected violation, cleared, adoption) skip the side-effect stages. Their record is the status field that holds the result, with its ID. Their outbox insert is retried until it succeeds.
+- **Audit-only decisions** (feasibility evaluated, suspected violation, cleared, adoption, archival) skip the side-effect stages. Their record is the status field that holds the result, with its ID. Their outbox insert is retried until it succeeds.
 - **Recovery on start and on every reconcile:** for each declaration with an `inFlightDecision`, read the stage and resume from it. Before stage 4 the controller looks for a `ModelDeployment` carrying the decision ID. If it exists, the apply happened before a crash, so the controller records `Applied` and continues. It never applies twice.
 - **Gap sweep (in-process, no new service):** a periodic job compares recent decision IDs in Kubernetes status with outbox and audit rows, re-enqueues anything missing (a no-op if present), and exports `rackai_placement_audit_gaps`. A non-zero value for longer than one sweep alerts. Existing dead-letter handling applies to poison rows.
 - **Status stays bounded.** `decisions[]` keeps the in-flight decision and the most recent completed ones (count set in code). Full history lives in audit.
 
-**Audit category `placement`:** table `audit.placement_audit_log`, migration `audit-00N_placement`, forced RLS consistent with the M2 category tables. **Event kinds:** `declaration_submitted`, `feasibility_evaluated`, `proposal_rejected`, `placement_approved`, `approval_stale`, `approval_expired`, `decision_intended`, `placement_committed`, `commit_revalidation_failed`, `realised`, `inherited_weakening_rejected`, `policy_change_applied`, `policy_change_impact_presented`, `policy_change_authorized`, `policy_change_rejected`, `runtime_qualified`, `runtime_qualification_failed`, `violation_suspected`, `violation_cleared`, `violation_confirmed`, `violation_contained`, `containment_failed`, `performance_status_changed`, `adopted`.
+**Audit category `placement`:** table `audit.placement_audit_log`, migration `audit-00N_placement`, forced RLS consistent with the M2 category tables. **Event kinds:** `declaration_submitted`, `feasibility_evaluated`, `proposal_rejected`, `placement_approved`, `approval_stale`, `approval_expired`, `decision_intended`, `placement_committed`, `commit_revalidation_failed`, `realised`, `inherited_weakening_rejected`, `policy_change_applied`, `policy_change_impact_presented`, `policy_change_authorized`, `policy_change_rejected`, `runtime_qualified`, `runtime_qualification_failed`, `violation_suspected`, `violation_cleared`, `violation_confirmed`, `violation_contained`, `containment_failed`, `performance_status_changed`, `adopted`, `commit_preempted_by_containment` (v0.5), `declaration_archived` (v0.5).
 
 **Evidence records** (interim, in the same PostgreSQL transaction as their audit row): `{ decisionId, declarationRef, revision, origin, decision, constraints[], option, approver | system, policyDigest, performance { status, evidenceRef, evidenceAsOf }, timestamp, correlationId }`. **v0.4 (A4-7):** these records adopt the D-0 envelope ([[Customer Observability & Evidence Report Tech Spec]] §4.4):
 - `recordId = UUIDv5(NS(prd-workload-declaration-placement), kind|sourceId)`, with A's decision ID as the `sourceId`;
@@ -740,6 +759,7 @@ sequenceDiagram
 | Feasibility, fit, policy or evidence changed before commit | Stage 3 `Abandoned`; nothing applied; new result shown | closed (AC-5b) |
 | Audit store unavailable, placement decision | Waits at stage 1; nothing applied; requeue | **closed** (AC-13) |
 | Audit store unavailable, containment | Stop proceeds; audit retried; `auditPending` alert | **open for safety** (stop is never blocked) |
+| Confirmed violation while a placement decision is in flight (v0.5, R5-2) | Containment runs at once in its own slot; an in-flight placement decision before stage 4 is `Abandoned` (`PreemptedByContainment`); after stage 4 the stop overrides it | **open for safety** |
 | Controller crash at any stage | Resume from the recorded stage; idempotent re-apply and re-insert (§4.11) | recover |
 | Derived apply fails | Retried idempotently; after repeated failure `Realised=False` (reason `ApplyFailed`) and the decision is `Abandoned` | retry, then closed |
 | Pods unschedulable after commit | `AtRisk` (reason `UnschedulableAfterCommit`), operator alert; no move | closed |
@@ -755,7 +775,7 @@ sequenceDiagram
 
 ## 10. Data Retention
 
-Declarations, revisions, proposals and approvals are kept for the workload's life. After retirement they are kept until the audit retention window (`complianceRetentionDays`, up to 2557 days) has passed for their audit rows, and a finalizer then releases them. Audit rows follow the existing policy. Evidence-source rows are kept for as long as any realised placement references them. No customer content or prompts are stored.
+Declarations, revisions, proposals and approvals are kept in Kubernetes for the workload's life. **(v0.5, R5-8)** At retirement, or when their namespace is terminating (e.g. a CustomerOrg cascade delete), the controller **archives** each object's final content to the `placement` audit category (event `declaration_archived`, keyed by the object UID, idempotent) and then releases its finalizer. If the audit store is down, release waits for the archive write (bounded by the store's recovery), so nothing is lost and deletion is never held for the compliance window. Retention of the archived history then follows the audit store's existing policy (`complianceRetentionDays`, up to 2557 days). *v0.4 kept the objects themselves in etcd for the whole window, which blocked namespace and CustomerOrg deletion and duplicated the audit store's history.* Audit rows follow the existing policy. Evidence-source rows are kept for as long as any realised placement references them. No customer content or prompts are stored.
 
 ## 11. Non-Functional Requirements
 
@@ -793,12 +813,21 @@ The structure is unchanged from v0.1. New cases are marked **(v0.2)**.
   - **(v0.2)** Audit store down: placement waits; containment proceeds with `auditPending`; the gap sweep backfills.
   - **(v0.3)** Disruptive policy change: impact computed and presented before authorisation, and effective policy unchanged while pending. No authorisation → rejected and reverted. Author acknowledgment alone → rejected. Authorisation bound to a different impact digest (a workload added after presentation) → stale. Valid authorisation (from a fake C authority source) → effective; affected workloads stopped and confirmed; evidence includes the impact and the authorisation reference. Replayed authorisation → rejected. Emergency-marked authorisation → same enforcement and evidence path. Non-disruptive change → applies at once.
   - **(v0.3)** Adopted declarations: `origin: system-inferred`, `CustomerAuthorised=False`, `decision: Adopted`. **No `PlacementApproval` exists**, and no record names an operator or the customer as authoriser. Confirmation by revision sets `CustomerAuthorised=True`. A later material change to an adopted workload requires approval (AC-7).
+  - **(v0.5)** Violation ID stability: the same persistent fault across several resyncs and node heartbeats yields one violation ID, one containment and one set of notifications; changing the failing label value again yields a new ID (R5-1).
+  - **(v0.5)** Audit store down with a commit waiting at stage 1, then a confirmed violation: containment runs at once, the commit is `Abandoned` (`PreemptedByContainment`) and never applies (R5-2).
+  - **(v0.5)** A pending disruptive policy edit, then its rejection and revert: no pending approval goes stale and no declaration is re-evaluated (R5-3).
+  - **(v0.5)** Re-evaluation of the same revision after an effective policy change produces a second `feasibility_evaluated` row with a different decision ID (R5-4).
+  - **(v0.5)** In-flight commitments: a stuck-unschedulable deployment releases its commitment; a deployment with 2 of 4 replicas bound counts only the 2 pending replicas (R5-5).
+  - **(v0.5)** `minReplicas = 0` on a pool that cannot host one replica → not offered or no capacity, never feasible; `fittableReplicas` below `maxReplicas` appears as a trade-off (R5-6).
+  - **(v0.5)** A contained workload shows phase `Contained` (R5-7, DV-7).
+  - **(v0.5)** Namespace termination archives every placement object to audit and then completes; with the audit store down it waits and completes after recovery (R5-8).
 - **e2e (kind):**
   - **(v0.2)** A transient relabel (reverted within the confirmation interval) → suspected, then cleared, with no containment.
   - **(v0.2)** A persistent relabel → confirmed → stopped with no deletion; then a forced `ContainmentFailed` path → alert, and the deployment still exists (AC-5c).
   - **(v0.3)** Containment qualification per runtime path (§4.9.1): stop, confirmed stopped state (pods, replicas, endpoint), reliability over repeated runs, evidence record. An allowlist entry without a matching record is ignored. Changing the image digest unqualifies the path. An unqualified path is not offered for managed placement, and a direct `ModelDeployment` on that path still deploys.
 - **Upgrade:** adoption on a copy of a real estate; `ModelDeployment` specs byte-identical apart from the label; serving continues (AC-10).
 - **UI:** Jest/RTL for the conditions/reasons component, the declaration form, the approval page (digest shown and sent, permission gating), and the inferred-declaration banner (AC-11).
+- **Chart (v0.5, R5-9):** renders for a rehearsal estate with only the approval TTL set (`rehearsalOnly: true`) and the guard off; refuses a `rehearsalOnly` value with `placement.estate=production`; refuses guard-on without guard timings.
 - **CI:** all of the above in `make test` / `test-e2e.yml`. Docs `make check`.
 
 ## 13. Milestones
@@ -819,7 +848,7 @@ Both gates sit inside PRD Phase 1 (MOE-0 → MOE-1). They use the existing miles
 | Audit | `placement` category in the commit path (§4.11; built in M3) | Plus evidence records, gap sweep, alerts (AC-12) |
 | Console | Not required | Required (AC-11) |
 | Acceptance criteria that must pass | AC-1–AC-4, AC-5(a)(b), AC-6–AC-10 (AC-10 on the copy), AC-13, AC-14 | All of AC-1–AC-14, including AC-5(c), AC-11, AC-12, and AC-10 on the live estate |
-| Decisions needed before the gate | Q-6 (pool vocabulary), Q-8 (unpinned legacy), Q-1 interim enum accepted for rehearsal, DV-2 and DV-4 approved 2026-10-10 | D-1 ratified (Q-1); C: Q-2, Q-3, Q-14, Q-16; E: Q-4 if any Level 1 workload; D-0: Q-5; Q-7 and Q-15 (stop and timing); Q-13 (evidence); Q-9 (`v1beta1`); runtime qualification complete for every offered path; C's authority model for DV-3 (if it is not decided, MOE-1 runs with disruptive policy changes rejected) |
+| Decisions needed before the gate | Q-6 (pool vocabulary), Q-8 (unpinned legacy), Q-1 interim enum accepted for rehearsal, DV-2 and DV-4 approved 2026-10-10, **an approval TTL: C's value (Q-14) or an explicit rehearsal-only value recorded in the rehearsal log** (v0.5, R5-9; approved 2026-10-10) | D-1 ratified (Q-1); C: Q-2, Q-3, Q-14, Q-16; E: Q-4 if any Level 1 workload; D-0: Q-5; Q-7 and Q-15 (stop and timing); Q-13 (evidence); Q-9 (`v1beta1`); runtime qualification complete for every offered path; C's authority model for DV-3 (if it is not decided, MOE-1 runs with disruptive policy changes rejected) |
 
 ### 13.0.1 Release blockers and readiness states (v0.4)
 
@@ -962,7 +991,7 @@ Per [[Release Readiness States]], each milestone moves through *implementation c
 - `InheritedMerged`: `Merged` / `PolicyUnavailable` / `WeakensInherited`.
 - `Feasible`: `Feasible` / `Conflict` / `NotOffered` / `NoCapacity` / `SupplyUnavailable` / `PerformanceUnverified` (with status True) / `ModelSourceNotStaged` / `ArtefactIntegrityFailed` (Level 1 staging, v0.4 A4-14).
 - `Approved`: `AwaitingApproval` / `Approved` / `ApprovalStale` / `ApprovalExpired` / `ApproverNotAuthorised` / `ApprovalRejected`.
-- `Realised`: `Committed` / `CommitRevalidationFailed` / `ApplyFailed` / `Ready`.
+- `Realised`: `Committed` / `CommitRevalidationFailed` / `ApplyFailed` / `PreemptedByContainment` (v0.5) / `Ready`.
 - `ConstraintsHeld`: `Held` / `ViolationSuspected` (operator-only) / `ViolationConfirmed` / `InheritedPolicyTightened` / `Contained` / `ContainmentFailed` / `AtRisk` / `UnschedulableAfterCommit`.
 - `CustomerAuthorised`: `CustomerAuthored` / `SystemInferred`.
 - **PlacementPolicy conditions:** `Effective` / `PolicyChangePendingAuthorization` / `PolicyChangeUnauthorized` / `PolicyChangeAuthorizationStale` / `AuthoritySourceUnavailable`.
@@ -977,7 +1006,8 @@ Per [[Release Readiness States]], each milestone moves through *implementation c
 |---|---|
 | `Retired` | Withdrawn and the derived deployment is gone |
 | `Amended` | Realised and currentRevision > realisedRevision |
-| `Realised` | `Realised=True` (including while contained, which `ConstraintsHeld` shows) |
+| `Contained` | `ConstraintsHeld=False` with reason `Contained` or `ContainmentFailed` (v0.5, DV-7; approved 2026-10-10) |
+| `Realised` | `Realised=True` and not contained |
 | `Accepted` | `Approved=True` and not yet realised |
 | `Infeasible` | `Feasible=False` with a category |
 | `Submitted` | Submitted, otherwise |
@@ -989,7 +1019,8 @@ Per [[Release Readiness States]], each milestone moves through *implementation c
 |---|---|
 | evaluation | (declaration UID, `evaluate`, revision, policy digest) |
 | commit | (proposal UID, `commit`, approval UID, or `adopted`) |
-| containment | (deployment UID, `contain`, violation ID) |
+| containment | (deployment UID, `contain`, violation ID); violation ID per §4.9 (R5-1) |
+| archival | (object UID, `archive`) (v0.5, R5-8) |
 | disruptive policy change | (policy UID, `policy-change`, generation, impact digest) |
 | runtime qualification | (runtime path, `qualify`, adapter version, image digest) |
 
