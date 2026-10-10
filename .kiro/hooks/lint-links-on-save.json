@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Check Wiki Links on Markdown Save",
+      "trigger": "PostFileSave",
+      "description": "Runs the Knowledge Platform link checker after any .md save so [[wiki links]] and relative .md links that would render as dead text are caught immediately.",
+      "matcher": "\\.md$",
+      "action": {
+        "type": "command",
+        "command": "./scripts/lint-links.sh",
+        "timeout": 60
+      }
+    }
+  ]
+}
